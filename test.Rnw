@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{longtable}
+\usepackage{multirow}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\section*{Test}
+<<results=tex>>=
+
+
+
+library("compareGroups")
+data("regicor", package = "compareGroups")
+
+source("C:/Users/adupont/Documents/projetstlouis/scripts/import.R")
+
+
+
+
+ res <- compareGroups(anapathc ~ ., data = greffe[,c("anapathc","disease_status_at_transplantc","sex_dp")])
+restab <- createTable(res, hide.no = "no", type = 1)
+
+export2latex(restab, loc = "bottom",caption = "Descriptives by year.", size = "small")
+@
+
+
+
+
+
+\end{document}
