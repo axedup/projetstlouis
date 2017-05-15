@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{dcolumn}
+
+
+\usepackage{Sweave}
+\begin{document}
+\input{test-concordance}
+
+\section*{Test}
+\begin{Schunk}
+\begin{Sinput}
+> library("compareGroups")
+> data("regicor", package = "compareGroups")
+> source("C:/Users/adupont/Documents/projetstlouis/scripts/init.R")
+> source("C:/Users/adupont/Documents/projetstlouis/scripts/import.R")
+\end{Sinput}
+c("continuous progression[4]", "Continuous progression[4]", "No[1]", 
+"Non applicable ", "yes[2]", "Yes[2]")\begin{Sinput}
+> source("C:/Users/adupont/Documents/projetstlouis/scripts/survie.R")
+> res <- compareGroups(anapathc ~ ., data = greffe[,c("anapathc","disease_status_at_transplantc","sex_dp")])
+> restab <- createTable(res, hide.no = "no", type = 2,show.all = TRUE,show.n = T)
+> export2latex(restab, loc = "bottom",caption = "Descriptives by year.", size = "small")
+\end{Sinput}
+\begin{small}    
+    \begin{longtable}{lccccccc}
+    \hline  
+     &    [ALL]    &    AITL    &    ALCL    &   Others   &    NOS     & \multirow{2}{*}{p.overall} & \multirow{2}{*}{ N }\\ 
+ &    N=285    &    N=84    &    N=43    &    N=49    &   N=110    &           &     \\ 
+  
+    \hline
+    \hline     
+    \endfirsthead 
+    \multicolumn{8}{l}{\tablename\ \thetable{} \textit{-- continued from previous page}}\\ 
+    \hline
+     &    [ALL]    &    AITL    &    ALCL    &   Others   &    NOS     & \multirow{2}{*}{p.overall} & \multirow{2}{*}{ N }\\ 
+ &    N=285    &    N=84    &    N=43    &    N=49    &   N=110    &           &     \\ 
+
+    \hline
+    \hline  
+    \endhead   
+    \hline
+    \multicolumn{8}{l}{\textit{continued on next page}} \\ 
+    \endfoot   
+    \multicolumn{8}{l}{}  \\ 
+    \endlastfoot 
+    disease\_status\_at\_transplantc: &             &            &            &            &            &   0.469   & 285\\ 
+$\qquad$CR & 177 (62.1\%) & 57 (67.9\%) & 28 (66.7\%) & 25 (51.0\%) & 67 (60.9\%) &           &    \\ 
+$\qquad$PD & 32 (11.2\%)  & 9 (10.7\%)  & 5 (11.9\%)  & 5 (10.2\%)  & 13 (11.8\%) &           &    \\ 
+$\qquad$PR & 76 (26.7\%)  & 18 (21.4\%) & 9 (21.4\%)  & 19 (38.8\%) & 30 (27.3\%) &           &    \\ 
+Sex of patient/donor: &             &            &            &            &            &   0.743   & 281\\ 
+$\qquad$F/F & 39 (13.9\%)  & 14 (16.9\%) & 7 (16.3\%)  & 6 (12.8\%)  & 12 (11.1\%) &           &    \\ 
+$\qquad$F/F/F &  4 (1.42\%)  & 1 (1.20\%)  & 0 (0.00\%)  & 0 (0.00\%)  & 3 (2.78\%)  &           &    \\ 
+$\qquad$F/M & 70 (24.9\%)  & 22 (26.5\%) & 8 (18.6\%)  & 8 (17.0\%)  & 32 (29.6\%) &           &    \\ 
+$\qquad$F/M/F &  2 (0.71\%)  & 0 (0.00\%)  & 0 (0.00\%)  & 1 (2.13\%)  & 1 (0.93\%)  &           &    \\ 
+$\qquad$M/F & 47 (16.7\%)  & 12 (14.5\%) & 10 (23.3\%) & 9 (19.1\%)  & 16 (14.8\%) &           &    \\ 
+$\qquad$M/F/F &  1 (0.36\%)  & 0 (0.00\%)  & 0 (0.00\%)  & 0 (0.00\%)  & 1 (0.93\%)  &           &    \\ 
+$\qquad$M/F/M &  4 (1.42\%)  & 0 (0.00\%)  & 1 (2.33\%)  & 2 (4.26\%)  & 1 (0.93\%)  &           &    \\ 
+$\qquad$M/M & 112 (39.9\%) & 33 (39.8\%) & 17 (39.5\%) & 20 (42.6\%) & 42 (38.9\%) &           &    \\ 
+$\qquad$M/M/M &  2 (0.71\%)  & 1 (1.20\%)  & 0 (0.00\%)  & 1 (2.13\%)  & 0 (0.00\%)  &           &     \\ 
+ 
+    \hline\\ \caption{Descriptives by year.}\\
+    \end{longtable}\end{small} \begin{Sinput}
+> stargazer(z, title="Regression Results",align=TRUE, no.space=TRUE,apply.coef = exp,omit.stat = c("ll"),ci=T)
+\end{Sinput}
+% Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: lun., mai 15, 2017 - 18:18:36
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Regression Results} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & \multicolumn{1}{c}{s} \\ 
+\hline \\[-1.8ex] 
+ sex\_patientMale & 1.466^{***} \\ 
+  & \multicolumn{1}{c}{(1.040$, $1.891)} \\ 
+ \hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{286} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.011} \\ 
+Max. Possible R$^{2}$ & \multicolumn{1}{c}{0.982} \\ 
+Wald Test & \multicolumn{1}{c}{3.100$^{*}$ (df = 1)} \\ 
+LR Test & \multicolumn{1}{c}{3.276$^{*}$ (df = 1)} \\ 
+Score (Logrank) Test & \multicolumn{1}{c}{3.138$^{*}$ (df = 1)} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} \begin{Sinput}
+> 
+\end{Sinput}
+\end{Schunk}
+% Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: lun., mai 15, 2017 - 18:05:11
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Regression Results} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & \multicolumn{1}{c}{s} \\ 
+\hline \\[-1.8ex] 
+ sex\_patientMale & 0.382^{*} \\ 
+  & (0.217) \\ 
+ \hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{286} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.011} \\ 
+Max. Possible R$^{2}$ & \multicolumn{1}{c}{0.982} \\ 
+Log Likelihood & \multicolumn{1}{c}{-574.099} \\ 
+Wald Test & \multicolumn{1}{c}{3.100$^{*}$ (df = 1)} \\ 
+LR Test & \multicolumn{1}{c}{3.276$^{*}$ (df = 1)} \\ 
+Score (Logrank) Test & \multicolumn{1}{c}{3.138$^{*}$ (df = 1)} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+
+
+
+\end{document}

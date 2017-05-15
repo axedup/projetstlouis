@@ -64,11 +64,12 @@ greffe$gvhd<-ifelse(greffe$agvhd==1,1,0)
 greffe$gvhd<-ifelse(greffe$cgvhd==1 & greffe$agvhd==0 ,1,0)
 table(greffe$gvhd)
 
-greffe$date_gvhd<-ifelse(greffe$agvhd==1,greffe$agvhd_date,NA)
+greffe$date_gvhd<-ifelse(greffe$agvhd==1,greffe$agvhd_date,greffe$date_fu)
 greffe$date_gvhd<-ifelse(greffe$cgvhd==1 & greffe$agvhd==0 ,greffe$cgvhd_date,greffe$date_gvhd)
+
 table(greffe$date_gvhd)
 greffe$date_gvhd<-as.Date(greffe$date_gvhd,origin = "1970-01-01")
-table(greffe$date_gvhd)
+table(greffe$date_gvhd,exclude=NULL)
 greffe$date_gvhd
 
 
@@ -134,6 +135,10 @@ levels(greffe$stem_cell_source)<-c("BM", "CB", "PB", "PB")
 
 levels(patients$sex_patient)<-c("Female", "Male", "Male")
 table(patients$sex_patient)
+
+levels(greffe$sex_patient)<-c("Female", "Male", "Male")
+table(greffe$sex_patient)
+
 
 levels(greffe$tbi)<-c("No", "No", "Yes")
 levels(greffe$best_response_after_allo)<-c("cr", "cr", "cr", "Not evaluable",
@@ -259,13 +264,17 @@ table(greffe$rechute_progression,is.na(greffe$date_rechutep))
 # non applicable décès précoce pas le temps d'avoir une récidive #
 greffe$rechute_progressionc<-ifelse(greffe$relapse_progression_transplant_2.
                                    %in% c("No[1]","Non applicable " ,"unknown"),0,1)
+greffe$rechute_progressionc<-ifelse(greffe$deces==1 & greffe$rechute_progressionc==0,1,greffe$rechute_progressionc)
+
+
+table(greffe$rechute_progressionc,exclude=NULL)
 
 
 # 1 dc, 2 rechute/progression
 
-greffe$rechute_progression_dc<-ifelse(greffe$rechute_progression==1,2,
+greffe$rechute_progression_dc<-ifelse(greffe$rechute_progression==1,1,
                                       0)
-greffe$rechute_progression_dc<-ifelse(greffe$deces==1 & !greffe$rechute_progression_dc==2,1,
+greffe$rechute_progression_dc<-ifelse(greffe$deces==1 & !greffe$rechute_progression_dc==1,2,
                                       greffe$rechute_progression_dc)                                   
 
 
@@ -274,8 +283,8 @@ table(greffe$rechute_progression_dc,exclude=NULL)
 
 # 1 dc, 2 rechute
 
-greffe$rechute_dc<-ifelse(greffe$rechute==1,2,0)
-greffe$rechute_dc<-ifelse(greffe$deces==1 & !greffe$rechute_dc==2,1,
+greffe$rechute_dc<-ifelse(greffe$rechute==1,1,0)
+greffe$rechute_dc<-ifelse(greffe$deces==1 & !greffe$rechute_dc==1,2,
                                       greffe$rechute_dc)                                   
 
 
@@ -283,7 +292,7 @@ table(greffe$rechute_dc,exclude=NULL)
 #il reste les 2 NA# 
 
 
-# 1 dc, 2 rechute/progression,3 ghvd
+# 3 dc, 2 rechute/progression,1 ghvd
 
 greffe$g_p<-ifelse(difftime(greffe$date_rechutep,greffe$date_gvhd)>=0,"g","r")
 
@@ -292,15 +301,15 @@ greffe$g_p<-ifelse(difftime(greffe$date_rechutep,greffe$date_gvhd)>=0,"g","r")
 greffe$rechute_progression_ghvd_dc<-ifelse(greffe$rechute_progression==1,2,0)
 table(greffe$rechute_progression_ghvd_dc,exclude=NULL)
 
-greffe$rechute_progression_ghvd_dc<-ifelse(greffe$gvhd==1 & !greffe$rechute_progression_ghvd_dc==2,3,
+greffe$rechute_progression_ghvd_dc<-ifelse(greffe$gvhd==1 & !greffe$rechute_progression_ghvd_dc==2,1,
                                            greffe$rechute_progression_ghvd_dc)
 table(greffe$rechute_progression_ghvd_dc,exclude=NULL)
 greffe$rechute_progression_ghvd_dc<-ifelse(greffe$deces==1 & !greffe$rechute_progression_ghvd_dc==2
-                                           & !greffe$rechute_progression_ghvd_dc==3,1,
+                                           & !greffe$rechute_progression_ghvd_dc==1,3,
                           greffe$rechute_progression_ghvd_dc)                                   
 table(greffe$rechute_progression_ghvd_dc,exclude=NULL)
 
-greffe$rechute_progression_ghvd_dc<-ifelse(greffe$gvhd==1 & greffe$rechute_progression==1 & greffe$g_p=="g",3,greffe$rechute_progression_ghvd_dc)
+greffe$rechute_progression_ghvd_dc<-ifelse(greffe$gvhd==1 & greffe$rechute_progression==1 & greffe$g_p=="g",1,greffe$rechute_progression_ghvd_dc)
 
 
 table(greffe$rechute_progression_ghvd_dc,exclude=NULL)
@@ -313,22 +322,34 @@ table(greffe$rechute_progression_ghvd_dc,exclude=NULL)
 
 ### Dates et délais###
 
-patients$delai_dc<-difftime(patients$date_fu,patients$j0)
- 
-greffe$delai_gvhd<-difftime(greffe$date_gvhd,greffe$j0)
+patients$delai_dc<-difftime(patients$date_fu,patients$j0)/30
+
+greffe$delai_dc<-difftime(greffe$date_fu,greffe$j0)/30 
+
+
+greffe$delai_gvhd<-difftime(greffe$date_gvhd,greffe$j0)/30
 
 
 
-greffe$date_rechute<-ifelse(greffe$rechute==1,greffe$date_rechute_p,greffe$date_fu)
+greffe$date_rechute<-ifelse(greffe$rechute==1,greffe$date_rechutep,greffe$date_fu)
 greffe$date_rechute<-as.Date(greffe$date_rechute,origin = "1970-01-01")
 table(is.na(greffe$rechute), is.na(greffe$date_rechute))
 
-greffe$date_rechute_progression<-ifelse(greffe$rechute_progression==1,greffe$date_rechute_p,greffe$date_fu)
-table(is.na(greffe$rechute_progression), is.na(greffe$date_rechute_progression))
 
-greffe$date_rechute_progression_gvhd<-ifelse(greffe$rechute_progression_ghvd_dc==2,greffe$date_rechute_p,greffe$date_fu)
-greffe$date_rechute_progression_gvhd<-ifelse(greffe$rechute_progression_ghvd_dc==3,greffe$date_gvhd,greffe$date_rechute_progression_gvhd)
+greffe$date_rechute_progression<-ifelse(greffe$rechute_progression==1,greffe$date_rechutep,greffe$date_fu)
+table(is.na(greffe$rechute_progression), is.na(greffe$date_rechute_progression))
+greffe$date_rechute_progression<-as.Date(greffe$date_rechute_progression,origin = "1970-01-01")
+
+
+greffe$date_rechute_progression_gvhd<-ifelse(greffe$rechute_progression_ghvd_dc==2,greffe$date_rechutep,greffe$date_fu)
+greffe$date_rechute_progression_gvhd<-ifelse(greffe$rechute_progression_ghvd_dc==1,greffe$date_gvhd,greffe$date_rechute_progression_gvhd)
 table(is.na(greffe$date_rechute_progression_gvhd),is.na(greffe$rechute_progression_ghvd_dc))
+greffe$date_rechute_progression_gvhd<-as.Date(greffe$date_rechute_progression_gvhd,origin = "1970-01-01")
+
+
+greffe$delai_efs<-difftime(greffe$date_rechute_progression,greffe$j0)/30
+greffe$delai_rechute<-difftime(greffe$date_rechute,greffe$j0)/30
+
 
 ### on va exclure la première greffe du patient greffé deux fois car ça première greffe est 
 #un échec pour l'analyse 
