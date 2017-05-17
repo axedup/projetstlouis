@@ -45,11 +45,11 @@ c("continuous progression[4]", "Continuous progression[4]", "No[1]",
     \endfoot   
     \multicolumn{8}{l}{}  \\ 
     \endlastfoot 
-    disease\_status\_at\_transplantc: &             &            &            &            &            &   0.469   & 285\\ 
+    disease\_status\_at\_transplantc: &             &            &            &            &            &   0.471   & 285\\ 
 $\qquad$CR & 177 (62.1\%) & 57 (67.9\%) & 28 (66.7\%) & 25 (51.0\%) & 67 (60.9\%) &           &    \\ 
 $\qquad$PD & 32 (11.2\%)  & 9 (10.7\%)  & 5 (11.9\%)  & 5 (10.2\%)  & 13 (11.8\%) &           &    \\ 
 $\qquad$PR & 76 (26.7\%)  & 18 (21.4\%) & 9 (21.4\%)  & 19 (38.8\%) & 30 (27.3\%) &           &    \\ 
-Sex of patient/donor: &             &            &            &            &            &   0.743   & 281\\ 
+Sex of patient/donor: &             &            &            &            &            &   0.746   & 281\\ 
 $\qquad$F/F & 39 (13.9\%)  & 14 (16.9\%) & 7 (16.3\%)  & 6 (12.8\%)  & 12 (11.1\%) &           &    \\ 
 $\qquad$F/F/F &  4 (1.42\%)  & 1 (1.20\%)  & 0 (0.00\%)  & 0 (0.00\%)  & 3 (2.78\%)  &           &    \\ 
 $\qquad$F/M & 70 (24.9\%)  & 22 (26.5\%) & 8 (18.6\%)  & 8 (17.0\%)  & 32 (29.6\%) &           &    \\ 
@@ -65,7 +65,7 @@ $\qquad$M/M/M &  2 (0.71\%)  & 1 (1.20\%)  & 0 (0.00\%)  & 1 (2.13\%)  & 0 (0.00
 > stargazer(z, title="Regression Results",align=TRUE, no.space=TRUE,apply.coef = exp,omit.stat = c("ll"),ci=T)
 \end{Sinput}
 % Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: lun., mai 15, 2017 - 18:18:36
+% Date and time: mar., mai 16, 2017 - 12:24:54
 % Requires LaTeX packages: dcolumn 
 \begin{table}[!htbp] \centering 
   \caption{Regression Results} 
@@ -92,37 +92,215 @@ Score (Logrank) Test & \multicolumn{1}{c}{3.138$^{*}$ (df = 1)} \\
 \end{tabular} 
 \end{table} \begin{Sinput}
 > 
+> 
+> #print(xtable (w ,
+> #caption= "Connaissances et représentations des DCEM4 sur la CMUc (suite)",
+> #label="tab:connaissance2",
+> #table.placement="htp",caption.placement="top"),
+> #tabular.environment="longtable",
+> #floating=F,
+> #include.rownames=F,
+>  #sanitize.text.function = function(x){x}  )
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
 \end{Sinput}
 \end{Schunk}
-% Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: lun., mai 15, 2017 - 18:05:11
-% Requires LaTeX packages: dcolumn 
-\begin{table}[!htbp] \centering 
-  \caption{Regression Results} 
-  \label{} 
-\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
- & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-2} 
-\\[-1.8ex] & \multicolumn{1}{c}{s} \\ 
-\hline \\[-1.8ex] 
- sex\_patientMale & 0.382^{*} \\ 
-  & (0.217) \\ 
- \hline \\[-1.8ex] 
-Observations & \multicolumn{1}{c}{286} \\ 
-R$^{2}$ & \multicolumn{1}{c}{0.011} \\ 
-Max. Possible R$^{2}$ & \multicolumn{1}{c}{0.982} \\ 
-Log Likelihood & \multicolumn{1}{c}{-574.099} \\ 
-Wald Test & \multicolumn{1}{c}{3.100$^{*}$ (df = 1)} \\ 
-LR Test & \multicolumn{1}{c}{3.276$^{*}$ (df = 1)} \\ 
-Score (Logrank) Test & \multicolumn{1}{c}{3.138$^{*}$ (df = 1)} \\ 
-\hline 
-\hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-\end{tabular} 
-\end{table} 
-
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Tue May 16 12:21:25 2017
+\begin{longtable}{lll}
+  \hline
+V1 & n & % \\ 
+  \hline
+delai_dia_alloc: 0 & 151 & 52.8 \\ 
+  delai_dia_alloc: 1 & 135 & 47.2 \\ 
+  delai_dia_alloc: NA & 0 & - \\ 
+  disease_status_at_transplantc: CR & 177 & 62.1 \\ 
+  disease_status_at_transplantc: PD & 32 & 11.2 \\ 
+  disease_status_at_transplantc: PR & 76 & 26.7 \\ 
+  disease_status_at_transplantc: NA & 1 & - \\ 
+  disease_status_at_transplant: CR (?) & 7 & 2.5 \\ 
+  disease_status_at_transplant: CR1 & 94 & 33 \\ 
+  disease_status_at_transplant: CR2 & 63 & 22.1 \\ 
+  disease_status_at_transplant: CR3 & 13 & 4.6 \\ 
+  disease_status_at_transplant: PD & 32 & 11.2 \\ 
+  disease_status_at_transplant: PR (?) & 13 & 4.6 \\ 
+  disease_status_at_transplant: PR1 & 39 & 13.7 \\ 
+  disease_status_at_transplant: PR2 & 18 & 6.3 \\ 
+  disease_status_at_transplant: PR3 & 5 & 1.8 \\ 
+  disease_status_at_transplant: PR4 & 1 & 0.4 \\ 
+  disease_status_at_transplant: NA & 1 & - \\ 
+  karnofsky_greffec: 100 & 93 & 35.1 \\ 
+  karnofsky_greffec: 40 & 2 & 0.8 \\ 
+  karnofsky_greffec: 50 & 4 & 1.5 \\ 
+  karnofsky_greffec: 60 & 1 & 0.4 \\ 
+  karnofsky_greffec: 70 & 9 & 3.4 \\ 
+  karnofsky_greffec: 80 & 70 & 26.4 \\ 
+  karnofsky_greffec: 90 & 86 & 32.5 \\ 
+  karnofsky_greffec: NA & 21 & - \\ 
+  previous_autoc: 0 & 193 & 67.5 \\ 
+  previous_autoc: 1 & 93 & 32.5 \\ 
+  previous_autoc: NA & 0 & - \\ 
+  programme_autoalloc: 0 & 259 & 90.6 \\ 
+  programme_autoalloc: 1 & 27 & 9.4 \\ 
+  programme_autoalloc: NA & 0 & - \\ 
+  rechute_prem_greffec: 0 & 220 & 76.9 \\ 
+  rechute_prem_greffec: 1 & 65 & 22.7 \\ 
+  rechute_prem_greffec: 2 & 1 & 0.3 \\ 
+  rechute_prem_greffec: NA & 0 & - \\ 
+  nbr_lignes_avt_alloc: >2 & 89 & 34.8 \\ 
+  nbr_lignes_avt_alloc: 1 or 2 & 167 & 65.2 \\ 
+  nbr_lignes_avt_alloc: NA & 30 & - \\ 
+  donnor: 0 & 151 & 52.8 \\ 
+  donnor: 1 & 135 & 47.2 \\ 
+  donnor: NA & 0 & - \\ 
+  hla_matchc: 0 & 53 & 18.5 \\ 
+  hla_matchc: 1 & 233 & 81.5 \\ 
+  hla_matchc: NA & 0 & - \\ 
+  hla_match: Identical sibling & 128 & 44.8 \\ 
+  hla_match: Matched unrelated & 105 & 36.7 \\ 
+  hla_match: Mismatched relative & 7 & 2.4 \\ 
+  hla_match: Mismatched unrelated & 13 & 4.5 \\ 
+  hla_match: Unrelated CB & 33 & 11.5 \\ 
+  hla_match: NA & 0 & - \\ 
+  sex_dp: F/F & 39 & 13.9 \\ 
+  sex_dp: F/F/F & 4 & 1.4 \\ 
+  sex_dp: F/M & 70 & 24.9 \\ 
+  sex_dp: F/M/F & 2 & 0.7 \\ 
+  sex_dp: M/F & 47 & 16.7 \\ 
+  sex_dp: M/F/F & 1 & 0.4 \\ 
+  sex_dp: M/F/M & 4 & 1.4 \\ 
+  sex_dp: M/M & 112 & 39.9 \\ 
+  sex_dp: M/M/M & 2 & 0.7 \\ 
+  sex_dp: NA & 5 & - \\ 
+  cmv_dp: neg/neg & 93 & 33 \\ 
+  cmv_dp: neg/pos & 52 & 18.4 \\ 
+  cmv_dp: neg/pos/pos & 2 & 0.7 \\ 
+  cmv_dp: pos/neg & 48 & 17 \\ 
+  cmv_dp: pos/neg/neg & 2 & 0.7 \\ 
+  cmv_dp: pos/neg/pos & 3 & 1.1 \\ 
+  cmv_dp: pos/pos & 80 & 28.4 \\ 
+  cmv_dp: pos/pos/pos & 2 & 0.7 \\ 
+  cmv_dp: NA & 4 & - \\ 
+  stem_cell_souce: BM & 49 & 17.1 \\ 
+  stem_cell_souce: CB & 33 & 11.5 \\ 
+  stem_cell_souce: PB & 204 & 71.3 \\ 
+  stem_cell_souce: NA & 0 & - \\ 
+  tbi: No & 162 & 56.6 \\ 
+  tbi: Yes & 124 & 43.4 \\ 
+  tbi: NA & 0 & - \\ 
+  intensite_condi: MAC & 107 & 38.2 \\ 
+  intensite_condi: NMA & 27 & 9.6 \\ 
+  intensite_condi: RIC & 146 & 52.1 \\ 
+  intensite_condi: NA & 6 & - \\ 
+  condit_details: BEAM & 1 & 0.4 \\ 
+  condit_details: BEAM + Campath & 1 & 0.4 \\ 
+  condit_details: BU CY  & 4 & 1.4 \\ 
+  condit_details: BU CY + FLU+ ATG & 1 & 0.4 \\ 
+  condit_details: BU CY ATG & 1 & 0.4 \\ 
+  condit_details: EDX ATG & 1 & 0.4 \\ 
+  condit_details: ENX TBI 2gray & 1 & 0.4 \\ 
+  condit_details: FLU ATG & 3 & 1.1 \\ 
+  condit_details: FLU BU 1+ ATG & 3 & 1.1 \\ 
+  condit_details: FLU BU 2 & 1 & 0.4 \\ 
+  condit_details: FLU BU 2+ ATG & 73 & 25.8 \\ 
+  condit_details: FLU BU 3+ ATG & 21 & 7.4 \\ 
+  condit_details: FLU BU 4+ ATG & 10 & 3.5 \\ 
+  condit_details: FLU BU EDX & 8 & 2.8 \\ 
+  condit_details: FLU BU EDX +ATG & 6 & 2.1 \\ 
+  condit_details: FLU EDX & 1 & 0.4 \\ 
+  condit_details: FLU EDX ATG & 3 & 1.1 \\ 
+  condit_details: FLU EDX MEL & 1 & 0.4 \\ 
+  condit_details: FLU ENX TBI 2gray & 24 & 8.5 \\ 
+  condit_details: FLU ENX TBI 4gray & 2 & 0.7 \\ 
+  condit_details: FLU ENX TBI 6gray & 1 & 0.4 \\ 
+  condit_details: FLU ENX TBI 6gray + campath & 1 & 0.4 \\ 
+  condit_details: FLU MEL & 12 & 4.2 \\ 
+  condit_details: FLU MEL + campath & 4 & 1.4 \\ 
+  condit_details: FLU MEL + Campath & 1 & 0.4 \\ 
+  condit_details: FLU MEL ATG & 1 & 0.4 \\ 
+  condit_details: FLU MEL TBI 2gray & 1 & 0.4 \\ 
+  condit_details: FLU TBI 2gray & 21 & 7.4 \\ 
+  condit_details: FLU TBI 2gray ATG & 1 & 0.4 \\ 
+  condit_details: FLU Tbi 8 gray & 1 & 0.4 \\ 
+  condit_details: MEL 140 TBI 10 gray & 1 & 0.4 \\ 
+  condit_details: MEL TBI VP16 & 1 & 0.4 \\ 
+  condit_details: TB2F & 2 & 0.7 \\ 
+  condit_details: TBI 12 gray & 1 & 0.4 \\ 
+  condit_details: TBI 2gray & 1 & 0.4 \\ 
+  condit_details: TBI EDX & 49 & 17.3 \\ 
+  condit_details: TBI EDX +ATG & 12 & 4.2 \\ 
+  condit_details: TBI EDX FLU & 5 & 1.8 \\ 
+  condit_details: Thiotepa etoposide TBI12 gray & 1 & 0.4 \\ 
+  condit_details: NA & 3 & - \\ 
+  manipu_cells
+                                                                                                                : none & 277 & 96.9 \\ 
+  manipu_cells
+                                                                                                                : unknown & 3 & 1 \\ 
+  manipu_cells
+                                                                                                                : yes & 6 & 2.1 \\ 
+  manipu_cells
+                                                                                                                : NA & 0 & - \\ 
+  nbr_donneurc: 1 & 263 & 92 \\ 
+  nbr_donneurc: 2 & 23 & 8 \\ 
+  nbr_donneurc: NA & 0 & - \\ 
+  agvhd: 0 & 142 & 49.7 \\ 
+  agvhd: 1 & 144 & 50.3 \\ 
+  agvhd: NA & 0 & - \\ 
+  agvhd_grade: Grade I & 50 & 17.5 \\ 
+  agvhd_grade: Grade II & 46 & 16.1 \\ 
+  agvhd_grade: Grade III & 24 & 8.4 \\ 
+  agvhd_grade: Grade IV & 17 & 5.9 \\ 
+  agvhd_grade: No aGvHD present (Grade 0) & 142 & 49.7 \\ 
+  agvhd_grade: Present, grade unknown & 7 & 2.4 \\ 
+  agvhd_grade: NA & 0 & - \\ 
+  cgvhd: 0 & 189 & 66.1 \\ 
+  cgvhd: 1 & 97 & 33.9 \\ 
+  cgvhd: NA & 0 & - \\ 
+  cgvhd_grade: deces avant J100 & 43 & 15 \\ 
+  cgvhd_grade: extensive & 38 & 13.3 \\ 
+  cgvhd_grade: limited & 55 & 19.2 \\ 
+  cgvhd_grade: no cGvh & 146 & 51 \\ 
+  cgvhd_grade: unknown & 4 & 1.4 \\ 
+  cgvhd_grade: NA & 0 & - \\ 
+  causez_death_c: HSCT-GVHd & 21 & 19.3 \\ 
+  causez_death_c: HSCT-GVHd + infection & 3 & 2.8 \\ 
+  causez_death_c: HSCT-infection & 29 & 26.6 \\ 
+  causez_death_c: HSCT-toxicité & 4 & 3.7 \\ 
+  causez_death_c: HSCT related & 3 & 2.8 \\ 
+  causez_death_c: HSCT related MAT & 1 & 0.9 \\ 
+  causez_death_c: HSCT related MOF & 2 & 1.8 \\ 
+  causez_death_c: HSCT related MVO & 1 & 0.9 \\ 
+  causez_death_c: HSCT related pneumopathie interstititelle & 3 & 2.8 \\ 
+  causez_death_c: HSCT related PTLD & 1 & 0.9 \\ 
+  causez_death_c: HSCT related SDRA & 1 & 0.9 \\ 
+  causez_death_c: Other & 1 & 0.9 \\ 
+  causez_death_c: relapse or progression of original disease & 37 & 33.9 \\ 
+  causez_death_c: Secondary malignancy & 1 & 0.9 \\ 
+  causez_death_c: unknown & 1 & 0.9 \\ 
+  causez_death_c: NA & 177 & - \\ 
+  best_reponse_after_allo: cr & 247 & 87 \\ 
+  best_reponse_after_allo: Not evaluable & 4 & 1.4 \\ 
+  best_reponse_after_allo: Not evaluated & 3 & 1.1 \\ 
+  best_reponse_after_allo: PD & 14 & 4.9 \\ 
+  best_reponse_after_allo: PR & 16 & 5.6 \\ 
+  best_reponse_after_allo: NA & 2 & - \\ 
+  relapse_progression_transplant_c: continuous progression & 28 & 9.9 \\ 
+  relapse_progression_transplant_c: No & 219 & 77.1 \\ 
+  relapse_progression_transplant_c: Non applicable  & 3 & 1.1 \\ 
+  relapse_progression_transplant_c: yes & 34 & 12 \\ 
+  relapse_progression_transplant_c: NA & 2 & - \\ 
+   \hline
+\hline
+\caption{Connaissances et représentations des DCEM4 sur la CMUc (suite)} 
+\label{tab:connaissance2}
+\end{longtable}
 
 
 

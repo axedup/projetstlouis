@@ -12,13 +12,34 @@
 
 
 
-library("compareGroups")
-data("regicor", package = "compareGroups")
+#library("compareGroups")
+#data("regicor", package = "compareGroups")
 
 source("C:/Users/adupont/Documents/projetstlouis/scripts/init.R")
-
 source("C:/Users/adupont/Documents/projetstlouis/scripts/import.R")
 source("C:/Users/adupont/Documents/projetstlouis/scripts/survie.R")
+
+print(xtable (w ,
+caption= "",
+label="tab:connaissance2",
+table.placement="htp",caption.placement="top"),
+tabular.environment="longtable",
+floating=F,
+include.rownames=F,
+sanitize.text.function = function(x){x}  )
+
+
+print(xtable (WD ,
+caption= "",
+label="tab:connaissance2",
+table.placement="htp",caption.placement="top"),
+tabular.environment="longtable",
+floating=F,
+include.rownames=F,
+sanitize.text.function = function(x){x}  )
+
+
+
 
 
 
@@ -33,35 +54,11 @@ export2latex(restab, loc = "bottom",caption = "Descriptives by year.", size = "s
 
 stargazer(z, title="Regression Results",align=TRUE, no.space=TRUE,apply.coef = exp,omit.stat = c("ll"),ci=T)
 
+
+
+
 @
-% Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: lun., mai 15, 2017 - 18:05:11
-% Requires LaTeX packages: dcolumn 
-\begin{table}[!htbp] \centering 
-  \caption{Regression Results} 
-  \label{} 
-\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
- & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-2} 
-\\[-1.8ex] & \multicolumn{1}{c}{s} \\ 
-\hline \\[-1.8ex] 
- sex\_patientMale & 0.382^{*} \\ 
-  & (0.217) \\ 
- \hline \\[-1.8ex] 
-Observations & \multicolumn{1}{c}{286} \\ 
-R$^{2}$ & \multicolumn{1}{c}{0.011} \\ 
-Max. Possible R$^{2}$ & \multicolumn{1}{c}{0.982} \\ 
-Log Likelihood & \multicolumn{1}{c}{-574.099} \\ 
-Wald Test & \multicolumn{1}{c}{3.100$^{*}$ (df = 1)} \\ 
-LR Test & \multicolumn{1}{c}{3.276$^{*}$ (df = 1)} \\ 
-Score (Logrank) Test & \multicolumn{1}{c}{3.138$^{*}$ (df = 1)} \\ 
-\hline 
-\hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-\end{tabular} 
-\end{table} 
+
 
 
 

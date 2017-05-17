@@ -1,0 +1,125 @@
+\documentclass[a4paper,11pt] {article}
+\hfuzz=100pt 
+%\documentclass[a4paper,article,oneside,10pt]{memoir}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[lucidasmallscale, nofontinfo]{lucimatx}
+%\usepackage{times}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{here}
+\usepackage{ctable}
+\usepackage{pdflscape}
+\usepackage{pst-tree}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{dcolumn}
+\usepackage{Sweave}
+%\usepackage[pdftex,bookmarks=true,bookmarksnumbered=true,
+%            hypertexnames=false,breaklinks=true,
+%            linkbordercolor={0 0 1}]{hyperref}
+
+%--------------
+
+%
+%\usepackage{fancyhdr}
+%\pagestyle{empty}
+%\pagestyle{fancy}
+%\fancyhf{}
+%%\renewcommand{\chaptermark}[1]{\markboth{\bsc{\chaptername~\thechapter{} :} #1}{}}
+%%\renewcommand{\sectionmark}[1]{\markright{\thesection{} #1}}
+%%\lfoot{Confidential, for the exclusive use of DMC members}
+%%\renewcommand{\footrulewidth}{0.4pt}
+%%\renewcommand{\headrulewidth}{0.4pt}
+%%\renewcommand{\thepage}{\arabic{\page}}
+%\setcounter{tocdepth}{5} % Dans la table des matieres
+%\setcounter{secnumdepth}{5} % Avec un numero.
+%%\mainmatter
+%\pagenumbering{arabic}\setcounter{page}{1}
+%\rhead{\thepage}
+%\lhead{\leftmark}
+%%\renewcommand{\thesection}{\Roman{section}}
+%%\renewcommand{\thesection}{\Roman{section}}
+%%\renewcommand{\thesection}{\Roman{section}}
+%%\renewcommand{\thesubsection}{\thesection .\Alph{subsection}}
+%
+%--------------
+\begin{document}
+\title{ Rapport préliminaire d'analyses statistiques}
+\author{Axelle Dupont, sbim, Hôpital Saint Louis, Paris}
+\date{29 Mai 2017}
+
+%------------------------------------------------------------
+
+
+
+
+
+
+%-------------------------------------------------------------
+
+
+
+
+
+\input{Rapport-concordance}
+
+
+\setkeys{Gin}{width=1\textwidth}
+\maketitle
+
+%\pagestyle{protoc}
+\tableofcontents
+\pagebreak[4]
+\listoftables
+\listoffigures
+%\SweaveOpts{eval=TRUE,echo=false,fig=TRUE}
+
+
+\pagebreak[4]
+%\chapter{Objectif}
+
+\section{Objectives}
+
+The primary objective of the study was to assess the survival, the risk of relapse and GVHD  of patients who underwent allogenic sterm-cell transplantation (alloSCT) for aggressive T-cell lymphomas. 
+The second objective was to determine the variables associated with these outcomes.
+
+\section{Methods}
+
+A  retrospective analysis was conducted.A descriptive analysis of the variables recorded was perfomed. Different endpoints were defined : death, relapse or progression, gvhd occurence.
+
+Survival curves were estimated using Kaplan-Meier product-limit estimator. Factors associated with overall sur-vival were analyzed using Cox proportional hazards models. The proportional hazards assumption was checked by examination of Schoenfeld residuals.
+For the different endpoints, univariable analyses were first carried out, then a multivariable analysis was used where all factors with P-value < 0.20 in the univariable analyses were considered. Factors where then sequentially removed from the adjusted model with a P-value cut- at 0.05. 
+Survival is presented as estimate and 95\% confidence interval (95\% CI).
+
+
+Competing risk survival analysis methods were applied to estimate the cumulative incidence (CIF) of developing events over time from alloSCT.These methods allow for the fact that a patient may experience an event which is different from that of interest. These events are known as competing risk events, and may preclude the onset of the event of interest, or may modify the probability of the onset of that event. In particular, a transplanted patient may die before a relapse occurs.
+To test CIF between histopathologic groups we the test proposed by Gray. 
+
+\pagebreak[4]
+\section{Results}
+
+
+
+c("continuous progression[4]", "Continuous progression[4]", "No[1]", 
+"Non applicable ", "yes[2]", "Yes[2]")
+\subsection{Descriptive results }
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Wed May 17 11:33:47 2017
+\begin{longtable}{llrlrlrlrlrlrl}
+  \hline
+ws & n.Var1 & n.Freq.AITL & pour.AITL & n.Freq.ALCL & pour.ALCL & n.Freq.ATLL & pour.ATLL & n.Freq.Others & pour.Others & n.Freq.NK/T nasal & pour.NK/T nasal & n.Freq.NOS & pour.NOS \\ 
+  \hline
+relapse_progression_transplant_c & continuous progression &   5 & 6 &   3 & 7.1 &   3 & 18.8 &   2 & 11.8 &   1 & 6.2 &  14 & 12.7 \\ 
+   & No &  70 & 84.3 &  33 & 78.6 &   8 & 50 &  14 & 82.4 &  11 & 68.8 &  83 & 75.5 \\ 
+   & Non applicable  &   1 & 1.2 &   0 & 0 &   1 & 6.2 &   1 & 5.9 &   0 & 0 &   0 & 0 \\ 
+   & yes &   7 & 8.4 &   6 & 14.3 &   4 & 25 &   0 & 0 &   4 & 25 &  13 & 11.8 \\ 
+   &  &   1 &  &   1 &  &   0 &  &   0 &  &   0 &  &   0 &  \\ 
+   \hline
+\hline
+\caption{Transplant condition and results} 
+\label{tab:condi}
+\end{longtable}
+
+
+\end{document}

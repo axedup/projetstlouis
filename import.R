@@ -45,18 +45,33 @@ table(greffe$cgvhd_date,exclude = NULL)
 table(greffe$agvhd_grade,exclude=TRUE)
 greffe$agvhd<-ifelse(greffe$agvhd_grade %in% c("No aGvHD present (Grade 0)[7]",
                                               "no aGvHD present (Grade 0)[7]"),0,1)
+
+greffe$agvhd<-as.factor(greffe$agvhd)
 table(greffe$agvhd)
+table(greffe$agvhd_grade)
+
+levels(greffe$agvhd_grade)<-c("Grade I", "Grade II", "Grade III", "Grade IV", 
+                        "No aGvHD present (Grade 0)", "No aGvHD present (Grade 0)", 
+                        "Present, grade unknown")
+
+table(greffe$agvhd_grade)
+greffe$agvhd_grade<-relevel(greffe$agvhd_grade,ref="No aGvHD present (Grade 0)")
 
 table(greffe$cgvhd.)
 greffe$cgvhd<-ifelse(greffe$cgvhd. %in% c("deces avant J100",
                                                "no[1]","No[1]"),0,1)
 table(greffe$cgvhd)
 table(greffe$cgvhd_grade)
-
+greffe$cgvhd<-as.factor(greffe$cgvhd)
 
 greffe$cgvhd_gradec<-greffe$cgvhd_grade
 levels(greffe$cgvhd_gradec)<-c("no cGvh", "extensive", "extensive", "limited", 
                        "no cGvh", NA)
+
+table(greffe$cgvhd_grade)
+levels(greffe$cgvhd_grade)<-c("deces avant J100", "extensive", "extensive", "limited", 
+  "no cGvh", "unknown")
+table(greffe$cgvhd_grade)
 
 
 
@@ -110,14 +125,25 @@ table(greffe$deces)
 table(greffe$anapath,exclude = NULL)
 greffe$anapath2<-greffe$anapath
 greffe$anapathc<-greffe$anapath
+greffe$anapathc2<-greffe$anapath
 levels(greffe$anapath2)<-c( "AITL", "ALCL", "ALCL", "ALCL", "ATLL", 
                   "EATL", "HS", "LGL", "NK leukemia", "NK/T nasal", "NOS")
+
+
+
+table(greffe$anapathc2,exclude = NULL)
+
+
 levels(greffe$anapathc)<-c( "AITL", "ALCL", "ALCL", "ALCL", "Others", 
                            "Others", "Others", "Others", "Others", "Others", "NOS")
 
+levels(greffe$anapathc2)<-c( "AITL", "ALCL", "ALCL", "ALCL", "ATLL", 
+                            "Others", "Others", "Others", "Others", "NK/T nasal", "NOS")
+greffe$anapathc2<-reorder(greffe$anapathc2,new.order = c(6,1,2,3,5,4))
+
 table(greffe$anapathc,exclude = NULL)
 table(greffe$anapath,exclude = NULL)
-
+table(greffe$anapathc2,exclude = NULL)
 
 table(greffe$stade_dia,exclude = NULL)
 table(greffe$disease_status_at_transplant,exclude = NULL)
@@ -126,6 +152,13 @@ levels(greffe$disease_status_at_transplantc)<-c("CR", "CR", "CR", "CR", "PD", "P
                                                 "PR", "PR", 
                                         "PR", "PR", NA)
 table(greffe$disease_status_at_transplantc,exclude = NULL)
+
+greffe$disease_status_at_transplantc2<-greffe$disease_status_at_transplant
+levels(greffe$disease_status_at_transplantc2)<-c("CR/PR", "CR/PR", "CR/PR", "CR/PR", "PD", "CR/PR", 
+                                                "CR/PR", "CR/PR", 
+                                                "CR/PR", "CR/PR", NA)
+table(greffe$disease_status_at_transplantc2,exclude = NULL)
+
 
 table(greffe$stem_cell_.source)
 greffe$stem_cell_source<-greffe$stem_cell_.source
@@ -154,7 +187,10 @@ levels(greffe$hla_match)<-c("Identical sibling", "Identical sibling", "Matched u
                              "Mismatched relative", "Mismatched unrelated", "Unrelated CB")
 
 greffe$hla_matchc<-ifelse(greffe$hla_match %in% c("Identical sibling","Matched unrelated"),"1","0")
+greffe$hla_matchc<-as.factor(greffe$hla_matchc)
 greffe$donnor<-ifelse(greffe$hla_match %in% c("Identical sibling","Mismatched relative"),"1","0")
+greffe$donnor<-as.factor(greffe$donnor)
+
 levels(greffe$manipu_cells)<-c("none", "none", "unknown", "yes")
 
 
@@ -203,15 +239,54 @@ greffe$cause_death_c<-ifelse(grepl(pat="toxicité",greffe$cause_death)
 table(greffe$cause_death_c,greffe$cause_death)
 table(greffe$cause_death_c)
 
+greffe$cause_death_c<-as.factor(greffe$cause_death_c)
 
-greffe$delai_dia_alloc<-ifelse(greffe$delai_dia_allo<365,1,0)
+
+greffe$delai_dia_alloc<-as.factor(ifelse(greffe$delai_dia_allo<365,1,0))
 
 greffe$nbr_lignes_avt_alloc<-NA
 greffe$nbr_lignes_avt_alloc<-ifelse(greffe$nbr_lignes_avt_allo <=2 & !is.na(greffe$nbr_lignes_avt_allo),
                                     "1 or 2", greffe$nbr_lignes_avt_alloc)
 greffe$nbr_lignes_avt_alloc<-ifelse(greffe$nbr_lignes_avt_allo >2 & !is.na(greffe$nbr_lignes_avt_allo),
                                     ">2", greffe$nbr_lignes_avt_alloc)
+greffe$nbr_lignes_avt_alloc<-as.factor(greffe$nbr_lignes_avt_alloc)
+
+
 table(greffe$nbr_lignes_avt_alloc,exclude = NULL)
+
+table(greffe$intensite_condi,exclude = NULL)
+
+greffe$programme_autoalloc<-as.factor(greffe$programme_autoallo)
+greffe$previous_autoc<-as.factor(greffe$previous_auto)
+greffe$rechute_prem_greffec<-as.factor(as.character(greffe$rechute_prem_greffe))
+
+table(greffe$nbr_donneur)
+greffe$nbr_donneurc<-as.factor(as.character(greffe$nbr_donneur))
+table(greffe$nbr_donneurc)
+
+greffe$karnofsky_greffec<-as.factor(as.character(greffe$karnofsky_greffe))
+
+greffe$karnofsky_greffec2<-as.factor(ifelse(greffe$karnofsky_greffec %in% c("100","90","80"),"Normal activities 
+                                            with or without efforts","Unable to carry on normal activity"))
+
+
+greffe$stade_diac<-as.factor(ifelse(greffe$stade_dia %in% c("III","IV"), "III-IV","I-II"))
+
+
+greffe$hla_matchc<-relevel(greffe$hla_matchc,ref="1")
+
+
+greffe$sex_dp2<-as.factor(ifelse(greffe$sex_dp %in% c("F/F", "F/F/F", "M/M", 
+                                            "M/M/M"),"sex idem","different sex"))
+
+
+
+greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("neg/neg"),"all neg", "different")
+greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("pos/pos", "pos/pos/pos"),"all positive", "different")
+greffe$cmv_dp2<-as.factor(greffe$cmv_dp2)
+
+
+levels(greffe$sex_donor)<-c("Female", "Female", "Male", "Male", NA)
 
 ### Les ages###
 
@@ -253,6 +328,16 @@ greffe$rechute_progression<-ifelse(greffe$relapse_progression_transplant_2.
                                    %in% c("No[1]","Non applicable " ,"unknown"),0,1)
 greffe$rechute_progression<-ifelse(is.na(greffe$relapse_progression_transplant_2.),NA,greffe$rechute_progression)
 
+
+
+greffe$relapse_progression_transplant_c<-greffe$relapse_progression_transplant_2.
+levels(greffe$relapse_progression_transplant_c)<-c("continuous progression", "continuous progression", "No", 
+  "Non applicable ", "yes", "yes")
+
+table(greffe$relapse_progression_transplant_c)
+
+table(greffe$relapse_progression_transplant_2.)
+
 # 2 NA mais qui ont une date de FU (seul leur statut vital est connu) :
 # soit on les exclut de l'analyse (statut rechute en NA)
 # soit on les met à 0 et perdus de vu
@@ -270,7 +355,7 @@ greffe$rechute_progressionc<-ifelse(greffe$deces==1 & greffe$rechute_progression
 table(greffe$rechute_progressionc,exclude=NULL)
 
 
-# 1 dc, 2 rechute/progression
+# 2 dc, 1 rechute/progression
 
 greffe$rechute_progression_dc<-ifelse(greffe$rechute_progression==1,1,
                                       0)
@@ -281,7 +366,7 @@ greffe$rechute_progression_dc<-ifelse(greffe$deces==1 & !greffe$rechute_progress
 table(greffe$rechute_progression_dc,exclude=NULL)
 #il reste les 2 NA# 
 
-# 1 dc, 2 rechute
+# 2 dc, 1 rechute
 
 greffe$rechute_dc<-ifelse(greffe$rechute==1,1,0)
 greffe$rechute_dc<-ifelse(greffe$deces==1 & !greffe$rechute_dc==1,2,
@@ -347,12 +432,17 @@ table(is.na(greffe$date_rechute_progression_gvhd),is.na(greffe$rechute_progressi
 greffe$date_rechute_progression_gvhd<-as.Date(greffe$date_rechute_progression_gvhd,origin = "1970-01-01")
 
 
-greffe$delai_efs<-difftime(greffe$date_rechute_progression,greffe$j0)/30
-greffe$delai_rechute<-difftime(greffe$date_rechute,greffe$j0)/30
+greffe$delai_efs<-difftime(greffe$date_rechute_progression,greffe$j0)/30.25
+greffe$delai_rechute<-difftime(greffe$date_rechute,greffe$j0)/30.25
+greffe$delai_rechutepg<-difftime(greffe$date_rechute_progression_gvhd,greffe$j0)/30.25
 
 
 ### on va exclure la première greffe du patient greffé deux fois car ça première greffe est 
 #un échec pour l'analyse 
+quali(x=c("sex_patient"),nomx=c("Sexe"), data=patients,RAPPORT=F,SAVEFILE=T,chemin="C:/Users/Louise/Documents/Desespoir/Bases/resultats/")
+
+
+
 
 
 #res <- compareGroups(anapathc ~ . , data = greffe[,c("anapathc","prise_greffe")])
