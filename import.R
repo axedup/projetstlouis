@@ -325,7 +325,7 @@ table(greffe$rechute,exclude=NULL)
 
 
 greffe$rechute_progression<-ifelse(greffe$relapse_progression_transplant_2.
-                                   %in% c("No[1]","Non applicable " ,"unknown"),0,1)
+                                   %in% c("No[1]","Non applicable " ),0,1)
 greffe$rechute_progression<-ifelse(is.na(greffe$relapse_progression_transplant_2.),NA,greffe$rechute_progression)
 
 

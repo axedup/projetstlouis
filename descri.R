@@ -78,48 +78,89 @@ WD$ro<-1:nrow(WD)
 WD<-merge(correspondance,WD,by.x="var",by.y="ws",all.y=TRUE)
 WD<-WD[order(WD$ro), ]
 
+###
+summary(as.numeric(greffe$delai_dc)*30.25)
+
 ### Bivariés anapath
 
 
-bivarie_anapath_greffe<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_donor","sex_donor","delai_dia_alloc","stade_dia","stade_diac",
-                                                        "disease_status_at_transplantc2","disease_status_at_transplantc","disease_status_at_transplant",
-                                "karnofsky_greffec","karnofsky_greffec2", "previous_autoc","programme_autoalloc","rechute_prem_greffec",
+bivarie_anapath_greffe<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_donor","sex_donor",
+                                                        "delai_dia_alloc","stade_dia","stade_diac",
+                                                        "disease_status_at_transplantc2",
+                                                        "disease_status_at_transplantc",
+                                                        "disease_status_at_transplant",
+                                "karnofsky_greffec","karnofsky_greffec2", "previous_autoc",
+                                "programme_autoalloc","rechute_prem_greffec",
                                 "nbr_lignes_avt_alloc",
                                 "donnor","hla_matchc","hla_match",
-                                "sex_dp2","cmv_dp2","stem_cell_source","tbi",
-                                "intensite_condi","condit_details","manipu_cells","nbr_donneurc","agvhd","agvhd_grade","cgvhd",
-                                "cgvhd_grade","prise_greffe","cause_death_c","best_response_after_allo","relapse_progression_transplant_c"),
-        vect.quali = c(0,0,rep(1,32)),
+                                "sex_dp2","cmv_dp2","stem_cell_source","tbi"),
+        vect.quali = c(0,0,rep(1,20)),
         varint="anapathc2",valvarint = c("NOS","AITL", "ALCL", "ATLL","NK/T nasal","Others"),
         nomvarint = "Histopathologic subtypes",
-        test=c("aov","aov","fisher","chisq","","chisq","","","","","fisher","fisher","fisher","","fisher","chisq","fisher","",
-               "chisq","fisher","","chisq",
-               "","","","","chisq","","",
-               
-               "","","","")
-        
-        ,
+        test=c("aov","aov","fisher",
+               "chisq","","chisq",
+               "",
+               "",
+               "",
+               "","fisher","fisher",
+               "fisher","",
+               "",
+               "chisq","fisher","",
+               "","chisq","",""),
         vecnoms=c("Age at graft","Donor age","Donor sex",">12 months betwenn diagnosis and allo SCT","Stage at diagnostic",
                   "Stage at diagnostic","Disease status at transplant","Disease status at transplant","Disease status at transplant",
                   "Karnofsky","Karnofsky","previous autoSCT","program autoallo","relapse first graft",
                   "No of lines before alloSCT",
                   "Donnor related","HLA match","HLA match",
                   "sex of patient/donnor","CMV serostatus of patient/donnor",
-                  "Source of stem cells","tbi","conditioning intensity","conditioning","cells manipulation",
-                  "no of donnors","agvhd","agvhd grade","cgvhd",
-                  "cgvhd grade",'Engrafted',"Cause of death","best reponse after SCT","Relapse/progression"),valeurs=NULL,
+                  "Source of stem cells","tbi"),valeurs=NULL,
         vecrefs=NULL,varassoc=NULL,
         codassoc=NULL,pres=NULL,langue="en",digits=2)
 
 
 write.csv2(bivarie_anapath_greffe,file="C:/Users/adupont/Documents/projetstlouis/resultats/bivarie_greffe_anapath.csv")
-c("aov","aov","fisher","chisq","","fisher","fisher","","","","fisher","fisher","fisher","","fisher","fisher","fisher","",
-  "fisher","fischer","fisher","fisher",
-  "fisher","","fisher","fisher","fischer","","fisher",
-  
-  "","","","")
+
+
+bivarie_anapath_greffe2<-TABKRIS(baz=greffe,vect.var = c( "intensite_condi","condit_details","manipu_cells","nbr_donneurc",
+                                                        "agvhd","agvhd_grade","cgvhd",
+                                                        "cgvhd_grade","prise_greffe","cause_death_c","best_response_after_allo",
+                                                        "relapse_progression_transplant_c"),
+                                vect.quali = c(rep(1,12)),
+                                varint="anapathc2",valvarint = c("NOS","AITL", "ALCL", "ATLL","NK/T nasal","Others"),
+                                nomvarint = "Histopathologic subtypes",
+                                test=c( "","","",
+                                        "fisher","chisq",""
+                                        ,"chisq","","","",
+                                        "")
+                                
+                                ,
+                                vecnoms=c("conditioning intensity","conditioning","cells manipulation",
+                                          "no of donnors","agvhd","agvhd grade","cgvhd",
+                                          "cgvhd grade",'Engrafted',"Cause of death","best reponse after SCT","Relapse/progression"),valeurs=NULL,
+                                vecrefs=NULL,varassoc=NULL,
+                                codassoc=NULL,pres=NULL,langue="en",digits=2)
+
+
+write.csv2(bivarie_anapath_greffe,file="C:/Users/adupont/Documents/projetstlouis/resultats/bivarie_greffe_anapath.csv")
+
+c("aov","aov","fisher",
+  "chisq","","chisq",
+  "",
+  "",
+  "",
+  "","fisher","fisher",
+  "fisher","",
+  "",
+  "fisher","chisq","fisher",
+  "","chisq","fisher","",
+  "chisq","","","",
+  "","chisq",""
+  ,"","","","",
+  "")
 
 
 
-
-
+c( "fisher","","",
+   "fisher","chisq",""
+   ,"fisher","","","",
+   "")
