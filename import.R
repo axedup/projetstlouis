@@ -191,8 +191,9 @@ greffe$hla_matchc<-as.factor(greffe$hla_matchc)
 greffe$donnor<-ifelse(greffe$hla_match %in% c("Identical sibling","Mismatched relative"),"1","0")
 greffe$donnor<-as.factor(greffe$donnor)
 
-levels(greffe$manipu_cells)<-c("none", "none", "unknown", "yes")
-
+table(greffe$manipu_cells,exclude=NULL)
+levels(greffe$manipu_cells)<-c("none", "none", NA, "yes")
+table(greffe$manipu_cells,exclude=NULL)
 
 
 
@@ -252,8 +253,18 @@ greffe$nbr_lignes_avt_alloc<-ifelse(greffe$nbr_lignes_avt_allo >2 & !is.na(greff
 greffe$nbr_lignes_avt_alloc<-as.factor(greffe$nbr_lignes_avt_alloc)
 
 
-table(greffe$nbr_lignes_avt_alloc,exclude = NULL)
+greffe$nbr_lignes_avt_alloc2<-NA
+greffe$nbr_lignes_avt_alloc2<-ifelse(greffe$nbr_lignes_avt_allo <=3 & !is.na(greffe$nbr_lignes_avt_allo),
+                                    greffe$nbr_lignes_avt_allo, greffe$nbr_lignes_avt_alloc2)
+greffe$nbr_lignes_avt_alloc2<-ifelse(greffe$nbr_lignes_avt_allo >3 & !is.na(greffe$nbr_lignes_avt_allo),
+                                    4, greffe$nbr_lignes_avt_alloc2)
+greffe$nbr_lignes_avt_alloc2<-as.factor(greffe$nbr_lignes_avt_alloc2)
 
+
+
+
+table(greffe$nbr_lignes_avt_alloc,exclude = NULL)
+table(greffe$nbr_lignes_avt_alloc2,exclude = NULL)
 table(greffe$intensite_condi,exclude = NULL)
 
 greffe$programme_autoalloc<-as.factor(greffe$programme_autoallo)
@@ -279,7 +290,7 @@ greffe$hla_matchc<-relevel(greffe$hla_matchc,ref="1")
 greffe$sex_dp2<-as.factor(ifelse(greffe$sex_dp %in% c("F/F", "F/F/F", "M/M", 
                                             "M/M/M"),"sex idem","different sex"))
 
-
+greffe$sex_dp2<-relevel(greffe$sex_dp2,ref="sex idem")
 
 greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("neg/neg"),"all neg", "different")
 greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("pos/pos", "pos/pos/pos"),"all positive", "different")
