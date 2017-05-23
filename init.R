@@ -1,6 +1,6 @@
 #### Test ####
 
-library(survival, lib.loc="C:/Program Files/R/R-3.3.2/library")
+library(survival)
 library(gdata)
 library(Hmisc)
 library(compareGroups)

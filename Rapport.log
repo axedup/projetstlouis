@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  17 MAY 2017 11:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  23 MAY 2017 17:44
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -515,42 +515,63 @@ LaTeX Font Info:    Try loading font information for T1+aer on input line 105.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aer.fd"
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
-)))) (Rapport.aux)
+))))
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+\Gm@cnth=\count146
+\Gm@cntv=\count147
+\c@Gm@tempcnt=\count148
+\Gm@bindingoffset=\dimen184
+\Gm@wd@mp=\dimen185
+\Gm@odd@mp=\dimen186
+\Gm@even@mp=\dimen187
+\Gm@layoutwidth=\dimen188
+\Gm@layoutheight=\dimen189
+\Gm@layouthoffset=\dimen190
+\Gm@layoutvoffset=\dimen191
+\Gm@dimlist=\toks35
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg")) (Rapport.aux)
 \openout1 = `Rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 47.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 49.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    ... okay on input line 49.
 
 (C:\Users\adupont\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count146
-\scratchdimen=\dimen184
+\scratchcounter=\count149
+\scratchdimen=\dimen192
 \scratchbox=\box39
-\nofMPsegments=\count147
-\nofMParguments=\count148
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count149
-\MPscratchDim=\dimen185
-\MPnumerator=\count150
-\makeMPintoPDFobject=\count151
-\everyMPtoPDFconversion=\toks36
+\nofMPsegments=\count150
+\nofMParguments=\count151
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count152
+\MPscratchDim=\dimen193
+\MPnumerator=\count153
+\makeMPintoPDFobject=\count154
+\everyMPtoPDFconversion=\toks37
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -593,20 +614,54 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-7.86334pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=50.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
 (Rapport-concordance.tex)
-LaTeX Font Info:    Try loading font information for TS1+aer on input line 69.
+LaTeX Font Info:    Try loading font information for TS1+aer on input line 71.
 
 (C:/PROGRA~1/R/R-33~1.2/share/texmf/tex/latex\ts1aer.fd
 File: ts1aer.fd 
 )
 LaTeX Font Info:    Font shape `TS1/aer/m/n' in size <17.28> not available
-(Font)              Font shape `TS1/cmr/m/n' tried instead on input line 69.
+(Font)              Font shape `TS1/cmr/m/n' tried instead on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 69.
+(Font)              <12> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 69.
+(Font)              <8> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 69.
+(Font)              <6> on input line 71.
  (Rapport.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 4.
@@ -635,54 +690,136 @@ g/pdftex.map}] (Rapport.lot)
 \openout6 = `Rapport.lof'.
 
  [2] [3]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.113 relapse_
-              progression_transplant_c & continuous progression &   5 & 6 & ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+Underfull \vbox (badness 10000) detected at line 134
+ []
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.113 relapse_progression_transplant_c &
-                                         continuous progression &   5 & 6 & ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
+[4] [5] [6]
+LaTeX Font Info:    Font shape `TS1/aer/m/n' in size <10.95> not available
+(Font)              Font shape `TS1/cmr/m/n' tried instead on input line 281.
+ [7] [8]
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(101.40665pt, 715.18745pt, 28.45274pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=715.18745pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-7.86334pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=50.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Overfull \hbox (811.16034pt too wide) in alignment at lines 109--122
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+Underfull \vbox (badness 10000) detected at line 330
  []
 
 
-Underfull \vbox (badness 10000) detected at line 122
+Overfull \hbox (384.50308pt too wide) in alignment at lines 333--356
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[4] (Rapport.aux) ) 
+
+Underfull \vbox (badness 10000) detected at line 356
+ []
+
+
+Overfull \hbox (384.50308pt too wide) in alignment at lines 356--376
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (384.50308pt too wide) in alignment at lines 376--397
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[9
+
+
+]
+Overfull \hbox (384.50308pt too wide) in alignment at lines 397--418
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[10]
+Overfull \hbox (221.18292pt too wide) in alignment at lines 421--444
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[11]
+Underfull \vbox (badness 10000) detected at line 444
+ []
+
+
+Overfull \hbox (221.18292pt too wide) in alignment at lines 444--464
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (221.18292pt too wide) in alignment at lines 464--484
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[12]
+Overfull \hbox (221.18292pt too wide) in alignment at lines 484--504
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (221.18292pt too wide) in alignment at lines 504--526
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[13] [14] [15] <Rapport-fig1.pdf, id=59, 433.62pt x 433.62pt>
+File: Rapport-fig1.pdf Graphic file (type pdf)
+
+<use Rapport-fig1.pdf>
+Package pdftex.def Info: Rapport-fig1.pdf used on input line 533.
+(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+ [16
+
+
+] [17 <./Rapport-fig1.pdf>] (Rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 11523 strings out of 493333
- 194308 string characters out of 3139188
- 268893 words of memory out of 3000000
- 14817 multiletter control sequences out of 15000+200000
- 27001 words of font info for 60 fonts, out of 3000000 for 9000
+ 12007 strings out of 493333
+ 201405 string characters out of 3139188
+ 319519 words of memory out of 3000000
+ 15289 multiletter control sequences out of 15000+200000
+ 27342 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,7n,53p,803b,186s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\adupont\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\
-jknappen\ec\dpi600\tcrm1728.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
-10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Rapport.pdf (4 pages, 98959 bytes).
+ 43i,7n,53p,803b,301s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\adupont\AppData\Local\MiK
+TeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk> <C:\Users\adupont\AppDa
+ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1728.pk><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+y10.pfb>
+Output written on Rapport.pdf (17 pages, 129682 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
+ 105 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 5 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 10 words of extra memory for PDF output out of 10000 (max. 10000000)
 

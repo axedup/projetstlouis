@@ -34,16 +34,17 @@ w<-quali(x=c("delai_dia_alloc","anapath","stade_dia","disease_status_at_transpla
          data=greffe,RAPPORT=F,SAVEFILE=T,chemin="C:/Users/Louise/Documents/Desespoir/Bases/resultats/")
 
 
+#write.csv2(w,file="C:/Users/adupont/Documents/projetstlouis/resultats/descri_uni_quali.csv")
 
 
-res <- compareGroups(anapathc2 ~ ., data = greffe[greffe$anapathc2 %in% c("AITL","ALCL","NOS","ATLL")
-                                                 ,c("anapathc2","delai_dia_alloc","stade_diac","disease_status_at_transplantc",
-                                                     "karnofsky_greffec2", "previous_autoc","programme_autoalloc","rechute_prem_greffec",
-                                                     "nbr_lignes_avt_alloc")])
+# #res <- compareGroups(anapathc2 ~ ., data = greffe[greffe$anapathc2 %in% c("AITL","ALCL","NOS","ATLL")
+#                                                  ,c("anapathc2","delai_dia_alloc","stade_diac","disease_status_at_transplantc",
+#                                                      "karnofsky_greffec2", "previous_autoc","programme_autoalloc","rechute_prem_greffec",
+#                                                      "nbr_lignes_avt_alloc")])
 
 
-restab <- createTable(res, hide.no = "no", type = 2,show.all = TRUE,)
-restab
+#restab <- createTable(res, hide.no = "no", type = 2,show.all = TRUE,)
+#restab
 
 WD<-NA
 
@@ -83,21 +84,31 @@ summary(as.numeric(greffe$delai_dc)*30.25)
 
 ### Bivariés anapath
 
+patient_greffe<-TABKRIS(baz=greffe,vect.var = c("age_dia","sex_patient"),
+                        vect.quali = c(0,1),
+                        varint="anapathc2",valvarint = c("NOS","AITL", "ALCL", "ATLL","NK/T nasal","Others"),
+                        nomvarint = "Subtypes",
+                        test=c("aov","fisher"),
+                        vecnoms=c("Age at diagnostic","Patient sex"),valeurs=NULL,
+                        vecrefs=NULL,varassoc=NULL,
+                        codassoc=NULL,pres=NULL,langue="en",digits=2)
 
-bivarie_anapath_greffe<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_donor","sex_donor",
+
+
+bivarie_anapath_greffe<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_greffec","age_donor","sex_donor",
                                                         "delai_dia_alloc","stade_dia","stade_diac",
                                                         "disease_status_at_transplantc2",
                                                         "disease_status_at_transplantc",
                                                         "disease_status_at_transplant",
                                 "karnofsky_greffec","karnofsky_greffec2", "previous_autoc",
                                 "programme_autoalloc","rechute_prem_greffec",
-                                "nbr_lignes_avt_alloc",
+                                "nbr_lignes_avt_alloc2",
                                 "donnor","hla_matchc","hla_match",
-                                "sex_dp2","cmv_dp2","stem_cell_source","tbi"),
-        vect.quali = c(0,0,rep(1,20)),
+                                "sex_dp3","cmv_dp2","stem_cell_source","tbi"),
+        vect.quali = c(0,1,0,rep(1,20)),
         varint="anapathc2",valvarint = c("NOS","AITL", "ALCL", "ATLL","NK/T nasal","Others"),
-        nomvarint = "Histopathologic subtypes",
-        test=c("aov","aov","fisher",
+        nomvarint = "Subtypes",
+        test=c("aov","chisq","aov","fisher",
                "chisq","","chisq",
                "",
                "",
@@ -107,7 +118,7 @@ bivarie_anapath_greffe<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_donor"
                "",
                "chisq","fisher","",
                "","chisq","",""),
-        vecnoms=c("Age at graft","Donor age","Donor sex",">12 months betwenn diagnosis and allo SCT","Stage at diagnostic",
+        vecnoms=c("Age at graft","Age at graft","Donor age","Donor sex",">12 months betwenn diagnosis and allo SCT","Stage at diagnostic",
                   "Stage at diagnostic","Disease status at transplant","Disease status at transplant","Disease status at transplant",
                   "Karnofsky","Karnofsky","previous autoSCT","program autoallo","relapse first graft",
                   "No of lines before alloSCT",
@@ -118,7 +129,7 @@ bivarie_anapath_greffe<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_donor"
         codassoc=NULL,pres=NULL,langue="en",digits=2)
 
 
-write.csv2(bivarie_anapath_greffe,file="C:/Users/adupont/Documents/projetstlouis/resultats/bivarie_greffe_anapath.csv")
+#write.csv2(bivarie_anapath_greffe,file="C:/Users/adupont/Documents/projetstlouis/resultats/bivarie_greffe_anapath.csv")
 
 
 bivarie_anapath_greffe2<-TABKRIS(baz=greffe,vect.var = c( "intensite_condi","condit_details","manipu_cells","nbr_donneurc",
@@ -127,7 +138,7 @@ bivarie_anapath_greffe2<-TABKRIS(baz=greffe,vect.var = c( "intensite_condi","con
                                                         "relapse_progression_transplant_c"),
                                 vect.quali = c(rep(1,12)),
                                 varint="anapathc2",valvarint = c("NOS","AITL", "ALCL", "ATLL","NK/T nasal","Others"),
-                                nomvarint = "Histopathologic subtypes",
+                                nomvarint = "Subtypes",
                                 test=c( "","","",
                                         "fisher","chisq",""
                                         ,"chisq","","","",
@@ -141,7 +152,7 @@ bivarie_anapath_greffe2<-TABKRIS(baz=greffe,vect.var = c( "intensite_condi","con
                                 codassoc=NULL,pres=NULL,langue="en",digits=2)
 
 
-write.csv2(bivarie_anapath_greffe,file="C:/Users/adupont/Documents/projetstlouis/resultats/bivarie_greffe_anapath.csv")
+#write.csv2(bivarie_anapath_greffe,file="C:/Users/adupont/Documents/projetstlouis/resultats/bivarie_greffe_anapath2.csv")
 
 c("aov","aov","fisher",
   "chisq","","chisq",

@@ -228,7 +228,7 @@ if(!is.na(nn[j]))
 {
 if(!is.na(xx[j]/nona))
 {
-yy[j,4]<-paste(round(xx[j]/nona,3)*100,"%",sep="")
+yy[j,4]<-paste(round(xx[j]/nona,3)*100,"\\%",sep="")
 }
 }
 }
@@ -265,7 +265,7 @@ if(!is.na(nn[j]))
 {
 if(!is.na(xx[j]/nona))
 {
-yy[j,4]<-paste(round(xx[j]/nona,3)*100,"%",sep="")
+yy[j,4]<-paste(round(xx[j]/nona,3)*100,"\\%",sep="")
 }
 }
 }
@@ -275,7 +275,7 @@ yy
 desqualit.fac<-cbind(desqualit.fac,desqualit.fac1[,c(-1,-2)])
 }
 
-names(desqualit.fac)<-c("parametre","valeurs",rep(c("n","%"),nlev))
+names(desqualit.fac)<-c("parametre","valeurs",rep(c("n","\\%"),nlev))
 return(desqualit.fac)
 }
 
@@ -1183,9 +1183,9 @@ if (is.null(y))
     pourc<-round(tab/sum(tab)*100,digits=digits)
     if (length(tab)>=2)
     {
-      tmp<-cbind(c(nom,rep("",length(tab)-1)),names(tab),tab,paste(pourc,"%"))
+      tmp<-cbind(c(nom,rep("",length(tab)-1)),names(tab),tab,paste(pourc,"\\%"))
     } else {
-              tmp<-cbind(nom,names(tab),tab,paste(pourc,"%"))
+              tmp<-cbind(nom,names(tab),tab,paste(pourc,"\\%"))
            }
     if (nb.na !=0) {tmp<-rbind(tmp,c("","NA",nb.na,""))}
     #tab<-table(x,exclude=NULL)
@@ -1198,7 +1198,7 @@ if (is.null(y))
   {
     tab<-table(x==ref)
     pourc<-round(tab/sum(tab)*100,digits=digits)
-    tmp<-cbind(c(nom,rep("",length(ref)-1)),ref,tab,paste(pourc,"%"))
+    tmp<-cbind(c(nom,rep("",length(ref)-1)),ref,tab,paste(pourc,"\\%"))
     if (dim(tmp)[1]==2)
     {
       tmp<-tmp[2,]
@@ -1259,9 +1259,9 @@ if (!is.null(y))
       tmp <- NULL
       for (i in 1:dim(tab)[2])
       {
-        tmp <- cbind(tmp,paste(tab[,i]),paste(pourc[,i],"%") )
+        tmp <- cbind(tmp,paste(tab[,i]),paste(pourc[,i],"\\%") )
       }
-      tmp[tmp=="NaN %"]<-""      
+      tmp[tmp=="NaN \\%"]<-""      
       tmp<-cbind(paste(nom),paste(rownames(tab)),tmp)
       if (dim(tab)[1]>=2)
       {
@@ -1298,9 +1298,9 @@ if (!is.null(y))
       tmp <- NULL
       for (i in 1:dim(tab)[2])
       {
-        tmp <- cbind(tmp,paste(tab[,i]),paste(pourc[,i],"%") )
+        tmp <- cbind(tmp,paste(tab[,i]),paste(pourc[,i],"\\%") )
       }
-      tmp[tmp=="NaN %"]<-""      
+      tmp[tmp=="NaN \\%"]<-""      
       tmp<-cbind(paste(nom),paste(rownames(tab)),tmp)
       if (dim(tab)[1]>=2)
       {

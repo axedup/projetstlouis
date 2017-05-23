@@ -24,7 +24,7 @@ table(greffe$date_greffe_prece)
 table(greffe$agvhd_date.)
 table(greffe$date_fu)
 
-
+greffe$j0..1<-NULL
 greffe$j0<-as.Date(as.character(greffe$j0),format = "%d/%m/%Y")
 patients$j0<-as.Date(as.character(patients$j0),format = "%d/%m/%Y")
 
@@ -57,12 +57,18 @@ levels(greffe$agvhd_grade)<-c("Grade I", "Grade II", "Grade III", "Grade IV",
 table(greffe$agvhd_grade)
 greffe$agvhd_grade<-relevel(greffe$agvhd_grade,ref="No aGvHD present (Grade 0)")
 
+greffe$agvhd3<-as.factor(ifelse(greffe$agvhd_grade %in% c("Grade III", "Grade IV"),1,0))
+str(greffe$agvhd3)
+
 table(greffe$cgvhd.)
 greffe$cgvhd<-ifelse(greffe$cgvhd. %in% c("deces avant J100",
                                                "no[1]","No[1]"),0,1)
 table(greffe$cgvhd)
 table(greffe$cgvhd_grade)
 greffe$cgvhd<-as.factor(greffe$cgvhd)
+
+greffe$cgvhd.<-as.factor(greffe$cgvhd.)
+levels(greffe$cgvhd.)<-c("deces avant J100", "no", "no", "yes")
 
 greffe$cgvhd_gradec<-greffe$cgvhd_grade
 levels(greffe$cgvhd_gradec)<-c("no cGvh", "extensive", "extensive", "limited", 
@@ -89,10 +95,10 @@ greffe$date_gvhd
 
 
 
-label(greffe$sex_dp) <- "Sex of patient/donor" 
+#label(greffe$sex_dp) <- "Sex of patient/donor" 
 
-
-
+greffe$age_greffec<-as.factor(ifelse(greffe$age_greffe<49,"< 49 years","> 49 years"))
+table(greffe$age_greffec)
 
 table(greffe$prise_greffe,exclude = NULL)
 
@@ -163,7 +169,7 @@ table(greffe$disease_status_at_transplantc2,exclude = NULL)
 table(greffe$stem_cell_.source)
 greffe$stem_cell_source<-greffe$stem_cell_.source
 levels(greffe$stem_cell_source)<-c("BM", "CB", "PB", "PB")
-
+table(greffe$stem_cell_source)
 
 
 levels(patients$sex_patient)<-c("Female", "Male", "Male")
@@ -242,6 +248,11 @@ table(greffe$cause_death_c)
 
 greffe$cause_death_c<-as.factor(greffe$cause_death_c)
 
+greffe$cause_death_c2<-ifelse(grepl(pat="HSCT",greffe$cause_death_c)& !is.na(greffe$cause_death_c),1,0) 
+table(greffe$cause_death_c2,exclude=NULL)
+
+
+
 
 greffe$delai_dia_alloc<-as.factor(ifelse(greffe$delai_dia_allo<365,1,0))
 
@@ -262,7 +273,7 @@ greffe$nbr_lignes_avt_alloc2<-as.factor(greffe$nbr_lignes_avt_alloc2)
 
 
 
-
+table(greffe$nbr_lignes_avt_allo,exclude = NULL)
 table(greffe$nbr_lignes_avt_alloc,exclude = NULL)
 table(greffe$nbr_lignes_avt_alloc2,exclude = NULL)
 table(greffe$intensite_condi,exclude = NULL)
@@ -270,6 +281,10 @@ table(greffe$intensite_condi,exclude = NULL)
 greffe$programme_autoalloc<-as.factor(greffe$programme_autoallo)
 greffe$previous_autoc<-as.factor(greffe$previous_auto)
 greffe$rechute_prem_greffec<-as.factor(as.character(greffe$rechute_prem_greffe))
+greffe$rechute_post_allo<-as.factor(ifelse(greffe$rechute_prem_greffec=="1","1","0"))
+
+table(greffe$rechute_post_allo)
+table(greffe$rechute_prem_greffec)
 
 table(greffe$nbr_donneur)
 greffe$nbr_donneurc<-as.factor(as.character(greffe$nbr_donneur))
@@ -279,6 +294,13 @@ greffe$karnofsky_greffec<-as.factor(as.character(greffe$karnofsky_greffe))
 
 greffe$karnofsky_greffec2<-as.factor(ifelse(greffe$karnofsky_greffec %in% c("100","90","80"),"Normal activities 
                                             with or without efforts","Unable to carry on normal activity"))
+
+
+greffe$karnofsky_greffec3<-greffe$karnofsky_greffec
+
+table(greffe$karnofsky_greffec)
+levels(greffe$karnofsky_greffec3)<-c("100", "Unable to carry on normal activity", "Unable to carry on normal activity", "Unable to carry on normal activity", "Unable to carry on normal activity", "80", "90")
+str(greffe$karnofsky_greffec3)
 
 
 greffe$stade_diac<-as.factor(ifelse(greffe$stade_dia %in% c("III","IV"), "III-IV","I-II"))
@@ -292,8 +314,14 @@ greffe$sex_dp2<-as.factor(ifelse(greffe$sex_dp %in% c("F/F", "F/F/F", "M/M",
 
 greffe$sex_dp2<-relevel(greffe$sex_dp2,ref="sex idem")
 
-greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("neg/neg"),"all neg", "different")
-greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("pos/pos", "pos/pos/pos"),"all positive", "different")
+greffe$sex_dp3<-as.factor(ifelse(greffe$sex_dp %in% c("M/F"),"M/F","Others"))
+
+greffe$sex_dp3<-relevel(greffe$sex_dp3,ref="M/F")
+
+
+
+ greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("neg/pos"),"neg/pos", "autres")
+#greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("pos/pos", "pos/pos/pos"),"all positive", "different")
 greffe$cmv_dp2<-as.factor(greffe$cmv_dp2)
 
 
@@ -390,7 +418,7 @@ table(greffe$rechute_dc,exclude=NULL)
 
 # 3 dc, 2 rechute/progression,1 ghvd
 
-greffe$g_p<-ifelse(difftime(greffe$date_rechutep,greffe$date_gvhd)>=0,"g","r")
+greffe$g_p<-as.character(ifelse(difftime(greffe$date_rechutep,greffe$date_gvhd)>=0,"g","r"))
 
 
 
@@ -411,8 +439,8 @@ greffe$rechute_progression_ghvd_dc<-ifelse(greffe$gvhd==1 & greffe$rechute_progr
 table(greffe$rechute_progression_ghvd_dc,exclude=NULL)
 #il reste les 2 NA# 
 
-
-
+greffe$efs_statut<-ifelse(greffe$rechute_progression_ghvd_dc==0,0,1)
+table(greffe$efs_statut,exclude=NULL)
 
 
 
@@ -443,7 +471,7 @@ table(is.na(greffe$date_rechute_progression_gvhd),is.na(greffe$rechute_progressi
 greffe$date_rechute_progression_gvhd<-as.Date(greffe$date_rechute_progression_gvhd,origin = "1970-01-01")
 
 
-greffe$delai_efs<-difftime(greffe$date_rechute_progression,greffe$j0)/30.25
+greffe$delai_pfs<-difftime(greffe$date_rechute_progression,greffe$j0)/30.25
 greffe$delai_rechute<-difftime(greffe$date_rechute,greffe$j0)/30.25
 greffe$delai_rechutepg<-difftime(greffe$date_rechute_progression_gvhd,greffe$j0)/30.25
 

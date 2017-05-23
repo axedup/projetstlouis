@@ -1,0 +1,118 @@
+\documentclass[a4paper,11pt] {article}
+\hfuzz=100pt 
+%\documentclass[a4paper,article,oneside,10pt]{memoir}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[lucidasmallscale, nofontinfo]{lucimatx}
+%\usepackage{times}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{here}
+\usepackage{ctable}
+\usepackage{pdflscape}
+\usepackage{pst-tree}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{dcolumn}
+\usepackage{lscape}
+\usepackage{geometry}
+%\usepackage{Sweave}
+%\usepackage[pdftex,bookmarks=true,bookmarksnumbered=true,
+%            hypertexnames=false,breaklinks=true,
+%            linkbordercolor={0 0 1}]{hyperref}
+
+%--------------
+
+%
+%\usepackage{fancyhdr}
+%\pagestyle{empty}
+%\pagestyle{fancy}
+%\fancyhf{}
+%%\renewcommand{\chaptermark}[1]{\markboth{\bsc{\chaptername~\thechapter{} :} #1}{}}
+%%\renewcommand{\sectionmark}[1]{\markright{\thesection{} #1}}
+%%\lfoot{Confidential, for the exclusive use of DMC members}
+%%\renewcommand{\footrulewidth}{0.4pt}
+%%\renewcommand{\headrulewidth}{0.4pt}
+%%\renewcommand{\thepage}{\arabic{\page}}
+%\setcounter{tocdepth}{5} % Dans la table des matieres
+%\setcounter{secnumdepth}{5} % Avec un numero.
+%%\mainmatter
+%\pagenumbering{arabic}\setcounter{page}{1}
+%\rhead{\thepage}
+%\lhead{\leftmark}
+%%\renewcommand{\thesection}{\Roman{section}}
+%%\renewcommand{\thesection}{\Roman{section}}
+%%\renewcommand{\thesection}{\Roman{section}}
+%%\renewcommand{\thesubsection}{\thesection .\Alph{subsection}}
+%
+%--------------
+\begin{document}
+\title{ Rapport préliminaire d'analyses statistiques}
+\author{Axelle Dupont, sbim, Hôpital Saint Louis, Paris}
+\date{29 Mai 2017}
+
+%------------------------------------------------------------
+
+
+
+
+
+
+%-------------------------------------------------------------
+
+
+\setkeys{Gin}{width=1\textwidth}
+\maketitle
+
+%\pagestyle{protoc}
+\tableofcontents
+\pagebreak[4]
+\listoftables
+\listoffigures
+%\SweaveOpts{eval=TRUE,echo=false,fig=TRUE}
+
+
+\pagebreak[4]
+%\chapter{Objectif}
+
+\section{Objectives}
+
+The primary objective of the study was to assess the survival, the risk of relapse and GVHD  of patients who underwent allogenic sterm-cell transplantation (alloSCT) for aggressive T-cell lymphomas. 
+The second objective was to determine the variables associated with these outcomes.
+
+\section{Methods}
+
+A  retrospective analysis was conducted.A descriptive analysis of the variables recorded was perfomed. Different endpoints were defined : death, relapse ,Event-free survival(EFS) and Treatment related mortality (TRM).
+
+Survival curves were estimated using Kaplan-Meier product-limit estimator. Factors associated with overall sur-vival were analyzed using Cox proportional hazards models. The proportional hazards assumption was checked by examination of Schoenfeld residuals.
+For the different endpoints, univariable analyses were first carried out, then a multivariable analysis was used where all factors with P-value < 0.15 in the univariable analyses were considered. Factors where then sequentially removed from the adjusted model with a P-value cut- at 0.05. 
+Survival is presented as estimate and 95\% confidence interval (95\% CI).
+
+
+Competing risk survival analysis methods were applied to estimate the cumulative incidence (CIF) of developing events over time from alloSCT.These methods allow for the fact that a patient may experience an event which is different from that of interest. These events are known as competing risk events, and may preclude the onset of the event of interest, or may modify the probability of the onset of that event. In particular, a transplanted patient may die before a relapse occurs.
+To test CIF between histopathologic groups we the test proposed by Gray. 
+
+\pagebreak[4]
+\section{Results}
+
+
+
+
+\subsection{Descriptive results }
+\newgeometry{margin=1cm}
+\begin{landscape}
+
+\begin{tabularx}{\textwidth}{llXlXlXlXlXlXll}
+
+  \hline
+Parameters & Values &  &  &  &  &  &  & subtypes &  &  &  &  &  &  \\ 
+  \hline
+ &  & N & Statistics* & N & Statistics* & N & Statistics* & N & Statistics* & N & Statistics* & N & Statistics* & p-value \\ 
+   &  & 110 & NOS & 84 & AITL & 43 & ALCL & 16 & ATLL & 16 & NK/T nasal & 17 & Others &  \\ 
+  Age at diagnostic &  & 110 & 48.5 [38;55] & 84 & 53 [43;57.25] & 43 & 36 [23;49] & 16 & 41 [30.75;45.5] & 16 & 39.5 [34.75;48] & 17 & 38 [33;45] & 0.0001 \\ 
+  Patient sex & Female & 33 & 30 \% & 27 & 32.14 \% & 17 & 39.53 \% & 5 & 31.25 \% & 4 & 25 \% & 9 & 52.94 \% & 0.45 \\ 
+   & Male & 77 & 70 \% & 57 & 67.86 \% & 26 & 60.47 \% & 11 & 68.75 \% & 12 & 75 \% & 8 & 47.06 \% &  \\ 
+   \hline
+\end{tabularx}
+\end{landscape}
+\end{document}
