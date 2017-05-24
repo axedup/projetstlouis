@@ -2,4 +2,4 @@
 \contentsline {section}{\numberline {2}Methods}{3}
 \contentsline {section}{\numberline {3}Results}{4}
 \contentsline {subsection}{\numberline {3.1}Descriptive results}{4}
-\contentsline {subsection}{\numberline {3.2}Survival analysis}{10}
+\contentsline {subsection}{\numberline {3.2}Survival analysis}{13}

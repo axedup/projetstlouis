@@ -156,6 +156,7 @@ s<-Surv(event=greffe$deces,time=as.numeric(greffe$delai_dc))
 
 
 \subsection{Descriptive results}
+ \Sexpr{nrow(greffe)+1} patients were initially selected.We excluded 1 patient that underwent two alloSCT. The final analysis was perfomed on \Sexpr{nrow(greffe)} patients and \Sexpr{nrow(greffe)} grafts.
 <<label=tab:condi ,echo=FALSE,results=tex>>=
 print(xtable (patientg,
 caption= "Patients",
@@ -221,7 +222,7 @@ width="\\textwidth",
  sanitize.text.function = function(x){x}  )
 @
 
-<<label=tab:tra ,echo=FALSE,results=tex,eval=FALSE>>=
+<<label=tab:tra ,echo=FALSE,results=tex,eval=TRUE>>=
 print(xtable (bivarie_anapath_greffe,
 caption= "Transplant conditions",
 label="tab:tra",

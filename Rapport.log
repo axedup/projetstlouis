@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  24 MAY 2017 18:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  24 MAY 2017 19:24
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -683,19 +683,19 @@ g/pdftex.map}] (Rapport.lot)
 \openout6 = `Rapport.lof'.
 
  [2] [3]
-Underfull \vbox (badness 10000) detected at line 136
+Underfull \vbox (badness 10000) detected at line 137
  []
 
 [4]
-Underfull \vbox (badness 10000) detected at line 202
+Underfull \vbox (badness 10000) detected at line 203
  []
 
 
-Underfull \vbox (badness 10000) detected at line 228
+Underfull \vbox (badness 10000) detected at line 229
  []
 
 [5] [6] [7]
-Underfull \vbox (badness 10000) detected at line 355
+Underfull \vbox (badness 10000) detected at line 356
  []
 
 [8] [9]
@@ -731,63 +731,88 @@ Underfull \vbox (badness 10000) detected at line 355
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- <Rapport-fig1.pdf, id=37, 433.62pt x 433.62pt>
-File: Rapport-fig1.pdf Graphic file (type pdf)
- <use Rapport-fig1.pdf>
-Package pdftex.def Info: Rapport-fig1.pdf used on input line 410.
-(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+
+Overfull \hbox (218.95233pt too wide) in alignment at lines 403--426
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 426
+ []
+
+
+Overfull \hbox (218.95233pt too wide) in alignment at lines 426--446
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (218.95233pt too wide) in alignment at lines 446--466
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [10
 
 
+]
+Overfull \hbox (218.95233pt too wide) in alignment at lines 466--486
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[11] [12] <Rapport-fig1.pdf, id=46, 433.62pt x 433.62pt>
+File: Rapport-fig1.pdf Graphic file (type pdf)
+
+<use Rapport-fig1.pdf>
+Package pdftex.def Info: Rapport-fig1.pdf used on input line 496.
+(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+ [13
 
 
- <./Rapport-fig1.pdf>] <Rapport-fig2.pdf, id=49, 433.62pt x 433.62pt>
+ <./Rapport-fig1.pdf>]
+<Rapport-fig2.pdf, id=59, 433.62pt x 433.62pt>
 File: Rapport-fig2.pdf Graphic file (type pdf)
-
-<use Rapport-fig2.pdf>
-Package pdftex.def Info: Rapport-fig2.pdf used on input line 421.
+ <use Rapport-fig2.pdf>
+Package pdftex.def Info: Rapport-fig2.pdf used on input line 507.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
- [11 <./Rapport-fig2.pdf>]
-<Rapport-fig3.pdf, id=58, 433.62pt x 433.62pt>
+ [14 <./Rapport-fig2.pdf>] <Rapport-fig3.pdf, id=68, 433.62pt x 433.62pt>
 File: Rapport-fig3.pdf Graphic file (type pdf)
- <use Rapport-fig3.pdf>
-Package pdftex.def Info: Rapport-fig3.pdf used on input line 432.
+
+<use Rapport-fig3.pdf>
+Package pdftex.def Info: Rapport-fig3.pdf used on input line 518.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
- [12 <./Rapport-fig3.pdf>] <Rapport-fig4.pdf, id=67, 433.62pt x 433.62pt>
+ [15 <./Rapport-fig3.pdf>]
+<Rapport-fig4.pdf, id=77, 433.62pt x 433.62pt>
 File: Rapport-fig4.pdf Graphic file (type pdf)
-
-<use Rapport-fig4.pdf>
-Package pdftex.def Info: Rapport-fig4.pdf used on input line 442.
+ <use Rapport-fig4.pdf>
+Package pdftex.def Info: Rapport-fig4.pdf used on input line 528.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
- [13 <./Rapport-fig4.pdf>]
-<Rapport-fig5.pdf, id=80, 433.62pt x 433.62pt>
+ [16 <./Rapport-fig4.pdf>] <Rapport-fig5.pdf, id=89, 433.62pt x 433.62pt>
 File: Rapport-fig5.pdf Graphic file (type pdf)
- <use Rapport-fig5.pdf>
-Package pdftex.def Info: Rapport-fig5.pdf used on input line 453.
-(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
- [14 <./Rapport-fig5.pdf>] <Rapport-fig6.pdf, id=90, 433.62pt x 433.62pt>
-File: Rapport-fig6.pdf Graphic file (type pdf)
 
-<use Rapport-fig6.pdf>
-Package pdftex.def Info: Rapport-fig6.pdf used on input line 465.
+<use Rapport-fig5.pdf>
+Package pdftex.def Info: Rapport-fig5.pdf used on input line 539.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
- [15 <./Rapport-fig6.pdf>]
-<Rapport-fig7.pdf, id=100, 433.62pt x 433.62pt>
+ [17 <./Rapport-fig5.pdf>]
+<Rapport-fig6.pdf, id=99, 433.62pt x 433.62pt>
+File: Rapport-fig6.pdf Graphic file (type pdf)
+ <use Rapport-fig6.pdf>
+Package pdftex.def Info: Rapport-fig6.pdf used on input line 551.
+(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+ [18 <./Rapport-fig6.pdf>] <Rapport-fig7.pdf, id=109, 433.62pt x 433.62pt>
 File: Rapport-fig7.pdf Graphic file (type pdf)
- <use Rapport-fig7.pdf>
-Package pdftex.def Info: Rapport-fig7.pdf used on input line 475.
+
+<use Rapport-fig7.pdf>
+Package pdftex.def Info: Rapport-fig7.pdf used on input line 561.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[16] [17 <./Rapport-fig7.pdf>] (Rapport.aux) ) 
+[19] [20 <./Rapport-fig7.pdf>] (Rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 12016 strings out of 493333
- 201647 string characters out of 3139188
- 289100 words of memory out of 3000000
- 15297 multiletter control sequences out of 15000+200000
+ 12018 strings out of 493333
+ 201674 string characters out of 3139188
+ 313338 words of memory out of 3000000
+ 15299 multiletter control sequences out of 15000+200000
  26661 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,7n,53p,803b,305s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -797,9 +822,9 @@ public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Rapport.pdf (17 pages, 150067 bytes).
+Output written on Rapport.pdf (20 pages, 156597 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
+ 143 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  40 words of extra memory for PDF output out of 10000 (max. 10000000)
 

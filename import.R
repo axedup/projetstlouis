@@ -296,8 +296,7 @@ table(greffe$nbr_donneurc)
 
 greffe$karnofsky_greffec<-as.factor(as.character(greffe$karnofsky_greffe))
 
-greffe$karnofsky_greffec2<-as.factor(ifelse(greffe$karnofsky_greffec %in% c("100","90","80"),"Normal activities 
-                                            with or without efforts","Unable to carry on normal activity"))
+greffe$karnofsky_greffec2<-as.factor(ifelse(greffe$karnofsky_greffec %in% c("100","90","80"),"Normal activities","Non normal activity"))
 
 
 greffe$karnofsky_greffec3<-greffe$karnofsky_greffec
