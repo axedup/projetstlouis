@@ -88,14 +88,16 @@ The second objective was to determine the variables associated with these outcom
 
 \section{Methods}
 
-A  retrospective analysis was conducted.A descriptive analysis of the variables recorded was perfomed. Different endpoints were defined : death, relapse ,Event-free survival(EFS) and Treatment related mortality (TRM).
+A  retrospective analysis was conducted.A descriptive analysis of the variables recorded was perfomed. Different endpoints were defined : death, relapse, Event-free survival(EFS), Progression free Survival (PFC). Relapse was only considered in patients who had a complete remission after allo SCT.
 
-Survival curves were estimated using Kaplan-Meier product-limit estimator. Factors associated with overall sur-vival were analyzed using Cox proportional hazards models. The proportional hazards assumption was checked by examination of Schoenfeld residuals.
+Survival curves were estimated using Kaplan-Meier product-limit estimator.
+Competing risk survival analysis methods were applied to estimate the cumulative incidence (CIF) of developing events over time from alloSCT. These methods allow for the fact that a patient may experience an event which is different from that of interest. These events are known as competing risk events, and may preclude the onset of the event of interest, or may modify the probability of the onset of that event.In particular, a transplanted patient may die before a relapse occurs. 
+
+Factors associated with overall sur-vival were analyzed using Cox proportional hazards models. The proportional hazards assumption was checked by examination of Schoenfeld residuals.
 For the different endpoints, univariable analyses were first carried out, then a multivariable analysis was used where all factors with P-value < 0.15 in the univariable analyses were considered. Factors where then sequentially removed from the adjusted model with a P-value cut- at 0.05. 
 Survival is presented as estimate and 95\% confidence interval (95\% CI).
 
 
-Competing risk survival analysis methods were applied to estimate the cumulative incidence (CIF) of developing events over time from alloSCT.These methods allow for the fact that a patient may experience an event which is different from that of interest. These events are known as competing risk events, and may preclude the onset of the event of interest, or may modify the probability of the onset of that event. In particular, a transplanted patient may die before a relapse occurs.
 To test CIF between histopathologic groups we the test proposed by Gray. 
 
 \pagebreak[4]
@@ -107,7 +109,7 @@ To test CIF between histopathologic groups we the test proposed by Gray.
 
 \subsection{Descriptive results}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Wed May 24 18:25:09 2017
+% Wed May 24 18:50:59 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -181,7 +183,7 @@ Parameters & Values & N & Statistics* \\
 \label{tab:condi}
 \end{longtable}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Wed May 24 18:25:09 2017
+% Wed May 24 18:50:59 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -199,7 +201,7 @@ Parameters & Values & N & Statistics* \\
 \label{tab:avtg}
 \end{longtable}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Wed May 24 18:25:09 2017
+% Wed May 24 18:50:59 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -326,7 +328,7 @@ Parameters & Values & N & Statistics* \\
 \end{longtable}
 
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Wed May 24 18:25:09 2017
+% Wed May 24 18:51:00 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -401,7 +403,7 @@ Parameters & Values & N & Statistics* \\
 \restoregeometry
 
 \subsection{Survival analysis}
-Median follow-up from the date of AlloSCT was 20.35 (range 0.03 to 113.77). OS at 1 years was 0.68 (95 \% 0.63 - 0.74), was 0.64 (95 \% 0.59 - 0.7) at 2 years
+Median follow-up from the date of AlloSCT was 20.35 (range 0.03 to 113.77). OS at 1 year was 0.68 (95 \% 0.63 - 0.74), was 0.64 (95 \% 0.59 - 0.7) at 2 years
 .OS at 4 years was 0.57 (95 \% 0.5 - 0.64).
 \begin{figure}[h]
 \begin{center}
@@ -412,7 +414,7 @@ Median follow-up from the date of AlloSCT was 20.35 (range 0.03 to 113.77). OS a
 \end{figure}
 
 \pagebreak
-EFS at 1 years was 0.54 (95 \% 0.48 - 0.6), was 0.49 (95 \% 0.43 - 0.55) at 2 years. EFS at 4 years was 0.42 (95 \% 0.36 - 0.5).
+EFS at 1 year was 0.54 (95 \% 0.48 - 0.6), was 0.49 (95 \% 0.43 - 0.55) at 2 years. EFS at 4 years was 0.42 (95 \% 0.36 - 0.5).
 
 \begin{figure}[h]
 \begin{center}
@@ -423,7 +425,7 @@ EFS at 1 years was 0.54 (95 \% 0.48 - 0.6), was 0.49 (95 \% 0.43 - 0.55) at 2 ye
 \end{figure}
 
 \pagebreak
-PFS at 1 years was 0.73 (95 \% 0.65 - 0.83), was 0.68 (95 \% 0.59 - 0.78) at 2 years. PFS at 4 years was 0.66 (95 \% 0.56 - 0.77).
+PFS at 1 year was 0.73 (95 \% 0.65 - 0.83), was 0.68 (95 \% 0.59 - 0.78) at 2 years. PFS at 4 years was 0.66 (95 \% 0.56 - 0.77).
 
 \begin{figure}[h]
 \begin{center}
@@ -433,8 +435,9 @@ PFS at 1 years was 0.73 (95 \% 0.65 - 0.83), was 0.68 (95 \% 0.59 - 0.78) at 2 y
 \label{fig3}
 \end{figure}
 
-
-\begin{figure}
+\pagebreak
+Relapse at 1 year was 0.87 (95 \% 0.83 - 0.92), was 0.85 (95 \% 0.8 - 0.9) at 2 years. Relapse at 4 years was 0.83 (95 \% 0.77 - 0.89).
+\begin{figure}[h]
 \begin{center}
 \includegraphics{Rapport-fig4}
 \end{center}
@@ -442,8 +445,10 @@ PFS at 1 years was 0.73 (95 \% 0.65 - 0.83), was 0.68 (95 \% 0.59 - 0.78) at 2 y
 \label{fig4}
 \end{figure}
 
-
-\begin{figure}
+\pagebreak
+CIF for related HSCT death at 1 years was 0.2, at 2 years  0.22.
+CIF for non-related HSCT Death at 1 years was 0.12, at 2 years  0.13.
+\begin{figure}[h]
 \begin{center}
 \includegraphics{Rapport-fig5}
 \end{center}
@@ -451,11 +456,11 @@ PFS at 1 years was 0.73 (95 \% 0.65 - 0.83), was 0.68 (95 \% 0.59 - 0.78) at 2 y
 \label{fig5}
 \end{figure}
 
-
+\pagebreak
 CIF for relapse/progression at 1 years was 0.18, at 2 years  0.19.
 CIF for death without relapse or progression at 1 years was 0.19, at 2 years  0.22. 
 
-\begin{figure}
+\begin{figure}[h]
 \begin{center}
 \includegraphics{Rapport-fig6}
 \end{center}
@@ -463,8 +468,9 @@ CIF for death without relapse or progression at 1 years was 0.19, at 2 years  0.
 \label{fig6}
 \end{figure}
 
-
-\begin{figure}
+\pagebreak
+CIF for relapse at 1 years was 0.12, at 2 years  0.13. CIF for death without relapse  at 1 years was 0.19, at 2 years  0.22. 
+\begin{figure}[h]
 \begin{center}
 \includegraphics{Rapport-fig7}
 \end{center}
