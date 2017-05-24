@@ -47,8 +47,8 @@
 %
 %--------------
 \begin{document}
-\title{Rapport préliminaire d'analyses statistiques}
-\author{Axelle Dupont, sbim, Hôpital Saint Louis, Paris}
+\title{Rapport  d'analyses statistiques}
+\author{Axelle Dupont, sbim, Hopital Saint Louis, Paris}
 \date{29 Mai 2017}
 
 %------------------------------------------------------------
@@ -109,7 +109,7 @@ source("C:/Users/adupont/Documents/projetstlouis/scripts/init.R")
 
 source("C:/Users/adupont/Documents/projetstlouis/scripts/import.R")
 source("C:/Users/adupont/Documents/projetstlouis/scripts/descri.R")
-#source("C:/Users/adupont/Documents/projetstlouis/scripts/survie.R")
+source("C:/Users/adupont/Documents/projetstlouis/scripts/survie.R")
 summary(as.numeric(greffe$delai_dc))
 s<-Surv(event=greffe$deces,time=as.numeric(greffe$delai_dc))
 
@@ -119,44 +119,44 @@ s<-Surv(event=greffe$deces,time=as.numeric(greffe$delai_dc))
 # plot(abis)
 
 
-a <- survfit( s ~ 1)
-re<-summary(a,censored = TRUE)
-plot(a, xlab="Time in months",ylab="Probability")
-
-censure<-as.data.frame(cbind(re$time[re$n.event==0],re$surv[re$n.event==0] ))
-colnames(censure)<-c("time","ce")
-evenement<-as.data.frame(cbind(re$time,re$surv ))
-colnames(evenement)<-c("time","ev")
-intervalle<-as.data.frame(cbind(re$time,re$upper
-                                ,re$lower ))
-colnames(intervalle)<-c("time","haut","bas")
-km_os<-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="hv")  +
-  geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
-  geom_step(data=intervalle,aes(x=time, y=haut),color="black" ,direction="hv")+
-  geom_step(data=intervalle,aes(x=time, y=bas),color="black", direction="hv")+
-  scale_x_continuous(breaks=c(0,20,40,60,80,100),expand = c(0, 0))+
-  scale_size_manual(values=c(1.5,1.5))+
-  
-  #geom_point(data=censure, aes(x=time, y=ce),shape=3,size=1 )+
-  #ggtitle("Durée de vie des implants") +
-  xlab("Time (Months)")+
-  ylab("Probability")+
-  #geom_step(data=gri,aes(x=time, y=ics), direction="hv",color="gray10",linetype="dashed" )+
-  #  geom_step(data=gri,aes(x=time, y=ici), direction="hv",color="gray10",linetype="dashed" )+
-  #  geom_step(data=gci,aes(x=time, y=ics), direction="hv",color="black",linetype="dashed" )+
-  #  geom_step(data=gci,aes(x=time, y=ici), direction="hv",color="black",linetype="dashed" )+
-  #
-  #scale_colour_manual("",values = c("Rupture"="blue", "Autres causes"="black"))+annotate(geom="text", x=52, y=0.91, label="Tous les parcours",color="black", size=4)+coord_cartesian(ylim=c(0,1)) +
-  scale_y_continuous(breaks=c(0,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),expand = c(0, 0))+
-  coord_cartesian(ylim=c(0,1))+
-  theme_classic()
+# a <- survfit( s ~ 1)
+# re<-summary(a,censored = TRUE)
+# plot(a, xlab="Time in months",ylab="Probability")
+# 
+# censure<-as.data.frame(cbind(re$time[re$n.event==0],re$surv[re$n.event==0] ))
+# colnames(censure)<-c("time","ce")
+# evenement<-as.data.frame(cbind(re$time,re$surv ))
+# colnames(evenement)<-c("time","ev")
+# intervalle<-as.data.frame(cbind(re$time,re$upper
+#                                 ,re$lower ))
+# colnames(intervalle)<-c("time","haut","bas")
+# km_os<-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="hv")  +
+#   geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
+#   geom_step(data=intervalle,aes(x=time, y=haut),color="black" ,direction="hv")+
+#   geom_step(data=intervalle,aes(x=time, y=bas),color="black", direction="hv")+
+#   scale_x_continuous(breaks=c(0,20,40,60,80,100),expand = c(0, 0))+
+#   scale_size_manual(values=c(1.5,1.5))+
+#   
+#   #geom_point(data=censure, aes(x=time, y=ce),shape=3,size=1 )+
+#   #ggtitle("Durée de vie des implants") +
+#   xlab("Time (Months)")+
+#   ylab("Probability")+
+#   #geom_step(data=gri,aes(x=time, y=ics), direction="hv",color="gray10",linetype="dashed" )+
+#   #  geom_step(data=gri,aes(x=time, y=ici), direction="hv",color="gray10",linetype="dashed" )+
+#   #  geom_step(data=gci,aes(x=time, y=ics), direction="hv",color="black",linetype="dashed" )+
+#   #  geom_step(data=gci,aes(x=time, y=ici), direction="hv",color="black",linetype="dashed" )+
+#   #
+#   #scale_colour_manual("",values = c("Rupture"="blue", "Autres causes"="black"))+annotate(geom="text", x=52, y=0.91, label="Tous les parcours",color="black", size=4)+coord_cartesian(ylim=c(0,1)) +
+#   scale_y_continuous(breaks=c(0,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),expand = c(0, 0))+
+#   coord_cartesian(ylim=c(0,1))+
+#   theme_classic()
 @
 
 
-\subsection{Descriptive results }
+\subsection{Descriptive results}
 <<label=tab:condi ,echo=FALSE,results=tex>>=
-print(xtable (w,
-caption= "Transplant condition and results",
+print(xtable (patientg,
+caption= "Patients",
 label="tab:condi",
 table.placement="htp",caption.placement="top"),
 tabular.environment="longtable",
@@ -164,13 +164,50 @@ floating=F,
 include.rownames=F,
  sanitize.text.function = function(x){x}  )
 @
+
+<<label=tab:avtg ,echo=FALSE,results=tex>>=
+print(xtable (avt_greffe,
+caption= "Treatment before alloSCT",
+label="tab:avtg",
+table.placement="htp",caption.placement="top"),
+tabular.environment="longtable",
+floating=F,
+include.rownames=F,
+ sanitize.text.function = function(x){x}  )
+@
+
+<<label=tab:g ,echo=FALSE,results=tex>>=
+print(xtable (greffed,
+caption= "AlloSCT",
+label="tab:g",
+table.placement="htp",caption.placement="top"),
+tabular.environment="longtable",
+floating=F,
+include.rownames=F,
+ sanitize.text.function = function(x){x}  )
+@
+
+
+<<label=tab:pg ,echo=FALSE,results=tex>>=
+print(xtable (post_greffe,
+caption= "Post-AlloSCT Response",
+label="tab:pg",
+table.placement="htp",caption.placement="top"),
+tabular.environment="longtable",
+floating=F,
+include.rownames=F,
+ sanitize.text.function = function(x){x}  )
+@
+
+
+
 \pagebreak[4]
 \newgeometry{bmargin=1cm}
 \begin{landscape}
 
-\subsection{Results by histopathologic subtypes }
 
-<<label=tab:pat ,echo=FALSE,results=tex>>=
+
+<<label=tab:pat ,echo=FALSE,results=tex,eval=FALSE>>=
 print(xtable (patient_greffe,
 caption= "Patients characteristics",
 label="tab:pat",
@@ -182,7 +219,7 @@ width="\\textwidth",
  sanitize.text.function = function(x){x}  )
 @
 
-<<label=tab:tra ,echo=FALSE,results=tex>>=
+<<label=tab:tra ,echo=FALSE,results=tex,eval=FALSE>>=
 print(xtable (bivarie_anapath_greffe,
 caption= "Transplant conditions",
 label="tab:tra",
@@ -194,7 +231,7 @@ width="\\textwidth",
  sanitize.text.function = function(x){x}  )
 @
 
-<<label=tab:traa ,echo=FALSE,results=tex>>=
+<<label=tab:traa ,echo=FALSE,results=tex,eval=FALSE>>=
 print(xtable (bivarie_anapath_greffe2,
 caption= "Transplant conditions (next)",
 label="tab:traa",
@@ -209,15 +246,92 @@ include.rownames=F,
 \restoregeometry
 
 \subsection{Survival analysis}
-\begin{figure}
+Median follow-up from the date of AlloSCT was \Sexpr{round(median(as.numeric(greffe$delai_dc)),2)} (range \Sexpr{round(min(as.numeric(greffe$delai_dc)),2)} to \Sexpr{round(max(as.numeric(greffe$delai_dc)),2)}). OS at 1 years was \Sexpr{round(re$surv[which.min((re$time-12)<0)],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-12)<0)],2)} - \Sexpr{round(re$upper[which.min((re$time-12)<0)],2)}), was \Sexpr{round(re$surv[which.min((re$time-24)<0)],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-24)<0)],2)} - \Sexpr{round(re$upper[which.min((re$time-24)<0)],2)}) at 2 years
+.OS at 4 years was \Sexpr{round(re$surv[which.min((re$time-48)<0)],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-48)<0)],2)} - \Sexpr{round(re$upper[which.min((re$time-48)<0)],2)}).
+\begin{figure}[h]
 \begin{center}
 <<label=fig1,fig=TRUE,echo=FALSE>>=
 km_os
 @
 \end{center}
-\caption{KM Overall survival}
+\caption{Overall survival}
 \label{fig1}
 \end{figure}
+
+\pagebreak
+EFS at 1 years was \Sexpr{round(reefs$surv[which.min((reefs$time-12)<0)],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-12)<0)],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-12)<0)],2)}), was \Sexpr{round(reefs$surv[which.min((reefs$time-24)<0)],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-24)<0)],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-24)<0)],2)}) at 2 years. EFS at 4 years was \Sexpr{round(reefs$surv[which.min((reefs$time-48)<0)],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-48)<0)],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-48)<0)],2)}).
+
+\begin{figure}[h]
+\begin{center}
+<<label=fig2,fig=TRUE,echo=FALSE>>=
+efs_km
+@
+\end{center}
+\caption{Event-free survival}
+\label{fig2}
+\end{figure}
+
+\pagebreak
+PFS at 1 years was \Sexpr{round(ree$surv[which.min((ree$time-12)<0)],2)} (95 \% \Sexpr{round(ree$lower[which.min((ree$time-12)<0)],2)} - \Sexpr{round(ree$upper[which.min((ree$time-12)<0)],2)}), was \Sexpr{round(ree$surv[which.min((ree$time-24)<0)],2)} (95 \% \Sexpr{round(ree$lower[which.min((ree$time-24)<0)],2)} - \Sexpr{round(ree$upper[which.min((ree$time-24)<0)],2)}) at 2 years. PFS at 4 years was \Sexpr{round(ree$surv[which.min((ree$time-48)<0)],2)} (95 \% \Sexpr{round(ree$lower[which.min((ree$time-48)<0)],2)} - \Sexpr{round(ree$upper[which.min((ree$time-48)<0)],2)}).
+
+\begin{figure}[h]
+\begin{center}
+<<label=fig3,fig=TRUE,echo=FALSE>>=
+pfs_km
+@
+\end{center}
+\caption{Progression-free survival}
+\label{fig3}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+<<label=fig4,fig=TRUE,echo=FALSE>>=
+km_rechute
+@
+\end{center}
+\caption{Relapse in patients with a complete remission post alloSCT)}
+\label{fig4}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+<<label=fig5,fig=TRUE,echo=FALSE>>=
+plot(modelcompetec,curvlab=c("Related HSCT Death","Non-related HSCT Death"),xlab="Time (months)", ylab="Probability")
+@
+\end{center}
+\caption{CIF of Related HSCT Death and Non-related HSCT Death}
+\label{fig5}
+\end{figure}
+
+
+CIF for relapse/progression at 1 years was \Sexpr{round(modelcompeteb[[1]]$est[which.min((modelcompeteb[[1]]$time-12)<0)],2)}, at 2 years  \Sexpr{round(modelcompeteb[[1]]$est[which.min((modelcompeteb[[1]]$time-24)<0)],2)}.
+CIF for death without relapse or progression at 1 years was \Sexpr{round(modelcompeteb[[2]]$est[which.min((modelcompeteb[[2]]$time-12)<0)],2)}, at 2 years  \Sexpr{round(modelcompeteb[[2]]$est[which.min((modelcompeteb[[2]]$time-24)<0)],2)}. 
+
+\begin{figure}
+\begin{center}
+<<label=fig6,fig=TRUE,echo=FALSE>>=
+plot(modelcompeteb,curvlab=c("Relapse/Progression","Death without relapse or progression"),xlab="Time (months)", ylab="Probability")
+@
+\end{center}
+\caption{CIF of relapse or progression and death without relapse or progression}
+\label{fig6}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+<<label=fig7,fig=TRUE,echo=FALSE>>=
+plot(modelcompetea,curvlab=c("Relapse","Death without relapse"),xlab="Time (months)", ylab="Probability")
+@
+\end{center}
+\caption{CIF of relapse and death without relapse (in patients with a complete remission post alloSCT)}
+\label{fig7}
+\end{figure}
+
+
 
 
 \end{document}

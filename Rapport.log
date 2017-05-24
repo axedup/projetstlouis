@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  23 MAY 2017 17:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  24 MAY 2017 18:25
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -649,13 +649,6 @@ G,.JBIG2,.JB2,.eps]
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (Rapport-concordance.tex)
-LaTeX Font Info:    Try loading font information for TS1+aer on input line 71.
-
-(C:/PROGRA~1/R/R-33~1.2/share/texmf/tex/latex\ts1aer.fd
-File: ts1aer.fd 
-)
-LaTeX Font Info:    Font shape `TS1/aer/m/n' in size <17.28> not available
-(Font)              Font shape `TS1/cmr/m/n' tried instead on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -693,10 +686,19 @@ g/pdftex.map}] (Rapport.lot)
 Underfull \vbox (badness 10000) detected at line 134
  []
 
-[4] [5] [6]
-LaTeX Font Info:    Font shape `TS1/aer/m/n' in size <10.95> not available
-(Font)              Font shape `TS1/cmr/m/n' tried instead on input line 281.
- [7] [8]
+[4]
+Underfull \vbox (badness 10000) detected at line 200
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 226
+ []
+
+[5] [6] [7]
+Underfull \vbox (badness 10000) detected at line 353
+ []
+
+[8] [9]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -729,97 +731,73 @@ LaTeX Font Info:    Font shape `TS1/aer/m/n' in size <10.95> not available
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-
-Underfull \vbox (badness 10000) detected at line 330
- []
-
-
-Overfull \hbox (384.50308pt too wide) in alignment at lines 333--356
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 356
- []
-
-
-Overfull \hbox (384.50308pt too wide) in alignment at lines 356--376
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (384.50308pt too wide) in alignment at lines 376--397
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[9
-
-
-]
-Overfull \hbox (384.50308pt too wide) in alignment at lines 397--418
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[10]
-Overfull \hbox (221.18292pt too wide) in alignment at lines 421--444
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[11]
-Underfull \vbox (badness 10000) detected at line 444
- []
-
-
-Overfull \hbox (221.18292pt too wide) in alignment at lines 444--464
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (221.18292pt too wide) in alignment at lines 464--484
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[12]
-Overfull \hbox (221.18292pt too wide) in alignment at lines 484--504
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (221.18292pt too wide) in alignment at lines 504--526
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-[13] [14] [15] <Rapport-fig1.pdf, id=59, 433.62pt x 433.62pt>
+ <Rapport-fig1.pdf, id=37, 433.62pt x 433.62pt>
 File: Rapport-fig1.pdf Graphic file (type pdf)
-
-<use Rapport-fig1.pdf>
-Package pdftex.def Info: Rapport-fig1.pdf used on input line 533.
+ <use Rapport-fig1.pdf>
+Package pdftex.def Info: Rapport-fig1.pdf used on input line 408.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
- [16
+
+[10
 
 
-] [17 <./Rapport-fig1.pdf>] (Rapport.aux) ) 
+
+
+ <./Rapport-fig1.pdf>] <Rapport-fig2.pdf, id=49, 433.62pt x 433.62pt>
+File: Rapport-fig2.pdf Graphic file (type pdf)
+
+<use Rapport-fig2.pdf>
+Package pdftex.def Info: Rapport-fig2.pdf used on input line 419.
+(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+ [11 <./Rapport-fig2.pdf>]
+<Rapport-fig3.pdf, id=58, 433.62pt x 433.62pt>
+File: Rapport-fig3.pdf Graphic file (type pdf)
+ <use Rapport-fig3.pdf>
+Package pdftex.def Info: Rapport-fig3.pdf used on input line 430.
+(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+
+<Rapport-fig4.pdf, id=59, 433.62pt x 433.62pt>
+File: Rapport-fig4.pdf Graphic file (type pdf)
+ <use Rapport-fig4.pdf>
+Package pdftex.def Info: Rapport-fig4.pdf used on input line 439.
+(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+
+<Rapport-fig5.pdf, id=60, 433.62pt x 433.62pt>
+File: Rapport-fig5.pdf Graphic file (type pdf)
+ <use Rapport-fig5.pdf>
+Package pdftex.def Info: Rapport-fig5.pdf used on input line 448.
+(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+
+<Rapport-fig6.pdf, id=61, 433.62pt x 433.62pt>
+File: Rapport-fig6.pdf Graphic file (type pdf)
+ <use Rapport-fig6.pdf>
+Package pdftex.def Info: Rapport-fig6.pdf used on input line 460.
+(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+
+<Rapport-fig7.pdf, id=62, 433.62pt x 433.62pt>
+File: Rapport-fig7.pdf Graphic file (type pdf)
+ <use Rapport-fig7.pdf>
+Package pdftex.def Info: Rapport-fig7.pdf used on input line 469.
+(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+ [12 <./Rapport-fig3.pdf>] [13 <./Rapport-fig4.pdf>] [14 <./Rapport-fig5.pdf>] 
+[15 <./Rapport-fig6.pdf>] [16 <./Rapport-fig7.pdf>] (Rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 12007 strings out of 493333
- 201405 string characters out of 3139188
- 319519 words of memory out of 3000000
- 15289 multiletter control sequences out of 15000+200000
- 27342 words of font info for 61 fonts, out of 3000000 for 9000
+ 12016 strings out of 493333
+ 201647 string characters out of 3139188
+ 289100 words of memory out of 3000000
+ 15297 multiletter control sequences out of 15000+200000
+ 26661 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,7n,53p,803b,301s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\adupont\AppData\Local\MiK
-TeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk> <C:\Users\adupont\AppDa
-ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1728.pk><C:/Program 
+ 43i,7n,53p,803b,305s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program 
 Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
-y10.pfb>
-Output written on Rapport.pdf (17 pages, 129682 bytes).
+ts/cm/cmr17.pfb>
+Output written on Rapport.pdf (16 pages, 149082 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
+ 130 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 10 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 40 words of extra memory for PDF output out of 10000 (max. 10000000)
 

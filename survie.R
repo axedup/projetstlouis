@@ -97,81 +97,79 @@ km_48<-ggplot()+ geom_step(data=evenement_48,aes(x=time, y=ev),color="black", di
 # "relapse_progression_transplant_c","anapathc2")
 
 
-for (i in c("sex_donor","sex_patient","age_greffec",
-            "delai_dia_alloc","stade_dia","stade_diac",
-            "disease_status_at_transplantc2",
-            "disease_status_at_transplantc",
-            "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2","karnofsky_greffec3" ,
-            "previous_autoc",
-            "programme_autoalloc","rechute_prem_greffec",
-            "nbr_lignes_avt_alloc","nbr_lignes_avt_alloc2",
-            "donnor","hla_matchc","hla_match","sex_dp3",
-            "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","condit_details",
-            "manipu_cells","nbr_donneurc","manipu_cells",
-            "agvhd","agvhd3","agvhd_grade","cgvhd",
-            "cgvhd_grade","prise_greffe","cause_death_c","best_response_after_allo",
-            "relapse_progression_transplant_c","anapathc2")
-){
-  
-a<-summary(coxph( s_48 ~ greffe[,i],data=greffe))
-assign(paste(i, "m_48", sep="_"),a)
-capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"m.txt",sep=""))
-ss<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "log")
-capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"ss.txt",sep=""))
-ssi<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "identity")
-ssk<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "km")
-capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"identity.txt",sep=""))
-
-ssu<-survdiff( s_48 ~ greffe[,i],data=greffe, rho=1)
-pw<-(1-pchisq(ssu$chisq, 1))
-pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
-#par(mfrow=c(2,2))
-plot(ss[1:nlevels(greffe[,i])-1,])
-dev.off()
-pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
-
-plot(survfit( s_48 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
-text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
-
-dev.off()    
-
-pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
-
-plot(survfit( s_48 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
-text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
-
-dev.off() 
-pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
-
-
-plot(ssi[1:nlevels(greffe[,i])-1,])
-dev.off() 
-}
-
-anapath<-summary(coxph( s ~ sex_dp2,data=greffe))
-anapath
-plot(survfit( s ~ strata(sex_dp2),data=greffe),fun="log" ,lty=1:4, col=2:5)
-e<-cox.zph(coxph( s ~ sex_dp2,data=greffe), transform="identity")
-plot(e, main="Identité")
-survdiff (s ~ sex_dp2, data=greffe, rho=1)
-
-anapath_t<-cox.zph(,transform = "log")
-plot(anapath_t[1:nlevels(greffe$sex_dp2)-1,])
-
-
-
+# for (i in c("sex_donor","sex_patient","age_greffec",
+#             "delai_dia_alloc","stade_dia","stade_diac",
+#             "disease_status_at_transplantc2",
+#             "disease_status_at_transplantc",
+#             "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2","karnofsky_greffec3" ,
+#             "previous_autoc",
+#             "programme_autoalloc","rechute_prem_greffec",
+#             "nbr_lignes_avt_alloc","nbr_lignes_avt_alloc2",
+#             "donnor","hla_matchc","hla_match","sex_dp3",
+#             "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","condit_details",
+#             "manipu_cells","nbr_donneurc","manipu_cells",
+#             "agvhd","agvhd3","agvhd_grade","cgvhd",
+#             "cgvhd_grade","prise_greffe","cause_death_c","best_response_after_allo",
+#             "relapse_progression_transplant_c","anapathc2")
+# ){
+#   
+# a<-summary(coxph( s_48 ~ greffe[,i],data=greffe))
+# assign(paste(i, "m_48", sep="_"),a)
+# capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"m.txt",sep=""))
+# ss<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "log")
+# capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"ss.txt",sep=""))
+# ssi<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "identity")
+# ssk<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "km")
+# capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"identity.txt",sep=""))
+# 
+# ssu<-survdiff( s_48 ~ greffe[,i],data=greffe, rho=1)
+# pw<-(1-pchisq(ssu$chisq, 1))
+# pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
+# #par(mfrow=c(2,2))
+# plot(ss[1:nlevels(greffe[,i])-1,])
+# dev.off()
+# pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
+# 
+# plot(survfit( s_48 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
+# text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+# 
+# dev.off()    
+# 
+# pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
+# 
+# plot(survfit( s_48 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
+# text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+# 
+# dev.off() 
+# pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats48/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
+# 
+# 
+# plot(ssi[1:nlevels(greffe[,i])-1,])
+# dev.off() 
+# }
+# 
+# anapath<-summary(coxph( s ~ sex_dp2,data=greffe))
+# anapath
+# plot(survfit( s ~ strata(sex_dp2),data=greffe),fun="log" ,lty=1:4, col=2:5)
+# e<-cox.zph(coxph( s ~ sex_dp2,data=greffe), transform="identity")
+# plot(e, main="Identité")
+# survdiff (s ~ sex_dp2, data=greffe, rho=1)
+# 
+# anapath_t<-cox.zph(,transform = "log")
+# plot(anapath_t[1:nlevels(greffe$sex_dp2)-1,])
+# 
 
 
 
 
 
 
-### Rechute/decès uniquement chez ceux qui ont un rémission complèteou partielle
 
-rec<-Surv(event=greffe$rechute[greffe$best_response_after_allo %in%
-                                 c("cr","PR")& !greffe$j0=="2012-08-28"],
-          time=greffe$delai_rechute[greffe$best_response_after_allo %in%
-                                      c("cr","PR")& !greffe$j0=="2012-08-28"])
+
+### Rechute/decès uniquement chez ceux qui ont un rémission complète ou partielle
+
+rec<-Surv(event=greffe$rechute[greffe$best_response_after_allo %in% c("CR")],
+          time=greffe$delai_rechute[greffe$best_response_after_allo %in% c("CR")])
 
 er <- survfit( rec ~ 1)
 
@@ -179,17 +177,17 @@ er <- survfit( rec ~ 1)
 rer<-summary(er,censored = TRUE)
 plot(er, xlab="Time in months",ylab="Probability")
 
-censure<-as.data.frame(cbind(rer$time[rer$n.event==0],rer$surv[rer$n.event==0] ))
-colnames(censure)<-c("time","ce")
-evenement<-as.data.frame(cbind(rer$time,rer$surv ))
-colnames(evenement)<-c("time","ev")
-intervalle<-as.data.frame(cbind(rer$time,rer$upper
+censurem<-as.data.frame(cbind(rer$time[rer$n.event==0],rer$surv[rer$n.event==0] ))
+colnames(censurem)<-c("time","ce")
+evenementm<-as.data.frame(cbind(rer$time,rer$surv ))
+colnames(evenementm)<-c("time","ev")
+intervallem<-as.data.frame(cbind(rer$time,rer$upper
                                 ,rer$lower ))
-colnames(intervalle)<-c("time","haut","bas")
-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="hv")  +
-  geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
-  geom_step(data=intervalle,aes(x=time, y=haut),color="black" ,direction="hv")+
-  geom_step(data=intervalle,aes(x=time, y=bas),color="black", direction="hv")+
+colnames(intervallem)<-c("time","haut","bas")
+km_rechute<-ggplot()+ geom_step(data=evenementm,aes(x=time, y=ev),color="black", direction="hv")  +
+  geom_ribbon(data=intervallem, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
+  geom_step(data=intervallem,aes(x=time, y=haut),color="black" ,direction="hv")+
+  geom_step(data=intervallem,aes(x=time, y=bas),color="black", direction="hv")+
   scale_x_continuous(breaks=c(0,20,40,60,80,100),expand = c(0, 0))+
   scale_size_manual(values=c(1.5,1.5))+
   
@@ -210,9 +208,9 @@ ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="h
 
 
 ### PFS (rechute, progression, deces)
-pfs<-Surv(event=greffe$rechute_progressionc,time=greffe$delai_pfs)
+cpfs<-Surv(event=greffe$rechute_progressionc,time=greffe$delai_pfs)
 
-e <- survfit( pfs ~ 1)
+e <- survfit( cpfs ~ 1)
 
 
 ree<-summary(e,censored = TRUE)
@@ -227,7 +225,7 @@ intervallee<-as.data.frame(cbind(ree$time,ree$upper
 colnames(intervallee)<-c("time","haut","bas")
 
 
-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="hv")  +
+pfs_km<-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="hv")  +
   geom_step(data=evenemente,aes(x=time, y=ev),color="blue", direction="hv",linetype = "dashed")  +
   #geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
   #geom_step(data=intervalle,aes(x=time, y=haut),color="black" ,direction="hv")+
@@ -251,7 +249,7 @@ ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="h
   coord_cartesian(ylim=c(0,1))+
   annotate(geom="text", x=90, y=0.55, label="OS",
            color="black")+
-  annotate(geom="text", x=90, y=0.7, label="PFS",
+  annotate(geom="text", x=90, y=0.5, label="PFS",
            color="blue")+
   theme_classic()
 
@@ -274,7 +272,7 @@ intervalleefs<-as.data.frame(cbind(reefs$time,reefs$upper
 colnames(intervalleefs)<-c("time","haut","bas")
 
 
-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="hv")  +
+efs_km<-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="hv")  +
   geom_step(data=evenementeefs,aes(x=time, y=ev),color="blue", direction="hv",linetype = "dashed")  +
   #geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
   #geom_step(data=intervalle,aes(x=time, y=haut),color="black" ,direction="hv")+
@@ -317,7 +315,7 @@ afs_48 <- survfit( efs_48 ~ 1)
 refs_48<-summary(afs_48,censored = TRUE)
 plot(afs_48, xlab="Time in months",ylab="Probability")
 
-censure_48e<-as.data.frame(cbind(refs_48$time[refs_48$n.event==0],refs$surv[refs_48$n.event==0] ))
+censure_48e<-as.data.frame(cbind(refs_48$time[refs_48$n.event==0],refs_48$surv[refs_48$n.event==0] ))
 colnames(censure_48e)<-c("time","ce")
 evenement_48e<-as.data.frame(cbind(refs_48$time,refs_48$surv ))
 colnames(evenement_48e)<-c("time","ev")
@@ -353,56 +351,56 @@ ggplot()+ geom_step(data=evenement_48,aes(x=time, y=ev),color="black", direction
            color="blue")+
   theme_classic()
 
-for (i in c("sex_donor","sex_patient","age_greffec",
-            "delai_dia_alloc","stade_dia","stade_diac",
-            "disease_status_at_transplantc2",
-            "disease_status_at_transplantc",
-            "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2","karnofsky_greffec3" ,
-            "previous_autoc",
-            "programme_autoalloc","rechute_prem_greffec",
-            "nbr_lignes_avt_alloc","nbr_lignes_avt_alloc2",
-            "donnor","hla_matchc","hla_match","sex_dp3",
-            "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","condit_details",
-            "manipu_cells","nbr_donneurc","manipu_cells",
-            "agvhd","agvhd3","agvhd_grade","cgvhd",
-            "cgvhd_grade","prise_greffe","cause_death_c","best_response_after_allo",
-            "relapse_progression_transplant_c","anapathc2")
-){
-  
-  a<-summary(coxph( efs_48 ~ greffe[,i],data=greffe))
-  assign(paste(i, "efs_48", sep="_"),a)
-  capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"m.txt",sep=""))
-  ss<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "log")
-  capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"ss.txt",sep=""))
-  ssi<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "identity")
-  ssk<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "km")
-  capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"identity.txt",sep=""))
-  
-  ssu<-survdiff( s_48 ~ greffe[,i],data=greffe, rho=1)
-  pw<-(1-pchisq(ssu$chisq, 1))
-  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
-  #par(mfrow=c(2,2))
-  plot(ss[1:nlevels(greffe[,i])-1,])
-  dev.off()
-  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
-  
-  plot(survfit( s_48 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
-  text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
-  
-  dev.off()    
-  
-  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
-  
-  plot(survfit( s_48 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
-  text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
-  
-  dev.off() 
-  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
-  
-  
-  plot(ssi[1:nlevels(greffe[,i])-1,])
-  dev.off() 
-}
+# for (i in c("sex_donor","sex_patient","age_greffec",
+#             "delai_dia_alloc","stade_dia","stade_diac",
+#             "disease_status_at_transplantc2",
+#             "disease_status_at_transplantc",
+#             "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2","karnofsky_greffec3" ,
+#             "previous_autoc",
+#             "programme_autoalloc","rechute_prem_greffec",
+#             "nbr_lignes_avt_alloc","nbr_lignes_avt_alloc2",
+#             "donnor","hla_matchc","hla_match","sex_dp3",
+#             "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","condit_details",
+#             "manipu_cells","nbr_donneurc","manipu_cells",
+#             "agvhd","agvhd3","agvhd_grade","cgvhd",
+#             "cgvhd_grade","prise_greffe","cause_death_c","best_response_after_allo",
+#             "relapse_progression_transplant_c","anapathc2")
+# ){
+#   
+#   a<-summary(coxph( efs_48 ~ greffe[,i],data=greffe))
+#   assign(paste(i, "efs_48", sep="_"),a)
+#   capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"m.txt",sep=""))
+#   ss<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "log")
+#   capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"ss.txt",sep=""))
+#   ssi<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "identity")
+#   ssk<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "km")
+#   capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"identity.txt",sep=""))
+#   
+#   ssu<-survdiff( s_48 ~ greffe[,i],data=greffe, rho=1)
+#   pw<-(1-pchisq(ssu$chisq, 1))
+#   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#   #par(mfrow=c(2,2))
+#   plot(ss[1:nlevels(greffe[,i])-1,])
+#   dev.off()
+#   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#   
+#   plot(survfit( s_48 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
+#   text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+#   
+#   dev.off()    
+#   
+#   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#   
+#   plot(survfit( s_48 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
+#   text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+#   
+#   dev.off() 
+#   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs48/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#   
+#   
+#   plot(ssi[1:nlevels(greffe[,i])-1,])
+#   dev.off() 
+# }
 
 
 
@@ -513,56 +511,56 @@ ggplot()+ geom_step(data=evenement_48,aes(x=time, y=ev),color="black", direction
            color="blue")+
   theme_classic()
 
-for (i in c("sex_donor","sex_patient","age_greffec",
-            "delai_dia_alloc","stade_dia","stade_diac",
-            "disease_status_at_transplantc2",
-            "disease_status_at_transplantc",
-            "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2","karnofsky_greffec3" ,
-            "previous_autoc",
-            "programme_autoalloc","rechute_prem_greffec",
-            "nbr_lignes_avt_alloc","nbr_lignes_avt_alloc2",
-            "donnor","hla_matchc","hla_match","sex_dp3",
-            "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","condit_details",
-            "manipu_cells","nbr_donneurc","manipu_cells",
-            "agvhd","agvhd3","agvhd_grade","cgvhd",
-            "cgvhd_grade","prise_greffe","cause_death_c","best_response_after_allo",
-            "relapse_progression_transplant_c","anapathc2")
-){
-  
-  a<-summary(coxph( trm_48 ~ greffe[,i],data=greffe))
-  assign(paste(i, "rm_48", sep="_"),a)
-  capture.output(a, file=paste("F:/projetlo/resultatstrm48/",i,"m.txt",sep=""))
-  ss<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "log")
-  capture.output(ss, file=paste("F:/projetlo/resultatstrm48/",i,"ss.txt",sep=""))
-  ssi<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "identity")
-  ssk<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "km")
-  capture.output(ssi, file=paste("F:/projetlo/resultatstrm48/",i,"identity.txt",sep=""))
-  
-  ssu<-survdiff( s_48 ~ greffe[,i],data=greffe, rho=1)
-  pw<-(1-pchisq(ssu$chisq, 1))
-  pdf(paste("F:/projetlo/resultatstrm48/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
-  #par(mfrow=c(2,2))
-  plot(ss[1:nlevels(greffe[,i])-1,])
-  dev.off()
-  pdf(paste("F:/projetlo/resultatstrm48/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
-  
-  plot(survfit( s_48 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
-  text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
-  
-  dev.off()    
-  
-  pdf(paste("F:/projetlo/resultatstrm48/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
-  
-  plot(survfit( s_48 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
-  text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
-  
-  dev.off() 
-  pdf(paste("F:/projetlo/resultatstrm48/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
-  
-  
-  plot(ssi[1:nlevels(greffe[,i])-1,])
-  dev.off() 
-}
+# for (i in c("sex_donor","sex_patient","age_greffec",
+#             "delai_dia_alloc","stade_dia","stade_diac",
+#             "disease_status_at_transplantc2",
+#             "disease_status_at_transplantc",
+#             "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2","karnofsky_greffec3" ,
+#             "previous_autoc",
+#             "programme_autoalloc","rechute_prem_greffec",
+#             "nbr_lignes_avt_alloc","nbr_lignes_avt_alloc2",
+#             "donnor","hla_matchc","hla_match","sex_dp3",
+#             "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","condit_details",
+#             "manipu_cells","nbr_donneurc","manipu_cells",
+#             "agvhd","agvhd3","agvhd_grade","cgvhd",
+#             "cgvhd_grade","prise_greffe","cause_death_c","best_response_after_allo",
+#             "relapse_progression_transplant_c","anapathc2")
+# ){
+#   
+#   a<-summary(coxph( trm_48 ~ greffe[,i],data=greffe))
+#   assign(paste(i, "rm_48", sep="_"),a)
+#   capture.output(a, file=paste("F:/projetlo/resultatstrm48/",i,"m.txt",sep=""))
+#   ss<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "log")
+#   capture.output(ss, file=paste("F:/projetlo/resultatstrm48/",i,"ss.txt",sep=""))
+#   ssi<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "identity")
+#   ssk<-cox.zph( coxph( s_48 ~ greffe[,i],data=greffe),transform = "km")
+#   capture.output(ssi, file=paste("F:/projetlo/resultatstrm48/",i,"identity.txt",sep=""))
+#   
+#   ssu<-survdiff( s_48 ~ greffe[,i],data=greffe, rho=1)
+#   pw<-(1-pchisq(ssu$chisq, 1))
+#   pdf(paste("F:/projetlo/resultatstrm48/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#   #par(mfrow=c(2,2))
+#   plot(ss[1:nlevels(greffe[,i])-1,])
+#   dev.off()
+#   pdf(paste("F:/projetlo/resultatstrm48/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#   
+#   plot(survfit( s_48 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
+#   text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+#   
+#   dev.off()    
+#   
+#   pdf(paste("F:/projetlo/resultatstrm48/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#   
+#   plot(survfit( s_48 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
+#   text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+#   
+#   dev.off() 
+#   pdf(paste("F:/projetlo/resultatstrm48/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#   
+#   
+#   plot(ssi[1:nlevels(greffe[,i])-1,])
+#   dev.off() 
+# }
 
 
 
@@ -620,20 +618,25 @@ ggplot()+
 # pour rechute/ deces : pb d'un patient qui a une première greffe échec car la greffe n'a pas prise
 # on la supprime et on ne garde que la seconde
 
-modelcompete<-cuminc(greffe$delai_rechute,greffe$rechute_dc,cencode=0,subset=greffe$best_response_after_allo %in%
-                       c("cr","PR")& !greffe$j0=="2012-08-28")
-plot(modelcompete,curvlab=c("Relapse","Death"),xlab="Time (months)", ylab="Probability")
+modelcompetea<-cuminc(greffe$delai_rechute,greffe$rechute_dc,cencode=0,subset=greffe$best_response_after_allo %in%
+                       c("CR"))
+plot(modelcompetea,curvlab=c("Relapse","Death"),xlab="Time (months)", ylab="Probability")
 
 
 # pour rechute/p deces : pb d'un patient qui a une première greffe échec car la greffe n'a pas prise
 # on la supprime et on ne garde que la seconde
 
-modelcompete<-cuminc(greffe$delai_pfs,greffe$rechute_progression_dc,cencode=0,subset= !greffe$j0=="2012-08-28")
-plot(modelcompete,curvlab=c("Relapse/Progression","Death"),xlab="Time (months)", ylab="Probability")
+modelcompeteb<-cuminc(greffe$delai_pfs,greffe$rechute_progression_dc,cencode=0)
+plot(modelcompeteb,curvlab=c("Relapse/Progression","Death without relapse or progression"),xlab="Time (months)", ylab="Probability")
+
+### compétions cause de deces 
+
+modelcompetec<-cuminc(greffe$delai_dc,greffe$cause_death_c2,cencode=0)
+plot(modelcompetec,curvlab=c("Related HSCT Death","Non-related HSCT Death"),xlab="Time (months)", ylab="Probability")
 
 
-
-modelcompete<-cuminc(greffe$delai_rechutepg,greffe$rechute_progression_ghvd_dc,cencode=0,subset= !greffe$j0=="2012-08-28")
+### GVHD , relapse, deces
+modelcompete<-cuminc(greffe$delai_rechutepg,greffe$rechute_progression_ghvd_dc,cencode=0)
 plot(modelcompete,curvlab=c("GVHD","Relapse/Progression","Death"),xlab="Time (months)", ylab="Probability")
 
 

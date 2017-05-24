@@ -13,10 +13,10 @@ controle<-merge(greffe,patients,by=c("num_id","first_name","family_name"))
 
 # 286 greffe
 # 285 patients 
+############# on vire le patient a deux greffe#####
 
-
-greffe<-greffe[!is.na(greffe$num_id),]
-
+greffe<-greffe[!greffe$ddn=="11/08/1964",]
+####
 table(greffe$ddn)
 table(greffe$j0)
 table(greffe$date_dia_l)
@@ -113,7 +113,7 @@ table(greffe$prise_greffe1,exclude = NULL)
 table(patients$survival_status_FU.)
 levels(patients$survival_status_FU)<-c("alive", "alive", "dead", "dead")
 table(patients$survival_status_FU,exclude=NULL)
-patients$deces<-ifelse(patients$survival_status_FU %in% c("alive"),0,1)
+    patients$deces<-ifelse(patients$survival_status_FU %in% c("alive"),0,1)
 table(patients$deces,exclude=NULL)
 
 
@@ -180,7 +180,7 @@ table(greffe$sex_patient)
 
 
 levels(greffe$tbi)<-c("No", "No", "Yes")
-levels(greffe$best_response_after_allo)<-c("cr", "cr", "cr", "Not evaluable",
+levels(greffe$best_response_after_allo)<-c("CR", "CR", "CR", "Not evaluable",
                                            "Not evaluable", 
                                            "Not evaluated", "PD", "PR", NA)
 
@@ -205,7 +205,7 @@ table(greffe$manipu_cells,exclude=NULL)
 
 
 table(greffe$cause_death)
-levels(greffe$cause_death)<-c("HSCT related pneumopathie interstititelle", "HSCT related MAT", 
+levels(greffe$cause_death)<-c("HSCT related ILD", "HSCT related MAT", 
   "HSCT related MVO", "HSCT related", "HSCT related infection adénovirus", 
   "HSCT related IRA sur toxicité ciclosporine", "HSCT related MOF", 
   "HSCT related pneumopathie interstititelle", "HSCT related PTLD", 
@@ -215,8 +215,8 @@ levels(greffe$cause_death)<-c("HSCT related pneumopathie interstititelle", "HSCT
   "HSCT related infection", "HSCT related infection ", "HSCT relatedinfection CMV", 
   "HSCT related infection CMV+ grade 4 GVHdig", "HSCT related infection fongique", 
   "HSCT related infection pulmonaire", "HSCT related infection virale", 
-  "HSCT related MOF",NA, "Other", "relapse or progression of original disease", 
-  "relapse or progression of original disease", "Secondary malignancy","unknown")
+  "HSCT related MOF",NA, "Other", "Relapse or progression of original disease", 
+  "Relapse or progression of original disease", "Secondary malignancy","Unknown")
 table(greffe$cause_death)
 
 table(greffe$cause_death,greffe$cause_deces)
@@ -241,16 +241,20 @@ greffe$cause_death_c<-ifelse(grepl(pat="GVHd",greffe$cause_death) &
 greffe$cause_death_c<-ifelse(grepl(pat="toxicité",greffe$cause_death) 
                              & greffe$cause_deces==2 &
                                !is.na(greffe$cause_deces),
-                             "HSCT-toxicité",greffe$cause_death_c)
+                             "HSCT-toxicity",greffe$cause_death_c)
 
 table(greffe$cause_death_c,greffe$cause_death)
 table(greffe$cause_death_c)
 
 greffe$cause_death_c<-as.factor(greffe$cause_death_c)
 
-greffe$cause_death_c2<-ifelse(grepl(pat="HSCT",greffe$cause_death_c)& !is.na(greffe$cause_death_c),1,0) 
-table(greffe$cause_death_c2,exclude=NULL)
+# 1 deces HSCT, 1 deces autre, 0 pas de deces  # 
 
+greffe$cause_death_c2<-ifelse(grepl(pat="HSCT",greffe$cause_death_c)& !is.na(greffe$cause_death_c),1,0) 
+greffe$cause_death_c2<-ifelse(greffe$deces==1 & !greffe$cause_death_c2==1,2,greffe$cause_death_c2) 
+
+table(greffe$cause_death_c2,exclude=NULL)
+table(greffe$deces,exclude=NULL)
 
 
 
@@ -268,7 +272,7 @@ greffe$nbr_lignes_avt_alloc2<-NA
 greffe$nbr_lignes_avt_alloc2<-ifelse(greffe$nbr_lignes_avt_allo <=3 & !is.na(greffe$nbr_lignes_avt_allo),
                                     greffe$nbr_lignes_avt_allo, greffe$nbr_lignes_avt_alloc2)
 greffe$nbr_lignes_avt_alloc2<-ifelse(greffe$nbr_lignes_avt_allo >3 & !is.na(greffe$nbr_lignes_avt_allo),
-                                    4, greffe$nbr_lignes_avt_alloc2)
+                                   ">=4", greffe$nbr_lignes_avt_alloc2)
 greffe$nbr_lignes_avt_alloc2<-as.factor(greffe$nbr_lignes_avt_alloc2)
 
 
@@ -478,7 +482,7 @@ greffe$delai_rechutepg<-difftime(greffe$date_rechute_progression_gvhd,greffe$j0)
 
 ### on va exclure la première greffe du patient greffé deux fois car ça première greffe est 
 #un échec pour l'analyse 
-quali(x=c("sex_patient"),nomx=c("Sexe"), data=patients,RAPPORT=F,SAVEFILE=T,chemin="C:/Users/Louise/Documents/Desespoir/Bases/resultats/")
+#quali(x=c("sex_patient"),nomx=c("Sexe"), data=patients,RAPPORT=F,SAVEFILE=T,chemin="C:/Users/Louise/Documents/Desespoir/Bases/resultats/")
 
 
 
