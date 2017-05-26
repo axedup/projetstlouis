@@ -1,7 +1,9 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Overall survival}}{13}
-\contentsline {figure}{\numberline {2}{\ignorespaces Event-free survival}}{14}
-\contentsline {figure}{\numberline {3}{\ignorespaces Progression-free survival}}{15}
-\contentsline {figure}{\numberline {4}{\ignorespaces Relapse in patients with a complete remission post alloSCT)}}{16}
-\contentsline {figure}{\numberline {5}{\ignorespaces CIF of Related HSCT Death and Non-related HSCT Death}}{17}
-\contentsline {figure}{\numberline {6}{\ignorespaces CIF of relapse or progression and death without relapse or progression}}{18}
-\contentsline {figure}{\numberline {7}{\ignorespaces CIF of relapse and death without relapse (in patients with a complete remission post alloSCT)}}{20}
+\contentsline {figure}{\numberline {1}{\ignorespaces Overall survival\relax }}{14}
+\contentsline {figure}{\numberline {2}{\ignorespaces Event-free survival\relax }}{15}
+\contentsline {figure}{\numberline {3}{\ignorespaces Progression-free survival\relax }}{16}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Relapse in patients with a complete remission post alloSCT}}}{21}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {PFS in patients with a complete remission post alloSCT}}}{21}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {EFS in patients with a complete remission post alloSCT}}}{21}
+\contentsline {figure}{\numberline {4}{\ignorespaces CIF of Related HSCT Death and Non-related HSCT Death\relax }}{22}
+\contentsline {figure}{\numberline {5}{\ignorespaces CIF of relapse or progression and death without relapse or progression\relax }}{23}
+\contentsline {figure}{\numberline {6}{\ignorespaces CIF of relapse and death without relapse (in patients with a complete remission post alloSCT)\relax }}{24}

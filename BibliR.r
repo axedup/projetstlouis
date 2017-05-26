@@ -102,15 +102,18 @@ return(test)
 ## 
 result.cox <- function (modele)
 {
-      summary(modele)$conf.int ->  modele.detail
-      res <- data.frame (Variable = names(modele$coef))
-      res$HR <- round(modele.detail[,1],2)
-      res$IC <- paste("[" , round(modele.detail[,3],2) , " - " , round(modele.detail[,4],2) ,"]",sep="")
-      for (i in 1:length(res$IC))
-      {
-        res$pval[i] <- as.character(format.pv(summary(modele)$coef[i,5]))
-      }
-      return(res)
+  summary(modele)$conf.int ->  modele.detail
+  res <- data.frame (Variable = names(modele$coef))
+  res$HR <- round(modele.detail[,1],2)
+  res$IC <- paste("[" , round(modele.detail[,3],2) , " - " , round(modele.detail[,4],2) ,"]",sep="")
+  for (j in 1:length(res$IC))
+  {
+    res$pval[j] <- as.character(format.pv(summary(modele)$coef[j,5]))
+  }
+  res$Variable<- gsub("greffe\\[, i\\]","",res$Variable)
+  titre<-data.frame(Variable=i,HR=NA,IC=NA,pval=NA)
+  res<-rbind(titre,res)
+  return(res)
 }
 
 ###############################################################################################################

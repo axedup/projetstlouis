@@ -17,6 +17,9 @@
 \usepackage{Sweave}
 \usepackage{lscape}
 \usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{caption}
 %\usepackage[pdftex,bookmarks=true,bookmarksnumbered=true,
 %            hypertexnames=false,breaklinks=true,
 %            linkbordercolor={0 0 1}]{hyperref}
@@ -157,9 +160,10 @@ s<-Surv(event=greffe$deces,time=as.numeric(greffe$delai_dc))
 
 \subsection{Descriptive results}
  \Sexpr{nrow(greffe)+1} patients were initially selected.We excluded 1 patient that underwent two alloSCT. The final analysis was perfomed on \Sexpr{nrow(greffe)} patients and \Sexpr{nrow(greffe)} grafts.
+ \subsubsection{Patients characteristics}
 <<label=tab:condi ,echo=FALSE,results=tex>>=
 print(xtable (patientg,
-caption= "Patients",
+caption= "Patients characteristics",
 label="tab:condi",
 table.placement="htp",caption.placement="top"),
 tabular.environment="longtable",
@@ -167,10 +171,10 @@ floating=F,
 include.rownames=F,
  sanitize.text.function = function(x){x}  )
 @
-
+ \subsubsection{Treatments before alloSCT}
 <<label=tab:avtg ,echo=FALSE,results=tex>>=
 print(xtable (avt_greffe,
-caption= "Treatment before alloSCT",
+caption= "Treatments before alloSCT",
 label="tab:avtg",
 table.placement="htp",caption.placement="top"),
 tabular.environment="longtable",
@@ -178,10 +182,11 @@ floating=F,
 include.rownames=F,
  sanitize.text.function = function(x){x}  )
 @
-
+\pagebreak
+ \subsubsection{Transplant conditions}
 <<label=tab:g ,echo=FALSE,results=tex>>=
 print(xtable (greffed,
-caption= "AlloSCT",
+caption= "Transplant conditions",
 label="tab:g",
 table.placement="htp",caption.placement="top"),
 tabular.environment="longtable",
@@ -190,7 +195,8 @@ include.rownames=F,
  sanitize.text.function = function(x){x}  )
 @
 
-
+\pagebreak
+\subsubsection{Post-AlloSCT Response}
 <<label=tab:pg ,echo=FALSE,results=tex>>=
 print(xtable (post_greffe,
 caption= "Post-AlloSCT Response",
@@ -289,15 +295,38 @@ pfs_km
 
 \pagebreak
 Relapse at 1 year was \Sexpr{round(rer$surv[which.min((rer$time-12)<0)],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-12)<0)],2)} - \Sexpr{round(rer$upper[which.min((rer$time-12)<0)],2)}), was \Sexpr{round(rer$surv[which.min((rer$time-24)<0)],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-24)<0)],2)} - \Sexpr{round(rer$upper[which.min((rer$time-24)<0)],2)}) at 2 years. Relapse at 4 years was \Sexpr{round(rer$surv[which.min((rer$time-48)<0)],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-48)<0)],2)} - \Sexpr{round(rer$upper[which.min((rer$time-48)<0)],2)}).
-\begin{figure}[h]
-\begin{center}
-<<label=fig4,fig=TRUE,echo=FALSE>>=
+
+\begin{figure}[h!]
+
+\subfloat[Relapse in patients with a complete remission post alloSCT]{
+<<label=figg, fig=TRUE, echo=FALSE, include=FALSE>>=
 km_rechute
 @
-\end{center}
-\caption{Relapse in patients with a complete remission post alloSCT)}
-\label{fig4}
+\includegraphics[width=0.4\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf}
+}
+\qquad
+
+\subfloat[PFS in patients with a complete remission post alloSCT]{
+<<label=figg2, fig=TRUE, echo=FALSE, include=FALSE>>=
+pfs_km_cr
+@
+\includegraphics[width=0.4\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf}
+}
+\qquad
+
+
+\subfloat[EFS in patients with a complete remission post alloSCT]{
+ 
+<<label=xcube, fig=TRUE, echo=FALSE, include=FALSE>>=
+efs_km_cr
+@
+ 
+\includegraphics[width=0.4\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf}}
+
 \end{figure}
+
+
+
 
 \pagebreak
 CIF for related HSCT death at 1 years was \Sexpr{round(modelcompetec[[1]]$est[which.min((modelcompetec[[1]]$time-12)<0)],2)}, at 2 years  \Sexpr{round(modelcompetec[[1]]$est[which.min((modelcompetec[[1]]$time-24)<0)],2)}.
@@ -328,6 +357,7 @@ plot(modelcompeteb,curvlab=c("Relapse/Progression","Death without relapse or pro
 
 \pagebreak
 CIF for relapse at 1 year was \Sexpr{round(modelcompetea[[1]]$est[which.min((modelcompetea[[1]]$time-12)<0)],2)}, at 2 years  \Sexpr{round(modelcompetea[[1]]$est[which.min((modelcompetea[[1]]$time-24)<0)],2)}. CIF for death without relapse  at 1 year was \Sexpr{round(modelcompetea[[2]]$est[which.min((modelcompetea[[2]]$time-12)<0)],2)}, at 2 years  \Sexpr{round(modelcompetea[[2]]$est[which.min((modelcompetea[[2]]$time-24)<0)],2)}. 
+
 \begin{figure}[h]
 \begin{center}
 <<label=fig7,fig=TRUE,echo=FALSE>>=
@@ -337,8 +367,6 @@ plot(modelcompetea,curvlab=c("Relapse","Death without relapse"),xlab="Time (mont
 \caption{CIF of relapse and death without relapse (in patients with a complete remission post alloSCT)}
 \label{fig7}
 \end{figure}
-
-
 
 
 \end{document}

@@ -205,6 +205,107 @@ km_rechute<-ggplot()+ geom_step(data=evenementm,aes(x=time, y=ev),color="black",
   coord_cartesian(ylim=c(0,1))+
   theme_classic()
 
+### pfs REMISSION COMPLETE
+
+
+cpfscr<-Surv(event=greffe$rechute_progressionc[greffe$best_response_after_allo %in% c("CR")],
+           time=greffe$delai_pfs[greffe$best_response_after_allo %in% c("CR")])
+
+ecr <- survfit( cpfscr ~ 1)
+
+
+reecr<-summary(ecr,censored = TRUE)
+plot(ecr, xlab="Time in months",ylab="Probability")
+
+censureecr<-as.data.frame(cbind(reecr$time[reecr$n.event==0],reecr$surv[reecr$n.event==0] ))
+colnames(censureecr)<-c("time","ce")
+evenementecr<-as.data.frame(cbind(reecr$time,reecr$surv ))
+colnames(evenementecr)<-c("time","ev")
+intervalleecr<-as.data.frame(cbind(reecr$time,reecr$upper
+                                 ,reecr$lower ))
+colnames(intervalleecr)<-c("time","haut","bas")
+
+
+pfs_km_cr<-ggplot()+ #geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="hv")  +
+  geom_step(data=evenementecr,aes(x=time, y=ev),color="black", direction="hv")  +
+  #geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
+  #geom_step(data=intervalle,aes(x=time, y=haut),color="black" ,direction="hv")+
+  #geom_step(data=intervalle,aes(x=time, y=bas),color="black", direction="hv")+
+  scale_x_continuous(breaks=c(0,20,40,60,80,100),expand = c(0, 0))+
+  scale_size_manual(values=c(1.5,1.5))+
+  
+  geom_text(x=80, y=0.55, label="OS")+
+  geom_text(x=80, y=0.45, label="EFS")+
+  #geom_point(data=censure, aes(x=time, y=ce),shape=3,size=1 )+
+  #ggtitle("Durée de vie des implants") +
+  xlab("Time (Months)")+
+  ylab("Probability")+
+  #geom_step(data=gri,aes(x=time, y=ics), direction="hv",color="gray10",linetype="dashed" )+
+  #  geom_step(data=gri,aes(x=time, y=ici), direction="hv",color="gray10",linetype="dashed" )+
+  #  geom_step(data=gci,aes(x=time, y=ics), direction="hv",color="black",linetype="dashed" )+
+  #  geom_step(data=gci,aes(x=time, y=ici), direction="hv",color="black",linetype="dashed" )+
+  #
+  #scale_colour_manual("",values = c("Rupture"="blue", "Autres causes"="black"))+annotate(geom="text", x=52, y=0.91, label="Tous les parcours",color="black", size=4)+coord_cartesian(ylim=c(0,1)) +
+  scale_y_continuous(breaks=c(0,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),expand = c(0, 0))+
+  coord_cartesian(ylim=c(0,1))+
+  annotate(geom="text", x=90, y=0.60, label="PFS",
+           color="black")+
+  #annotate(geom="text", x=90, y=0.5, label="PFS",
+           #color="blue")+
+  theme_classic()
+
+###♠ EFS chez remission complet 
+efscr<-Surv(event=greffe$efs_statut[greffe$best_response_after_allo %in% c("CR")],
+          time=as.numeric(greffe$delai_rechutepg[greffe$best_response_after_allo %in% c("CR")]))
+
+efcr <- survfit( efscr ~ 1)
+
+
+reefscr<-summary(efcr,censored = TRUE)
+plot(efcr, xlab="Time in months",ylab="Probability")
+
+censureefscr<-as.data.frame(cbind(reefscr$time[reefscr$n.event==0],reefscr$surv[reefscr$n.event==0] ))
+colnames(censureefscr)<-c("time","ce")
+evenementeefscr<-as.data.frame(cbind(reefscr$time,reefscr$surv ))
+colnames(evenementeefscr)<-c("time","ev")
+intervalleefscr<-as.data.frame(cbind(reefscr$time,reefscr$upper
+                                   ,reefscr$lower ))
+colnames(intervalleefscr)<-c("time","haut","bas")
+
+efs_km_cr<-ggplot()+ #geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="hv")  +
+  geom_step(data=evenementeefscr,aes(x=time, y=ev),color="black", direction="hv")  +
+  #geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
+  #geom_step(data=intervalle,aes(x=time, y=haut),color="black" ,direction="hv")+
+  #geom_step(data=intervalle,aes(x=time, y=bas),color="black", direction="hv")+
+  scale_x_continuous(breaks=c(0,20,40,60,80,100),expand = c(0, 0))+
+  scale_size_manual(values=c(1.5,1.5))+
+  
+  geom_text(x=80, y=0.55, label="OS")+
+  geom_text(x=80, y=0.45, label="EFS")+
+  #geom_point(data=censure, aes(x=time, y=ce),shape=3,size=1 )+
+  #ggtitle("Durée de vie des implants") +
+  xlab("Time (Months)")+
+  ylab("Probability")+
+  #geom_step(data=gri,aes(x=time, y=ics), direction="hv",color="gray10",linetype="dashed" )+
+  #  geom_step(data=gri,aes(x=time, y=ici), direction="hv",color="gray10",linetype="dashed" )+
+  #  geom_step(data=gci,aes(x=time, y=ics), direction="hv",color="black",linetype="dashed" )+
+  #  geom_step(data=gci,aes(x=time, y=ici), direction="hv",color="black",linetype="dashed" )+
+  #
+  #scale_colour_manual("",values = c("Rupture"="blue", "Autres causes"="black"))+annotate(geom="text", x=52, y=0.91, label="Tous les parcours",color="black", size=4)+coord_cartesian(ylim=c(0,1)) +
+  scale_y_continuous(breaks=c(0,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),expand = c(0, 0))+
+  coord_cartesian(ylim=c(0,1))+
+  annotate(geom="text", x=90, y=0.50, label="EFS",
+           color="black")+
+  #annotate(geom="text", x=90, y=0.5, label="PFS",
+  #color="blue")+
+  theme_classic()
+
+
+
+
+
+
+
 
 
 ### PFS (rechute, progression, deces)

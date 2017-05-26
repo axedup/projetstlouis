@@ -17,6 +17,8 @@
 \usepackage{Sweave}
 \usepackage{lscape}
 \usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subfig}
 %\usepackage[pdftex,bookmarks=true,bookmarksnumbered=true,
 %            hypertexnames=false,breaklinks=true,
 %            linkbordercolor={0 0 1}]{hyperref}
@@ -108,9 +110,10 @@ To test CIF between histopathologic groups we the test proposed by Gray.
 
 
 \subsection{Descriptive results}
- 285patients were initially selected.We excluded 1 patient that underwent two alloSCT. The final analysis was perfomed on 284 patients and 284 grafts.
+ 285 patients were initially selected.We excluded 1 patient that underwent two alloSCT. The final analysis was perfomed on 284 patients and 284 grafts.
+ \subsubsection{Patients characteristics}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Wed May 24 19:24:14 2017
+% Fri May 26 11:27:31 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -180,29 +183,30 @@ Parameters & Values & N & Statistics* \\
    & St Louis[207] & 24 & 8.45 \% \\ 
    \hline
 \hline
-\caption{Patients} 
+\caption{Patients characteristics} 
 \label{tab:condi}
-\end{longtable}
+\end{longtable} \subsubsection{Treatments before alloSCT}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Wed May 24 19:24:14 2017
+% Fri May 26 11:27:31 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
   \hline
  &  & 284 &  \\ 
-  Previous auto & 0 & 191 & 67.25 \% \\ 
-   & 1 & 93 & 32.75 \% \\ 
-   Programme auto allo & 0 & 257 & 90.49 \% \\ 
-   & 1 & 27 & 9.51 \% \\ 
-  First graft relapse & 0 & 219 & 77.11 \% \\ 
-   & 1 & 65 & 22.89 \% \\ 
+  Previous auto & No & 191 & 67.25 \% \\ 
+   & Yes & 93 & 32.75 \% \\ 
+   Programme auto allo & No & 257 & 90.49 \% \\ 
+   & Yes & 27 & 9.51 \% \\ 
+  First graft relapse & No & 219 & 77.11 \% \\ 
+   & Yes & 65 & 22.89 \% \\ 
    \hline
 \hline
-\caption{Treatment before alloSCT} 
+\caption{Treatments before alloSCT} 
 \label{tab:avtg}
-\end{longtable}
+\end{longtable}\pagebreak
+ \subsubsection{Transplant conditions}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Wed May 24 19:24:14 2017
+% Fri May 26 11:27:31 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -216,8 +220,8 @@ Parameters & Values & N & Statistics* \\
    & Male & 166 & 59.29 \% \\ 
    & NA & 4 &  \\ 
   Delay diagnosis and allo SCT &  & 284 & 378.5 [213.2;710.8] \\ 
-  >12 months delay & 0 & 149 & 52.46 \% \\ 
-   & 1 & 135 & 47.54 \% \\ 
+  >12 months delay & NO & 149 & 52.46 \% \\ 
+   & Yes & 135 & 47.54 \% \\ 
   Stage at diagnostic & I & 13 & 6.47 \% \\ 
    & II & 17 & 8.46 \% \\ 
    & III & 45 & 22.39 \% \\ 
@@ -250,15 +254,16 @@ Parameters & Values & N & Statistics* \\
    & 80 & 70 & 26.62 \% \\ 
    & 90 & 86 & 32.7 \% \\ 
    & NA & 21 &  \\ 
-  No of lines before alloSCT & >=4 & 24 & 9.45 \% \\ 
-   & 1 & 73 & 28.74 \% \\ 
+  No of lines before alloSCT &  & 284 & 30 [165;NA] \\ 
+  No of lines before alloSCT & 1 & 73 & 28.74 \% \\ 
    & 2 & 92 & 36.22 \% \\ 
    & 3 & 65 & 25.59 \% \\ 
+   & >=4 & 24 & 9.45 \% \\ 
    & NA & 30 &  \\ 
-  Donnor related & 0 & 149 & 52.46 \% \\ 
-   & 1 & 135 & 47.54 \% \\ 
-  HLA match & 1 & 231 & 81.34 \% \\ 
-   & 0 & 53 & 18.66 \% \\ 
+  Donnor related & Yes & 149 & 52.46 \% \\ 
+   & No & 135 & 47.54 \% \\ 
+  HLA match & Yes & 53 & 18.66 \% \\ 
+   & No & 231 & 81.34 \% \\ 
   HLA match & Identical sibling & 128 & 45.07 \% \\ 
    & Matched unrelated & 103 & 36.27 \% \\ 
    & Mismatched relative & 7 & 2.46 \% \\ 
@@ -266,8 +271,8 @@ Parameters & Values & N & Statistics* \\
    & Unrelated CB & 33 & 11.62 \% \\ 
   sex of patient/donnor & M/F & 47 & 16.55 \% \\ 
    & Others & 237 & 83.45 \% \\ 
-  CMV serostatus of patient/donnor & autres & 232 & 81.69 \% \\ 
-   & neg/pos & 52 & 18.31 \% \\ 
+  CMV serostatus of patient/donnor & neg/pos & 52 & 18.31 \% \\ 
+   & Others & 232 & 81.69 \% \\ 
   Source of stem cells & BM & 49 & 17.25 \% \\ 
    & CB & 33 & 11.62 \% \\ 
    & PB & 202 & 71.13 \% \\ 
@@ -317,43 +322,44 @@ Parameters & Values & N & Statistics* \\
    & TBI EDX FLU & 5 & 1.78 \% \\ 
    & Thiotepa etoposide TBI12 gray & 1 & 0.36 \% \\ 
    & NA & 3 &  \\ 
-  Cells manipulation & none & 275 & 97.86 \% \\ 
-   & yes & 6 & 2.14 \% \\ 
+  Cells manipulation & No & 275 & 97.86 \% \\ 
+   & Yes & 6 & 2.14 \% \\ 
    & NA & 3 &  \\ 
   No of donnors & 1 & 261 & 91.9 \% \\ 
    & 2 & 23 & 8.1 \% \\ 
    \hline
 \hline
-\caption{AlloSCT} 
+\caption{Transplant conditions} 
 \label{tab:g}
 \end{longtable}
-
+\pagebreak
+\subsubsection{Post-AlloSCT Response}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Wed May 24 19:24:14 2017
+% Fri May 26 11:27:31 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
   \hline
  &  & 284 &  \\ 
-  Agvhd & 0 & 141 & 49.65 \% \\ 
-   & 1 & 143 & 50.35 \% \\ 
+  Agvhd & No & 141 & 49.65 \% \\ 
+   & Yes & 143 & 50.35 \% \\ 
   Agvhd grade & No aGvHD present (Grade 0) & 141 & 49.65 \% \\ 
    & Grade I & 49 & 17.25 \% \\ 
    & Grade II & 46 & 16.2 \% \\ 
    & Grade III & 24 & 8.45 \% \\ 
    & Grade IV & 17 & 5.99 \% \\ 
    & Present, grade unknown & 7 & 2.46 \% \\ 
-  Cgvhd & 0 & 187 & 65.85 \% \\ 
-   & 1 & 97 & 34.15 \% \\ 
-  Cgvhd grade & deces avant J100 & 41 & 14.44 \% \\ 
-   & extensive & 38 & 13.38 \% \\ 
-   & limited & 55 & 19.37 \% \\ 
-   & no cGvh & 146 & 51.41 \% \\ 
-   & unknown & 4 & 1.41 \% \\ 
-  Engrafted & deces avant J30 & 5 & 1.76 \% \\ 
-   & engrafted & 271 & 95.42 \% \\ 
-   & lost graft & 2 & 0.7 \% \\ 
-   & no engraftment & 6 & 2.11 \% \\ 
+  Cgvhd & No & 187 & 65.85 \% \\ 
+   & Yes & 97 & 34.15 \% \\ 
+  Cgvhd grade & Early death (100D) & 41 & 14.44 \% \\ 
+   & Extensive & 38 & 13.38 \% \\ 
+   & Limited & 55 & 19.37 \% \\ 
+   & No cGvh & 146 & 51.41 \% \\ 
+   & Unknown & 4 & 1.41 \% \\ 
+  Engrafted & Early death (30D) & 5 & 1.76 \% \\ 
+   & Engrafted & 271 & 95.42 \% \\ 
+   & Lost graft & 2 & 0.7 \% \\ 
+   & No engraftment & 6 & 2.11 \% \\ 
   Cause of death & HSCT-GVHd & 21 & 19.63 \% \\ 
    & HSCT-GVHd + infection & 3 & 2.8 \% \\ 
    & HSCT-infection & 27 & 25.23 \% \\ 
@@ -377,13 +383,13 @@ Parameters & Values & N & Statistics* \\
    & PD & 14 & 4.96 \% \\ 
    & PR & 16 & 5.67 \% \\ 
    & NA & 2 &  \\ 
-  Relapse/progression & continuous progression & 28 & 9.93 \% \\ 
+  Relapse/progression & Continuous progression & 28 & 9.93 \% \\ 
    & No & 217 & 76.95 \% \\ 
    & Non applicable  & 3 & 1.06 \% \\ 
-   & yes & 34 & 12.06 \% \\ 
+   & Yes & 34 & 12.06 \% \\ 
    & NA & 2 &  \\ 
-  Death & alive & 177 & 62.32 \% \\ 
-   & dead & 107 & 37.68 \% \\ 
+  Death & Alive & 177 & 62.32 \% \\ 
+   & Dead & 107 & 37.68 \% \\ 
    \hline
 \hline
 \caption{Post-AlloSCT Response} 
@@ -399,7 +405,7 @@ Parameters & Values & N & Statistics* \\
 
 
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Wed May 24 19:24:14 2017
+% Fri May 26 11:27:31 2017
 \begin{longtable}{lllllllllllllll}
   \hline
 Parameters & Values &  &  &  &  &  &  & Subtypes &  &  &  &  &  & NA \\ 
@@ -413,8 +419,8 @@ Parameters & Values &  &  &  &  &  &  & Subtypes &  &  &  &  &  & NA \\
   Donor sex & Female & 48 & 44.44 \% & 36 & 43.9 \% & 15 & 34.88 \% & 4 & 26.67 \% & 3 & 18.75 \% & 8 & 50 \% & 0.26 \\ 
    & Male & 60 & 55.56 \% & 46 & 56.1 \% & 28 & 65.12 \% & 11 & 73.33 \% & 13 & 81.25 \% & 8 & 50 \% &  \\ 
    & NA & 2 &  & 0 &  & 0 &  & 1 &  & 0 &  & 1 &  &  \\ 
-  >12 months delay & 0 & 56 & 50.91 \% & 45 & 54.88 \% & 22 & 51.16 \% & 10 & 62.5 \% & 9 & 56.25 \% & 7 & 41.18 \% & 0.86 \\ 
-   & 1 & 54 & 49.09 \% & 37 & 45.12 \% & 21 & 48.84 \% & 6 & 37.5 \% & 7 & 43.75 \% & 10 & 58.82 \% &  \\ 
+  >12 months delay & NO & 56 & 50.91 \% & 45 & 54.88 \% & 22 & 51.16 \% & 10 & 62.5 \% & 9 & 56.25 \% & 7 & 41.18 \% & 0.86 \\ 
+   & Yes & 54 & 49.09 \% & 37 & 45.12 \% & 21 & 48.84 \% & 6 & 37.5 \% & 7 & 43.75 \% & 10 & 58.82 \% &  \\ 
   Stage at diagnostic & I & 5 & 6.76 \% & 0 & 0 \% & 2 & 6.45 \% & 0 & 0 \% & 6 & 42.86 \% & 0 & 0 \% &  \\ 
    & II & 7 & 9.46 \% & 5 & 8.2 \% & 4 & 12.9 \% & 0 & 0 \% & 1 & 7.14 \% & 0 & 0 \% &  \\ 
    & III & 15 & 20.27 \% & 21 & 34.43 \% & 8 & 25.81 \% & 1 & 11.11 \% & 0 & 0 \% & 0 & 0 \% &  \\ 
@@ -450,21 +456,21 @@ Parameters & Values &  &  &  &  &  &  & Subtypes &  &  &  &  &  & NA \\
    & NA & 6 &  & 6 &  & 4 &  & 2 &  & 1 &  & 2 &  &  \\ 
   Karnofsky & Non normal activity & 13 & 11.82 \% & 11 & 13.41 \% & 5 & 11.63 \% & 2 & 12.5 \% & 1 & 6.25 \% & 4 & 23.53 \% & 0.78 \\ 
    & Normal activities & 97 & 88.18 \% & 71 & 86.59 \% & 38 & 88.37 \% & 14 & 87.5 \% & 15 & 93.75 \% & 13 & 76.47 \% &  \\ 
-  previous autoSCT & 0 & 72 & 65.45 \% & 55 & 67.07 \% & 25 & 58.14 \% & 15 & 93.75 \% & 10 & 62.5 \% & 14 & 82.35 \% & 0.096 \\ 
-   & 1 & 38 & 34.55 \% & 27 & 32.93 \% & 18 & 41.86 \% & 1 & 6.25 \% & 6 & 37.5 \% & 3 & 17.65 \% &  \\ 
-  program autoallo & 0 & 98 & 89.09 \% & 77 & 93.9 \% & 37 & 86.05 \% & 16 & 100 \% & 13 & 81.25 \% & 16 & 94.12 \% & 0.31 \\ 
-   & 1 & 12 & 10.91 \% & 5 & 6.1 \% & 6 & 13.95 \% & 0 & 0 \% & 3 & 18.75 \% & 1 & 5.88 \% &  \\ 
-  relapse first graft & 0 & 84 & 76.36 \% & 61 & 74.39 \% & 31 & 72.09 \% & 15 & 93.75 \% & 13 & 81.25 \% & 15 & 88.24 \% &  \\ 
-   & 1 & 26 & 23.64 \% & 21 & 25.61 \% & 12 & 27.91 \% & 1 & 6.25 \% & 3 & 18.75 \% & 2 & 11.76 \% &  \\ 
-  No of lines before alloSCT & >=4 & 8 & 8.42 \% & 8 & 10.53 \% & 7 & 18.42 \% & 0 & 0 \% & 1 & 7.14 \% & 0 & 0 \% &  \\ 
-   & 1 & 31 & 32.63 \% & 20 & 26.32 \% & 11 & 28.95 \% & 2 & 14.29 \% & 3 & 21.43 \% & 6 & 35.29 \% &  \\ 
+  previous autoSCT & No & 72 & 65.45 \% & 55 & 67.07 \% & 25 & 58.14 \% & 15 & 93.75 \% & 10 & 62.5 \% & 14 & 82.35 \% & 0.096 \\ 
+   & Yes & 38 & 34.55 \% & 27 & 32.93 \% & 18 & 41.86 \% & 1 & 6.25 \% & 6 & 37.5 \% & 3 & 17.65 \% &  \\ 
+  program autoallo & No & 98 & 89.09 \% & 77 & 93.9 \% & 37 & 86.05 \% & 16 & 100 \% & 13 & 81.25 \% & 16 & 94.12 \% & 0.31 \\ 
+   & Yes & 12 & 10.91 \% & 5 & 6.1 \% & 6 & 13.95 \% & 0 & 0 \% & 3 & 18.75 \% & 1 & 5.88 \% &  \\ 
+  relapse first graft & No & 84 & 76.36 \% & 61 & 74.39 \% & 31 & 72.09 \% & 15 & 93.75 \% & 13 & 81.25 \% & 15 & 88.24 \% &  \\ 
+   & Yes & 26 & 23.64 \% & 21 & 25.61 \% & 12 & 27.91 \% & 1 & 6.25 \% & 3 & 18.75 \% & 2 & 11.76 \% &  \\ 
+  No of lines before alloSCT & 1 & 31 & 32.63 \% & 20 & 26.32 \% & 11 & 28.95 \% & 2 & 14.29 \% & 3 & 21.43 \% & 6 & 35.29 \% &  \\ 
    & 2 & 30 & 31.58 \% & 28 & 36.84 \% & 10 & 26.32 \% & 8 & 57.14 \% & 8 & 57.14 \% & 8 & 47.06 \% &  \\ 
    & 3 & 26 & 27.37 \% & 20 & 26.32 \% & 10 & 26.32 \% & 4 & 28.57 \% & 2 & 14.29 \% & 3 & 17.65 \% &  \\ 
+   & >=4 & 8 & 8.42 \% & 8 & 10.53 \% & 7 & 18.42 \% & 0 & 0 \% & 1 & 7.14 \% & 0 & 0 \% &  \\ 
    & NA & 15 &  & 6 &  & 5 &  & 2 &  & 2 &  & 0 &  &  \\ 
-  Donnor related & 0 & 61 & 55.45 \% & 43 & 52.44 \% & 22 & 51.16 \% & 8 & 50 \% & 8 & 50 \% & 7 & 41.18 \% & 0.93 \\ 
-   & 1 & 49 & 44.55 \% & 39 & 47.56 \% & 21 & 48.84 \% & 8 & 50 \% & 8 & 50 \% & 10 & 58.82 \% &  \\ 
-  HLA match & 1 & 85 & 77.27 \% & 75 & 91.46 \% & 35 & 81.4 \% & 9 & 56.25 \% & 12 & 75 \% & 15 & 88.24 \% & 0.011 \\ 
-   & 0 & 25 & 22.73 \% & 7 & 8.54 \% & 8 & 18.6 \% & 7 & 43.75 \% & 4 & 25 \% & 2 & 11.76 \% &  \\ 
+  Donnor related & Yes & 61 & 55.45 \% & 43 & 52.44 \% & 22 & 51.16 \% & 8 & 50 \% & 8 & 50 \% & 7 & 41.18 \% & 0.93 \\ 
+   & No & 49 & 44.55 \% & 39 & 47.56 \% & 21 & 48.84 \% & 8 & 50 \% & 8 & 50 \% & 10 & 58.82 \% &  \\ 
+  HLA match & Yes & 25 & 22.73 \% & 7 & 8.54 \% & 8 & 18.6 \% & 7 & 43.75 \% & 4 & 25 \% & 2 & 11.76 \% & 0.011 \\ 
+   & No & 85 & 77.27 \% & 75 & 91.46 \% & 35 & 81.4 \% & 9 & 56.25 \% & 12 & 75 \% & 15 & 88.24 \% &  \\ 
   HLA match & Identical sibling & 46 & 41.82 \% & 38 & 46.34 \% & 18 & 41.86 \% & 8 & 50 \% & 8 & 50 \% & 10 & 58.82 \% &  \\ 
    & Matched unrelated & 39 & 35.45 \% & 37 & 45.12 \% & 17 & 39.53 \% & 1 & 6.25 \% & 4 & 25 \% & 5 & 29.41 \% &  \\ 
    & Mismatched relative & 3 & 2.73 \% & 1 & 1.22 \% & 3 & 6.98 \% & 0 & 0 \% & 0 & 0 \% & 0 & 0 \% &  \\ 
@@ -472,8 +478,8 @@ Parameters & Values &  &  &  &  &  &  & Subtypes &  &  &  &  &  & NA \\
    & Unrelated CB & 15 & 13.64 \% & 3 & 3.66 \% & 3 & 6.98 \% & 6 & 37.5 \% & 4 & 25 \% & 2 & 11.76 \% &  \\ 
   sex of p/d & M/F & 16 & 14.55 \% & 12 & 14.63 \% & 10 & 23.26 \% & 2 & 12.5 \% & 3 & 18.75 \% & 4 & 23.53 \% &  \\ 
    & Others & 94 & 85.45 \% & 70 & 85.37 \% & 33 & 76.74 \% & 14 & 87.5 \% & 13 & 81.25 \% & 13 & 76.47 \% &  \\ 
-  CMV serostatus of p/d & autres & 91 & 82.73 \% & 67 & 81.71 \% & 37 & 86.05 \% & 13 & 81.25 \% & 12 & 75 \% & 12 & 70.59 \% & 0.78 \\ 
-   & neg/pos & 19 & 17.27 \% & 15 & 18.29 \% & 6 & 13.95 \% & 3 & 18.75 \% & 4 & 25 \% & 5 & 29.41 \% &  \\ 
+  CMV serostatus of p/d & neg/pos & 19 & 17.27 \% & 15 & 18.29 \% & 6 & 13.95 \% & 3 & 18.75 \% & 4 & 25 \% & 5 & 29.41 \% & 0.78 \\ 
+   & Others & 91 & 82.73 \% & 67 & 81.71 \% & 37 & 86.05 \% & 13 & 81.25 \% & 12 & 75 \% & 12 & 70.59 \% &  \\ 
   Source of stem cells & BM & 20 & 18.18 \% & 13 & 15.85 \% & 7 & 16.28 \% & 2 & 12.5 \% & 2 & 12.5 \% & 5 & 29.41 \% &  \\ 
    & CB & 15 & 13.64 \% & 3 & 3.66 \% & 3 & 6.98 \% & 6 & 37.5 \% & 4 & 25 \% & 2 & 11.76 \% &  \\ 
    & PB & 75 & 68.18 \% & 66 & 80.49 \% & 33 & 76.74 \% & 8 & 50 \% & 10 & 62.5 \% & 10 & 58.82 \% &  \\ 
@@ -523,13 +529,29 @@ PFS at 1 year was 0.73 (95 \% 0.65 - 0.83), was 0.68 (95 \% 0.59 - 0.78) at 2 ye
 
 \pagebreak
 Relapse at 1 year was 0.87 (95 \% 0.83 - 0.92), was 0.85 (95 \% 0.8 - 0.9) at 2 years. Relapse at 4 years was 0.83 (95 \% 0.77 - 0.89).
-\begin{figure}[h]
-\begin{center}
-\includegraphics{Rapport-fig4}
-\end{center}
-\caption{Relapse in patients with a complete remission post alloSCT)}
-\label{fig4}
+
+\begin{figure}[h!]
+
+\subfloat[Relapse in patients with a complete remission post alloSCT]{
+\includegraphics[width=0.4\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf}
+}
+\qquad
+
+\subfloat[PFS in patients with a complete remission post alloSCT]{
+\includegraphics[width=0.4\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf}
+}
+\qquad
+
+
+\subfloat[EFS in patients with a complete remission post alloSCT]{
+ 
+ 
+\includegraphics[width=0.4\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf}}
+
 \end{figure}
+
+
+
 
 \pagebreak
 CIF for related HSCT death at 1 years was 0.2, at 2 years  0.22.
@@ -556,6 +578,7 @@ CIF for death without relapse or progression at 1 year was 0.19, at 2 years  0.2
 
 \pagebreak
 CIF for relapse at 1 year was 0.12, at 2 years  0.13. CIF for death without relapse  at 1 year was 0.19, at 2 years  0.22. 
+
 \begin{figure}[h]
 \begin{center}
 \includegraphics{Rapport-fig7}
@@ -563,8 +586,6 @@ CIF for relapse at 1 year was 0.12, at 2 years  0.13. CIF for death without rela
 \caption{CIF of relapse and death without relapse (in patients with a complete remission post alloSCT)}
 \label{fig7}
 \end{figure}
-
-
 
 
 \end{document}
