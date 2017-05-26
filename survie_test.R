@@ -109,6 +109,7 @@ for (i in c("sex_donor","sex_patient","age_greffec",
 }
 
 
+OS$Variable <- 
 ### EFS###
 
 EFS<-NULL
@@ -186,16 +187,19 @@ for (i in c("sex_donor","sex_patient","age_greffec",
 ){
   
   
-  x<-model.matrix(~greffe[,c(i)])[,-1]
+  x<-model.matrix(~greffe[,c(i)])
+  x<-x[,2:ncol(x)]
   rcm<-crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
       fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=1)
   rc<-summary(crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
                   fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=1))
   capture.output(rc, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,"mrep.txt",sep=""))  
-  
-  
-  plot(rcm$uftime,rcm$res)
-  
+ s<-as.data.frame(x)
+  for (j in 1:ncol(s)){
+    pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,j,"mrep.pdf",sep=""), width=4, height=4,onefile = TRUE)
+    
+  scatter.smooth(rcm$uftime,rcm$res[,j])
+  dev.off()}
   
   rcm2<-crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
       fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=2)
@@ -203,8 +207,11 @@ for (i in c("sex_donor","sex_patient","age_greffec",
                   fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=2))
   capture.output(rc, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,"md.txt",sep=""))  
   
-  plot(rcm2$uftime,rcm2$res)
-
+  for (j in 1:ncol(s)){
+    pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,j,"md.pdf",sep=""), width=4, height=4,onefile = TRUE)
+    
+    scatter.smooth(rcm2$uftime,rcm2$res[,j])
+    dev.off()}
 }
 
 
@@ -214,5 +221,3 @@ for (i in c("sex_donor","sex_patient","age_greffec",
 
 
 
-x<-as.matrix(cbind(greffe$sex_dp3))
-summary(crr(ftime=greffe$delai_pfs,fstatus=greffe$rechute_progression_dc,cov1=x,failcode=2) )
