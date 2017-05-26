@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  26 MAY 2017 11:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  26 MAY 2017 14:17
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -578,24 +578,24 @@ Package caption Info: rotating package is loaded.
 ) (Rapport.aux)
 \openout1 = `Rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 52.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    ... okay on input line 52.
 
 (C:\Users\adupont\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -691,11 +691,11 @@ Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 (Rapport-concordance.tex)
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 73.
+(Font)              <12> on input line 74.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 73.
+(Font)              <8> on input line 74.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 73.
+(Font)              <6> on input line 74.
  (Rapport.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 4.
@@ -724,11 +724,11 @@ g/pdftex.map}] (Rapport.lot)
 \openout6 = `Rapport.lof'.
 
  [2] [3]
-Underfull \vbox (badness 10000) detected at line 140
+Underfull \vbox (badness 10000) detected at line 141
  []
 
 [4]
-Underfull \vbox (badness 10000) detected at line 206
+Underfull \vbox (badness 10000) detected at line 207
  []
 
 
@@ -736,11 +736,11 @@ Overfull \vbox (5.91206pt too high) has occurred while \output is active []
 
 
 [5]
-Underfull \vbox (badness 10000) detected at line 233
+Underfull \vbox (badness 10000) detected at line 234
  []
 
 [6] [7] [8]
-Underfull \vbox (badness 10000) detected at line 362
+Underfull \vbox (badness 10000) detected at line 363
  []
 
 [9] [10]
@@ -777,21 +777,21 @@ Underfull \vbox (badness 10000) detected at line 362
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Overfull \hbox (218.95233pt too wide) in alignment at lines 409--432
+Overfull \hbox (218.95233pt too wide) in alignment at lines 410--433
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 432
+Underfull \vbox (badness 10000) detected at line 433
  []
 
 
-Overfull \hbox (218.95233pt too wide) in alignment at lines 432--452
+Overfull \hbox (218.95233pt too wide) in alignment at lines 433--453
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (218.95233pt too wide) in alignment at lines 452--472
+Overfull \hbox (218.95233pt too wide) in alignment at lines 453--473
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
@@ -799,7 +799,7 @@ Overfull \hbox (218.95233pt too wide) in alignment at lines 452--472
 
 
 ]
-Overfull \hbox (218.95233pt too wide) in alignment at lines 472--492
+Overfull \hbox (218.95233pt too wide) in alignment at lines 473--493
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
@@ -807,7 +807,7 @@ Overfull \hbox (218.95233pt too wide) in alignment at lines 472--492
 File: Rapport-fig1.pdf Graphic file (type pdf)
 
 <use Rapport-fig1.pdf>
-Package pdftex.def Info: Rapport-fig1.pdf used on input line 502.
+Package pdftex.def Info: Rapport-fig1.pdf used on input line 503.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
  [14
 
@@ -816,15 +816,20 @@ Package pdftex.def Info: Rapport-fig1.pdf used on input line 502.
 <Rapport-fig2.pdf, id=62, 433.62pt x 433.62pt>
 File: Rapport-fig2.pdf Graphic file (type pdf)
  <use Rapport-fig2.pdf>
-Package pdftex.def Info: Rapport-fig2.pdf used on input line 513.
+Package pdftex.def Info: Rapport-fig2.pdf used on input line 514.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
  [15 <./Rapport-fig2.pdf>] <Rapport-fig3.pdf, id=71, 433.62pt x 433.62pt>
 File: Rapport-fig3.pdf Graphic file (type pdf)
 
 <use Rapport-fig3.pdf>
-Package pdftex.def Info: Rapport-fig3.pdf used on input line 524.
+Package pdftex.def Info: Rapport-fig3.pdf used on input line 525.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
  [16 <./Rapport-fig3.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 532--534
+
+ []
+
+
 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf, id=80, 433.
 62pt x 433.62pt>
 File: C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf Graphic
@@ -832,8 +837,8 @@ File: C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf Graphic
 
 <use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf>
 Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
-rt-figg.pdf used on input line 537.
-(pdftex.def)             Requested size: 167.2989pt x 167.29819pt.
+rt-figg.pdf used on input line 535.
+(pdftex.def)             Requested size: 209.12683pt x 209.1277pt.
 
 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf, id=81, 433
 .62pt x 433.62pt>
@@ -842,8 +847,8 @@ c file (type pdf)
 
 <use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf>
 Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
-rt-figg2.pdf used on input line 542.
-(pdftex.def)             Requested size: 167.2989pt x 167.29819pt.
+rt-figg2.pdf used on input line 540.
+(pdftex.def)             Requested size: 209.12683pt x 209.1277pt.
 
 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf, id=82, 433
 .62pt x 433.62pt>
@@ -852,65 +857,665 @@ c file (type pdf)
 
 <use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf>
 Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
-rt-xcube.pdf used on input line 549.
-(pdftex.def)             Requested size: 167.2989pt x 167.29819pt.
+rt-xcube.pdf used on input line 546.
+(pdftex.def)             Requested size: 209.12683pt x 209.1277pt.
 
-
-LaTeX Warning: Float too large for page by 10.36436pt on input line 551.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[17] <Rapport-fig5.pdf, id=86, 433.62pt x 433.62pt>
+[17 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf> <C:/Use
+rs/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf>] [18 <C:/Users/ad
+upont/Documents/projetstlouis/scripts/Rapport-xcube.pdf>]
+<Rapport-fig5.pdf, id=107, 433.62pt x 433.62pt>
 File: Rapport-fig5.pdf Graphic file (type pdf)
  <use Rapport-fig5.pdf>
-Package pdftex.def Info: Rapport-fig5.pdf used on input line 561.
+Package pdftex.def Info: Rapport-fig5.pdf used on input line 557.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[18] <Rapport-fig6.pdf, id=90, 433.62pt x 433.62pt>
+ [19 <./Rapport-fig5.pdf>] <Rapport-fig6.pdf, id=118, 433.62pt x 433.62pt>
 File: Rapport-fig6.pdf Graphic file (type pdf)
- <use Rapport-fig6.pdf>
-Package pdftex.def Info: Rapport-fig6.pdf used on input line 573.
+
+<use Rapport-fig6.pdf>
+Package pdftex.def Info: Rapport-fig6.pdf used on input line 569.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+ [20 <./Rapport-fig6.pdf>]
+File: C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf Graphi
+c file (type pdf)
+
+<use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf>
+Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
+rt-figg2.pdf used on input line 580.
+(pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.597 sex_
+          donor &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.597 sex_donor &
+                   &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.599   sex_
+            patient &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.599   sex_patient &
+                       &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.601   age_
+            greffec &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.601   age_greffec &
+                       &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.603   delai_
+              dia_alloc &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.603   delai_dia_alloc &
+                           &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.605   stade_
+              dia &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.605   stade_dia &
+                     &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.609   stade_
+              diac &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.609   stade_diac &
+                      &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.611   disease_
+                status_at_transplantc2 &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.611   disease_status_at_transplantc2 &
+                                          &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.613   disease_
+                status_at_transplantc &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.613   disease_status_at_transplantc &
+                                         &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \vbox (badness 10000) detected at line 616
+ []
 
-[19] <Rapport-fig7.pdf, id=95, 433.62pt x 433.62pt>
-File: Rapport-fig7.pdf Graphic file (type pdf)
- <use Rapport-fig7.pdf>
-Package pdftex.def Info: Rapport-fig7.pdf used on input line 584.
-(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.616   disease_
+                status_at_transplant &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.616   disease_status_at_transplant &
+                                        &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.626   rechute_
+                post_allo &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-[20] [21 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf> <C
-:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf> <C:/Users/ad
-upont/Documents/projetstlouis/scripts/Rapport-xcube.pdf>] [22 <./Rapport-fig5.p
-df>] [23 <./Rapport-fig6.pdf>] [24 <./Rapport-fig7.pdf>] (Rapport.aux) ) 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.626   rechute_post_allo &
+                             &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.628   karnofsky_
+                  greffec2 &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.628   karnofsky_greffec2 &
+                              &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.630   karnofsky_
+                  greffec3 &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.630   karnofsky_greffec3 &
+                              &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.634   previous_
+                 autoc &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.634   previous_autoc &
+                          &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+[21]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.636   programme_
+                  autoalloc &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.636   programme_autoalloc &
+                               &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.638   rechute_
+                prem_greffec &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.638   rechute_prem_greffec &
+                                &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.640   nbr_
+            lignes_avt_alloc &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.640   nbr_lignes_avt_alloc &
+                                &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.642   nbr_
+            lignes_avt_alloc2 &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.642   nbr_lignes_avt_alloc2 &
+                                 &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.648   hla_
+            matchc &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.648   hla_matchc &
+                      &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.650   hla_
+            match &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.650   hla_match &
+                     &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.655   sex_
+            dp3 &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.655   sex_dp3 &
+                   &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.657   sex_
+            dp2 &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.657   sex_dp2 &
+                   &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.659   cmv_
+            dp2 &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.659   cmv_dp2 &
+                   &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.661   stem_
+             cell_source &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.661   stem_cell_source &
+                            &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.666   intensite_
+                  condi &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.666   intensite_condi &
+                           &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.669   manipu_
+               cells &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.669   manipu_cells &
+                        &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.671   nbr_
+            donneurc &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.671   nbr_donneurc &
+                        &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.673   manipu_
+               cells &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.673   manipu_cells &
+                        &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+[22]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.679   agvhd_
+              grade &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.679   agvhd_grade &
+                       &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.687   cgvhd_
+              grade &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.687   cgvhd_grade &
+                       &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.692   prise_
+              greffe &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.692   prise_greffe &
+                        &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.696   best_
+             response_after_allo &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.696   best_response_after_allo &
+                                    &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.701   relapse_
+                progression_transplant_c &  &  &  \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.701   relapse_progression_transplant_c &
+                                            &  &  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+[23] [24] (Rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 13295 strings out of 493333
- 225260 string characters out of 3139188
- 337393 words of memory out of 3000000
- 16554 multiletter control sequences out of 15000+200000
- 29721 words of font info for 65 fonts, out of 3000000 for 9000
+ 13282 strings out of 493333
+ 225084 string characters out of 3139188
+ 337460 words of memory out of 3000000
+ 16548 multiletter control sequences out of 15000+200000
+ 26661 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,10n,96p,803b,442s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr9.pfb>
-Output written on Rapport.pdf (24 pages, 186099 bytes).
+ 61i,9n,96p,803b,419s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+bx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on Rapport.pdf (24 pages, 185731 bytes).
 PDF statistics:
- 171 PDF objects out of 1000 (max. 8388607)
+ 164 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 50 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 45 words of extra memory for PDF output out of 10000 (max. 10000000)
 
