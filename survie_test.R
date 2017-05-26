@@ -8,7 +8,7 @@
 #             "disease_status_at_transplantc",
 #             "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2","karnofsky_greffec3" ,
 #             "previous_autoc",
-#             "programme_autoalloc","rechute_prem_greffec",
+#             "programme_autoalloc","rechute_post_allo",
 #             "nbr_lignes_avt_alloc","nbr_lignes_avt_alloc2",
 #             "donnor","hla_matchc","hla_match","sex_dp3",
 #             "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","condit_details",
@@ -60,16 +60,15 @@ for (i in c("sex_donor","sex_patient","age_greffec",
             "delai_dia_alloc","stade_dia","stade_diac",
             "disease_status_at_transplantc2",
             "disease_status_at_transplantc",
-            "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2","karnofsky_greffec3" ,
+            "rechute_post_allo","karnofsky_greffec2","karnofsky_greffec3" ,
             "previous_autoc",
-            "programme_autoalloc","rechute_prem_greffec",
+            "programme_autoalloc","rechute_post_allo",
             "nbr_lignes_avt_alloc","nbr_lignes_avt_alloc2",
             "donnor","hla_matchc","hla_match","sex_dp3",
             "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi",
             "manipu_cells","nbr_donneurc","manipu_cells",
             "agvhd","agvhd3","agvhd_grade","cgvhd",
-            "cgvhd_grade","prise_greffe","best_response_after_allo",
-            "relapse_progression_transplant_c","anapathc2")
+            "anapathc2")
 ){
   mo<-coxph( s ~ greffe[,i],data=greffe)  
   # a<-summary(coxph( s ~ greffe[,i],data=greffe))
@@ -120,12 +119,11 @@ for (i in c("sex_donor","sex_patient","age_greffec",
                         "disease_status_at_transplantc",
                         "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2",
             "karnofsky_greffec3","previous_autoc",
-            "programme_autoalloc","rechute_prem_greffec","nbr_lignes_avt_alloc",
+            "programme_autoalloc","rechute_post_allo","nbr_lignes_avt_alloc",
             "nbr_lignes_avt_alloc2",
             "donnor","hla_matchc","hla_match","sex_dp3",
-            "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","manipu_cells","nbr_donneurc","manipu_cells",
-            "agvhd","agvhd3","agvhd_grade","cgvhd",
-            "cgvhd_grade","prise_greffe","best_response_after_allo"
+            "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","manipu_cells",
+            "nbr_donneurc","manipu_cells"
             ,"anapathc2"
                        )
             ){
@@ -168,3 +166,53 @@ for (i in c("sex_donor","sex_patient","age_greffec",
               EFS<-rbind(EFS,qq)
             }
             
+
+
+###
+
+for (i in c("sex_donor","sex_patient","age_greffec",
+            "delai_dia_alloc","stade_dia","stade_diac",
+            "disease_status_at_transplantc2",
+            "disease_status_at_transplantc",
+            "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2",
+            "karnofsky_greffec3","previous_autoc",
+            "programme_autoalloc","rechute_post_allo","nbr_lignes_avt_alloc",
+            "nbr_lignes_avt_alloc2",
+            "donnor","hla_matchc","hla_match","sex_dp3",
+            "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","manipu_cells",
+            "nbr_donneurc","manipu_cells"
+            ,"anapathc2"
+)
+){
+  
+  
+  x<-model.matrix(~greffe[,c(i)])[,-1]
+  rcm<-crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
+      fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=1)
+  rc<-summary(crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
+                  fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=1))
+  capture.output(rc, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,"mrep.txt",sep=""))  
+  
+  
+  plot(rcm$uftime,rcm$res)
+  
+  
+  rcm2<-crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
+      fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=2)
+  rc2<-summary(crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
+                  fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=2))
+  capture.output(rc, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,"md.txt",sep=""))  
+  
+  plot(rcm2$uftime,rcm2$res)
+
+}
+
+
+
+
+
+
+
+
+x<-as.matrix(cbind(greffe$sex_dp3))
+summary(crr(ftime=greffe$delai_pfs,fstatus=greffe$rechute_progression_dc,cov1=x,failcode=2) )

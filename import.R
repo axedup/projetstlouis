@@ -72,11 +72,11 @@ levels(greffe$cgvhd.)<-c("deces avant J100", "no", "no", "yes")
 
 greffe$cgvhd_gradec<-greffe$cgvhd_grade
 levels(greffe$cgvhd_gradec)<-c("no cGvh", "extensive", "extensive", "limited", 
-                       "no cGvh", NA)
+                       "no cGvh", "grade unknown")
 
 table(greffe$cgvhd_grade)
 levels(greffe$cgvhd_grade)<-c("Early death (100D)", "Extensive", "Extensive", "Limited", 
-  "No cGvh", "Unknown")
+  "No cGvh", "grade unknown")
 table(greffe$cgvhd_grade)
 
 
@@ -286,7 +286,10 @@ table(greffe$intensite_condi,exclude = NULL)
 greffe$programme_autoalloc<-factor(greffe$programme_autoallo,label=c("No","Yes"))
 greffe$previous_autoc<-factor(greffe$previous_auto,label=c("No","Yes"))
 greffe$rechute_prem_greffec<-factor(as.character(greffe$rechute_prem_greffe),label=c("No","Yes"))
-greffe$rechute_post_allo<-factor(ifelse(greffe$rechute_prem_greffec=="No","1","0"),label=c("No","Yes"))
+
+greffe$rechute_post_allo<-ifelse(greffe$rechute_prem_greffec=="No" & greffe$previous_auto==1,"No","Yes")
+greffe$rechute_post_allo<-ifelse(greffe$rechute_prem_greffec=="No" & greffe$previous_auto==0,"No previous graft",greffe$rechute_post_allo)
+
 
 table(greffe$rechute_post_allo)
 table(greffe$rechute_prem_greffec)
