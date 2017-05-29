@@ -92,8 +92,7 @@ patientg<-TABKRIS(baz=greffe,vect.var = c("age_dia","sex_patient","age_dia","sta
                         vecnoms=c("Age at diagnostic","Patient sex","Age at diagnostic","Stage at diagnostic","Stage at diagnostic",
                                   
                                   "Subtypes","Subtypes","Centres"),valeurs=NULL,
-                        vecrefs=NULL,varassoc=NULL,
-                        codassoc=NULL,pres=NULL,langue="en",digits=2)
+                        vecrefs=NULL,varassoc=NULL, codassoc=NULL,pres=NULL,langue="en",digits=2)
 avt_greffe<-TABKRIS(baz=greffe,vect.var = c("previous_autoc","programme_autoalloc" ,"rechute_prem_greffec" 
                     ),
                     vect.quali = c(1,1,1,1),
@@ -158,6 +157,73 @@ post_greffe<-TABKRIS(baz=greffe,vect.var = c(  "agvhd","agvhd_grade","cgvhd",
 # 
 # 
 # 
+
+patientganapath<-TABKRIS(baz=greffe,vect.var = c("age_dia","sex_patient","age_dia","stade_dia",
+                                                 "stade_diac"),
+                  vect.quali = c(0,1,0,1,1),
+                  varint="anapathc2",valvarint = c("NOS","AITL", "ALCL", "ATLL","NK/T nasal","Others"),
+                  nomvarint = "Subtypes",
+                  test=c("aov","fisher","aov","","chisq"),
+                  vecnoms=c("Age at diagnostic","Patient sex","Age at diagnostic","Stage at diagnostic",
+                            "Stage at diagnostic"),valeurs=NULL,
+                  vecrefs=NULL,varassoc=NULL, codassoc=NULL,pres=NULL,langue="en",digits=2)
+                  
+
+avt_greffeanapath<-TABKRIS(baz=greffe,vect.var = c("previous_autoc","programme_autoalloc" ,"rechute_prem_greffec" 
+),
+vect.quali = c(1,1,1,1),
+varint="anapathc2",valvarint = c("NOS","AITL", "ALCL", "ATLL","NK/T nasal","Others"),
+nomvarint = "Subtypes",
+test=c("fisher","fisher","fisher"),
+vecnoms=c("Previous auto"," Programme auto allo","First graft relapse"),valeurs=NULL,
+vecrefs=NULL,varassoc=NULL,
+codassoc=NULL,pres=NULL,langue="en",digits=2)
+
+greffedanapath1<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_greffec","age_donor","sex_donor",
+                                         "delai_dia_allo",
+                                         "delai_dia_alloc",
+                                         "disease_status_at_transplantc2",
+                                         "disease_status_at_transplantc",
+                                         "disease_status_at_transplant","karnofsky_greffe",
+                                         "karnofsky_greffec", "nbr_lignes_avt_alloc",
+                                         "nbr_lignes_avt_alloc2"
+                                        ),
+                 vect.quali = c(0,1,0,1,0,1,1,1,1,0,1,0,1),
+                 varint="anapathc2",valvarint = c("NOS","AITL", "ALCL", "ATLL","NK/T nasal","Others"),
+                 nomvarint = "Subtypes",
+                 test=c("aov","chisq","aov","chisq","aov","chisq","","chisq","","aov","","",""),
+                 vecnoms=c("Age at graft","Age at graft","Donor age","Donor sex","Delay diagnosis and allo SCT",">12 months delay",
+                           "Disease status at transplant","Disease status at transplant","Disease status at transplant",
+                           "Karnofsky","Karnofsky","No of lines before alloSCT",
+                           "No of lines before alloSCT"
+                           ),valeurs=NULL,
+                 vecrefs=NULL,varassoc=NULL,
+                 codassoc=NULL,pres=NULL,langue="en",digits=2)
+
+
+
+
+
+# greffedanapath2<-TABKRIS(baz=greffe,vect.var = c("donnor","hla_matchc","hla_match",
+#                                                  "sex_dp3","cmv_dp2","stem_cell_source","tbi","intensite_condi",
+#                                                  "condit_details","manipu_cells","nbr_donneurc"
+# ),
+# vect.quali = c(1,1,1,1,1,1,1,1,1,1,1,1),
+# varint="anapathc2",valvarint = c("NOS","AITL", "ALCL", "ATLL","NK/T nasal","Others"),
+# nomvarint = "Subtypes",
+# test=c("chisq","fisher","","fisher","fisher","fisher","chisq","fisher","","","fisher"),
+# vecnoms=c("Donnor related","HLA match","HLA match",
+#           "sex of patient/donnor","CMV serostatus of patient/donnor",
+#           "Source of stem cells","TBI","conditioning Intensity","Conditioning","Cells manipulation","No of donnors"
+#           
+# ),valeurs=NULL,
+# vecrefs=NULL,varassoc=NULL,
+# codassoc=NULL,pres=NULL,langue="en",digits=2)
+
+
+
+
+
 bivarie_anapath_greffe<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_greffec","age_donor","sex_donor",
                                                         "delai_dia_alloc","stade_dia","stade_diac",
                                                         "disease_status_at_transplantc2",

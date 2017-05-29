@@ -6,5 +6,5 @@
 \contentsline {subsubsection}{\numberline {3.1.2}Treatments before alloSCT}{5}
 \contentsline {subsubsection}{\numberline {3.1.3}Transplant conditions}{6}
 \contentsline {subsubsection}{\numberline {3.1.4}Post-AlloSCT Response}{9}
-\contentsline {subsection}{\numberline {3.2}Survival analysis}{14}
-\contentsline {subsection}{\numberline {3.3}Univariate Analysis}{21}
+\contentsline {subsection}{\numberline {3.2}Survival analysis}{11}
+\contentsline {subsection}{\numberline {3.3}Univariate Analysis}{18}

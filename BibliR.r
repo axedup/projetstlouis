@@ -1423,7 +1423,7 @@ if (!is.null(y))
   {
     aov.test<-function(formula)
     {
-      p.value<-unlist(summary(aov(pbc$age~pbc$stage)))[9]
+      p.value<-unlist(summary(aov(x~y)))[9]
       p.value<-as.numeric(p.value)
       return(list(p.value=p.value))
     }
@@ -1707,7 +1707,7 @@ if (!is.null(y))
     {
     aov.test<-function(formula)
       {
-      p.value<-unlist(summary(aov(pbc$age~pbc$stage)))[9]
+      p.value<-unlist(summary(aov(x~y)))[9]
       p.value<-as.numeric(p.value)
       return(list(p.value=p.value))
       }
@@ -1832,7 +1832,7 @@ if (!is.null(y))
     {
     aov.test<-function(formula)
       {
-      p.value<-unlist(summary(aov(pbc$age~pbc$stage)))[9]
+      p.value<-unlist(summary(aov(x~y)))[9]
       p.value<-as.numeric(p.value)
       return(list(p.value=p.value))
       }

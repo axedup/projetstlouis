@@ -23,7 +23,7 @@ intervalle<-as.data.frame(cbind(re$time,re$upper
                                 ,re$lower ))
 colnames(intervalle)<-c("time","haut","bas")
 km_os<-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="hv")  +
-  geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
+  geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),linetype="dashed",fill="grey",alpha="0.4")+
   geom_step(data=intervalle,aes(x=time, y=haut),color="black" ,direction="hv")+
   geom_step(data=intervalle,aes(x=time, y=bas),color="black", direction="hv")+
   scale_x_continuous(breaks=c(0,20,40,60,80,100),expand = c(0, 0))+

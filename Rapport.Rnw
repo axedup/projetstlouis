@@ -115,7 +115,7 @@ source("C:/Users/adupont/Documents/projetstlouis/scripts/init.R")
 source("C:/Users/adupont/Documents/projetstlouis/scripts/import.R")
 source("C:/Users/adupont/Documents/projetstlouis/scripts/descri.R")
 source("C:/Users/adupont/Documents/projetstlouis/scripts/survie.R")
-source("C:/Users/adupont/Documents/projetstlouis/scripts/survie_test.R")
+#source("C:/Users/adupont/Documents/projetstlouis/scripts/survie_test.R")
 summary(as.numeric(greffe$delai_dc))
 s<-Surv(event=greffe$deces,time=as.numeric(greffe$delai_dc))
 
@@ -229,7 +229,7 @@ width="\\textwidth",
  sanitize.text.function = function(x){x}  )
 @
 
-<<label=tab:tra ,echo=FALSE,results=tex,eval=TRUE>>=
+<<label=tab:tra ,echo=FALSE,results=tex,eval=FALSE>>=
 print(xtable (bivarie_anapath_greffe,
 caption= "Transplant conditions",
 label="tab:tra",
@@ -359,7 +359,7 @@ CIF for relapse at 1 year was \Sexpr{round(modelcompetea[[1]]$est[which.min((mod
 <<label=fig7,fig=TRUE,echo=FALSE, include=FALSE>>=
 plot(modelcompetea,curvlab=c("Relapse","Death without relapse"),xlab="Time (months)", ylab="Probability")
 @
-\includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf}
+\includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig7.pdf}
 \captionof{figure}{CIF of relapse and death without relapse (in patients with a complete remission post alloSCT)}
 
 

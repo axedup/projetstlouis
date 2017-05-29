@@ -11,6 +11,7 @@ pred[,"date_greffe_prece"] <- 0
 pred[,"date_dia_l"] <- 0
 pred[,"delai_allo_greffe_prece"]<-0
 pred[,"tbi_dose"]<-0
+pred[,"ddn"]<-0
 
 pred[,"T.cell.depletion.with.MoAB..0.non..1..partial.T.depletion.."] <- 0
 pred[,"immunosupression.détails"] <- 0
@@ -212,27 +213,36 @@ meth[ "disease_status_at_transplantc2"]<-""
                                                   
                                          
 meth ["hla_matchc"]<-"~I(as.factor(ifelse(hla_match %in% c('Identical sibling','Matched unrelated'),'1','0')))"                                                           
-meth [ "donnor"] <- "~I(as.factor(ifelse(greffe$hla_match %in% c('Identical sibling','Mismatched relative'),'1','0'))"                                                               
+meth [ "donnor"] <- "~I(as.factor(ifelse(hla_match %in% c('Identical sibling','Mismatched relative'),'1','0'))"                                                               
 meth [ "cause_death"] <-""                                                         
 meth [ "cause_death_c"] <-""                                                        
 meth [ "cause_death_c2"] <-"~I(ifelse(grepl(pat='HSCT',greffe$cause_death_c)& !is.na(greffe$cause_death_c),1,0)))"                                                       
-meth[ "delai_dia_alloc"] <-"~I(as.factor(ifelse(greffe$delai_dia_allo<365,1,0)))"                                                     
-meth[ "nbr_lignes_avt_alloc"]<-""                                                   
+meth[ "delai_dia_alloc"] <-"~I(as.factor(ifelse(delai_dia_allo<365,1,0)))"                                                     
+meth[ "nbr_lignes_avt_alloc"]<-"~I(ifelse(nbr_lignes_avt_allo <=2 & !is.na(nbr_lignes_avt_allo),
+                                    '1 or 2',ifelse(nbr_lignes_avt_allo >2 & !is.na(nbr_lignes_avt_allo),
+                                    '>2', nbr_lignes_avt_alloc)))"  
+
+
+
+
+
+
+
 meth[ "nbr_lignes_avt_alloc2"]<-""                                                 
-meth["programme_autoalloc"] <-"~I(as.factor(greffe$programme_autoallo))"                                                 
-meth["previous_autoc"]<-"~I(as.factor(greffe$previous_auto))"                                                      
-meth[ "rechute_prem_greffec"]<-as.factor(as.character(greffe$rechute_prem_greffe))                                                 
-meth ["rechute_post_allo"]<-as.factor(ifelse(greffe$rechute_prem_greffec=="1","1","0"))                                                    
-meth[ "nbr_donneurc"] <-as.factor(as.character(greffe$nbr_donneur))                                                         
-meth[ "karnofsky_greffec"] <-as.factor(as.character(greffe$karnofsky_greffe))                                                   
-meth["karnofsky_greffec2"]<-as.factor(ifelse(greffe$karnofsky_greffec %in% c("100","90","80"),"Normal activities 
-                                            with or without efforts","Unable to carry on normal activity"))                                                 
+meth["programme_autoalloc"] <-"~I(as.factor(programme_autoallo))"                                                 
+meth["previous_autoc"]<-"~I(as.factor(previous_auto))"                                                      
+meth[ "rechute_prem_greffec"]<-"I~(as.factor(as.character(rechute_prem_greffe)))"                                                 
+meth ["rechute_post_allo"]<-"I~(as.factor(ifelse(rechute_prem_greffec=='1','1','0')))"                                                   
+meth[ "nbr_donneurc"] <-"I~(as.factor(as.character(nbr_donneur))) "                                                        
+meth[ "karnofsky_greffec"] <-""                                                   
+meth["karnofsky_greffec2"]<-"I~(as.factor(ifelse(karnofsky_greffec %in% c('100','90','80'),'Normal activities 
+                                            with or without efforts','Unable to carry on normal activity')))"                                                 
 meth["karnofsky_greffec3"]<-""                                                   
-meth["stade_diac"] <-as.factor(ifelse(greffe$stade_dia %in% c("III","IV"), "III-IV","I-II"))                                                           
-meth["sex_dp2"] <-as.factor(ifelse(greffe$sex_dp %in% c("F/F", "F/F/F", "M/M", 
-                                                          "M/M/M"),"sex idem","different sex"))                                                             
-meth["sex_dp3"] <-as.factor(ifelse(greffe$sex_dp %in% c("M/F"),"M/F","Others"))                                                            
-meth["cmv_dp2"] <-ifelse(greffe$cmv_dp %in% c("neg/pos"),"neg/pos", "autres")                                                             
+meth["stade_diac"] <-"I~(as.factor(ifelse(stade_dia %in% c('III','IV'), 'III-IV','I-II'))"                                                           
+meth["sex_dp2"] <-"I~(as.factor(ifelse(sex_dp %in% c('F/F', 'F/F/F', 'M/M', 
+                                                          'M/M/M'),'sex idem','different sex'))"                                                             
+meth["sex_dp3"] <-"I~(as.factor(ifelse(sex_dp %in% c('M/F'),'M/F','Others'))"                                                            
+meth["cmv_dp2"] <-"I~(ifelse(cmv_dp %in% c('neg/pos'),'neg/pos', 'autres'))"                                                            
 meth[c("rechute",                                                          
  "rechute_progression" ,                                                 
  "relapse_progression_transplant_c" ,                                    
@@ -256,5 +266,21 @@ meth[c("rechute",
  
  
  set.seed(36524)
-essai <- mice(greffe, m=1, maxit=1, pred=pred,meth=meth)
- 
+essai <- mice(greffe[,c("REMARQUE", "num_id", "j0", "first_name", "family_name", "ddn", 
+                     "sex_patient.", "centre", "date_dia_l", "delai_dia_allo", "age_dia", 
+                     "anapath", "stade_dia","age_greffe")], m=1, maxit=1, pred=pred[c("REMARQUE", "num_id", "j0", "first_name", "family_name", "ddn", 
+                                                                                      "sex_patient.", "centre", "date_dia_l", "delai_dia_allo", "age_dia", 
+                                                                                      "anapath", "stade_dia","age_greffe"),c("REMARQUE", "num_id", "j0", "first_name", "family_name", "ddn", 
+                                                                                                                             "sex_patient.", "centre", "date_dia_l", "delai_dia_allo", "age_dia", 
+                                                                                                                             "anapath", "stade_dia","age_greffe")],
+              
+              
+              meth=meth[c("REMARQUE", "num_id", "j0", "first_name", "family_name", "ddn", 
+                                                                                                    "sex_patient.", "centre", "date_dia_l", "delai_dia_allo", "age_dia", 
+                                                                                                    "anapath", "stade_dia","age_greffe")])
+
+
+essai <- mice(greffe, m=1, maxit=10, pred=pred,
+              meth=meth)
+
+j<-complete(essai,1)

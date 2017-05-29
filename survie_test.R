@@ -109,7 +109,21 @@ for (i in c("sex_donor","sex_patient","age_greffec",
 }
 
 
-OS$Variable <- 
+OS$Variable <- c("Sex Donor", "Male", "sex patient", "age at graft", "> 49 years", 
+                 "Delay allo >12 months", "Yes", "Stage at diagnostic", "II", "III", "IV", 
+                 "Stage at diagnostic", 
+                 "III-IV", "Disease status at transplant", "PD", "disease_status_at_transplantc", 
+                 "PR", "rechute_post_allo", "karnofsky_greffec2", "Unable to carry on normal activity", 
+                 "karnofsky_greffec3", "80", "90", "previous_autoc", "1", "programme_autoalloc", 
+                 "rechute_prem_greffec", "nbr_lignes_avt_alloc", "1 or 2", "nbr_lignes_avt_alloc2", 
+                 "2", "3", ">=4", "donnor", "No", "hla_matchc", "0", "hla_match", 
+                 "Matched unrelated", "Mismatched relative", "Mismatched unrelated", 
+                 "Unrelated CB", "sex_dp3", "Others", "sex_dp2", "different sex", 
+                 "cmv_dp2", "neg/pos", "stem_cell_source", "CB", "PB", "tbi", 
+                 "intensite_condi", "NMA", "RIC", "manipu_cells", "yes", "nbr_donneurc", 
+                 "agvhd", "agvhd3", "agvhd_grade", "Grade I", "Grade II", "Grade III", 
+                 "Grade IV", "Present, grade unknown", "cgvhd", "anapathc2", "AITL", 
+                 "ALCL", "ATLL", "NK/T nasal")
 ### EFS###
 
 EFS<-NULL
