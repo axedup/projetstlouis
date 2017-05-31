@@ -11,9 +11,21 @@ s<-Surv(event=greffe$deces,time=as.numeric(greffe$delai_dc))
 # plot(abis)
 
 
-a <- survfit( s ~ 1)
+a <- survfit( s ~ 1,conf.type = "log-log")
 re<-summary(a,censored = TRUE)
 plot(a, xlab="Time in months",ylab="Probability")
+#axis(2, at = seq(from=0.1, to=1, by=0.1), tick = TRUE, col = "black", lwd = 1, lty = 1, las = 1, cex.axis = 0.8)
+#mtext("Nbre d'implants à risque", side=1, at=-8.5, adj=0, cex=1, font=1,
+      #outer=F, line=4)
+coul=c("black")
+for( k in 1:1){
+  mtext(20, side=1,  at=0 ,
+        adj=0.5, cex=1, font=1, line=5, outer=FALSE, col=coul[k])
+}
+
+
+
+
 
 censure<-as.data.frame(cbind(re$time[re$n.event==0],re$surv[re$n.event==0] ))
 colnames(censure)<-c("time","ce")
@@ -42,6 +54,12 @@ km_os<-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", direc
   scale_y_continuous(breaks=c(0,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),expand = c(0, 0))+
   coord_cartesian(ylim=c(0,1))+
   theme_classic()
+
+
+ff <- cph(Surv(event=greffe$deces,time=as.numeric(greffe$delai_dc)) ~1,data =greffe, surv=TRUE,x=TRUE,Y=TRUE)
+
+survplot(ff)
+survplot(ff,1, label.curves = F, n.risk = T)
 
 ### Limite à 48 mois ###
 
@@ -723,12 +741,21 @@ modelcompetea<-cuminc(greffe$delai_rechute,greffe$rechute_dc,cencode=0,subset=gr
                        c("CR"))
 plot(modelcompetea,curvlab=c("Relapse","Death"),xlab="Time (months)", ylab="Probability")
 
+gria<-as.data.frame(cbind(modelcompetea[[1]]$time,modelcompetea[[1]]$est-1.96*sqrt(modelcompetea[[1]]$var),modelcompetea[[1]]$est+1.96*sqrt(modelcompetea[[1]]$var)))
+gcia<-as.data.frame(cbind(modelcompetea[[2]]$time,modelcompetea[[2]]$est-1.96*sqrt(modelcompetea[[2]]$var),modelcompetea[[2]]$est+1.96*sqrt(modelcompetea[[2]]$var)))
+
 
 # pour rechute/p deces : pb d'un patient qui a une première greffe échec car la greffe n'a pas prise
 # on la supprime et on ne garde que la seconde
 
 modelcompeteb<-cuminc(greffe$delai_pfs,greffe$rechute_progression_dc,cencode=0)
 plot(modelcompeteb,curvlab=c("Relapse/Progression","Death without relapse or progression"),xlab="Time (months)", ylab="Probability")
+
+gri<-as.data.frame(cbind(modelcompeteb[[1]]$time,modelcompeteb[[1]]$est-1.96*sqrt(modelcompeteb[[1]]$var),modelcompeteb[[1]]$est+1.96*sqrt(modelcompeteb[[1]]$var)))
+gci<-as.data.frame(cbind(modelcompeteb[[2]]$time,modelcompeteb[[2]]$est-1.96*sqrt(modelcompeteb[[2]]$var),modelcompeteb[[2]]$est+1.96*sqrt(modelcompeteb[[2]]$var)))
+
+
+
 
 ### compétions cause de deces 
 

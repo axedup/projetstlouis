@@ -45,6 +45,7 @@ table(greffe$cgvhd_date,exclude = NULL)
 table(greffe$agvhd_grade,exclude=TRUE)
 greffe$agvhd<-ifelse(greffe$agvhd_grade %in% c("No aGvHD present (Grade 0)[7]",
                                               "no aGvHD present (Grade 0)[7]"),0,1)
+greffe$agvhd<-ifelse(is.na(greffe$agvhd_grade),NA,greffe$agvhd)
 
 
 table(greffe$agvhd)
@@ -58,11 +59,14 @@ table(greffe$agvhd_grade)
 greffe$agvhd_grade<-relevel(greffe$agvhd_grade,ref="No aGvHD present (Grade 0)")
 
 greffe$agvhd3<-as.factor(ifelse(greffe$agvhd_grade %in% c("Grade III", "Grade IV"),1,0))
+greffe$agvhd3<-ifelse(is.na(greffe$agvhd_grade),NA,greffe$agvhd3)
+
 str(greffe$agvhd3)
 
 table(greffe$cgvhd.)
 greffe$cgvhd<-ifelse(greffe$cgvhd. %in% c("deces avant J100",
                                                "no[1]","No[1]"),0,1)
+greffe$cgvhd<-ifelse(is.na(greffe$cgvhd.),NA,greffe$cgvhd)
 table(greffe$cgvhd)
 table(greffe$cgvhd_grade)
 
@@ -94,7 +98,7 @@ table(greffe$date_gvhd,exclude=NULL)
 greffe$date_gvhd
 
 greffe$agvhd<-factor(greffe$agvhd,label=c("No","Yes"))
-greffe$cgvhd<-factor(greffe$cgvhd,label=c("No","Yes"))
+greffe$cgvhd<-factor(greffe$cgvhd,label=c("No or early death","Yes"))
 #label(greffe$sex_dp) <- "Sex of patient/donor" 
 
 greffe$age_greffec<-as.factor(ifelse(greffe$age_greffe<49,"< 49 years","> 49 years"))
@@ -110,7 +114,7 @@ levels(greffe$prise_greffe)<-c( "Early death (30D)", "Engrafted", "Engrafted", "
 table(greffe$prise_greffe,exclude = NULL)
 table(greffe$prise_greffe1,exclude = NULL)
 
-table(patients$survival_status_FU.)
+table(patients$survival_status_FU.,exclude=NULL)
 levels(patients$survival_status_FU)<-c("Alive", "Alive", "Dead", "Dead")
 table(patients$survival_status_FU,exclude=NULL)
     patients$deces<-ifelse(patients$survival_status_FU %in% c("Alive"),0,1)
@@ -166,14 +170,14 @@ levels(greffe$disease_status_at_transplantc2)<-c("CR/PR", "CR/PR", "CR/PR", "CR/
 table(greffe$disease_status_at_transplantc2,exclude = NULL)
 
 
-table(greffe$stem_cell_.source)
+table(greffe$stem_cell_.source,exclude=NULL)
 greffe$stem_cell_source<-greffe$stem_cell_.source
 levels(greffe$stem_cell_source)<-c("BM", "CB", "PB", "PB")
 table(greffe$stem_cell_source)
 
 
 levels(patients$sex_patient)<-c("Female", "Male", "Male")
-table(patients$sex_patient)
+table(patients$sex_patient,exclude=NULL)
 
 levels(greffe$sex_patient)<-c("Female", "Male", "Male")
 table(greffe$sex_patient)
@@ -192,8 +196,10 @@ table(greffe$hla_match)
 levels(greffe$hla_match)<-c("Identical sibling", "Identical sibling", "Matched unrelated", 
                              "Mismatched relative", "Mismatched unrelated", "Unrelated CB")
 
-greffe$hla_matchc<-ifelse(greffe$hla_match %in% c("Identical sibling","Matched unrelated"),"1","0")
-greffe$hla_matchc<-factor(greffe$hla_matchc,labels=c("Yes","No"))
+greffe$hla_matchc<-ifelse(greffe$hla_match %in% c("Unrelated CB"),"Matched unrelated",as.character(greffe$hla_match))
+greffe$hla_matchc<-factor(greffe$hla_matchc)
+table(greffe$hla_matchc,exclude=NULL)
+
 greffe$donnor<-ifelse(greffe$hla_match %in% c("Identical sibling","Mismatched relative"),"1","0")
 greffe$donnor<-factor(greffe$donnor,labels=c("Yes","No"))
 table(greffe$donnor)
@@ -267,7 +273,7 @@ greffe$nbr_lignes_avt_alloc<-ifelse(greffe$nbr_lignes_avt_allo <=2 & !is.na(gref
 greffe$nbr_lignes_avt_alloc<-ifelse(greffe$nbr_lignes_avt_allo >2 & !is.na(greffe$nbr_lignes_avt_allo),
                                     ">2", greffe$nbr_lignes_avt_alloc)
 greffe$nbr_lignes_avt_alloc<-as.factor(greffe$nbr_lignes_avt_alloc)
-
+table(greffe$nbr_lignes_avt_alloc,exclude=NULL)
 
 greffe$nbr_lignes_avt_alloc2<-NA
 greffe$nbr_lignes_avt_alloc2<-ifelse(greffe$nbr_lignes_avt_allo <=3 & !is.na(greffe$nbr_lignes_avt_allo),
@@ -276,7 +282,7 @@ greffe$nbr_lignes_avt_alloc2<-ifelse(greffe$nbr_lignes_avt_allo >3 & !is.na(gref
                                    ">=4", greffe$nbr_lignes_avt_alloc2)
 greffe$nbr_lignes_avt_alloc2<-as.factor(greffe$nbr_lignes_avt_alloc2)
 greffe$nbr_lignes_avt_alloc2<-reorder(greffe$nbr_lignes_avt_alloc2,new.order=c(2,3,4,1))
-
+table(greffe$nbr_lignes_avt_alloc2,exclude=NULL)
 
 table(greffe$nbr_lignes_avt_allo,exclude = NULL)
 table(greffe$nbr_lignes_avt_alloc,exclude = NULL)
@@ -289,48 +295,52 @@ greffe$rechute_prem_greffec<-factor(as.character(greffe$rechute_prem_greffe),lab
 
 greffe$rechute_post_allo<-ifelse(greffe$rechute_prem_greffec=="No" & greffe$previous_auto==1,"No","Yes")
 greffe$rechute_post_allo<-ifelse(greffe$rechute_prem_greffec=="No" & greffe$previous_auto==0,"No previous graft",greffe$rechute_post_allo)
-
+greffe$rechute_post_allo<-as.factor(greffe$rechute_post_allo)
 
 table(greffe$rechute_post_allo)
 table(greffe$rechute_prem_greffec)
 
-table(greffe$nbr_donneur)
+table(greffe$nbr_donneur,exclude=NULL)
 greffe$nbr_donneurc<-as.factor(as.character(greffe$nbr_donneur))
 table(greffe$nbr_donneurc)
 
 greffe$karnofsky_greffec<-as.factor(as.character(greffe$karnofsky_greffe))
 
-greffe$karnofsky_greffec2<-as.factor(ifelse(greffe$karnofsky_greffec %in% c("100","90","80"),"Normal activities","Non normal activity"))
-
+greffe$karnofsky_greffec2<-ifelse(greffe$karnofsky_greffec %in% c("100","90","80"),"Normal activities","Non normal activity")
+greffe$karnofsky_greffec2<-ifelse(is.na(greffe$karnofsky_greffec),NA,greffe$karnofsky_greffec2)
+greffe$karnofsky_greffec2<-as.factor(greffe$karnofsky_greffec2)
 
 greffe$karnofsky_greffec3<-greffe$karnofsky_greffec
 
-table(greffe$karnofsky_greffec)
+table(greffe$karnofsky_greffec,exclude=NULL)
 levels(greffe$karnofsky_greffec3)<-c("100", "Unable to carry on normal activity", "Unable to carry on normal activity", "Unable to carry on normal activity", "Unable to carry on normal activity", "80", "90")
-str(greffe$karnofsky_greffec3)
+table(greffe$karnofsky_greffec3,exclude=NULL)
+table(greffe$karnofsky_greffec2,exclude=NULL)
+
+greffe$stade_diac<-ifelse(greffe$stade_dia %in% c("III","IV"), "III-IV","I-II")
+greffe$stade_diac<-ifelse(is.na(greffe$stade_dia),NA,greffe$stade_diac)
+greffe$stade_diac<-as.factor(greffe$stade_diac)
+  
+#greffe$hla_matchc<-relevel(greffe$hla_matchc,ref="Yes")
 
 
-greffe$stade_diac<-as.factor(ifelse(greffe$stade_dia %in% c("III","IV"), "III-IV","I-II"))
-
-
-greffe$hla_matchc<-relevel(greffe$hla_matchc,ref="Yes")
-
-
-greffe$sex_dp2<-as.factor(ifelse(greffe$sex_dp %in% c("F/F", "F/F/F", "M/M", 
-                                            "M/M/M"),"sex idem","different sex"))
-
+greffe$sex_dp2<-ifelse(greffe$sex_dp %in% c("F/F", "F/F/F", "M/M", 
+                                            "M/M/M"),"sex idem","different sex")
+greffe$sex_dp2<-ifelse(is.na(greffe$sex_dp),NA,greffe$sex_dp2)
+greffe$sex_dp2<-as.factor(greffe$sex_dp2)
 greffe$sex_dp2<-relevel(greffe$sex_dp2,ref="sex idem")
 
-greffe$sex_dp3<-as.factor(ifelse(greffe$sex_dp %in% c("M/F"),"M/F","Others"))
+greffe$sex_dp3<-ifelse(greffe$sex_dp %in% c("F/M","M/F/M"),"F/M","Others")
+greffe$sex_dp3<-ifelse(is.na(greffe$sex_dp),NA,greffe$sex_dp3)
+greffe$sex_dp3<-as.factor(greffe$sex_dp3)
+greffe$sex_dp3<-relevel(greffe$sex_dp3,ref="F/M")
 
-greffe$sex_dp3<-relevel(greffe$sex_dp3,ref="M/F")
 
 
-
- greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("neg/pos"),"neg/pos", "Others")
-#greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("pos/pos", "pos/pos/pos"),"all positive", "different")
+ greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("pos/neg","pos/neg/neg"),"pos/neg", "Others")
+greffe$cmv_dp2<-ifelse(is.na(greffe$cmv_dp),NA, greffe$cmv_dp2)
 greffe$cmv_dp2<-as.factor(greffe$cmv_dp2)
-
+greffe$cmv_dp2<-relevel(greffe$cmv_dp2,ref="pos/neg")
 
 levels(greffe$sex_donor)<-c("Female", "Female", "Male", "Male", NA)
 

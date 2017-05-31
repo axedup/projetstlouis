@@ -52,7 +52,7 @@
 \begin{document}
 \title{Rapport  d'analyses statistiques}
 \author{Axelle Dupont, sbim, Hopital Saint Louis, Paris}
-\date{29 Mai 2017}
+\date\today
 
 %------------------------------------------------------------
 
@@ -101,7 +101,7 @@ For the different endpoints, univariable analyses were first carried out, then a
 Survival is presented as estimate and 95\% confidence interval (95\% CI).
 
 
-To test CIF between histopathologic groups we the test proposed by Gray. 
+
 
 \pagebreak[4]
 \section{Results}
@@ -255,9 +255,8 @@ include.rownames=F,
 
 \restoregeometry
 
-\subsection{Survival analysis}
-Median follow-up from the date of AlloSCT was \Sexpr{round(median(as.numeric(greffe$delai_dc)),2)} (range \Sexpr{round(min(as.numeric(greffe$delai_dc)),2)} to \Sexpr{round(max(as.numeric(greffe$delai_dc)),2)}). OS at 1 year was \Sexpr{round(re$surv[which.min((re$time-12)<0)],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-12)<0)],2)} - \Sexpr{round(re$upper[which.min((re$time-12)<0)],2)}), was \Sexpr{round(re$surv[which.min((re$time-24)<0)],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-24)<0)],2)} - \Sexpr{round(re$upper[which.min((re$time-24)<0)],2)}) at 2 years
-.OS at 4 years was \Sexpr{round(re$surv[which.min((re$time-48)<0)],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-48)<0)],2)} - \Sexpr{round(re$upper[which.min((re$time-48)<0)],2)}).
+\subsection{Survival analysis in all patients}
+Median overall-survival from the date of AlloSCT was \Sexpr{round(median(as.numeric(greffe$delai_dc)),2)} (range \Sexpr{round(min(as.numeric(greffe$delai_dc)),2)} to \Sexpr{round(max(as.numeric(greffe$delai_dc)),2)}). OS at 1 year was \Sexpr{round(re$surv[which.min((re$time-12)<0)-1],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-12)<0)],2)} - \Sexpr{round(re$upper[which.min((re$time-12)<0)],2)}), was \Sexpr{round(re$surv[which.min((re$time-24)<0)-1],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-24)<0)-1],2)} - \Sexpr{round(re$upper[which.min((re$time-24)<0)-1],2)}) at 2 years.OS at 4 years was \Sexpr{round(re$surv[which.min((re$time-48)<0)-1],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-48)<0)-1],2)} - \Sexpr{round(re$upper[which.min((re$time-48)<0)-1],2)}).
 \begin{figure}[h]
 \begin{center}
 <<label=fig1,fig=TRUE,echo=FALSE>>=
@@ -269,20 +268,7 @@ km_os
 \end{figure}
 
 \pagebreak
-EFS at 1 year was \Sexpr{round(reefs$surv[which.min((reefs$time-12)<0)],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-12)<0)],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-12)<0)],2)}), was \Sexpr{round(reefs$surv[which.min((reefs$time-24)<0)],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-24)<0)],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-24)<0)],2)}) at 2 years. EFS at 4 years was \Sexpr{round(reefs$surv[which.min((reefs$time-48)<0)],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-48)<0)],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-48)<0)],2)}).
-
-\begin{figure}[h]
-\begin{center}
-<<label=fig2,fig=TRUE,echo=FALSE>>=
-efs_km
-@
-\end{center}
-\caption{Event-free survival}
-\label{fig2}
-\end{figure}
-
-\pagebreak
-PFS at 1 year was \Sexpr{round(ree$surv[which.min((ree$time-12)<0)],2)} (95 \% \Sexpr{round(ree$lower[which.min((ree$time-12)<0)],2)} - \Sexpr{round(ree$upper[which.min((ree$time-12)<0)],2)}), was \Sexpr{round(ree$surv[which.min((ree$time-24)<0)],2)} (95 \% \Sexpr{round(ree$lower[which.min((ree$time-24)<0)],2)} - \Sexpr{round(ree$upper[which.min((ree$time-24)<0)],2)}) at 2 years. PFS at 4 years was \Sexpr{round(ree$surv[which.min((ree$time-48)<0)],2)} (95 \% \Sexpr{round(ree$lower[which.min((ree$time-48)<0)],2)} - \Sexpr{round(ree$upper[which.min((ree$time-48)<0)],2)}).
+PFS at 1 year was \Sexpr{round(ree$surv[which.min((ree$time-12)<0)-1],2)} (95 \% \Sexpr{round(ree$lower[which.min((ree$time-12)<0)-1],2)} - \Sexpr{round(ree$upper[which.min((ree$time-12)<0)-1],2)}), was \Sexpr{round(ree$surv[which.min((ree$time-24)<0)-1],2)} (95 \% \Sexpr{round(ree$lower[which.min((ree$time-24)<0)-1],2)} - \Sexpr{round(ree$upper[which.min((ree$time-24)<0)-1],2)}) at 2 years. PFS at 4 years was \Sexpr{round(ree$surv[which.min((ree$time-48)<0)-1],2)} (95 \% \Sexpr{round(ree$lower[which.min((ree$time-48)<0)-1],2)} - \Sexpr{round(ree$upper[which.min((ree$time-48)<0)-1],2)}).
 
 \begin{figure}[h]
 \begin{center}
@@ -295,7 +281,23 @@ pfs_km
 \end{figure}
 
 \pagebreak
-Relapse at 1 year was \Sexpr{round(rer$surv[which.min((rer$time-12)<0)],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-12)<0)],2)} - \Sexpr{round(rer$upper[which.min((rer$time-12)<0)],2)}), was \Sexpr{round(rer$surv[which.min((rer$time-24)<0)],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-24)<0)],2)} - \Sexpr{round(rer$upper[which.min((rer$time-24)<0)],2)}) at 2 years. Relapse at 4 years was \Sexpr{round(rer$surv[which.min((rer$time-48)<0)],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-48)<0)],2)} - \Sexpr{round(rer$upper[which.min((rer$time-48)<0)],2)}).
+EFS at 1 year was \Sexpr{round(reefs$surv[which.min((reefs$time-12)<0)],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-12)<0)-1],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-12)<0)-1],2)}), was \Sexpr{round(reefs$surv[which.min((reefs$time-24)<0)-1],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-24)<0)-1],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-24)<0)-1],2)}) at 2 years. EFS at 4 years was \Sexpr{round(reefs$surv[which.min((reefs$time-48)<0)-1],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-48)<0)-1],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-48)<0)-1],2)}).
+
+\begin{figure}[h]
+\begin{center}
+<<label=fig2,fig=TRUE,echo=FALSE>>=
+efs_km
+@
+\end{center}
+\caption{Event-free survival}
+\label{fig2}
+\end{figure}
+
+
+
+
+\pagebreak
+Relapse at 1 year was \Sexpr{round(rer$surv[which.min((rer$time-12)<0)-1],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-12)<0)-1],2)} - \Sexpr{round(rer$upper[which.min((rer$time-12)<0)-1],2)}), was \Sexpr{round(rer$surv[which.min((rer$time-24)<0)-1],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-24)<0)-1],2)} - \Sexpr{round(rer$upper[which.min((rer$time-24)<0)-1],2)}) at 2 years. Relapse at 4 years was \Sexpr{round(rer$surv[which.min((rer$time-48)<0)-1],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-48)<0)-1],2)} - \Sexpr{round(rer$upper[which.min((rer$time-48)<0)-1],2)}).
 \\
 \begin{center}
 <<label=figg, fig=TRUE, echo=FALSE, include=FALSE>>=
@@ -325,8 +327,8 @@ efs_km_cr
 
 \end{center}
 \pagebreak
-CIF for related HSCT death at 1 years was \Sexpr{round(modelcompetec[[1]]$est[which.min((modelcompetec[[1]]$time-12)<0)],2)}, at 2 years  \Sexpr{round(modelcompetec[[1]]$est[which.min((modelcompetec[[1]]$time-24)<0)],2)}.
-CIF for non-related HSCT Death at 1 year was \Sexpr{round(modelcompetec[[2]]$est[which.min((modelcompetec[[2]]$time-12)<0)],2)}, at 2 years  \Sexpr{round(modelcompetec[[2]]$est[which.min((modelcompetec[[2]]$time-24)<0)],2)}.
+CIF for related HSCT death at 1 years was \Sexpr{round(modelcompetec[[1]]$est[which.min((modelcompetec[[1]]$time-12)<0)-1],2)}, at 2 years  \Sexpr{round(modelcompetec[[1]]$est[which.min((modelcompetec[[1]]$time-24)<0)-1],2)}.
+CIF for non-related HSCT Death at 1 year was \Sexpr{round(modelcompetec[[2]]$est[which.min((modelcompetec[[2]]$time-12)<0)-1],2)}, at 2 years  \Sexpr{round(modelcompetec[[2]]$est[which.min((modelcompetec[[2]]$time-24)<0)-1],2)}.
 \begin{figure}[h]
 \begin{center}
 <<label=fig5,fig=TRUE,echo=FALSE>>=
@@ -338,8 +340,8 @@ plot(modelcompetec,curvlab=c("Related HSCT Death","Non-related HSCT Death"),xlab
 \end{figure}
 
 \pagebreak
-CIF for relapse/progression at 1 years was \Sexpr{round(modelcompeteb[[1]]$est[which.min((modelcompeteb[[1]]$time-12)<0)],2)}, at 2 years  \Sexpr{round(modelcompeteb[[1]]$est[which.min((modelcompeteb[[1]]$time-24)<0)],2)}.
-CIF for death without relapse or progression at 1 year was \Sexpr{round(modelcompeteb[[2]]$est[which.min((modelcompeteb[[2]]$time-12)<0)],2)}, at 2 years  \Sexpr{round(modelcompeteb[[2]]$est[which.min((modelcompeteb[[2]]$time-24)<0)],2)}. 
+CIF for relapse/progression at 1 years was \Sexpr{round(modelcompeteb[[1]]$est[which.min((modelcompeteb[[1]]$time-12)<0)-1],2)} (95 \% \Sexpr{round(gri$V2[which.min((gri$V1-12)<0)-1],2)} - \Sexpr{round(gri$V3[which.min((gri$V1-12)<0)-1],2)}), at 2 years  \Sexpr{round(modelcompeteb[[1]]$est[which.min((modelcompeteb[[1]]$time-24)<0)-1],2)} (95 \% \Sexpr{round(gri$V2[which.min((gri$V1-24)<0)-1],2)} - \Sexpr{round(gri$V3[which.min((gri$V1-24)<0)-1],2)}).
+CIF for death without relapse or progression at 1 year was \Sexpr{round(modelcompeteb[[2]]$est[which.min((modelcompeteb[[2]]$time-12)<0)-1],2)} (95 \% \Sexpr{round(gci$V2[which.min((gci$V1-12)<0)-1],2)} - \Sexpr{round(gci$V3[which.min((gci$V1-12)<0)-1],2)}), at 2 years  \Sexpr{round(modelcompeteb[[2]]$est[which.min((modelcompeteb[[2]]$time-24)<0)-1],2)} (95 \% \Sexpr{round(gci$V2[which.min((gci$V1-24)<0)-1],2)} - \Sexpr{round(gci$V3[which.min((gci$V1-24)<0)-1],2)}). 
 
 \begin{figure}[h]
 \begin{center}
@@ -352,7 +354,7 @@ plot(modelcompeteb,curvlab=c("Relapse/Progression","Death without relapse or pro
 \end{figure}
 
 \pagebreak
-CIF for relapse at 1 year was \Sexpr{round(modelcompetea[[1]]$est[which.min((modelcompetea[[1]]$time-12)<0)],2)}, at 2 years  \Sexpr{round(modelcompetea[[1]]$est[which.min((modelcompetea[[1]]$time-24)<0)],2)}. CIF for death without relapse  at 1 year was \Sexpr{round(modelcompetea[[2]]$est[which.min((modelcompetea[[2]]$time-12)<0)],2)}, at 2 years  \Sexpr{round(modelcompetea[[2]]$est[which.min((modelcompetea[[2]]$time-24)<0)],2)}. 
+CIF for relapse at 1 year was \Sexpr{round(modelcompetea[[1]]$est[which.min((modelcompetea[[1]]$time-12)<0)-1],2)} (95 \% \Sexpr{round(gria$V2[which.min((gria$V1-12)<0)-1],2)} - \Sexpr{round(gria$V3[which.min((gria$V1-12)<0)-1],2)}), at 2 years  \Sexpr{round(modelcompetea[[1]]$est[which.min((modelcompetea[[1]]$time-24)<0)-1],2)} (95 \% \Sexpr{round(gria$V2[which.min((gria$V1-24)<0)-1],2)} - \Sexpr{round(gria$V3[which.min((gria$V1-24)<0)-1],2)}). CIF for death without relapse  at 1 year was \Sexpr{round(modelcompetea[[2]]$est[which.min((modelcompetea[[2]]$time-12)<0)-1],2)} (95 \% \Sexpr{round(gcia$V2[which.min((gcia$V1-12)<0)-1],2)} - \Sexpr{round(gcia$V3[which.min((gcia$V1-12)<0)-1],2)}), at 2 years  \Sexpr{round(modelcompetea[[2]]$est[which.min((modelcompetea[[2]]$time-24)<0)-1],2)} (95 \% \Sexpr{round(gcia$V2[which.min((gcia$V1-24)<0)-1],2)} - \Sexpr{round(gcia$V3[which.min((gcia$V1-24)<0)-1],2)}). 
 
 
 \begin{center}
@@ -365,7 +367,7 @@ plot(modelcompetea,curvlab=c("Relapse","Death without relapse"),xlab="Time (mont
 
 \end{center}
 
-\subsection{Univariate Analysis}
+%\subsection{Univariate Analysis}
 
 
 <<label=tab:uos ,echo=FALSE,results=tex,eval=FALSE>>=
