@@ -9,7 +9,7 @@ library(xtable)
 library(dplyr)
 library(ggplot2)
 library(cmprsk)
-
+library(grid)
 
 quali <- function(x, nomx, data, RAPPORT=F, SAVEFILE=F, chemin=NULL){   # x = variable ou vecteur de variable en factor
   # nomx = nom de la variable ou vecteur de nom de variable 

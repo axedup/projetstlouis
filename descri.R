@@ -84,12 +84,12 @@ summary(as.numeric(greffe$delai_dc)*30.25)
 
 
 
-patientg<-TABKRIS(baz=greffe,vect.var = c("sex_patient","age_dia","stade_dia","stade_diac","anapath","anapathc2","centre"),
-                        vect.quali = c(1,0,1,1,1,1,1),
+patientg<-TABKRIS(baz=greffe,vect.var = c("sex_patient","age_dia","stade_dia","anapath","anapathc2","centre"),
+                        vect.quali = c(1,0,1,1,1,1),
                         varint=NULL,valvarint = NULL,
                         nomvarint = NULL,
                         test=NULL,
-                        vecnoms=c("Patient sex","Age at diagnostic","Stage at diagnostic","Stage at diagnostic",
+                        vecnoms=c("Patient sex","Age at diagnosis","Stage at diagnosis",
                                   
                                   "Subtypes","Subtypes","Centres"),valeurs=NULL,
                         vecrefs=NULL,varassoc=NULL, codassoc=NULL,pres=c("","mean_mm","","","","",""),langue="en",digits=2)
@@ -104,10 +104,10 @@ avt_greffe<-TABKRIS(baz=greffe,vect.var = c("previous_autoc","programme_autoallo
                     codassoc=NULL,pres=NULL,langue="en",digits=2)
 
 
-greffed<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_greffec","age_donor","sex_donor",
+greffed<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_donor","sex_donor",
                                          "delai_dia_allo",
-                                        "delai_dia_alloc","stade_dia",
-                                        "disease_status_at_transplantc2",
+                                        "delai_dia_alloc",
+                                      
                                         "disease_status_at_transplantc",
                                         "disease_status_at_transplant","karnofsky_greffe",
                                         "karnofsky_greffec","karnofsky_greffec2","karnofsky_greffec3", "nbr_lignes_avt_allo",
@@ -115,12 +115,12 @@ greffed<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_greffec","age_donor",
                                         "donnor","hla_matchc","hla_match",
                                         "sex_dp3","cmv_dp2","stem_cell_source","tbi","intensite_condi",
                                         "condit_details","manipu_cells","nbr_donneurc"),
-                vect.quali = c(0,1,0,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1),
+                vect.quali = c(0,0,1,0,1,1,1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1),
                 varint=NULL,valvarint = NULL,
                 nomvarint =NULL,
                 test=NULL,
-                vecnoms=c("Age at graft","Age at graft","Donor age","Donor sex","Delay diagnosis and allo SCT",">12 months delay","Stage at diagnostic",
-                          "Disease status at transplant","Disease status at transplant","Disease status at transplant",
+                vecnoms=c("Age at graft","Donor age","Donor sex","Delay diagnosis and allo SCT",">12 months delay"
+                          ,"Disease status at transplant","Disease status at transplant",
                           "Karnofsky score","Karnofsky score","Karnofsky score","Karnofsky score","No of lines before alloSCT",
                           "No of lines before alloSCT",
                           "Donnor related","HLA match","HLA match",
@@ -130,15 +130,15 @@ greffed<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_greffec","age_donor",
                 codassoc=NULL,pres=c("mean_mm","","mean_mm","","mean_mm","","","","","","mean_mm","","","","mean_mm","","","","","","","","","","","",""),langue="en",digits=2)
 
 
-post_greffe<-TABKRIS(baz=greffe,vect.var = c(  "agvhd","agvhd_grade","cgvhd",
+post_greffe<-TABKRIS(baz=greffe,vect.var = c(  "agvhd","agvhd_grade","cgvhd.",
                                               "cgvhd_grade","prise_greffe","cause_death_c","best_response_after_allo",
-                                         "relapse_progression_transplant_c","survival_status_FU"),
-                                              vect.quali = c(rep(1,7),1,1),
+                                         "relapse_progression_transplant_c"),
+                                              vect.quali = c(rep(1,7),1),
                                               varint=NULL,valvarint = NULL,
                                               nomvarint = NULL,
                                               test=NULL,
                                               vecnoms=c("Agvhd","Agvhd grade","Cgvhd",
-                                                        "Cgvhd grade",'Engrafted',"Cause of death","Best reponse after SCT","Relapse/progression","Death"),valeurs=NULL,
+                                                        "Cgvhd grade",'Engrafted',"Cause of death","Best reponse after SCT","Relapse/progression"),valeurs=NULL,
                                               vecrefs=NULL,varassoc=NULL,
                                               codassoc=NULL,pres=NULL,langue="en",digits=2)
 

@@ -256,11 +256,11 @@ include.rownames=F,
 \restoregeometry
 
 \subsection{Survival analysis in all patients}
-Median overall-survival from the date of AlloSCT was \Sexpr{round(median(as.numeric(greffe$delai_dc)),2)} (range \Sexpr{round(min(as.numeric(greffe$delai_dc)),2)} to \Sexpr{round(max(as.numeric(greffe$delai_dc)),2)}). OS at 1 year was \Sexpr{round(re$surv[which.min((re$time-12)<0)-1],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-12)<0)],2)} - \Sexpr{round(re$upper[which.min((re$time-12)<0)],2)}), was \Sexpr{round(re$surv[which.min((re$time-24)<0)-1],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-24)<0)-1],2)} - \Sexpr{round(re$upper[which.min((re$time-24)<0)-1],2)}) at 2 years.OS at 4 years was \Sexpr{round(re$surv[which.min((re$time-48)<0)-1],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-48)<0)-1],2)} - \Sexpr{round(re$upper[which.min((re$time-48)<0)-1],2)}).
+Median overall-survival from the date of AlloSCT was \Sexpr{round(median(as.numeric(greffe$delai_dc)),2)} (range \Sexpr{round(min(as.numeric(greffe$delai_dc)),2)} to \Sexpr{round(max(as.numeric(greffe$delai_dc)),2)}). OS at 1 year was \Sexpr{round(re$surv[which.min((re$time-12)<0)-1],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-12)<0)],2)} - \Sexpr{round(re$upper[which.min((re$time-12)<0)-1],2)}), was \Sexpr{round(re$surv[which.min((re$time-24)<0)-1],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-24)<0)-1],2)} - \Sexpr{round(re$upper[which.min((re$time-24)<0)-1],2)}) at 2 years.OS at 4 years was \Sexpr{round(re$surv[which.min((re$time-48)<0)-1],2)} (95 \% \Sexpr{round(re$lower[which.min((re$time-48)<0)-1],2)} - \Sexpr{round(re$upper[which.min((re$time-48)<0)-1],2)}).
 \begin{figure}[h]
 \begin{center}
 <<label=fig1,fig=TRUE,echo=FALSE>>=
-km_os
+grid.draw(gt)
 @
 \end{center}
 \caption{Overall survival}
@@ -280,64 +280,19 @@ pfs_km
 \label{fig3}
 \end{figure}
 
-\pagebreak
-EFS at 1 year was \Sexpr{round(reefs$surv[which.min((reefs$time-12)<0)],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-12)<0)-1],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-12)<0)-1],2)}), was \Sexpr{round(reefs$surv[which.min((reefs$time-24)<0)-1],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-24)<0)-1],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-24)<0)-1],2)}) at 2 years. EFS at 4 years was \Sexpr{round(reefs$surv[which.min((reefs$time-48)<0)-1],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-48)<0)-1],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-48)<0)-1],2)}).
+%\pagebreak
+%EFS at 1 year was \Sexpr{round(reefs$surv[which.min((reefs$time-12)<0)],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-12)<0)-1],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-12)<0)-1],2)}), was \Sexpr{round(reefs$surv[which.min((reefs$time-24)<0)-1],2)} (95 \% \Sexpr{round(reefs$lower
+%[which.min((reefs$time-24)<0)-1],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-24)<0)-1],2)}) at 2 years. EFS at 4 years was \Sexpr{round(reefs$surv[which.min((reefs$time-48)<0)-1],2)} (95 \% \Sexpr{round(reefs$lower[which.min((reefs$time-48)<0)-1],2)} - \Sexpr{round(reefs$upper[which.min((reefs$time-48)<0)-1],2)}).
 
-\begin{figure}[h]
-\begin{center}
-<<label=fig2,fig=TRUE,echo=FALSE>>=
+%\begin{figure}[h]
+%\begin{center}
+<<label=fig2,fig=TRUE,echo=FALSE,eval=FALSE>>=
 efs_km
 @
-\end{center}
-\caption{Event-free survival}
-\label{fig2}
-\end{figure}
-
-
-
-
-\pagebreak
-Relapse at 1 year was \Sexpr{round(rer$surv[which.min((rer$time-12)<0)-1],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-12)<0)-1],2)} - \Sexpr{round(rer$upper[which.min((rer$time-12)<0)-1],2)}), was \Sexpr{round(rer$surv[which.min((rer$time-24)<0)-1],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-24)<0)-1],2)} - \Sexpr{round(rer$upper[which.min((rer$time-24)<0)-1],2)}) at 2 years. Relapse at 4 years was \Sexpr{round(rer$surv[which.min((rer$time-48)<0)-1],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-48)<0)-1],2)} - \Sexpr{round(rer$upper[which.min((rer$time-48)<0)-1],2)}).
-\\
-\begin{center}
-<<label=figg, fig=TRUE, echo=FALSE, include=FALSE>>=
-km_rechute
-@
-\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf}
-\captionof{figure}{Relapse in patients with a complete remission post alloSCT}
-
-\end{center}
-\begin{center}
-<<label=figg2, fig=TRUE, echo=FALSE, include=FALSE>>=
-pfs_km_cr
-@
-\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf}
-\captionof{figure}{PFS in patients with a complete remission post alloSCT}
-
-\end{center}
-\begin{center} 
-<<label=xcube, fig=TRUE, echo=FALSE, include=FALSE>>=
-efs_km_cr
-@
- 
-\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf}
-\captionof{figure}{EFS in patients with a complete remission post alloSCT}
-
-
-
-\end{center}
-\pagebreak
-CIF for related HSCT death at 1 years was \Sexpr{round(modelcompetec[[1]]$est[which.min((modelcompetec[[1]]$time-12)<0)-1],2)}, at 2 years  \Sexpr{round(modelcompetec[[1]]$est[which.min((modelcompetec[[1]]$time-24)<0)-1],2)}.
-CIF for non-related HSCT Death at 1 year was \Sexpr{round(modelcompetec[[2]]$est[which.min((modelcompetec[[2]]$time-12)<0)-1],2)}, at 2 years  \Sexpr{round(modelcompetec[[2]]$est[which.min((modelcompetec[[2]]$time-24)<0)-1],2)}.
-\begin{figure}[h]
-\begin{center}
-<<label=fig5,fig=TRUE,echo=FALSE>>=
-plot(modelcompetec,curvlab=c("Related HSCT Death","Non-related HSCT Death"),xlab="Time (months)", ylab="Probability")
-@
-\end{center}
-\caption{CIF of Related HSCT Death and Non-related HSCT Death}
-\label{fig5}
-\end{figure}
+%\end{center}
+%\caption{Event-free survival}
+%\label{fig2}
+%\end{figure}
 
 \pagebreak
 CIF for relapse/progression at 1 years was \Sexpr{round(modelcompeteb[[1]]$est[which.min((modelcompeteb[[1]]$time-12)<0)-1],2)} (95 \% \Sexpr{round(gri$V2[which.min((gri$V1-12)<0)-1],2)} - \Sexpr{round(gri$V3[which.min((gri$V1-12)<0)-1],2)}), at 2 years  \Sexpr{round(modelcompeteb[[1]]$est[which.min((modelcompeteb[[1]]$time-24)<0)-1],2)} (95 \% \Sexpr{round(gri$V2[which.min((gri$V1-24)<0)-1],2)} - \Sexpr{round(gri$V3[which.min((gri$V1-24)<0)-1],2)}).
@@ -354,6 +309,66 @@ plot(modelcompeteb,curvlab=c("Relapse/Progression","Death without relapse or pro
 \end{figure}
 
 \pagebreak
+CIF for related HSCT death at 1 years was \Sexpr{round(modelcompetec[[1]]$est[which.min((modelcompetec[[1]]$time-12)<0)-1],2)}, at 2 years  \Sexpr{round(modelcompetec[[1]]$est[which.min((modelcompetec[[1]]$time-24)<0)-1],2)}.
+CIF for non-related HSCT Death at 1 year was \Sexpr{round(modelcompetec[[2]]$est[which.min((modelcompetec[[2]]$time-12)<0)-1],2)}, at 2 years  \Sexpr{round(modelcompetec[[2]]$est[which.min((modelcompetec[[2]]$time-24)<0)-1],2)}.
+\begin{figure}[h]
+\begin{center}
+<<label=fig5,fig=TRUE,echo=FALSE>>=
+plot(modelcompetec,curvlab=c("Related HSCT Death","Non-related HSCT Death"),xlab="Time (months)", ylab="Probability")
+@
+\end{center}
+\caption{CIF of Related HSCT Death and Non-related HSCT Death}
+\label{fig5}
+\end{figure}
+
+\begin{center}
+<<label=fig981,fig=TRUE,echo=FALSE, include=FALSE>>=
+plot(modelcompete,curvlab=c("GVHD","Death without GVHD"),xlab="Time (months)", ylab="Probability")
+@
+\includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig981.pdf}
+\captionof{figure}{CIF of GVHD and Death without GVHD}
+
+\end{center}
+
+
+
+\pagebreak
+\subsection{Survival analysis after a complete remisson post alloSCT}
+\Sexpr{az} patients whith a complete remission were included.
+
+
+OS at 1 year was \Sexpr{round(rer$surv[which.min((rer$time-12)<0)-1],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-12)<0)-1],2)} - \Sexpr{round(rer$upper[which.min((rer$time-12)<0)-1],2)}), was \Sexpr{round(rer$surv[which.min((rer$time-24)<0)-1],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-24)<0)-1],2)} - \Sexpr{round(rer$upper[which.min((rer$time-24)<0)-1],2)}) at 2 years. OS at 4 years was \Sexpr{round(rer$surv[which.min((rer$time-48)<0)-1],2)} (95 \% \Sexpr{round(rer$lower[which.min((rer$time-48)<0)-1],2)} - \Sexpr{round(rer$upper[which.min((rer$time-48)<0)-1],2)}).
+\\
+\begin{center}
+<<label=figg, fig=TRUE, echo=FALSE, include=FALSE>>=
+km_rechute
+@
+\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf}
+\captionof{figure}{OS in patients with a complete remission post alloSCT}
+
+\end{center}
+\begin{center}
+<<label=figg2, fig=TRUE, echo=FALSE, include=FALSE>>=
+pfs_km_cr
+@
+\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf}
+\captionof{figure}{PFS in patients with a complete remission post alloSCT}
+
+\end{center}
+%\begin{center} 
+<<label=xcube, fig=TRUE, echo=FALSE, include=FALSE>>=
+efs_km_cr
+@
+ 
+%\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf}
+%\captionof{figure}{EFS in patients with a complete remission post alloSCT}
+
+
+
+%\end{center}
+
+
+\pagebreak
 CIF for relapse at 1 year was \Sexpr{round(modelcompetea[[1]]$est[which.min((modelcompetea[[1]]$time-12)<0)-1],2)} (95 \% \Sexpr{round(gria$V2[which.min((gria$V1-12)<0)-1],2)} - \Sexpr{round(gria$V3[which.min((gria$V1-12)<0)-1],2)}), at 2 years  \Sexpr{round(modelcompetea[[1]]$est[which.min((modelcompetea[[1]]$time-24)<0)-1],2)} (95 \% \Sexpr{round(gria$V2[which.min((gria$V1-24)<0)-1],2)} - \Sexpr{round(gria$V3[which.min((gria$V1-24)<0)-1],2)}). CIF for death without relapse  at 1 year was \Sexpr{round(modelcompetea[[2]]$est[which.min((modelcompetea[[2]]$time-12)<0)-1],2)} (95 \% \Sexpr{round(gcia$V2[which.min((gcia$V1-12)<0)-1],2)} - \Sexpr{round(gcia$V3[which.min((gcia$V1-12)<0)-1],2)}), at 2 years  \Sexpr{round(modelcompetea[[2]]$est[which.min((modelcompetea[[2]]$time-24)<0)-1],2)} (95 \% \Sexpr{round(gcia$V2[which.min((gcia$V1-24)<0)-1],2)} - \Sexpr{round(gcia$V3[which.min((gcia$V1-24)<0)-1],2)}). 
 
 
@@ -364,6 +379,27 @@ plot(modelcompetea,curvlab=c("Relapse","Death without relapse"),xlab="Time (mont
 \includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig7.pdf}
 \captionof{figure}{CIF of relapse and death without relapse (in patients with a complete remission post alloSCT)}
 
+\end{center}
+
+
+\begin{center}
+<<label=fig99,fig=TRUE,echo=FALSE, include=FALSE>>=
+plot(modelcompetecr,curvlab=c("Related HSCT Death","Non-related HSCT Death"),xlab="Time (months)", ylab="Probability")
+
+@
+\includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig99.pdf}
+\captionof{figure}{CIF of Related HSCT Death and Non-related HSCT Death (in patients with a complete remission post alloSCT)}
+
+\end{center}
+
+\begin{center}
+<<label=fig98,fig=TRUE,echo=FALSE, include=FALSE>>=
+plot(modelcompetecr,curvlab=c("GVHD","Death without GVHD"),xlab="Time (months)", ylab="Probability")
+
+
+@
+\includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig98.pdf}
+\captionof{figure}{CIF of GVHD and Death without GVHD (in patients with a complete remission post alloSCT)}
 
 \end{center}
 

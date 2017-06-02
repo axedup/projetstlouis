@@ -72,7 +72,7 @@ table(greffe$cgvhd_grade)
 
 
 greffe$cgvhd.<-as.factor(greffe$cgvhd.)
-levels(greffe$cgvhd.)<-c("deces avant J100", "no", "no", "yes")
+levels(greffe$cgvhd.)<-c("Early death", "no", "no", "yes")
 
 greffe$cgvhd_gradec<-greffe$cgvhd_grade
 levels(greffe$cgvhd_gradec)<-c("no cGvh", "extensive", "extensive", "limited", 
@@ -86,7 +86,7 @@ table(greffe$cgvhd_grade)
 
 
 greffe$gvhd<-ifelse(greffe$agvhd==1,1,0)
-greffe$gvhd<-ifelse(greffe$cgvhd==1 & greffe$agvhd==0 ,1,0)
+greffe$gvhd<-ifelse(greffe$cgvhd==1 & greffe$agvhd==0,1,greffe$gvhd)
 table(greffe$gvhd)
 
 greffe$date_gvhd<-ifelse(greffe$agvhd==1,greffe$agvhd_date,greffe$date_fu)
@@ -161,6 +161,8 @@ greffe$disease_status_at_transplantc<-greffe$disease_status_at_transplant
 levels(greffe$disease_status_at_transplantc)<-c("CR", "CR", "CR", "CR", "PD", "PR", 
                                                 "PR", "PR", 
                                         "PR", "PR", NA)
+table(greffe$disease_status_at_transplantc,exclude = NULL)
+greffe$disease_status_at_transplantc<-reorder(greffe$disease_status_at_transplantc,new.order=c(1,3,2))
 table(greffe$disease_status_at_transplantc,exclude = NULL)
 
 greffe$disease_status_at_transplantc2<-greffe$disease_status_at_transplant
@@ -251,7 +253,7 @@ greffe$cause_death_c<-ifelse(grepl(pat="toxicité",greffe$cause_death)
                              "HSCT-toxicity",greffe$cause_death_c)
 
 table(greffe$cause_death_c,greffe$cause_death)
-table(greffe$cause_death_c)
+table(greffe$cause_death_c,exclude=NULL)
 
 greffe$cause_death_c<-as.factor(greffe$cause_death_c)
 
@@ -259,6 +261,8 @@ greffe$cause_death_c<-as.factor(greffe$cause_death_c)
 
 greffe$cause_death_c2<-ifelse(grepl(pat="HSCT",greffe$cause_death_c)& !is.na(greffe$cause_death_c),1,0) 
 greffe$cause_death_c2<-ifelse(greffe$deces==1 & !greffe$cause_death_c2==1,2,greffe$cause_death_c2) 
+greffe$cause_death_c2<-ifelse(greffe$cause_death_c=="Unknown" & !is.na(greffe$cause_death_c),NA,greffe$cause_death_c2) 
+
 
 table(greffe$cause_death_c2,exclude=NULL)
 table(greffe$deces,exclude=NULL)
@@ -316,6 +320,13 @@ table(greffe$karnofsky_greffec,exclude=NULL)
 levels(greffe$karnofsky_greffec3)<-c("100", "Unable to carry on normal activity", "Unable to carry on normal activity", "Unable to carry on normal activity", "Unable to carry on normal activity", "80", "90")
 table(greffe$karnofsky_greffec3,exclude=NULL)
 table(greffe$karnofsky_greffec2,exclude=NULL)
+
+greffe$karnofsky_greffec4<-greffe$karnofsky_greffec
+
+table(greffe$karnofsky_greffec,exclude=NULL)
+levels(greffe$karnofsky_greffec4)<-c("100", "<90", "<90", "<90", "<90", "<90", "90")
+table(greffe$karnofsky_greffec4,exclude=NULL)
+greffe$karnofsky_greffec4<-reorder(greffe$karnofsky_greffec4, new.order=c(1,3,2))
 
 greffe$stade_diac<-ifelse(greffe$stade_dia %in% c("III","IV"), "III-IV","I-II")
 greffe$stade_diac<-ifelse(is.na(greffe$stade_dia),NA,greffe$stade_diac)
@@ -459,10 +470,20 @@ table(greffe$rechute_progression_ghvd_dc,exclude=NULL)
 greffe$efs_statut<-ifelse(greffe$rechute_progression_ghvd_dc==0,0,1)
 table(greffe$efs_statut,exclude=NULL)
 
+# 1 GVHD 2 DC 
+
+
+
+
+greffe$gvhd_dc<-ifelse(greffe$gvhd==1,1,0)
+table(greffe$gvhd_dc,exclude=NULL)
+
+greffe$gvhd_dc<-ifelse(greffe$gvhd_dc==0 & greffe$deces==1,2,
+                       greffe$gvhd_dc)
+table(greffe$gvhd_dc,exclude=NULL)
 
 
 ### Dates et délais###
-
 patients$delai_dc<-difftime(patients$date_fu,patients$j0)/30
 
 greffe$delai_dc<-difftime(greffe$date_fu,greffe$j0)/30 
@@ -487,10 +508,16 @@ greffe$date_rechute_progression_gvhd<-ifelse(greffe$rechute_progression_ghvd_dc=
 table(is.na(greffe$date_rechute_progression_gvhd),is.na(greffe$rechute_progression_ghvd_dc))
 greffe$date_rechute_progression_gvhd<-as.Date(greffe$date_rechute_progression_gvhd,origin = "1970-01-01")
 
+greffe$date_gvhd_dc<-ifelse(greffe$gvhd_dc==1,greffe$date_gvhd,greffe$date_fu)
+greffe$date_gvhd_dc<-as.Date(greffe$date_gvhd_dc,origin = "1970-01-01")
+
 
 greffe$delai_pfs<-difftime(greffe$date_rechute_progression,greffe$j0)/30.25
 greffe$delai_rechute<-difftime(greffe$date_rechute,greffe$j0)/30.25
 greffe$delai_rechutepg<-difftime(greffe$date_rechute_progression_gvhd,greffe$j0)/30.25
+greffe$delai_gvhd<-difftime(greffe$date_gvhd_dc,greffe$j0)/30.25
+
+az<-length(unique(greffe$num_id[greffe$best_response_after_allo %in% c("CR")]))
 
 
 ### on va exclure la première greffe du patient greffé deux fois car ça première greffe est 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  30 MAY 2017 16:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  2 JUN 2017 16:33
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -728,22 +728,18 @@ Underfull \vbox (badness 10000) detected at line 141
  []
 
 [4]
-Underfull \vbox (badness 10000) detected at line 207
+Underfull \vbox (badness 10000) detected at line 204
  []
-
-
-Overfull \vbox (5.91206pt too high) has occurred while \output is active []
-
 
 [5]
-Underfull \vbox (badness 10000) detected at line 234
+Underfull \vbox (badness 10000) detected at line 231
  []
 
-[6] [7] [8] [9]
-Underfull \vbox (badness 10000) detected at line 375
+[6] [7] [8]
+Underfull \vbox (badness 10000) detected at line 362
  []
 
-[10] [11]
+[9] [10]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -776,81 +772,76 @@ Underfull \vbox (badness 10000) detected at line 375
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- <Rapport-fig1.pdf, id=43, 433.62pt x 433.62pt>
+ <Rapport-fig1.pdf, id=40, 433.62pt x 433.62pt>
 File: Rapport-fig1.pdf Graphic file (type pdf)
-
-<use Rapport-fig1.pdf>
-Package pdftex.def Info: Rapport-fig1.pdf used on input line 429.
+ <use Rapport-fig1.pdf>
+Package pdftex.def Info: Rapport-fig1.pdf used on input line 415.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
- [12
+
+[11
 
 
 
 
- <./Rapport-fig1.pdf>]
-<Rapport-fig2.pdf, id=55, 433.62pt x 433.62pt>
-File: Rapport-fig2.pdf Graphic file (type pdf)
- <use Rapport-fig2.pdf>
-Package pdftex.def Info: Rapport-fig2.pdf used on input line 440.
-(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
- [13 <./Rapport-fig2.pdf>] <Rapport-fig3.pdf, id=65, 433.62pt x 433.62pt>
+ <./Rapport-fig1.pdf>] <Rapport-fig3.pdf, id=52, 433.62pt x 433.62pt>
 File: Rapport-fig3.pdf Graphic file (type pdf)
 
 <use Rapport-fig3.pdf>
-Package pdftex.def Info: Rapport-fig3.pdf used on input line 451.
+Package pdftex.def Info: Rapport-fig3.pdf used on input line 426.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
- [14 <./Rapport-fig3.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 458--460
+ [12 <./Rapport-fig3.pdf>]
+<Rapport-fig6.pdf, id=61, 433.62pt x 433.62pt>
+File: Rapport-fig6.pdf Graphic file (type pdf)
+ <use Rapport-fig6.pdf>
+Package pdftex.def Info: Rapport-fig6.pdf used on input line 449.
+(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+ [13 <./Rapport-fig6.pdf>] <Rapport-fig5.pdf, id=72, 433.62pt x 433.62pt>
+File: Rapport-fig5.pdf Graphic file (type pdf)
+
+<use Rapport-fig5.pdf>
+Package pdftex.def Info: Rapport-fig5.pdf used on input line 460.
+(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
+
+<C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig981.pdf, id=73, 43
+3.62pt x 433.62pt>
+File: C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig981.pdf Graph
+ic file (type pdf)
+
+<use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig981.pdf>
+Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
+rt-fig981.pdf used on input line 467.
+(pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
+
+[14 <./Rapport-fig5.pdf>] [15 <C:/Users/adupont/Documents/projetstlouis/scripts
+/Rapport-fig981.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 479--481
 
  []
 
 
-<C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf, id=74, 433.
+<C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf, id=92, 433.
 62pt x 433.62pt>
 File: C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf Graphic
  file (type pdf)
 
 <use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf>
 Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
-rt-figg.pdf used on input line 461.
+rt-figg.pdf used on input line 482.
 (pdftex.def)             Requested size: 209.12683pt x 209.1277pt.
 
-<C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf, id=75, 433
+<C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf, id=93, 433
 .62pt x 433.62pt>
 File: C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf Graphi
 c file (type pdf)
 
 <use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf>
 Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
-rt-figg2.pdf used on input line 466.
+rt-figg2.pdf used on input line 487.
 (pdftex.def)             Requested size: 209.12683pt x 209.1277pt.
 
-<C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf, id=76, 433
-.62pt x 433.62pt>
-File: C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf Graphi
-c file (type pdf)
-
-<use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf>
-Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
-rt-xcube.pdf used on input line 472.
-(pdftex.def)             Requested size: 209.12683pt x 209.1277pt.
-
-[15 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf> <C:/Use
-rs/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf>] [16 <C:/Users/ad
-upont/Documents/projetstlouis/scripts/Rapport-xcube.pdf>]
-<Rapport-fig5.pdf, id=101, 433.62pt x 433.62pt>
-File: Rapport-fig5.pdf Graphic file (type pdf)
- <use Rapport-fig5.pdf>
-Package pdftex.def Info: Rapport-fig5.pdf used on input line 483.
-(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
- [17 <./Rapport-fig5.pdf>] <Rapport-fig6.pdf, id=111, 433.62pt x 433.62pt>
-File: Rapport-fig6.pdf Graphic file (type pdf)
-
-<use Rapport-fig6.pdf>
-Package pdftex.def Info: Rapport-fig6.pdf used on input line 495.
-(pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
- [18 <./Rapport-fig6.pdf>]
-<C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig7.pdf, id=121, 433
+[16 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf> <C:/Use
+rs/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf>]
+<C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig7.pdf, id=110, 433
 .62pt x 433.62pt>
 File: C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig7.pdf Graphic
  file (type pdf)
@@ -860,13 +851,35 @@ Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
 rt-fig7.pdf used on input line 506.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
 
-[19 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig7.pdf>]
+<C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig99.pdf, id=111, 43
+3.62pt x 433.62pt>
+File: C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig99.pdf Graphi
+c file (type pdf)
+
+<use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig99.pdf>
+Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
+rt-fig99.pdf used on input line 513.
+(pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
+
+[17 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig7.pdf>]
+<C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig98.pdf, id=121, 43
+3.62pt x 433.62pt>
+File: C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig98.pdf Graphi
+c file (type pdf)
+
+<use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig98.pdf>
+Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
+rt-fig98.pdf used on input line 519.
+(pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
+
+[18 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig99.pdf>]
+[19 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig98.pdf>]
 (Rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 13283 strings out of 493333
- 225336 string characters out of 3139188
- 313147 words of memory out of 3000000
- 16548 multiletter control sequences out of 15000+200000
+ 13287 strings out of 493333
+ 225862 string characters out of 3139188
+ 313137 words of memory out of 3000000
+ 16551 multiletter control sequences out of 15000+200000
  26661 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,9n,96p,803b,393s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -876,9 +889,9 @@ C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Rapport.pdf (19 pages, 166425 bytes).
+Output written on Rapport.pdf (19 pages, 170184 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
+ 161 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 50 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 55 words of extra memory for PDF output out of 10000 (max. 10000000)
 
