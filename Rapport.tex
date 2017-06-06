@@ -91,7 +91,7 @@ The second objective was to determine the variables associated with these outcom
 
 \section{Methods}
 
-A  retrospective analysis was conducted.A descriptive analysis of the variables recorded was perfomed. Different endpoints were defined : death, relapse, Event-free survival(EFS), Progression free Survival (PFC). Relapse was only considered in patients who had a complete remission after allo SCT.
+A  retrospective analysis was conducted.A descriptive analysis of the variables recorded was perfomed. Different endpoints were defined : death, Progression free Survival (PFC).EFS was defined as death,progression/relapse,  grade 3-4 acute GVHD or extensive chronic GVHD.
 
 Survival curves were estimated using Kaplan-Meier product-limit estimator.
 Competing risk survival analysis methods were applied to estimate the cumulative incidence (CIF) of developing events over time from alloSCT. These methods allow for the fact that a patient may experience an event which is different from that of interest. These events are known as competing risk events, and may preclude the onset of the event of interest, or may modify the probability of the onset of that event.In particular, a transplanted patient may die before a relapse occurs. 
@@ -114,7 +114,7 @@ Survival is presented as estimate and 95\% confidence interval (95\% CI).
  285 patients were initially selected.We excluded 1 patient that underwent two alloSCT. The final analysis was perfomed on 284 patients and 284 grafts.
  \subsubsection{Patients characteristics}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Fri Jun 02 16:33:11 2017
+% Tue Jun 06 17:08:38 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -185,7 +185,7 @@ Parameters & Values & N & Statistics* \\
 \label{tab:condi}
 \end{longtable} \subsubsection{Treatments before alloSCT}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Fri Jun 02 16:33:11 2017
+% Tue Jun 06 17:08:38 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -204,7 +204,7 @@ Parameters & Values & N & Statistics* \\
 \end{longtable}\pagebreak
  \subsubsection{Transplant conditions}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Fri Jun 02 16:33:11 2017
+% Tue Jun 06 17:08:38 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -242,20 +242,19 @@ Parameters & Values & N & Statistics* \\
    & 80 & 70 & 26.62 \% \\ 
    & 90 & 86 & 32.7 \% \\ 
    & NA & 21 &  \\ 
-  Karnofsky score & Non normal activity & 15 & 5.7 \% \\ 
-   & Normal activities & 248 & 94.3 \% \\ 
-   & NA & 21 &  \\ 
   Karnofsky score & 100 & 92 & 34.98 \% \\ 
-   & Unable to carry on normal activity & 15 & 5.7 \% \\ 
-   & 80 & 70 & 26.62 \% \\ 
    & 90 & 86 & 32.7 \% \\ 
+   & <90 & 85 & 32.32 \% \\ 
    & NA & 21 &  \\ 
-  No of lines before alloSCT &  & 254 & 2 [1;3] \\ 
   No of lines before alloSCT & 1 & 73 & 28.74 \% \\ 
    & 2 & 92 & 36.22 \% \\ 
    & 3 & 65 & 25.59 \% \\ 
-   & >=4 & 24 & 9.45 \% \\ 
+   & 4 & 18 & 7.09 \% \\ 
+   & 5 & 4 & 1.57 \% \\ 
+   & 6 & 1 & 0.39 \% \\ 
+   & 9 & 1 & 0.39 \% \\ 
    & NA & 30 &  \\ 
+  No of lines before alloSCT &  & 284 & 65 [92;30] \\ 
   Donnor related & Yes & 149 & 52.46 \% \\ 
    & No & 135 & 47.54 \% \\ 
   HLA match & Identical sibling & 128 & 45.07 \% \\ 
@@ -335,7 +334,7 @@ Parameters & Values & N & Statistics* \\
 \pagebreak
 \subsubsection{Post-AlloSCT Response}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Fri Jun 02 16:33:11 2017
+% Tue Jun 06 17:08:38 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -419,28 +418,6 @@ Median overall-survival from the date of AlloSCT was 20.35 (range 0.03 to 113.77
 \end{figure}
 
 \pagebreak
-PFS at 1 year was 0.37 (95 \% 0.31 - 0.44), was 0.34 (95 \% 0.28 - 0.41) at 2 years. PFS at 4 years was 0.33 (95 \% 0.27 - 0.4).
-
-\begin{figure}[h]
-\begin{center}
-\includegraphics{Rapport-fig3}
-\end{center}
-\caption{Progression-free survival}
-\label{fig3}
-\end{figure}
-
-%\pagebreak
-%EFS at 1 year was 0.23 (95 \% 0.19 - 0.3), was 0.21 (95 \% \Sexpr{round(reefs$lower
-%[which.min((reefs$time-24)<0)-1],2)} - 0.27) at 2 years. EFS at 4 years was 0.2 (95 \% 0.15 - 0.26).
-
-%\begin{figure}[h]
-%\begin{center}
-%\end{center}
-%\caption{Event-free survival}
-%\label{fig2}
-%\end{figure}
-
-\pagebreak
 CIF for relapse/progression at 1 years was 0.18 (95 \% 0.13 - 0.23), at 2 years  0.19 (95 \% 0.15 - 0.24).
 CIF for death without relapse or progression at 1 year was 0.19 (95 \% 0.14 - 0.24), at 2 years  0.22 (95 \% 0.17 - 0.27). 
 
@@ -451,6 +428,29 @@ CIF for death without relapse or progression at 1 year was 0.19 (95 \% 0.14 - 0.
 \caption{CIF of relapse or progression and death without relapse or progression}
 \label{fig6}
 \end{figure}
+
+
+\pagebreak
+PFS at 1 year was 0.37 (95 \% 0.31 - 0.44), was 0.34 (95 \% 0.28 - 0.41) at 2 years. PFS at 4 years was 0.33 (95 \% 0.27 - 0.4).
+
+%\begin{figure}[h]
+%\begin{center}
+%\end{center}
+%\caption{Progression-free survival}
+%\label{fig3}
+%\end{figure}
+
+EFS at 1 year was 0.24 (95 \% 0.19 - 0.3), was 0.22 (95 \% 0.17 - 0.28) at 2 years. EFS at 4 years was 0.2 (95 \% 0.15 - 0.26).
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics{Rapport-fig2}
+\end{center}
+\caption{Event-free survival and Progression free survival}
+\label{fig2}
+\end{figure}
+
+
 
 \pagebreak
 CIF for related HSCT death at 1 years was 0.2, at 2 years  0.23.
@@ -465,7 +465,7 @@ CIF for non-related HSCT Death at 1 year was 0.12, at 2 years  0.13.
 
 \begin{center}
 \includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig981.pdf}
-\captionof{figure}{CIF of GVHD and Death without GVHD}
+\captionof{figure}{CIF of GVHD and Death without GVHD (acute or chronic)}
 
 \end{center}
 
@@ -482,22 +482,6 @@ OS at 1 year was 0.74 (95 \% 0.68 - 0.8), was 0.7 (95 \% 0.64 - 0.76) at 2 years
 \includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf}
 \captionof{figure}{OS in patients with a complete remission post alloSCT}
 
-\end{center}
-\begin{center}
-\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf}
-\captionof{figure}{PFS in patients with a complete remission post alloSCT}
-
-\end{center}
-%\begin{center} 
- 
-%\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf}
-%\captionof{figure}{EFS in patients with a complete remission post alloSCT}
-
-
-
-%\end{center}
-
-
 \pagebreak
 CIF for relapse at 1 year was 0.12 (95 \% 0.07 - 0.16), at 2 years  0.13 (95 \% 0.09 - 0.18). CIF for death without relapse  at 1 year was 0.19 (95 \% 0.14 - 0.24), at 2 years  0.22 (95 \% 0.17 - 0.28). 
 
@@ -509,15 +493,35 @@ CIF for relapse at 1 year was 0.12 (95 \% 0.07 - 0.16), at 2 years  0.13 (95 \% 
 \end{center}
 
 
+
+%\end{center}
+%\begin{center}
+%\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf}
+%\captionof{figure}{PFS in patients with a complete remission post alloSCT}
+
+\end{center}
+\begin{center} 
+ 
+\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf}
+\captionof{figure}{RFS and EFS in patients with a complete remission post alloSCT}
+
+
+
+%\end{center}
+
+
+
+\pagebreak
+
 \begin{center}
 \includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig99.pdf}
 \captionof{figure}{CIF of Related HSCT Death and Non-related HSCT Death (in patients with a complete remission post alloSCT)}
 
 \end{center}
-
+\pagebreak
 \begin{center}
 \includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig98.pdf}
-\captionof{figure}{CIF of GVHD and Death without GVHD (in patients with a complete remission post alloSCT)}
+\captionof{figure}{CIF of GVHD and Death without GVHD (acute or chronic)(in patients with a complete remission post alloSCT)}
 
 \end{center}
 

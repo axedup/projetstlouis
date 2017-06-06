@@ -465,10 +465,47 @@ greffe$rechute_progression_ghvd_dc<-ifelse(greffe$gvhd==1 & greffe$rechute_progr
 
 
 table(greffe$rechute_progression_ghvd_dc,exclude=NULL)
-#il reste les 2 NA# 
+
+
+#il reste les 2 NA# ancienne version 
 
 greffe$efs_statut<-ifelse(greffe$rechute_progression_ghvd_dc==0,0,1)
 table(greffe$efs_statut,exclude=NULL)
+
+
+#### GRFS
+
+greffe$grfs<-ifelse(greffe$rechute_progression==1,2,0)
+table(greffe$grfs,exclude=NULL)
+
+greffe$grfs<-ifelse(greffe$agvhd_grade %in% c("Grade III","Grade IV")|
+                      greffe$cgvhd_grade %in% c("Extensive")
+                    & !greffe$grfs==2,1,
+                                           greffe$rechute_progression_ghvd_dc)
+table(greffe$grfs,exclude=NULL)
+
+
+
+greffe$grfs<-ifelse(greffe$deces==1 & !greffe$grfs==2
+                                           & !greffe$grfs==1,3,
+                                           greffe$grfs)                                   
+table(greffe$grfs,exclude=NULL)
+
+greffe$grfs<-ifelse((greffe$agvhd_grade %in% c("Grade III","Grade IV")|
+                                             greffe$cgvhd_grade %in% c("Extensive")) & 
+                      greffe$rechute_progression==1 & greffe$g_p=="g",1,
+                    greffe$grfs)
+
+greffe$grfs<-ifelse((greffe$agvhd_grade %in% c("Present, grade unknown")|
+                       greffe$cgvhd_grade %in% c("grade unknown")) ,NA,
+                    greffe$grfs)
+
+table(greffe$grfs,exclude=NULL)
+
+
+greffe$efs_statut<-ifelse(greffe$grfs==0,0,1)
+table(greffe$efs_statut,exclude=NULL)
+
 
 # 1 GVHD 2 DC 
 

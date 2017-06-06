@@ -336,6 +336,7 @@ colnames(intervalleefscr)<-c("time","haut","bas")
 
 efs_km_cr<-ggplot()+ #geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="hv")  +
   geom_step(data=evenementeefscr,aes(x=time, y=ev),color="black", direction="hv")  +
+  geom_step(data=evenementecr,aes(x=time, y=ev),color="black", direction="hv",linetype="dotdash")  +
   #geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
   #geom_step(data=intervalle,aes(x=time, y=haut),color="black" ,direction="hv")+
   #geom_step(data=intervalle,aes(x=time, y=bas),color="black", direction="hv")+
@@ -356,10 +357,10 @@ efs_km_cr<-ggplot()+ #geom_step(data=evenement,aes(x=time, y=ev),color="black", 
   #scale_colour_manual("",values = c("Rupture"="blue", "Autres causes"="black"))+annotate(geom="text", x=52, y=0.91, label="Tous les parcours",color="black", size=4)+coord_cartesian(ylim=c(0,1)) +
   scale_y_continuous(breaks=c(0,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),expand = c(0, 0))+
   coord_cartesian(ylim=c(0,1))+
-  annotate(geom="text", x=90, y=0.50, label="EFS",
+  annotate(geom="text", x=90, y=0.25, label="EFS",
            color="black")+
-  #annotate(geom="text", x=90, y=0.5, label="PFS",
-  #color="blue")+
+  annotate(geom="text", x=90, y=0.6, label="RFS",
+  color="black")+
   theme_classic()
 
 
@@ -436,7 +437,8 @@ colnames(intervalleefs)<-c("time","haut","bas")
 
 
 efs_km<-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", direction="hv")  +
-  geom_step(data=evenementeefs,aes(x=time, y=ev),color="blue", direction="hv",linetype = "dashed")  +
+  geom_step(data=evenementeefs,aes(x=time, y=ev),color="black", direction="hv",linetype = "dashed")  +
+  geom_step(data=evenemente,aes(x=time, y=ev),color="black", direction="hv",linetype = "dotdash")  +
   #geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
   #geom_step(data=intervalle,aes(x=time, y=haut),color="black" ,direction="hv")+
   #geom_step(data=intervalle,aes(x=time, y=bas),color="black", direction="hv")+
@@ -459,8 +461,10 @@ efs_km<-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", dire
   coord_cartesian(ylim=c(0,1))+
   annotate(geom="text", x=90, y=0.55, label="OS",
            color="black")+
-  annotate(geom="text", x=90, y=0.45, label="EFS",
-           color="blue")+
+  annotate(geom="text", x=90, y=0.2, label="EFS",
+           color="black")+
+  annotate(geom="text", x=90, y=0.45, label="PFS",
+           color="black")+
   theme_classic()
 
 ### Limite à 48 mois EFS ###
