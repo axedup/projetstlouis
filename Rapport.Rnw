@@ -91,14 +91,14 @@ The second objective was to determine the variables associated with these outcom
 
 \section{Methods}
 
-A  retrospective analysis was conducted.A descriptive analysis of the variables recorded was perfomed. Different endpoints were defined : death, Progression free Survival (PFC).EFS was defined as death,progression/relapse,  grade 3-4 acute GVHD or extensive chronic GVHD.
+A  retrospective analysis was conducted.A descriptive analysis of the variables recorded was perfomed.Different endpoints were defined : death, Progression Free Survival (PFC). EFS was defined as death,progression/relapse,  grade 3-4 acute GVHD or extensive chronic GVHD.
 
 Survival curves were estimated using Kaplan-Meier product-limit estimator.
 Competing risk survival analysis methods were applied to estimate the cumulative incidence (CIF) of developing events over time from alloSCT. These methods allow for the fact that a patient may experience an event which is different from that of interest. These events are known as competing risk events, and may preclude the onset of the event of interest, or may modify the probability of the onset of that event.In particular, a transplanted patient may die before a relapse occurs. 
 
-Factors associated with overall sur-vival were analyzed using Cox proportional hazards models. The proportional hazards assumption was checked by examination of Schoenfeld residuals.
-For the different endpoints, univariable analyses were first carried out, then a multivariable analysis was used where all factors with P-value < 0.15 in the univariable analyses were considered. Factors where then sequentially removed from the adjusted model with a P-value cut- at 0.05. 
-Survival is presented as estimate and 95\% confidence interval (95\% CI).
+%Factors associated with overall sur-vival were analyzed using Cox proportional hazards models. The proportional hazards assumption was checked by examination of Schoenfeld residuals.
+%For the different endpoints, univariable analyses were first carried out, then a multivariable analysis was used where all factors with P-value < 0.15 in the univariable analyses were considered. Factors where then sequentially removed from the adjusted model with a P-value cut- at 0.05. 
+%Survival is presented as estimate and 95\% confidence interval (95\% CI).
 
 
 
@@ -389,7 +389,7 @@ efs_km_cr
 
 \begin{center}
 <<label=fig99,fig=TRUE,echo=FALSE, include=FALSE>>=
-plot(modelcompetecr,curvlab=c("Related HSCT Death","Non-related HSCT Death"),xlab="Time (months)", ylab="Probability")
+plot(modelcompeteccr,curvlab=c("Related HSCT Death","Non-related HSCT Death"),xlab="Time (months)", ylab="Probability")
 
 @
 \includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig99.pdf}

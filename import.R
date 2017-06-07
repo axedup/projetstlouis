@@ -445,7 +445,7 @@ table(greffe$rechute_dc,exclude=NULL)
 
 
 # 3 dc, 2 rechute/progression,1 ghvd
-
+greffe$rechute_progression_ghvd_dc<-NULL
 greffe$g_p<-as.character(ifelse(difftime(greffe$date_rechutep,greffe$date_gvhd)>=0,"g","r"))
 
 
@@ -474,34 +474,33 @@ table(greffe$efs_statut,exclude=NULL)
 
 
 #### GRFS
-
+greffe$grfs<-NULL
 greffe$grfs<-ifelse(greffe$rechute_progression==1,2,0)
 table(greffe$grfs,exclude=NULL)
 
-greffe$grfs<-ifelse(greffe$agvhd_grade %in% c("Grade III","Grade IV")|
-                      greffe$cgvhd_grade %in% c("Extensive")
-                    & !greffe$grfs==2,1,
-                                           greffe$rechute_progression_ghvd_dc)
+greffe$grfs<-ifelse((greffe$agvhd_grade %in% c("Grade III","Grade IV")|
+                      greffe$cgvhd_grade %in% c("Extensive"))
+                    & !greffe$rechute_progression==1,1,greffe$grfs)
 table(greffe$grfs,exclude=NULL)
 
 
 
-greffe$grfs<-ifelse(greffe$deces==1 & !greffe$grfs==2
-                                           & !greffe$grfs==1,3,
-                                           greffe$grfs)                                   
+greffe$grfs<-ifelse(greffe$deces==1 & !greffe$grfs==2  & !greffe$grfs==1,3,greffe$grfs)                                   
 table(greffe$grfs,exclude=NULL)
 
 greffe$grfs<-ifelse((greffe$agvhd_grade %in% c("Grade III","Grade IV")|
                                              greffe$cgvhd_grade %in% c("Extensive")) & 
-                      greffe$rechute_progression==1 & greffe$g_p=="g",1,
-                    greffe$grfs)
+                      greffe$rechute_progression==1 & greffe$g_p=="g",1,greffe$grfs)
+
+table(greffe$grfs,exclude=NULL)
 
 greffe$grfs<-ifelse((greffe$agvhd_grade %in% c("Present, grade unknown")|
                        greffe$cgvhd_grade %in% c("grade unknown")) ,NA,
                     greffe$grfs)
 
 table(greffe$grfs,exclude=NULL)
-
+table(greffe$rechute_progressionc,exclude=NULL)
+table(greffe$rechute_progression_ghvd_dc,greffe$grfs,exclude=NULL)
 
 greffe$efs_statut<-ifelse(greffe$grfs==0,0,1)
 table(greffe$efs_statut,exclude=NULL)
@@ -521,12 +520,12 @@ table(greffe$gvhd_dc,exclude=NULL)
 
 
 ### Dates et délais###
-patients$delai_dc<-difftime(patients$date_fu,patients$j0)/30
+patients$delai_dc<-difftime(patients$date_fu,patients$j0)/30.25
 
-greffe$delai_dc<-difftime(greffe$date_fu,greffe$j0)/30 
+greffe$delai_dc<-difftime(greffe$date_fu,greffe$j0)/30.25 
 
 
-greffe$delai_gvhd<-difftime(greffe$date_gvhd,greffe$j0)/30
+greffe$delai_gvhd<-difftime(greffe$date_gvhd,greffe$j0)/30.25
 
 
 
@@ -540,8 +539,8 @@ table(is.na(greffe$rechute_progression), is.na(greffe$date_rechute_progression))
 greffe$date_rechute_progression<-as.Date(greffe$date_rechute_progression,origin = "1970-01-01")
 
 
-greffe$date_rechute_progression_gvhd<-ifelse(greffe$rechute_progression_ghvd_dc==2,greffe$date_rechutep,greffe$date_fu)
-greffe$date_rechute_progression_gvhd<-ifelse(greffe$rechute_progression_ghvd_dc==1,greffe$date_gvhd,greffe$date_rechute_progression_gvhd)
+greffe$date_rechute_progression_gvhd<-ifelse(greffe$grfs==2,greffe$date_rechutep,greffe$date_fu)
+greffe$date_rechute_progression_gvhd<-ifelse(greffe$grfs==1,greffe$date_gvhd,greffe$date_rechute_progression_gvhd)
 table(is.na(greffe$date_rechute_progression_gvhd),is.na(greffe$rechute_progression_ghvd_dc))
 greffe$date_rechute_progression_gvhd<-as.Date(greffe$date_rechute_progression_gvhd,origin = "1970-01-01")
 
