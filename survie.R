@@ -107,30 +107,30 @@ gt$layout$clip[gt$layout$name=="panel"] <- "off"
 
 ### Limite à 48 mois ###
 
-greffe$deces_48<-ifelse(greffe$deces==1 & greffe$delai_dc>48,0,greffe$deces)
-greffe$delai_dc_48<-ifelse( greffe$delai_dc>48,48,greffe$delai_dc)
+greffe$deces_60<-ifelse(greffe$deces==1 & greffe$delai_dc>60,0,greffe$deces)
+greffe$delai_dc_60<-ifelse( greffe$delai_dc>60,60,greffe$delai_dc)
 
-summary(as.numeric(greffe$delai_dc_48))
-s_48<-Surv(event=greffe$deces_48,time=as.numeric(greffe$delai_dc_48))
-
-
+summary(as.numeric(greffe$delai_dc_60))
+s_60<-Surv(event=greffe$deces_60,time=as.numeric(greffe$delai_dc_60))
 
 
-a_48 <- survfit( s_48 ~ 1)
-re_48<-summary(a_48,censored = TRUE)
-plot(a_48, xlab="Time in months",ylab="Probability")
 
-censure_48<-as.data.frame(cbind(re_48$time[re_48$n.event==0],re_48$surv[re_48$n.event==0] ))
-colnames(censure_48)<-c("time","ce")
-evenement_48<-as.data.frame(cbind(re_48$time,re_48$surv ))
-colnames(evenement_48)<-c("time","ev")
-intervalle_48<-as.data.frame(cbind(re_48$time,re_48$upper
-                                ,re_48$lower ))
-colnames(intervalle_48)<-c("time","haut","bas")
-km_48<-ggplot()+ geom_step(data=evenement_48,aes(x=time, y=ev),color="black", direction="hv")  +
-  geom_ribbon(data=intervalle_48, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
-  geom_step(data=intervalle_48,aes(x=time, y=haut),color="black" ,direction="hv")+
-  geom_step(data=intervalle_48,aes(x=time, y=bas),color="black", direction="hv")+
+
+a_60 <- survfit( s_60 ~ 1)
+re_60<-summary(a_60,censored = TRUE)
+plot(a_60, xlab="Time in months",ylab="Probability")
+
+censure_60<-as.data.frame(cbind(re_60$time[re_60$n.event==0],re_60$surv[re_60$n.event==0] ))
+colnames(censure_60)<-c("time","ce")
+evenement_60<-as.data.frame(cbind(re_60$time,re_60$surv ))
+colnames(evenement_60)<-c("time","ev")
+intervalle_60<-as.data.frame(cbind(re_60$time,re_60$upper
+                                ,re_60$lower ))
+colnames(intervalle_60)<-c("time","haut","bas")
+km_60<-ggplot()+ geom_step(data=evenement_60,aes(x=time, y=ev),color="black", direction="hv")  +
+  geom_ribbon(data=intervalle_60, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
+  geom_step(data=intervalle_60,aes(x=time, y=haut),color="black" ,direction="hv")+
+  geom_step(data=intervalle_60,aes(x=time, y=bas),color="black", direction="hv")+
   scale_x_continuous(breaks=c(0,10,20,30,40,50),expand = c(0, 0))+
   scale_size_manual(values=c(1.5,1.5))+
   
