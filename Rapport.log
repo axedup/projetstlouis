@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  7 JUN 2017 13:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  19 JUN 2017 17:37
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -736,7 +736,7 @@ Underfull \vbox (badness 10000) detected at line 231
  []
 
 [6] [7] [8]
-Underfull \vbox (badness 10000) detected at line 361
+Underfull \vbox (badness 10000) detected at line 364
  []
 
 [9] [10]
@@ -775,7 +775,7 @@ Underfull \vbox (badness 10000) detected at line 361
  <Rapport-fig1.pdf, id=40, 433.62pt x 433.62pt>
 File: Rapport-fig1.pdf Graphic file (type pdf)
  <use Rapport-fig1.pdf>
-Package pdftex.def Info: Rapport-fig1.pdf used on input line 414.
+Package pdftex.def Info: Rapport-fig1.pdf used on input line 417.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
 
 [11
@@ -787,19 +787,19 @@ Package pdftex.def Info: Rapport-fig1.pdf used on input line 414.
 File: Rapport-fig6.pdf Graphic file (type pdf)
 
 <use Rapport-fig6.pdf>
-Package pdftex.def Info: Rapport-fig6.pdf used on input line 426.
+Package pdftex.def Info: Rapport-fig6.pdf used on input line 429.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
  [12 <./Rapport-fig6.pdf>]
 <Rapport-fig2.pdf, id=62, 433.62pt x 433.62pt>
 File: Rapport-fig2.pdf Graphic file (type pdf)
  <use Rapport-fig2.pdf>
-Package pdftex.def Info: Rapport-fig2.pdf used on input line 447.
+Package pdftex.def Info: Rapport-fig2.pdf used on input line 450.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
  [13 <./Rapport-fig2.pdf>] <Rapport-fig5.pdf, id=72, 433.62pt x 433.62pt>
 File: Rapport-fig5.pdf Graphic file (type pdf)
 
 <use Rapport-fig5.pdf>
-Package pdftex.def Info: Rapport-fig5.pdf used on input line 460.
+Package pdftex.def Info: Rapport-fig5.pdf used on input line 463.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
 
 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig981.pdf, id=73, 43
@@ -809,12 +809,12 @@ ic file (type pdf)
 
 <use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig981.pdf>
 Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
-rt-fig981.pdf used on input line 467.
+rt-fig981.pdf used on input line 470.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
 
 [14 <./Rapport-fig5.pdf>] [15 <C:/Users/adupont/Documents/projetstlouis/scripts
 /Rapport-fig981.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 479--481
+Underfull \hbox (badness 10000) in paragraph at lines 482--484
 
  []
 
@@ -826,7 +826,7 @@ File: C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf Graphic
 
 <use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf>
 Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
-rt-figg.pdf used on input line 482.
+rt-figg.pdf used on input line 485.
 (pdftex.def)             Requested size: 209.12683pt x 209.1277pt.
 
 [16 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf>]
@@ -837,7 +837,7 @@ File: C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig7.pdf Graphic
 
 <use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig7.pdf>
 Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
-rt-fig7.pdf used on input line 490.
+rt-fig7.pdf used on input line 493.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
 
 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf, id=105, 43
@@ -847,7 +847,7 @@ c file (type pdf)
 
 <use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf>
 Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
-rt-xcube.pdf used on input line 505.
+rt-xcube.pdf used on input line 508.
 (pdftex.def)             Requested size: 209.12683pt x 209.1277pt.
 
 [17 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig7.pdf>]
@@ -859,7 +859,7 @@ c file (type pdf)
 
 <use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig99.pdf>
 Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
-rt-fig99.pdf used on input line 517.
+rt-fig99.pdf used on input line 520.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
 
 [19 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig99.pdf>]
@@ -870,17 +870,17 @@ c file (type pdf)
 
 <use C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig98.pdf>
 Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
-rt-fig98.pdf used on input line 523.
+rt-fig98.pdf used on input line 526.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
 
 
-! LaTeX Error: \begin{center} on input line 503 ended by \end{document}.
+! LaTeX Error: \begin{center} on input line 506 ended by \end{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.539 \end{document}
+l.542 \end{document}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -890,7 +890,7 @@ or  <return>  to continue without it.
 (Rapport.aux) )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 503 (\begingroup)
+### semi simple group (level 1) entered at line 506 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
  13287 strings out of 493333
@@ -906,7 +906,7 @@ x10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Rapport.pdf (20 pages, 172014 bytes).
+Output written on Rapport.pdf (20 pages, 172355 bytes).
 PDF statistics:
  164 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

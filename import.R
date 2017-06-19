@@ -198,12 +198,19 @@ table(greffe$hla_match)
 levels(greffe$hla_match)<-c("Identical sibling", "Identical sibling", "Matched unrelated", 
                              "Mismatched relative", "Mismatched unrelated", "Unrelated CB")
 
-greffe$hla_matchc<-ifelse(greffe$hla_match %in% c("Unrelated CB"),"Matched unrelated",as.character(greffe$hla_match))
+greffe$hla_matchc<-ifelse(greffe$hla_match %in% c("Unrelated CB"),"Mismatched unrelated",as.character(greffe$hla_match))
 greffe$hla_matchc<-factor(greffe$hla_matchc)
 table(greffe$hla_matchc,exclude=NULL)
 
-greffe$donnor<-ifelse(greffe$hla_match %in% c("Identical sibling","Mismatched relative"),"1","0")
-greffe$donnor<-factor(greffe$donnor,labels=c("Yes","No"))
+greffe$hla_matchc2<-ifelse(greffe$hla_match %in% c("Unrelated CB"),"Mismatched unrelated",as.character(greffe$hla_match))
+greffe$hla_matchc2<-ifelse(greffe$hla_matchc2 %in% c("Mismatched unrelated","Mismatched relative"),"Alternative donnors",as.character(greffe$hla_match))
+greffe$hla_matchc2<-factor(greffe$hla_matchc2)
+table(greffe$hla_matchc2,exclude=NULL)
+
+
+
+greffe$donnor<-ifelse(greffe$hla_match %in% c("Identical sibling","Matched unrelated"),"1","0")
+greffe$donnor<-factor(greffe$donnor,labels=c("HLA mismatched","HLA matched"))
 table(greffe$donnor)
 
 table(greffe$manipu_cells,exclude=NULL)
@@ -348,12 +355,17 @@ greffe$sex_dp3<-relevel(greffe$sex_dp3,ref="F/M")
 
 
 
- greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("pos/neg","pos/neg/neg"),"pos/neg", "Others")
+greffe$cmv_dp2<-ifelse(greffe$cmv_dp %in% c("neg/neg"),"neg/neg", "Others")
 greffe$cmv_dp2<-ifelse(is.na(greffe$cmv_dp),NA, greffe$cmv_dp2)
 greffe$cmv_dp2<-as.factor(greffe$cmv_dp2)
-greffe$cmv_dp2<-relevel(greffe$cmv_dp2,ref="pos/neg")
+greffe$cmv_dp2<-relevel(greffe$cmv_dp2,ref="neg/neg")
 
 levels(greffe$sex_donor)<-c("Female", "Female", "Male", "Male", NA)
+
+greffe$depletion<-as.factor(as.character(greffe$depletion))
+levels(greffe$depletion)<-c("No","Partial T depletion")
+
+
 
 ### Les ages###
 

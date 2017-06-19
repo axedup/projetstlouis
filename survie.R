@@ -417,6 +417,24 @@ pfs_km<-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", dire
            color="blue")+
   theme_classic()
 
+### PFS 60 jours
+
+greffe$pfs_60<-ifelse(greffe$rechute_progressionc==1 & greffe$delai_pfs>60,0,greffe$rechute_progressionc)
+greffe$delai_pfs_60<-ifelse( greffe$delai_pfs>60,60,greffe$delai_pfs)
+
+summary(as.numeric(greffe$delai_pfs_60))
+pfss_60<-Surv(event=greffe$pfs_60,time=as.numeric(greffe$delai_pfs_60))
+
+
+
+
+# a_60 <- survfit( s_60 ~ 1)
+# re_60<-summary(a_60,censored = TRUE)
+# plot(a_60, xlab="Time in months",ylab="Probability")
+
+
+
+
 ### EFS
 
 efs<-Surv(event=greffe$efs_statut,time=as.numeric(greffe$delai_rechutepg))
@@ -467,56 +485,56 @@ efs_km<-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", dire
            color="black")+
   theme_classic()
 
-### Limite à 48 mois EFS ###
+### Limite à 60 mois EFS ###
 
-greffe$evenefs_48<-ifelse(greffe$efs_statut==1 & greffe$delai_rechutepg>48,0,greffe$efs_statut)
-greffe$delai_rechutepg_48<-ifelse( greffe$delai_rechutepg>48,48,greffe$delai_rechutepg)
+greffe$evenefs_60<-ifelse(greffe$efs_statut==1 & greffe$delai_rechutepg>60,0,greffe$efs_statut)
+greffe$delai_rechutepg_60<-ifelse( greffe$delai_rechutepg>60,60,greffe$delai_rechutepg)
 
-summary(as.numeric(greffe$delai_dc_48))
-efs_48<-Surv(event=greffe$evenefs_48,time=as.numeric(greffe$delai_rechutepg_48))
-
-
+summary(as.numeric(greffe$delai_dc_60))
+efs_60<-Surv(event=greffe$evenefs_60,time=as.numeric(greffe$delai_rechutepg_60))
 
 
-afs_48 <- survfit( efs_48 ~ 1)
-refs_48<-summary(afs_48,censored = TRUE)
-plot(afs_48, xlab="Time in months",ylab="Probability")
 
-censure_48e<-as.data.frame(cbind(refs_48$time[refs_48$n.event==0],refs_48$surv[refs_48$n.event==0] ))
-colnames(censure_48e)<-c("time","ce")
-evenement_48e<-as.data.frame(cbind(refs_48$time,refs_48$surv ))
-colnames(evenement_48e)<-c("time","ev")
-intervalle_48e<-as.data.frame(cbind(refs_48$time,refs_48$upper
-                                   ,refs_48$lower ))
-colnames(intervalle_48)<-c("time","haut","bas")
 
-ggplot()+ geom_step(data=evenement_48,aes(x=time, y=ev),color="black", direction="hv")  +
-  geom_step(data=evenement_48e,aes(x=time, y=ev),color="blue", direction="hv",linetype = "dashed")  +
-  #geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
-  #geom_step(data=intervalle,aes(x=time, y=haut),color="black" ,direction="hv")+
-  #geom_step(data=intervalle,aes(x=time, y=bas),color="black", direction="hv")+
-  scale_x_continuous(breaks=c(0,10,20,30,40,50),expand = c(0, 0))+
-  scale_size_manual(values=c(1.5,1.5))+
-  
-  geom_text(x=80, y=0.55, label="OS")+
-  geom_text(x=80, y=0.45, label="EFS")+
-  #geom_point(data=censure, aes(x=time, y=ce),shape=3,size=1 )+
-  #ggtitle("Durée de vie des implants") +
-  xlab("Time (Months)")+
-  ylab("Probability")+
-  #geom_step(data=gri,aes(x=time, y=ics), direction="hv",color="gray10",linetype="dashed" )+
-  #  geom_step(data=gri,aes(x=time, y=ici), direction="hv",color="gray10",linetype="dashed" )+
-  #  geom_step(data=gci,aes(x=time, y=ics), direction="hv",color="black",linetype="dashed" )+
-  #  geom_step(data=gci,aes(x=time, y=ici), direction="hv",color="black",linetype="dashed" )+
-  #
-  #scale_colour_manual("",values = c("Rupture"="blue", "Autres causes"="black"))+annotate(geom="text", x=52, y=0.91, label="Tous les parcours",color="black", size=4)+coord_cartesian(ylim=c(0,1)) +
-  scale_y_continuous(breaks=c(0,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),expand = c(0, 0))+
-  coord_cartesian(ylim=c(0,1))+
-  annotate(geom="text", x=40, y=0.7, label="OS",
-           color="black")+
-  annotate(geom="text", x=40, y=0.50, label="EFS",
-           color="blue")+
-  theme_classic()
+afs_60 <- survfit( efs_60 ~ 1)
+refs_60<-summary(afs_60,censored = TRUE)
+plot(afs_60, xlab="Time in months",ylab="Probability")
+
+censure_60e<-as.data.frame(cbind(refs_60$time[refs_60$n.event==0],refs_60$surv[refs_60$n.event==0] ))
+colnames(censure_60e)<-c("time","ce")
+evenement_60e<-as.data.frame(cbind(refs_60$time,refs_60$surv ))
+colnames(evenement_60e)<-c("time","ev")
+intervalle_60e<-as.data.frame(cbind(refs_60$time,refs_60$upper
+                                   ,refs_60$lower ))
+colnames(intervalle_60)<-c("time","haut","bas")
+
+# ggplot()+ geom_step(data=evenement_48,aes(x=time, y=ev),color="black", direction="hv")  +
+#   geom_step(data=evenement_48e,aes(x=time, y=ev),color="blue", direction="hv",linetype = "dashed")  +
+#   #geom_ribbon(data=intervalle, aes(x=time, ymin=bas, ymax=haut),fill="grey",alpha="0.5")+
+#   #geom_step(data=intervalle,aes(x=time, y=haut),color="black" ,direction="hv")+
+#   #geom_step(data=intervalle,aes(x=time, y=bas),color="black", direction="hv")+
+#   scale_x_continuous(breaks=c(0,10,20,30,40,50),expand = c(0, 0))+
+#   scale_size_manual(values=c(1.5,1.5))+
+#   
+#   geom_text(x=80, y=0.55, label="OS")+
+#   geom_text(x=80, y=0.45, label="EFS")+
+#   #geom_point(data=censure, aes(x=time, y=ce),shape=3,size=1 )+
+#   #ggtitle("Durée de vie des implants") +
+#   xlab("Time (Months)")+
+#   ylab("Probability")+
+#   #geom_step(data=gri,aes(x=time, y=ics), direction="hv",color="gray10",linetype="dashed" )+
+#   #  geom_step(data=gri,aes(x=time, y=ici), direction="hv",color="gray10",linetype="dashed" )+
+#   #  geom_step(data=gci,aes(x=time, y=ics), direction="hv",color="black",linetype="dashed" )+
+#   #  geom_step(data=gci,aes(x=time, y=ici), direction="hv",color="black",linetype="dashed" )+
+#   #
+#   #scale_colour_manual("",values = c("Rupture"="blue", "Autres causes"="black"))+annotate(geom="text", x=52, y=0.91, label="Tous les parcours",color="black", size=4)+coord_cartesian(ylim=c(0,1)) +
+#   scale_y_continuous(breaks=c(0,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),expand = c(0, 0))+
+#   coord_cartesian(ylim=c(0,1))+
+#   annotate(geom="text", x=40, y=0.7, label="OS",
+#            color="black")+
+#   annotate(geom="text", x=40, y=0.50, label="EFS",
+#            color="blue")+
+#   theme_classic()
 
 # for (i in c("sex_donor","sex_patient","age_greffec",
 #             "delai_dia_alloc","stade_dia","stade_diac",

@@ -1,5 +1,5 @@
 
-
+### Survie 60
 
 OS<-NULL
 for (i in c("sex_donor","sex_patient","age_greffec",
@@ -56,11 +56,11 @@ dev.off()
  }
 
 
-summary(coxph( s_60 ~ age_greffe ,data=greffe))
+summary(coxph( s_60 ~ age_greffe,data=greffe))
 plot(cox.zph( coxph( s_60 ~ age_greffe,data=greffe),transform = "identity"))
 
-summary(coxph( s_60 ~ karnofsky_greffec4 ,data=greffe))
-plot(cox.zph( coxph( s_60 ~karnofsky_greffec4,data=greffe),transform = "identity")[1])
+summary(coxph( s_60 ~ depletion ,data=greffe))
+plot(cox.zph( coxph( s_60 ~depletion,data=greffe),transform = "identity")[1])
 
 OS<-NULL
 
@@ -78,7 +78,7 @@ for (i in c("sex_donor","sex_patient","age_greffec",
             "agvhd","agvhd3","agvhd_grade","cgvhd",
             "anapathc2")
 ){
-  mo<-coxph( s ~ greffe[,i],data=greffe)  
+  mo<-coxph( s_60 ~ greffe[,i],data=greffe)  
   # a<-summary(coxph( s ~ greffe[,i],data=greffe))
   # assign(paste(i, "m", sep="_"),a)
   # capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"m.txt",sep=""))
@@ -134,112 +134,294 @@ OS$Variable <- c("Sex Donor", "Male", "sex patient", "age at graft", "> 49 years
                  "ALCL", "ATLL", "NK/T nasal")
 ### EFS###
 
-EFS<-NULL
+# EFS<-NULL
+# 
+# for (i in c("sex_donor","sex_patient","age_greffec",
+#                         "delai_dia_alloc","stade_dia","stade_diac",
+#                         "disease_status_at_transplantc2",
+#                         "disease_status_at_transplantc",
+#                         "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2",
+#             "karnofsky_greffec3","previous_autoc",
+#             "programme_autoalloc","rechute_post_allo","nbr_lignes_avt_alloc",
+#             "nbr_lignes_avt_alloc2",
+#             "donnor","hla_matchc","hla_match","sex_dp3",
+#             "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","manipu_cells",
+#             "nbr_donneurc","manipu_cells"
+#             ,"anapathc2"
+#                        )
+#             ){
+#   mo<-coxph( efs ~ greffe[,i],data=greffe)  
+#               a<-summary(coxph( efs ~ greffe[,i],data=greffe))
+#               assign(paste(i, "efs", sep="_"),a)
+#               capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"m.txt",sep=""))
+#               ss<-cox.zph( coxph( efs ~ greffe[,i],data=greffe),transform = "log")
+#               capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"ss.txt",sep=""))
+#               ssi<-cox.zph( coxph( efs ~ greffe[,i],data=greffe),transform = "identity")
+#               ssk<-cox.zph( coxph( efs ~ greffe[,i],data=greffe),transform = "km")
+#               capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"identity.txt",sep=""))
+# 
+#               ssu<-survdiff( efs ~ greffe[,i],data=greffe, rho=1)
+#               pw<-(1-pchisq(ssu$chisq, 1))
+#               pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#               #par(mfrow=c(2,2))
+#               plot(ss[1:nlevels(greffe[,i])-1,])
+#               dev.off()
+#               pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
+# 
+#               plot(survfit( efs ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
+#               text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+# 
+#               dev.off()
+# 
+#               pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
+# 
+#               plot(survfit( efs ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
+#               text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+# 
+#               dev.off()
+#               pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
+# 
+# 
+#               plot(ssi[1:nlevels(greffe[,i])-1,])
+#               dev.off()
+#               
+#               qq<-result.cox(mo)
+#               EFS<-rbind(EFS,qq)
+#             }
+#             
+# 
+# 
+# ###
+# 
+# for (i in c("sex_donor","sex_patient","age_greffec",
+#             "delai_dia_alloc","stade_dia","stade_diac",
+#             "disease_status_at_transplantc2",
+#             "disease_status_at_transplantc",
+#             "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2",
+#             "karnofsky_greffec3","previous_autoc",
+#             "programme_autoalloc","rechute_post_allo","nbr_lignes_avt_alloc",
+#             "nbr_lignes_avt_alloc2",
+#             "donnor","hla_matchc","hla_match","sex_dp3",
+#             "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","manipu_cells",
+#             "nbr_donneurc","manipu_cells"
+#             ,"anapathc2"
+# )
+# ){
+#   
+#   
+#   x<-model.matrix(~greffe[,c(i)])
+#   x<-x[,2:ncol(x)]
+#   rcm<-crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
+#       fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=1)
+#   rc<-summary(crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
+#                   fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=1))
+#   capture.output(rc, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,"mrep.txt",sep=""))  
+#  s<-as.data.frame(x)
+#   for (j in 1:ncol(s)){
+#     pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,j,"mrep.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#     
+#   scatter.smooth(rcm$uftime,rcm$res[,j])
+#   dev.off()}
+#   
+#   rcm2<-crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
+#       fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=2)
+#   rc2<-summary(crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
+#                   fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=2))
+#   capture.output(rc, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,"md.txt",sep=""))  
+#   
+#   for (j in 1:ncol(s)){
+#     pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,j,"md.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#     
+#     scatter.smooth(rcm2$uftime,rcm2$res[,j])
+#     dev.off()}
+# }
+# 
 
-for (i in c("sex_donor","sex_patient","age_greffec",
-                        "delai_dia_alloc","stade_dia","stade_diac",
-                        "disease_status_at_transplantc2",
-                        "disease_status_at_transplantc",
-                        "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2",
-            "karnofsky_greffec3","previous_autoc",
-            "programme_autoalloc","rechute_post_allo","nbr_lignes_avt_alloc",
-            "nbr_lignes_avt_alloc2",
-            "donnor","hla_matchc","hla_match","sex_dp3",
-            "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","manipu_cells",
-            "nbr_donneurc","manipu_cells"
-            ,"anapathc2"
-                       )
-            ){
-  mo<-coxph( efs ~ greffe[,i],data=greffe)  
-              a<-summary(coxph( efs ~ greffe[,i],data=greffe))
-              assign(paste(i, "efs", sep="_"),a)
-              capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"m.txt",sep=""))
-              ss<-cox.zph( coxph( efs ~ greffe[,i],data=greffe),transform = "log")
-              capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"ss.txt",sep=""))
-              ssi<-cox.zph( coxph( efs ~ greffe[,i],data=greffe),transform = "identity")
-              ssk<-cox.zph( coxph( efs ~ greffe[,i],data=greffe),transform = "km")
-              capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"identity.txt",sep=""))
+### PFS###
 
-              ssu<-survdiff( efs ~ greffe[,i],data=greffe, rho=1)
-              pw<-(1-pchisq(ssu$chisq, 1))
-              pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
-              #par(mfrow=c(2,2))
-              plot(ss[1:nlevels(greffe[,i])-1,])
-              dev.off()
-              pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
+# PFS<-NULL
+# 
+# for (i in c("sex_donor","sex_patient","age_greffec",
+#             "delai_dia_alloc","stade_dia","stade_diac",
+#             "disease_status_at_transplantc2",
+#             "disease_status_at_transplantc",
+#             "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec3",
+#             "karnofsky_greffec3","previous_autoc",
+#             "programme_autoalloc","rechute_post_allo","nbr_lignes_avt_alloc",
+#             "nbr_lignes_avt_alloc",
+#             "donnor","hla_matchc2","hla_match","sex_dp3",
+#             "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","manipu_cells",
+#             "nbr_donneurc","manipu_cells"
+#             ,"anapathc2"
+# )
+# ){
+#   mo<-coxph( pfss_60 ~ greffe[,i],data=greffe)  
+#   a<-summary(coxph( pfss_60 ~ greffe[,i],data=greffe))
+#   assign(paste(i, "pfs_60", sep="_"),a)
+#   capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"m.txt",sep=""))
+#   ss<-cox.zph( coxph( pfss_60 ~ greffe[,i],data=greffe),transform = "log")
+#   capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"ss.txt",sep=""))
+#   ssi<-cox.zph( coxph( pfss_60 ~ greffe[,i],data=greffe),transform = "identity")
+#   ssk<-cox.zph( coxph( pfss_60 ~ greffe[,i],data=greffe),transform = "km")
+#   capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"identity.txt",sep=""))
+#   
+#   ssu<-survdiff( pfss_60 ~ greffe[,i],data=greffe, rho=1)
+#   pw<-(1-pchisq(ssu$chisq, 1))
+#   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#   #par(mfrow=c(2,2))
+#   plot(ss[1:nlevels(greffe[,i])-1,])
+#   dev.off()
+#   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#   
+#   plot(survfit( pfss_60 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
+#   text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+#   
+#   dev.off()
+#   
+#   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#   
+#   plot(survfit( pfss_60 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
+#   text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+#   
+#   dev.off()
+#   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
+#   
+#   
+#   plot(ssi[1:nlevels(greffe[,i])-1,])
+#   dev.off()
+#   
+#   qq<-result.cox(mo)
+#   PFS<-rbind(PFS,qq)
+# }
+# 
 
-              plot(survfit( efs ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
-              text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
-
-              dev.off()
-
-              pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
-
-              plot(survfit( efs ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
-              text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
-
-              dev.off()
-              pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
 
 
-              plot(ssi[1:nlevels(greffe[,i])-1,])
-              dev.off()
-              
-              qq<-result.cox(mo)
-              EFS<-rbind(EFS,qq)
-            }
-            
+### PFS 60 jours ###
 
-
-###
+PFS<-NULL
 
 for (i in c("sex_donor","sex_patient","age_greffec",
             "delai_dia_alloc","stade_dia","stade_diac",
             "disease_status_at_transplantc2",
             "disease_status_at_transplantc",
-            "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec2",
+            "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec3",
             "karnofsky_greffec3","previous_autoc",
             "programme_autoalloc","rechute_post_allo","nbr_lignes_avt_alloc",
-            "nbr_lignes_avt_alloc2",
-            "donnor","hla_matchc","hla_match","sex_dp3",
+            "nbr_lignes_avt_alloc",
+            "donnor","hla_matchc2","hla_match","sex_dp3",
             "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","manipu_cells",
             "nbr_donneurc","manipu_cells"
             ,"anapathc2"
 )
 ){
+  mo<-coxph( pfss_60 ~ greffe[,i],data=greffe)  
+  a<-summary(coxph( pfss_60 ~ greffe[,i],data=greffe))
+  assign(paste(i, "pfs_60", sep="_"),a)
+  capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"m.txt",sep=""))
+  ss<-cox.zph( coxph( pfss_60 ~ greffe[,i],data=greffe),transform = "log")
+  capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"ss.txt",sep=""))
+  ssi<-cox.zph( coxph( pfss_60 ~ greffe[,i],data=greffe),transform = "identity")
+  ssk<-cox.zph( coxph( pfss_60 ~ greffe[,i],data=greffe),transform = "km")
+  capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"identity.txt",sep=""))
+  
+  ssu<-survdiff( pfss_60 ~ greffe[,i],data=greffe, rho=1)
+  pw<-(1-pchisq(ssu$chisq, 1))
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  #par(mfrow=c(2,2))
+  plot(ss[1:nlevels(greffe[,i])-1,])
+  dev.off()
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  
+  plot(survfit( pfss_60 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
+  text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  
+  dev.off()
+  
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  
+  plot(survfit( pfss_60 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
+  text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  
+  dev.off()
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
   
   
-  x<-model.matrix(~greffe[,c(i)])
-  x<-x[,2:ncol(x)]
-  rcm<-crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
-      fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=1)
-  rc<-summary(crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
-                  fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=1))
-  capture.output(rc, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,"mrep.txt",sep=""))  
- s<-as.data.frame(x)
-  for (j in 1:ncol(s)){
-    pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,j,"mrep.pdf",sep=""), width=4, height=4,onefile = TRUE)
-    
-  scatter.smooth(rcm$uftime,rcm$res[,j])
-  dev.off()}
+  plot(ssi[1:nlevels(greffe[,i])-1,])
+  dev.off()
   
-  rcm2<-crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
-      fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=2)
-  rc2<-summary(crr(ftime=greffe$delai_pfs[!is.na(greffe[,c(i)])],
-                  fstatus=greffe$rechute_progression_dc[!is.na(greffe[,c(i)])],cov1=x,failcode=2))
-  capture.output(rc, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,"md.txt",sep=""))  
-  
-  for (j in 1:ncol(s)){
-    pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsrc/",i,j,"md.pdf",sep=""), width=4, height=4,onefile = TRUE)
-    
-    scatter.smooth(rcm2$uftime,rcm2$res[,j])
-    dev.off()}
+  qq<-result.cox(mo)
+  PFS<-rbind(PFS,qq)
 }
 
 
+summary(coxph( pfss_60 ~ age_greffe,data=greffe))
+plot(cox.zph( coxph(pfss_60 ~ age_greffe,data=greffe),transform = "identity"))
+
+summary(coxph( pfss_60 ~ depletion ,data=greffe))
+plot(cox.zph( coxph( pfss_60 ~depletion,data=greffe),transform = "identity")[1])
 
 
+### EFS 60 jours ###
 
+EFS_60<-NULL
 
+for (i in c("sex_donor","sex_patient","age_greffec",
+            "delai_dia_alloc","stade_dia","stade_diac",
+            "disease_status_at_transplantc2",
+            "disease_status_at_transplantc",
+            "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec3",
+            "karnofsky_greffec3","previous_autoc",
+            "programme_autoalloc","rechute_post_allo","nbr_lignes_avt_alloc",
+            "nbr_lignes_avt_alloc",
+            "donnor","hla_matchc2","hla_match","sex_dp3",
+            "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","manipu_cells",
+            "nbr_donneurc","manipu_cells"
+            ,"anapathc2"
+)
+){
+  mo<-coxph( efs_60 ~ greffe[,i],data=greffe)  
+  a<-summary(coxph( efs_60 ~ greffe[,i],data=greffe))
+  assign(paste(i, "efs_60", sep="_"),a)
+  capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs60/",i,"m.txt",sep=""))
+  ss<-cox.zph( coxph( efs_60 ~ greffe[,i],data=greffe),transform = "log")
+  capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs60/",i,"ss.txt",sep=""))
+  ssi<-cox.zph( coxph( efs_60 ~ greffe[,i],data=greffe),transform = "identity")
+  ssk<-cox.zph( coxph( efs_60 ~ greffe[,i],data=greffe),transform = "km")
+  capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs60/",i,"identity.txt",sep=""))
+  
+  ssu<-survdiff( efs_60 ~ greffe[,i],data=greffe, rho=1)
+  pw<-(1-pchisq(ssu$chisq, 1))
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs60/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  #par(mfrow=c(2,2))
+  plot(ss[1:nlevels(greffe[,i])-1,])
+  dev.off()
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs60/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  
+  plot(survfit( efs_60 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
+  text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  
+  dev.off()
+  
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs60/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  
+  plot(survfit( efs_60 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
+  text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  
+  dev.off()
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs60/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  
+  
+  plot(ssi[1:nlevels(greffe[,i])-1,])
+  dev.off()
+  
+  qq<-result.cox(mo)
+  EFS_60<-rbind(EFS_60,qq)
+}
 
+summary(coxph( efs_60 ~ age_greffe,data=greffe))
+plot(cox.zph( coxph( efs_60 ~ age_greffe,data=greffe),transform = "identity"))
+
+summary(coxph( pfss_60 ~ depletion ,data=greffe))
+plot(cox.zph( coxph( pfss_60 ~depletion,data=greffe),transform = "identity")[1])
 

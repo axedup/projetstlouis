@@ -110,24 +110,24 @@ greffed<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_donor","sex_donor",
                                       
                                         "disease_status_at_transplantc",
                                         "disease_status_at_transplant","karnofsky_greffe",
-                                        "karnofsky_greffec","karnofsky_greffec4", "nbr_lignes_avt_allo",
-                                        "nbr_lignes_avt_alloc2",
-                                        "donnor","hla_matchc","hla_match",
+                                        "karnofsky_greffec","karnofsky_greffec3", "nbr_lignes_avt_allo",
+                                        "nbr_lignes_avt_alloc2","nbr_lignes_avt_alloc",
+                                        "donnor","hla_matchc2","hla_match",
                                         "sex_dp3","cmv_dp2","stem_cell_source","tbi","intensite_condi",
-                                        "condit_details","manipu_cells","nbr_donneurc"),
-                vect.quali = c(0,0,1,0,1,1,1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1),
+                                        "condit_details","manipu_cells","depletion","nbr_donneurc"),
+                vect.quali = c(0,0,1,0,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1),
                 varint=NULL,valvarint = NULL,
                 nomvarint =NULL,
                 test=NULL,
                 vecnoms=c("Age at graft","Donor age","Donor sex","Delay diagnosis and allo SCT",">12 months delay"
                           ,"Disease status at transplant","Disease status at transplant",
                           "Karnofsky score","Karnofsky score","Karnofsky score","No of lines before alloSCT",
-                          "No of lines before alloSCT",
-                          "Donnor related","HLA match","HLA match",
+                          "No of lines before alloSCT", "No of lines before alloSCT",
+                          "HLA match","HLA match","HLA match",
                           "Sex of donnor/patient","CMV serostatus of donnor/patient",
-                          "Source of stem cells","TBI","conditioning Intensity","Conditioning","Cells manipulation","No of donnors"),valeurs=NULL,
+                          "Source of stem cells","TBI","conditioning Intensity","Conditioning","Cells manipulation","Depletion","No of donnors"),valeurs=NULL,
                 vecrefs=NULL,varassoc=NULL,
-                codassoc=NULL,pres=c("mean_mm","","mean_mm","","mean_mm","","","","","","mean_mm","","","","mean_mm","","","","","","","","","","","",""),langue="en",digits=2)
+                codassoc=NULL,pres=c("mean_mm","mean_mm","","mean_mm","","","","","","","mean_mm","","","","","","","","","","","","","","","",""),langue="en",digits=2)
 
 
 post_greffe<-TABKRIS(baz=greffe,vect.var = c(  "agvhd","agvhd_grade","cgvhd.",
