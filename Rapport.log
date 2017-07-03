@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  19 JUN 2017 17:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  3 JUL 2017 14:31
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -575,7 +575,14 @@ Package caption Info: rotating package is loaded.
 \c@lotdepth=\count156
 \sf@top=\skip58
 \sf@bottom=\skip59
-) (Rapport.aux)
+) (Rapport.aux
+
+LaTeX Warning: Label `tab:uos' multiply defined.
+
+
+LaTeX Warning: Label `tab:uos' multiply defined.
+
+)
 \openout1 = `Rapport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
@@ -873,6 +880,27 @@ Package pdftex.def Info: C:/Users/adupont/Documents/projetstlouis/scripts/Rappo
 rt-fig98.pdf used on input line 526.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
 
+[20 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig98.pdf>]
+Underfull \vbox (badness 10000) detected at line 560
+ []
+
+[21
+
+] [22]
+Underfull \vbox (badness 10000) detected at line 624
+ []
+
+[23
+
+
+] [24]
+Underfull \vbox (badness 10000) detected at line 680
+ []
+
+[25
+
+
+] [26]
 
 ! LaTeX Error: \begin{center} on input line 506 ended by \end{document}.
 
@@ -880,35 +908,38 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.542 \end{document}
+l.713 \end{document}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[20 <C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig98.pdf>]
-(Rapport.aux) )
+(Rapport.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 506 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13287 strings out of 493333
- 225863 string characters out of 3139188
- 313137 words of memory out of 3000000
- 16551 multiletter control sequences out of 15000+200000
+ 13291 strings out of 493333
+ 225929 string characters out of 3139188
+ 313477 words of memory out of 3000000
+ 16555 multiletter control sequences out of 15000+200000
  26661 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,9n,96p,803b,393s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,9n,96p,803b,500s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmb
 x10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Rapport.pdf (20 pages, 172355 bytes).
+Output written on Rapport.pdf (26 pages, 181214 bytes).
 PDF statistics:
- 164 PDF objects out of 1000 (max. 8388607)
+ 183 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  55 words of extra memory for PDF output out of 10000 (max. 10000000)
 

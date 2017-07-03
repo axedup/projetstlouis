@@ -10,6 +10,7 @@ library(dplyr)
 library(ggplot2)
 library(cmprsk)
 library(grid)
+library(MASS)
 
 quali <- function(x, nomx, data, RAPPORT=F, SAVEFILE=F, chemin=NULL){   # x = variable ou vecteur de variable en factor
   # nomx = nom de la variable ou vecteur de nom de variable 
@@ -43,15 +44,15 @@ quali <- function(x, nomx, data, RAPPORT=F, SAVEFILE=F, chemin=NULL){   # x = va
 
 
 
-result.cox <- function (modele)
-{
-  summary(modele)$conf.int ->  modele.detail
-  res <- data.frame (Variable = names(modele$coef))
-  res$HR <- round(modele.detail[,1],2)
-  res$IC <- paste("[" , round(modele.detail[,3],2) , " - " , round(modele.detail[,4],2) ,"]",sep="")
-  for (i in 1:length(res$IC))
-  {
-    res$pval[i] <- as.character(format.pv(summary(modele)$coef[i,5]))
-  }
-  return(res)
-}
+# result.cox <- function (modele)
+# {
+#   summary(modele)$conf.int ->  modele.detail
+#   res <- data.frame (Variable = names(modele$coef))
+#   res$HR <- round(modele.detail[,1],2)
+#   res$IC <- paste("[" , round(modele.detail[,3],2) , " - " , round(modele.detail[,4],2) ,"]",sep="")
+#   for (i in 1:length(res$IC))
+#   {
+#     res$pval[i] <- as.character(format.pv(summary(modele)$coef[i,5]))
+#   }
+#   return(res)
+# }

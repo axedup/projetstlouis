@@ -490,6 +490,9 @@ greffe$grfs<-NULL
 greffe$grfs<-ifelse(greffe$rechute_progression==1,2,0)
 table(greffe$grfs,exclude=NULL)
 
+greffe$agvhd_grave<-as.factor(ifelse(greffe$agvhd_grade %in% c("Grade III","Grade IV"),1,0))
+
+
 greffe$grfs<-ifelse((greffe$agvhd_grade %in% c("Grade III","Grade IV")|
                       greffe$cgvhd_grade %in% c("Extensive"))
                     & !greffe$rechute_progression==1,1,greffe$grfs)

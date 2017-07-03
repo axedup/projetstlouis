@@ -183,7 +183,7 @@ meth["relapse_progression_transplant_2."] <- ""
 "cmv_dp",
 "ddn_donor",
 "stem_cell_.source", 
-"T.cell.depletion.with.MoAB..0.non..1..partial.T.depletion..",          
+         
  "immunosupression.détails",
  "tbi_dose",
  "condit_details" ,
@@ -198,7 +198,7 @@ meth["relapse_progression_transplant_2."] <- ""
 "first_name",                                                           
  "family_name",                                                          
 "ddn" ,
-"date_gvhd")] <-rep("",20)                                                           
+"date_gvhd")] <-rep("",19)                                                           
  
  meth["age_greffec"] <-"~I(as.factor(ifelse(age_greffe<49,'< 49 years','> 49 years')))"                                                         
 meth["prise_greffe1"] <-"~I(ifelse(greffe$prise_greffe %in% c('deces avant J30)))"
@@ -213,7 +213,7 @@ meth[ "disease_status_at_transplantc2"]<-""
                                                   
                                          
 meth ["hla_matchc"]<-"~I(as.factor(ifelse(hla_match %in% c('Identical sibling','Matched unrelated'),'1','0')))"                                                           
-meth [ "donnor"] <- "~I(as.factor(ifelse(hla_match %in% c('Identical sibling','Mismatched relative'),'1','0'))"                                                               
+meth [ "donnor"] <- "~I(as.factor(ifelse(hla_match %in% c('Identical sibling','Matched unrelated'),'1','0'))"                                                               
 meth [ "cause_death"] <-""                                                         
 meth [ "cause_death_c"] <-""                                                        
 meth [ "cause_death_c2"] <-"~I(ifelse(grepl(pat='HSCT',greffe$cause_death_c)& !is.na(greffe$cause_death_c),1,0)))"                                                       
@@ -237,12 +237,16 @@ meth[ "nbr_donneurc"] <-"I~(as.factor(as.character(nbr_donneur))) "
 meth[ "karnofsky_greffec"] <-""                                                   
 meth["karnofsky_greffec2"]<-"I~(as.factor(ifelse(karnofsky_greffec %in% c('100','90','80'),'Normal activities 
                                             with or without efforts','Unable to carry on normal activity')))"                                                 
-meth["karnofsky_greffec3"]<-""                                                   
+meth["karnofsky_greffec3"]<-"I~(as.factor(ifelse(karnofsky_greffec %in% c('100'),'100',
+(karnofsky_greffec %in% c('90'),90,
+karnofsky_greffec %in% c('80'),'80', 'Unable')))"
+
+                                                                                        
 meth["stade_diac"] <-"I~(as.factor(ifelse(stade_dia %in% c('III','IV'), 'III-IV','I-II'))"                                                           
 meth["sex_dp2"] <-"I~(as.factor(ifelse(sex_dp %in% c('F/F', 'F/F/F', 'M/M', 
                                                           'M/M/M'),'sex idem','different sex'))"                                                             
-meth["sex_dp3"] <-"I~(as.factor(ifelse(sex_dp %in% c('M/F'),'M/F','Others'))"                                                            
-meth["cmv_dp2"] <-"I~(ifelse(cmv_dp %in% c('neg/pos'),'neg/pos', 'autres'))"                                                            
+meth["sex_dp3"] <-"I~(as.factor(ifelse(sex_dp %in% c('F/M'),'F/M','Others'))"                                                            
+meth["cmv_dp2"] <-"I~(ifelse(cmv_dp %in% c('neg/neg'),'neg/neg', 'others'))"                                                            
 meth[c("rechute",                                                          
  "rechute_progression" ,                                                 
  "relapse_progression_transplant_c" ,                                    
@@ -261,8 +265,11 @@ meth[c("rechute",
  "delai_rechute" ,                                                       
  "delai_rechutepg" ,                                                     
                                                            
- "deces_48" ,                                                            
- "delai_dc_48")] <-rep("",19)
+ "deces_60" ,                                                            
+ "delai_dc_60",
+"evenefs_60"  ,                                                         
+"delai_rechutepg_60"
+)] <-rep("",21)
  
  
  set.seed(36524)

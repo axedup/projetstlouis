@@ -116,6 +116,8 @@ source("C:/Users/adupont/Documents/projetstlouis/scripts/import.R")
 source("C:/Users/adupont/Documents/projetstlouis/scripts/descri.R")
 source("C:/Users/adupont/Documents/projetstlouis/scripts/survie.R")
 #source("C:/Users/adupont/Documents/projetstlouis/scripts/survie_test.R")
+source("C:/Users/adupont/Documents/projetstlouis/scripts/survie_tableau.R")
+
 summary(as.numeric(greffe$delai_dc))
 s<-Surv(event=greffe$deces,time=as.numeric(greffe$delai_dc))
 
@@ -408,12 +410,13 @@ plot(modelcompetecr,curvlab=c("GVHD","Death without GVHD"),xlab="Time (months)",
 
 \end{center}
 
+\begin{landscape}
 %\subsection{Univariate Analysis}
 
 
-<<label=tab:uos ,echo=FALSE,results=tex,eval=FALSE>>=
+<<label=tab:uos ,echo=FALSE,results=tex,eval=TRUE>>=
 print(xtable (OS,
-caption= "univariate analysis of OS",
+caption= "univariate analysis of 5 years OS survival",
 label="tab:uos",
 table.placement="htp",caption.placement="top"),
 tabular.environment="longtable",
@@ -423,8 +426,44 @@ include.rownames=F,
 @
 
 
+\end{landscape}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
 % Fri May 26 14:16:17 2017
+
+
+%\subsection{Univariate Analysis}
+
+\begin{landscape}
+<<label=tab:uoss ,echo=FALSE,results=tex,eval=TRUE>>=
+print(xtable (EFS,
+caption= "univariate analysis of 5 years GRFS",
+label="tab:uos",
+table.placement="htp",caption.placement="top"),
+tabular.environment="longtable",
+floating=F,
+include.rownames=F,
+ sanitize.text.function = function(x){x}  )
+@
+
+
+\end{landscape}
+
+
+\begin{landscape}
+<<label=tab:uossi ,echo=FALSE,results=tex,eval=TRUE>>=
+print(xtable (PFS,
+caption= "univariate analysis of 5 years EFS",
+label="tab:uos",
+table.placement="htp",caption.placement="top"),
+tabular.environment="longtable",
+floating=F,
+include.rownames=F,
+ sanitize.text.function = function(x){x}  )
+@
+
+
+\end{landscape}
+
 
 
 

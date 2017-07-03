@@ -111,8 +111,9 @@ result.cox <- function (modele)
     res$pval[j] <- as.character(format.pv(summary(modele)$coef[j,5]))
   }
   res$Variable<- gsub("greffe\\[, i\\]","",res$Variable)
-  titre<-data.frame(Variable=i,HR=NA,IC=NA,pval=NA)
+  titre<-data.frame(Variable=ifelse(is.factor(greffe[,i]),levels(greffe[,i][1]),""),HR=ifelse(is.factor(greffe[,i]),1.00,NA),IC=NA,pval=NA)
   res<-rbind(titre,res)
+  res$p<-c(as.character(format.pv(summary(modele)$logtest[3])),rep("",nrow(res)-1))  
   return(res)
 }
 

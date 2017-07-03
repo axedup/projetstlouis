@@ -105,7 +105,7 @@ gt$layout$clip[gt$layout$name=="panel"] <- "off"
 # survplot(ff)
 # survplot(ff,1, label.curves = F, n.risk = T)
 
-### Limite à 48 mois ###
+### Limite à 60 mois ###
 
 greffe$deces_60<-ifelse(greffe$deces==1 & greffe$delai_dc>60,0,greffe$deces)
 greffe$delai_dc_60<-ifelse( greffe$delai_dc>60,60,greffe$delai_dc)
