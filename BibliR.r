@@ -98,7 +98,7 @@ return(test)
 ###############################################################################################################
 ###############################################################################################################
 ##
-## création du tableau d'un modèle de cox multivarié
+## création du tableau d'un modèle de cox multivarié ?
 ## 
 result.cox <- function (modele)
 {
@@ -121,6 +121,49 @@ result.cox <- function (modele)
 ###############################################################################################################
 ###############################################################################################################
 ###############################################################################################################
+
+repli<-function(data,i){
+  
+  re<-rep(i,length(levels(data[,i]))-1)
+  return(re)
+}
+
+
+# corres<-data.frame( v=c("agvhd","anapathc2","rechute_post_allo","nbr_lignes_avt_alloc","donnor","stem_cell_source"
+#                         ,"sex_dp3","disease_status_at_transplantc","karnofsky_greffec3"),
+#                     nom=c("Agvhd grade 3-4","Histologic subtypes","Relapse post allo","N lines","HLA match","stem cell source"
+#                           ,"Sex d/p","Disease status at transplant","Karnofsky score"))
+# 
+# 
+# repli<-function(data,i){
+#   
+#   re<-rep(i,length(levels(data[,i]))-1)
+#   return(re)
+# }
+
+cox_multi<-function(model, var){
+  res2<-NULL
+  row<-attr(model$coefficients,"dimnames")[[1]]
+  for(i in 1:nrow(model$coefficients))
+  {
+    
+    resi <- c(gsub(pattern=var[i],replacement="", row[i]),paste(format.hr(model$coefficients[i,2])," (",format.hr(model$conf.int[i,3]),"--", 
+                                                                format.hr(model$conf.int[i,4]), ")",sep=""),format.pv(model$coefficients[i,5]))
+    res2 <- rbind(res2,resi)
+  }
+  
+  
+  colnames(res2) <- c("Variable","HR (95\\%CI)","\\emph{P}")
+  return(res2)
+}
+
+
+
+
+
+
+
+
 
 tab.cont<- function(toto,varint,cont)
 ##

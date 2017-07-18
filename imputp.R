@@ -1,4 +1,10 @@
-ini <- mice(greffe, max=0, print=F)
+ini <- mice(greffe[,c("delai_dc","deces","cgvhd","karnofsky_greffec")], max=0, print=F)
+ini$pred["delai_dc",]<-0
+greffe$delai_dc<-as.numeric(as.character(greffe$delai_dc))
+ter<-mice(greffe[,c("delai_dc","deces","cgvhd","karnofsky_greffec")], maxit=1, print=TRUE,m=10,pred=ini$pred)
+
+pipi<-with(ter,coxph(Surv(deces,delai_dc)~))
+
 pred <- ini$predictorMatrix
 pred[,"REMARQUE"] <- 0
 pred[,"num_id"] <- 0

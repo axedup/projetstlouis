@@ -274,6 +274,14 @@ greffe$cause_death_c2<-ifelse(greffe$cause_death_c=="Unknown" & !is.na(greffe$ca
 table(greffe$cause_death_c2,exclude=NULL)
 table(greffe$deces,exclude=NULL)
 
+ ### cause décès pour cause spécifique décès c3 HSCT ###
+
+greffe$cause_death_c3<-ifelse(greffe$cause_death_c2==1 , 1, 0)
+table(greffe$cause_death_c2,greffe$cause_death_c3,exclude=NULL)
+
+
+
+####
 
 
 greffe$delai_dia_alloc<-factor(ifelse(greffe$delai_dia_allo<365,1,0),labels=c("NO","Yes"))
@@ -324,7 +332,7 @@ greffe$karnofsky_greffec2<-as.factor(greffe$karnofsky_greffec2)
 greffe$karnofsky_greffec3<-greffe$karnofsky_greffec
 
 table(greffe$karnofsky_greffec,exclude=NULL)
-levels(greffe$karnofsky_greffec3)<-c("100", "Unable to carry on normal activity", "Unable to carry on normal activity", "Unable to carry on normal activity", "Unable to carry on normal activity", "80", "90")
+levels(greffe$karnofsky_greffec3)<-c("100", "Unable to carry on normal activity", "Unable to carry on normal activity", "Unable to carry on normal activity", "Unable to carry on normal activity", "90-80", "90-80")
 table(greffe$karnofsky_greffec3,exclude=NULL)
 table(greffe$karnofsky_greffec2,exclude=NULL)
 
@@ -569,6 +577,13 @@ greffe$delai_rechutepg<-difftime(greffe$date_rechute_progression_gvhd,greffe$j0)
 greffe$delai_gvhd<-difftime(greffe$date_gvhd_dc,greffe$j0)/30.25
 
 az<-length(unique(greffe$num_id[greffe$best_response_after_allo %in% c("CR")]))
+
+
+
+
+####  limite à 60 mois
+
+greffe$cause_death_c360<-ifelse(greffe$cause_death_c3==1 & greffe$delai_dc>60,0,greffe$cause_death_c3)
 
 
 ### on va exclure la première greffe du patient greffé deux fois car ça première greffe est 

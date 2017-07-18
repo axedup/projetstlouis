@@ -86,9 +86,7 @@ for (i in c( "age_greffe","anapathc2",
              "rechute_post_allo",
              "nbr_lignes_avt_alloc",
              "donnor","sex_dp3",
-             "cmv_dp2","stem_cell_source","intensite_condi","depletion","agvhd_grave","cgvhd"
-             
-)
+             "cmv_dp2","stem_cell_source","intensite_condi","depletion")
 ){
   mo<-coxph( s_60 ~ greffe[,i],data=greffe)  
   # a<-summary(coxph( s ~ greffe[,i],data=greffe))
@@ -129,11 +127,43 @@ for (i in c( "age_greffe","anapathc2",
 }
 
 
+result.coxt <- function (modele)
+{
+  summary(modele)$conf.int ->  modele.detail
+  res <- data.frame (Variable = names(modele$coef))
+  res$HR <- round(modele.detail[,1],2)
+  res$IC <- paste("[" , round(modele.detail[,3],2) , " - " , round(modele.detail[,4],2) ,"]",sep="")
+  for (j in 1:length(res$IC))
+  {
+    res$pval[j] <- as.character(format.pv(summary(modele)$coef[j,5]))
+  }
+  res$Variable<- gsub("greffe_long2\\[, i\\]","",res$Variable)
+  titre<-data.frame(Variable=ifelse(is.factor(greffe_long2[,i]),levels(greffe_long2[,i][1]),""),HR=ifelse(is.factor(greffe_long2[,i]),1.00,NA),IC=NA,pval=NA)
+  res<-rbind(titre,res)
+  res$p<-c(as.character(format.pv(summary(modele)$logtest[3])),rep("",nrow(res)-1))  
+  return(res)
+}
+
+
+OST<-NULL
+
+for (i in c( "agvhd","cgvhd")
+){
+  mo<-coxph( Surv(time=as.numeric(start), time2=as.numeric(stop), event=decesf)~ greffe_long2[,i],data=greffe_long2)  
+  
+  qq<-result.coxt(mo)
+  OST<-rbind(OST,qq)
+}
+
+
+OS<-rbind(OS,OST)
+
+
 OS$variable <- c("Age at graft","","subtypes","","","","","",
                  "Delay between diag and allo SCT > 12 mo","","Stage at diagnosis","","","",
                  
                  "Disease status at transplant","","",
-                 "Karnofsky score","","","",
+                 "Karnofsky score","","",
                  "First graft relapse","","",
                  "No of lines before alloSCT","",
                  "HLA match","","Sex of donnor-patient","",
@@ -476,15 +506,58 @@ for (i in c( "age_greffe","anapathc2",
 }
 
 
+result.coxtt <- function (modele)
+{
+  summary(modele)$conf.int ->  modele.detail
+  res <- data.frame (Variable = names(modele$coef))
+  res$HR <- round(modele.detail[,1],2)
+  res$IC <- paste("[" , round(modele.detail[,3],2) , " - " , round(modele.detail[,4],2) ,"]",sep="")
+  for (j in 1:length(res$IC))
+  {
+    res$pval[j] <- as.character(format.pv(summary(modele)$coef[j,5]))
+  }
+  res$Variable<- gsub("greffe_longpfs2\\[, i\\]","",res$Variable)
+  titre<-data.frame(Variable=ifelse(is.factor(greffe_long2[,i]),levels(greffe_long2[,i][1]),""),HR=ifelse(is.factor(greffe_long2[,i]),1.00,NA),IC=NA,pval=NA)
+  res<-rbind(titre,res)
+  res$p<-c(as.character(format.pv(summary(modele)$logtest[3])),rep("",nrow(res)-1))  
+  return(res)
+}
+
+
+
+
+
+
+
+PFSST<-NULL
+
+for (i in c( "agvhd","cgvhd")
+){
+  mo<-coxph( Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f)~ greffe_longpfs2[,i],data=greffe_longpfs2)  
+  
+  qq<-result.coxtt(mo)
+  PFSST<-rbind(PFSST,qq)
+}
+
+
+PFS<-rbind(PFS,PFSST)
+
+
+
+
+
+
+
 PFS$variable <- c("Age at graft","","subtypes","","","","","",
-                  "Delay between diag and allo SCT","","Stage at diagnosis","","","",
+                  "Delay between diag and allo SCT > 12 mo","","Stage at diagnosis","","","",
                   
                   "Disease status at transplant","","",
-                  "Karnofsky score","","","",
+                  "Karnofsky score","","",
                   "First graft relapse","","",
                   "No of lines before alloSCT","",
                   "HLA match","","Sex of donnor-patient","",
-                  "CMV serostatus of donnor patient","","Source of stem cells","","","Conditionning intensity","","","Depletion","")
+                  "CMV serostatus of donnor patient","","Source of stem cells","","","Conditionning intensity","","","Depletion","",
+                  "Agvhd grade 3-4","","Cgvhd","")
 
 
 PFS<-PFS[c("variable","Variable","HR","IC","pval","p")]
@@ -613,7 +686,7 @@ EFS$variable <- c("Age at graft","","subtypes","","","","","",
                   "Delay between diag and allo SCT","","Stage at diagnosis","","","",
                   
                   "Disease status at transplant","","",
-                  "Karnofsky score","","","",
+                  "Karnofsky score","","",
                   "First graft relapse","","",
                   "No of lines before alloSCT","",
                   "HLA match","","Sex of donnor-patient","",
@@ -622,6 +695,30 @@ EFS$variable <- c("Age at graft","","subtypes","","","","","",
 
 
 EFS<-EFS[c("variable","Variable","HR","IC","pval","p")]
+
+
+
+final_efs_602<-summary(coxph( efs_60 ~ .,data=greffe[,c(
+  "anapathc2" ,
+  "disease_status_at_transplantc",
+  "stem_cell_source")]))
+
+ssefs2<-cox.zph( coxph( efs_60 ~ .,data=greffe[,c(
+  "anapathc2" ,
+  "disease_status_at_transplantc",
+  "stem_cell_source")]),transform = "log")
+plot(ssefs2)
+
+l<-lapply(list("anapathc2","disease_status_at_transplantc","stem_cell_source"),repli,data=greffe)
+
+l<-unlist(l)
+
+efsaic<-cox_multi(final_efs_602,l)
+
+efsaic<-cbind(c("Subtypes","","","","","Disease status at transplant","","Source of stem cells",""),efsaic)
+
+
+
 
 
 # 
@@ -675,3 +772,117 @@ EFS<-EFS[c("variable","Variable","HR","IC","pval","p")]
 # 
 # ssefs<-cox.zph( final_efs_60,transform = "log")
 # plot(ssefs)
+
+
+### cAUSE sp�cifique mortalit�###
+
+csp_60<-Surv(event=greffe$cause_death_c360,time=as.numeric(greffe$delai_dc_60))
+CSP<-NULL
+
+for (i in c( "age_greffe","anapathc2",
+             "delai_dia_alloc","stade_dia",
+             
+             "disease_status_at_transplantc",
+             "karnofsky_greffec3" ,
+             "rechute_post_allo",
+             "nbr_lignes_avt_alloc",
+             "donnor","sex_dp3",
+             "cmv_dp2","stem_cell_source","intensite_condi","depletion")
+){
+  mo<-coxph( csp_60 ~ greffe[,i],data=greffe)  
+  # a<-summary(coxph( s ~ greffe[,i],data=greffe))
+  # assign(paste(i, "m", sep="_"),a)
+  # capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"m.txt",sep=""))
+  # ss<-cox.zph( coxph( s ~ greffe[,i],data=greffe),transform = "log")
+  # capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"ss.txt",sep=""))
+  # ssi<-cox.zph( coxph( s ~ greffe[,i],data=greffe),transform = "identity")
+  # ssk<-cox.zph( coxph( s ~ greffe[,i],data=greffe),transform = "km")
+  # capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"identity.txt",sep=""))
+  # 
+  # ssu<-survdiff( s ~ greffe[,i],data=greffe, rho=1)
+  # pw<-(1-pchisq(ssu$chisq, 1))
+  # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  # #par(mfrow=c(2,2))
+  # plot(ss[1:nlevels(greffe[,i])-1,])
+  # dev.off()
+  # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  # 
+  # plot(survfit( s ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
+  # text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  # 
+  # dev.off()    
+  # 
+  # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  # 
+  # plot(survfit( s ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
+  # text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  # 
+  # dev.off() 
+  # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  # 
+  # 
+  # plot(ssi[1:nlevels(greffe[,i])-1,])
+  # dev.off() 
+  qq<-result.cox(mo)
+  CSP<-rbind(CSP,qq)
+}
+
+
+
+
+CSP$variable <- c("Age at graft","","subtypes","","","","","",
+                  "Delay between diag and allo SCT > 12 mo","","Stage at diagnosis","","","",
+                  
+                  "Disease status at transplant","","",
+                  "Karnofsky score","","",
+                  "First graft relapse","","",
+                  "No of lines before alloSCT","",
+                  "HLA match","","Sex of donnor-patient","",
+                  "CMV serostatus of donnor patient","","Source of stem cells","","","Conditionning intensity","","","Depletion",""
+                 )
+
+
+CSP<-  CSP[c("variable","Variable","HR","IC","pval","p")]
+
+
+final_csp_602<-coxph( csp_60 ~ .,data=greffe[,c(
+  "anapathc2" ,
+  "rechute_post_allo",
+  "intensite_condi","sex_dp3","karnofsky_greffec3")])
+ssefs2<-cox.zph( final_csp_602,transform = "log")
+plot(ssefs2)
+
+
+finalcsp<-greffe[complete.cases(greffe[,c(  "anapathc2" ,
+                                            "rechute_post_allo",
+                                            "intensite_condi","sex_dp3","karnofsky_greffec3","depletion")]),]
+
+
+
+csp_60f<-Surv(event=finalcsp$cause_death_c360,time=as.numeric(finalcsp$delai_dc_60))
+
+moe<-coxph( csp_60f ~ .,data=finalcsp[,c(  "anapathc2" ,
+                                           "rechute_post_allo",
+                                           "intensite_condi","sex_dp3","karnofsky_greffec3","depletion")])  
+
+
+
+
+stepAIC(moe,direction="both")
+
+final_csp_603<-coxph( csp_60 ~ .,data=greffe[,c(
+  
+  "rechute_post_allo",
+  "intensite_condi","sex_dp3","karnofsky_greffec3")])
+
+ssefs3<-cox.zph( final_csp_603,transform = "log")
+plot(ssefs3)
+
+
+l<-lapply(list("rechute_post_allo","intensite_condi","sex_dp3","karnofsky_greffec3"),repli,data=greffe)
+
+l<-unlist(l)
+
+cspaic<-cox_multi(summary(final_csp_603),l)
+cspaic<-cbind(c("Previous graft relapse","","Conditionning intensity","","Sex of donnor-patient","Karnofsky score",""),cspaic)
+

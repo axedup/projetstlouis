@@ -7,4 +7,7 @@
 \contentsline {subsubsection}{\numberline {3.1.3}Transplant conditions}{6}
 \contentsline {subsubsection}{\numberline {3.1.4}Post-AlloSCT Response}{9}
 \contentsline {subsection}{\numberline {3.2}Survival analysis in all patients}{11}
+\contentsline {subsubsection}{\numberline {3.2.1}Overall survival, EFS and GRFS}{11}
+\contentsline {subsubsection}{\numberline {3.2.2}TRM and cause of death }{14}
 \contentsline {subsection}{\numberline {3.3}Survival analysis after a complete remisson post alloSCT}{16}
+\contentsline {subsection}{\numberline {3.4}Univariate Analysis and multivariate analysis }{22}

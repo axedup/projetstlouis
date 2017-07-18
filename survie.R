@@ -316,7 +316,7 @@ pfs_km_cr<-ggplot()+ #geom_step(data=evenement,aes(x=time, y=ev),color="black", 
            #color="blue")+
   theme_classic()
 
-###♠ EFS chez remission complet 
+###EFS chez remission complet 
 efscr<-Surv(event=greffe$efs_statut[greffe$best_response_after_allo %in% c("CR")],
           time=as.numeric(greffe$delai_rechutepg[greffe$best_response_after_allo %in% c("CR")]))
 
@@ -479,9 +479,9 @@ efs_km<-ggplot()+ geom_step(data=evenement,aes(x=time, y=ev),color="black", dire
   coord_cartesian(ylim=c(0,1))+
   annotate(geom="text", x=90, y=0.55, label="OS",
            color="black")+
-  annotate(geom="text", x=90, y=0.45, label="EFS",
+  annotate(geom="text", x=90, y=0.45, label="GRFS",
            color="black")+
-  annotate(geom="text", x=90, y=0.51, label="PFS",
+  annotate(geom="text", x=90, y=0.51, label="EFS",
            color="black")+
   theme_classic()
 
@@ -796,6 +796,67 @@ colnames(intervalle_60)<-c("time","haut","bas")
 #   coord_cartesian(ylim=c(0,1))+
 #   annotate(geom="text", x=70, y=0.55, label="GVHD", color="black")
 #  # annotate(geom="text", x=90, y=0.45, label="EFS", color="blue")
+
+### TRM#
+
+
+trrm<-Surv(event=greffe$cause_death_c3,time=as.numeric(greffe$delai_dc))
+
+# greffe$delai_dc2<-greffe$age_greffe*30.25+greffe$delai_dc
+# sbis<-Surv(event=greffe$deces,time2=greffe$delai_dc2,time=greffe$age_greffe*30.25)
+# abis <- survfit( sbis ~ 1)
+# plot(abis)
+
+
+atrm <- survfit( trrm ~ 1,conf.type = "log-log")
+retrm<-summary(atrm,censored = TRUE)
+plot(atrm, xlab="Time in months",ylab="Probability")
+
+
+
+
+censuretrm<-as.data.frame(cbind(retrm$time[retrm$n.event==0],retrm$surv[retrm$n.event==0] ))
+colnames(censuretrm)<-c("time","ce")
+evenementtrm<-as.data.frame(cbind(retrm$time,retrm$surv ))
+colnames(evenementtrm)<-c("time","ev")
+intervalletrm<-as.data.frame(cbind(retrm$time,retrm$upper
+                                ,retrm$lower ))
+colnames(intervalletrm)<-c("time","haut","bas")
+
+
+km_trm<-ggplot()+ geom_step(data=evenementtrm,aes(x=time, y=ev),color="black", direction="hv")  +
+  geom_ribbon(data=intervalletrm, aes(x=time, ymin=bas, ymax=haut),linetype="dashed",fill="grey",alpha="0.4")+
+  geom_step(data=intervalletrm,aes(x=time, y=haut),color="black" ,direction="hv")+
+  geom_step(data=intervalletrm,aes(x=time, y=bas),color="black", direction="hv")+
+  scale_x_continuous(breaks=c(0,20,40,60,80,100),expand = c(0, 0))+
+  scale_size_manual(values=c(1.5,1.5))+
+  
+  #geom_point(data=censure, aes(x=time, y=ce),shape=3,size=1 )+
+  #ggtitle("Durée de vie des implants") +
+  xlab("Time (Months)")+
+  ylab("Probability")+
+  #geom_step(data=gri,aes(x=time, y=ics), direction="hv",color="gray10",linetype="dashed" )+
+  #  geom_step(data=gri,aes(x=time, y=ici), direction="hv",color="gray10",linetype="dashed" )+
+  #  geom_step(data=gci,aes(x=time, y=ics), direction="hv",color="black",linetype="dashed" )+
+  #  geom_step(data=gci,aes(x=time, y=ici), direction="hv",color="black",linetype="dashed" )+
+  #
+  #scale_colour_manual("",values = c("Rupture"="blue", "Autres causes"="black"))+annotate(geom="text", x=52, y=0.91, label="Tous les parcours",color="black", size=4)+coord_cartesian(ylim=c(0,1)) +
+  scale_y_continuous(breaks=c(0,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),expand = c(0, 0),limits = c(0, 1))+
+  #coord_cartesian(ylim=c(0,1))+
+  theme_classic()+
+  theme(legend.position="bottom",
+        legend.title=element_blank())+
+  ggtitle("")
+
+
+
+
+
+
+
+
+
+
 
 
 ### Risques compétitifs###

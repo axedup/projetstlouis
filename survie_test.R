@@ -36,14 +36,14 @@
 # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats60/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
 # 
 # plot(survfit( s_60 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
-# text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+# text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
 # 
 # dev.off()
 # 
 # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats60/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
 # 
 # plot(survfit( s_60 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
-# text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+# text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
 # 
 # dev.off()
 # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats60/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
@@ -109,14 +109,14 @@ for (i in c( "age_greffe","anapathc2",
   # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
   # 
   # plot(survfit( s ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
-  # text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  # text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
   # 
   # dev.off()    
   # 
   # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
   # 
   # plot(survfit( s ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
-  # text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  # text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
   # 
   # dev.off() 
   # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
@@ -141,6 +141,15 @@ OS$variable <- c("Age at graft","","subtypes","","","","","",
 
 
 OS<-OS[c("variable","Variable","HR","IC","pval","p")]
+
+
+
+
+mart<-coxph( s_60 ~ age_greffe,data=greffe)
+res.mart<-residuals(mart,type="martingale")
+plot(greffe$age_greffe,res.mart)
+lines(lowess(greffe$age_greffe,res.mart,iter=0))
+
 
 ###
 
@@ -223,14 +232,14 @@ plot(ss)
 #               pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
 # 
 #               plot(survfit( efs ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
-#               text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+#               text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
 # 
 #               dev.off()
 # 
 #               pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
 # 
 #               plot(survfit( efs ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
-#               text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+#               text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
 # 
 #               dev.off()
 #               pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
@@ -328,14 +337,14 @@ plot(ss)
 #   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
 #   
 #   plot(survfit( pfss_60 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
-#   text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+#   text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
 #   
 #   dev.off()
 #   
 #   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
 #   
 #   plot(survfit( pfss_60 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
-#   text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+#   text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
 #   
 #   dev.off()
 #   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
@@ -388,14 +397,14 @@ for (i in c("sex_donor","sex_patient","age_greffec",
   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
   
   plot(survfit( pfss_60 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
-  text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
   
   dev.off()
   
   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
   
   plot(survfit( pfss_60 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
-  text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
   
   dev.off()
   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatspfs60/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
@@ -412,8 +421,14 @@ for (i in c("sex_donor","sex_patient","age_greffec",
 summary(coxph( pfss_60 ~ age_greffe,data=greffe))
 plot(cox.zph( coxph(pfss_60 ~ age_greffe,data=greffe),transform = "identity"))
 
-summary(coxph( pfss_60 ~ . ,data=greffe))
-plot(cox.zph( coxph( pfss_60 ~depletion,data=greffe),transform = "identity")[1])
+mart<-coxph( pfss_60~ age_greffe,data=greffe)
+res.mart<-residuals(mart,type="martingale")
+plot(greffe$age_greffe[!greffe$num_id %in% c(137,157,166,144,172,175,207,213,271,251)],res.mart)
+lines(lowess(greffe$age_greffe[!greffe$num_id %in% c(137,157,166,144,172,175,207,213,271,251)],res.mart,iter=0))
+
+
+summary(coxph( pfss_60 ~ depletion ,data=greffe))
+plot(cox.zph( coxph( pfss_60 ~depletion,data=greffe))[1])
 
 # summary(coxph( pfss_60 ~ agvhd3,data=greffe))
 # plot(cox.zph( coxph(pfss_60 ~ agvhd3,data=greffe),transform = "identity"))
@@ -455,14 +470,14 @@ for (i in c( "age_greffe","anapathc2",
   # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
   # 
   # plot(survfit( s ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
-  # text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  # text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
   # 
   # dev.off()    
   # 
   # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
   # 
   # plot(survfit( s ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
-  # text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  # text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
   # 
   # dev.off() 
   # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
@@ -516,7 +531,7 @@ stepAIC(mo,direction="both")
 
 
 
-(xtabs( ~ pfs_60+ depletion+donnor, data=greffe))
+
 
 
 final_pfs_60<-coxph( pfs_60 ~ .,data=greffe[,c(
@@ -571,14 +586,14 @@ for (i in c("sex_donor","sex_patient","age_greffec",
   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs60/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
   
   plot(survfit( efs_60 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
-  text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
   
   dev.off()
   
   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs60/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
   
   plot(survfit( efs_60 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
-  text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
   
   dev.off()
   pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatsefs60/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
@@ -593,6 +608,17 @@ for (i in c("sex_donor","sex_patient","age_greffec",
 
 summary(coxph( efs_60 ~ age_greffe,data=greffe))
 plot(cox.zph( coxph( efs_60 ~ age_greffe,data=greffe),transform = "identity"))
+
+
+
+mart<-coxph( efs_60~ age_greffe,data=greffe)
+b<-which(is.na(efs_60))
+res.mart<-residuals(mart,type="martingale")
+plot(greffe$age_greffe[!greffe$num_id %in% b],res.mart)
+lines(lowess(greffe$age_greffe[!greffe$num_id %in% b],res.mart,iter=0))
+
+
+
 
 summary(coxph( efs_60 ~ depletion ,data=greffe))
 plot(cox.zph( coxph( efs_60 ~depletion,data=greffe),transform = "identity")[1])
@@ -630,14 +656,14 @@ for (i in c( "age_greffe","anapathc2",
   # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
   # 
   # plot(survfit( s ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
-  # text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  # text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
   # 
   # dev.off()    
   # 
   # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
   # 
   # plot(survfit( s ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
-  # text(0, 0.7, paste("Test du logrank pondéré: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  # text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
   # 
   # dev.off() 
   # pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultats/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
@@ -713,3 +739,142 @@ final_efs_60<-coxph( efs_60 ~ .,data=greffe[,c(
 
 ssefs<-cox.zph( final_efs_60,transform = "log")
 plot(ssefs)
+
+### nouveaux mod�les f ###
+
+final_efs_602<-summary(coxph( efs_60 ~ .,data=greffe[,c(
+  "anapathc2" ,
+  "disease_status_at_transplantc",
+  "stem_cell_source")]))
+
+ssefs2<-cox.zph( coxph( efs_60 ~ .,data=greffe[,c(
+  "anapathc2" ,
+  "disease_status_at_transplantc",
+  "stem_cell_source")]),transform = "log")
+plot(ssefs2)
+
+l<-lapply(list("anapathc2","disease_status_at_transplantc","stem_cell_source"),repli,data=greffe)
+
+l<-unlist(l)
+
+efsaic<-cox_multi(final_efs_602,l)
+
+efsaic<-cbind(c("Subtypes","","","","","Disease status at transplant","","Source of stem cells",""),efsaic)
+
+
+
+### Causes spécifiques ###
+
+csp_60<-Surv(event=greffe$cause_death_c360,time=as.numeric(greffe$delai_dc_60))
+CSP<-NULL
+
+for (i in c("sex_donor","sex_patient","age_greffec",
+            "delai_dia_alloc","stade_dia","stade_diac",
+            "disease_status_at_transplantc2",
+            "disease_status_at_transplantc",
+            "disease_status_at_transplant","rechute_post_allo","karnofsky_greffec3",
+            "karnofsky_greffec3","previous_autoc",
+            "programme_autoalloc","rechute_post_allo","nbr_lignes_avt_alloc",
+            "nbr_lignes_avt_alloc",
+            "donnor","hla_matchc2","hla_match","sex_dp3",
+            "sex_dp2","cmv_dp2","stem_cell_source","tbi","intensite_condi","manipu_cells",
+            "nbr_donneurc","manipu_cells"
+            ,"anapathc2"
+)
+){
+  mo<-coxph( csp_60 ~ greffe[,i],data=greffe)  
+  a<-summary(coxph(csp_60 ~ greffe[,i],data=greffe))
+  assign(paste(i, "csp_60", sep="_"),a)
+  capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"m.txt",sep=""))
+  ss<-cox.zph( coxph( csp_60 ~ greffe[,i],data=greffe),transform = "log")
+  capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"ss.txt",sep=""))
+  ssi<-cox.zph( coxph( csp_60 ~ greffe[,i],data=greffe),transform = "identity")
+  ssk<-cox.zph( coxph( csp_60 ~ greffe[,i],data=greffe),transform = "km")
+  capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"identity.txt",sep=""))
+  
+  ssu<-survdiff( csp_60 ~ greffe[,i],data=greffe, rho=1)
+  pw<-(1-pchisq(ssu$chisq, 1))
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  #par(mfrow=c(2,2))
+  plot(ss[1:nlevels(greffe[,i])-1,])
+  dev.off()
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  
+  plot(survfit( csp_60 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
+  text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  
+  dev.off()
+  
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  
+  plot(survfit( csp_60 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
+  text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
+  
+  dev.off()
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  
+  
+  plot(ssi[1:nlevels(greffe[,i])-1,])
+  dev.off()
+  
+  qq<-result.cox(mo)
+  CSP<-rbind(CSP,qq)
+}
+
+
+summary(coxph( csp_60~ age_greffe,data=greffe))
+plot(cox.zph( coxph(pfss_60 ~ age_greffe,data=greffe),transform = "identity"))
+
+
+mart<-coxph( csp_60~ age_greffe,data=greffe)
+b<-which(is.na(csp_60))
+res.mart<-residuals(mart,type="martingale")
+plot(greffe$age_greffe[!greffe$num_id %in% b],res.mart)
+lines(lowess(greffe$age_greffe[!greffe$num_id %in% b],res.mart,iter=0))
+
+
+summary(coxph( pfss_60 ~ depletion ,data=greffe))
+plot(cox.zph( coxph( pfss_60 ~depletion,data=greffe),transform = "identity")[1])
+
+### nouveaux mod�les ###
+
+final_csp_602<-coxph( csp_60 ~ .,data=greffe[,c(
+  "anapathc2" ,
+  "rechute_post_allo",
+  "intensite_condi","sex_dp3","karnofsky_greffec3")])
+ssefs2<-cox.zph( final_csp_602,transform = "log")
+plot(ssefs3)
+
+
+finalcsp<-greffe[complete.cases(greffe[,c(  "anapathc2" ,
+                                            "rechute_post_allo",
+                                            "intensite_condi","sex_dp3","karnofsky_greffec3","depletion")]),]
+
+
+
+csp_60f<-Surv(event=finalcsp$cause_death_c360,time=as.numeric(finalcsp$delai_dc_60))
+
+moe<-coxph( csp_60f ~ .,data=finalcsp[,c(  "anapathc2" ,
+                                           "rechute_post_allo",
+                                           "intensite_condi","sex_dp3","karnofsky_greffec3","depletion")])  
+
+
+
+
+stepAIC(moe,direction="both")
+
+final_csp_603<-coxph( csp_60 ~ .,data=greffe[,c(
+
+  "rechute_post_allo",
+  "intensite_condi","sex_dp3","karnofsky_greffec3")])
+
+ssefs3<-cox.zph( final_csp_603,transform = "log")
+plot(ssefs3)
+
+
+l<-lapply(list("rechute_post_allo","intensite_condi","sex_dp3","karnofsky_greffec3"),repli,data=greffe)
+
+l<-unlist(l)
+
+cspaic<-cox_multi(summary(final_csp_603),l)
+cspaic<-cbind(c("Previous graft relapse","","Conditionning intensity","","Sex of donnor-patient","Karnofsky score",""),cspaic)

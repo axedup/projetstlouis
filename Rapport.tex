@@ -91,13 +91,13 @@ The second objective was to determine the variables associated with these outcom
 
 \section{Methods}
 
-A  retrospective analysis was conducted.A descriptive analysis of the variables recorded was perfomed.Different endpoints were defined : death, Progression Free Survival (PFC). EFS was defined as death,progression/relapse,  grade 3-4 acute GVHD or extensive chronic GVHD.
+A retrospective analysis was conducted. A descriptive analysis of the variables recorded was perfomed.Different endpoints were defined : death, Event Free Survival (EFC), GRFS. GRFS was defined as death,progression/relapse,  grade 3-4 acute GVHD or extensive chronic GVHD.
 
 Survival curves were estimated using Kaplan-Meier product-limit estimator.
 Competing risk survival analysis methods were applied to estimate the cumulative incidence (CIF) of developing events over time from alloSCT. These methods allow for the fact that a patient may experience an event which is different from that of interest. These events are known as competing risk events, and may preclude the onset of the event of interest, or may modify the probability of the onset of that event.In particular, a transplanted patient may die before a relapse occurs. 
 
-%Factors associated with overall sur-vival were analyzed using Cox proportional hazards models. The proportional hazards assumption was checked by examination of Schoenfeld residuals.
-%For the different endpoints, univariable analyses were first carried out, then a multivariable analysis was used where all factors with P-value < 0.15 in the univariable analyses were considered. Factors where then sequentially removed from the adjusted model with a P-value cut- at 0.05. 
+Factors associated with overall sur-vival were analyzed using Cox proportional hazards models. The proportional hazards assumption was checked by examination of Schoenfeld residuals. Occurence of a grade 3-4 acute GVHD or chronic GVHD was treated as a time dependent covariable.
+For the different endpoints, univariable analyses were first carried out, then a multivariable analysis was used where all factors with P-value < 0.05 in the univariable analyses were considered. If needed, factors where then sequentially removed from the adjusted model based on the AIC criteria. 
 %Survival is presented as estimate and 95\% confidence interval (95\% CI).
 
 
@@ -114,7 +114,7 @@ Competing risk survival analysis methods were applied to estimate the cumulative
  285 patients were initially selected.We excluded 1 patient that underwent two alloSCT. The final analysis was perfomed on 284 patients and 284 grafts.
  \subsubsection{Patients characteristics}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Mon Jul 03 14:31:09 2017
+% Tue Jul 18 12:33:10 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -185,7 +185,7 @@ Parameters & Values & N & Statistics* \\
 \label{tab:condi}
 \end{longtable} \subsubsection{Treatments before alloSCT}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Mon Jul 03 14:31:09 2017
+% Tue Jul 18 12:33:10 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -204,7 +204,7 @@ Parameters & Values & N & Statistics* \\
 \end{longtable}\pagebreak
  \subsubsection{Transplant conditions}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Mon Jul 03 14:31:09 2017
+% Tue Jul 18 12:33:10 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -244,8 +244,7 @@ Parameters & Values & N & Statistics* \\
    & NA & 21 &  \\ 
   Karnofsky score & 100 & 92 & 34.98 \% \\ 
    & Unable to carry on normal activity & 15 & 5.7 \% \\ 
-   & 80 & 70 & 26.62 \% \\ 
-   & 90 & 86 & 32.7 \% \\ 
+   & 90-80 & 156 & 59.32 \% \\ 
    & NA & 21 &  \\ 
   No of lines before alloSCT &  & 254 & 2.201(1;9) \\ 
   No of lines before alloSCT & 1 & 73 & 28.74 \% \\ 
@@ -337,7 +336,7 @@ Parameters & Values & N & Statistics* \\
 \pagebreak
 \subsubsection{Post-AlloSCT Response}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Mon Jul 03 14:31:09 2017
+% Tue Jul 18 12:33:10 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -411,6 +410,10 @@ Parameters & Values & N & Statistics* \\
 \restoregeometry
 
 \subsection{Survival analysis in all patients}
+
+\subsubsection{Overall survival, EFS and  GRFS}
+
+
 Median overall-survival from the date of AlloSCT was 20.18 (range 0.03 to 112.83). OS at 1 year was 0.68 (95 \% 0.62 - 0.73), was 0.64 (95 \% 0.58 - 0.7) at 2 years.OS at 4 years was 0.57 (95 \% 0.5 - 0.63).
 \begin{figure}[h]
 \begin{center}
@@ -434,7 +437,7 @@ CIF for death without relapse or progression at 1 year was 0.19 (95 \% 0.14 - 0.
 
 
 \pagebreak
-PFS at 1 year was 0.63 (95 \% 0.57 - 0.69), was 0.59 (95 \% 0.53 - 0.65) at 2 years. PFS at 4 years was 0.52 (95 \% 0.45 - 0.59).
+EFS at 1 year was 0.63 (95 \% 0.57 - 0.69), was 0.59 (95 \% 0.53 - 0.65) at 2 years. EFS at 4 years was 0.52 (95 \% 0.45 - 0.59).
 
 %\begin{figure}[h]
 %\begin{center}
@@ -443,19 +446,37 @@ PFS at 1 year was 0.63 (95 \% 0.57 - 0.69), was 0.59 (95 \% 0.53 - 0.65) at 2 ye
 %\label{fig3}
 %\end{figure}
 
-EFS at 1 year was 0.49 (95 \% 0.44 - 0.56), was 0.47 (95 \% 0.41 - 0.54) at 2 years. EFS at 4 years was 0.43 (95 \% 0.37 - 0.5).
+GRFS at 1 year was 0.49 (95 \% 0.44 - 0.56), was 0.47 (95 \% 0.41 - 0.54) at 2 years. GRFS at 4 years was 0.43 (95 \% 0.37 - 0.5).
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics{Rapport-fig2}
 \end{center}
-\caption{Event-free survival and Progression free survival}
+\caption{EFS and GRFS}
 \label{fig2}
 \end{figure}
 
 
 
 \pagebreak
+\subsubsection{TRM and cause of death }
+
+
+TRM at 1 year was 0.78 (95 \% 0.73 - 0.83), was 0.76 (95 \% 0.7 - 0.81) at 2 years. TRM at 4 years was 0.7 (95 \% 0.63 - 0.76).
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics{Rapport-fig89}
+\end{center}
+\caption{TRM}
+\label{fig89}
+\end{figure}
+
+
+
+
+
+
 CIF for related HSCT death at 1 years was 0.2, at 2 years  0.23.
 CIF for non-related HSCT Death at 1 year was 0.12, at 2 years  0.13.
 \begin{figure}[h]
@@ -471,6 +492,8 @@ CIF for non-related HSCT Death at 1 year was 0.12, at 2 years  0.13.
 \captionof{figure}{CIF of GVHD and Death without GVHD (acute or chronic)}
 
 \end{center}
+
+
 
 
 
@@ -531,9 +554,10 @@ CIF for relapse at 1 year was 0.12 (95 \% 0.07 - 0.16), at 2 years  0.13 (95 \% 
 \begin{landscape}
 %\subsection{Univariate Analysis}
 
+\subsection{Univariate Analysis and multivariate analysis }
 
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Mon Jul 03 14:31:11 2017
+% Tue Jul 18 12:33:12 2017
 \begin{longtable}{llrlll}
   \hline
 variable & Variable & HR & IC & pval & p \\ 
@@ -555,10 +579,9 @@ Age at graft &  &  &  &  & 0.35 \\
   Disease status at transplant & CR & 1.00 &  &  & 0.027 \\ 
    & PR & 0.97 & [0.61 - 1.53] & 0.89 &  \\ 
    & PD & 2.08 & [1.24 - 3.49] & 0.006 &  \\ 
-  Karnofsky score & 100 & 1.00 &  &  & 0.007 \\ 
+  Karnofsky score & 100 & 1.00 &  &  & 0.002 \\ 
    & Unable to carry on normal activity & 3.05 & [1.35 - 6.89] & 0.007 &  \\ 
-   & 80 & 2.06 & [1.18 - 3.6] & 0.011 &  \\ 
-   & 90 & 2.12 & [1.24 - 3.61] & 0.006 &  \\ 
+   & 90-80 & 2.09 & [1.28 - 3.41] & 0.003 &  \\ 
   First graft relapse & No & 1.00 &  &  & 0.049 \\ 
    & No previous graft & 2.49 & [1.08 - 5.73] & 0.032 &  \\ 
    & Yes & 2.13 & [0.87 - 5.22] & 0.098 &  \\ 
@@ -578,26 +601,42 @@ Age at graft &  &  &  &  & 0.35 \\
    & RIC & 0.98 & [0.65 - 1.48] & 0.92 &  \\ 
   Depletion & No & 1.00 &  &  & 0.87 \\ 
    & Partial T depletion & 1.12 & [0.28 - 4.55] & 0.87 &  \\ 
-  Agvhd grade 3-4 & 0 & 1.00 &  &  & 0.0001 \\ 
-   & 1 & 2.57 & [1.65 - 4.02] & <0.0001 &  \\ 
-  Cgvhd & No or early death & 1.00 &  &  & 0.0006 \\ 
-   & Yes & 0.48 & [0.31 - 0.75] & 0.001 &  \\ 
+  Agvhd grade 3-4 &  &  &  &  & 0.041 \\ 
+   &  & 0.64 & [0.41 - 1] & 0.048 &  \\ 
+  Cgvhd &  &  &  &  & 0.17 \\ 
+   &  & 1.44 & [0.86 - 2.41] & 0.16 &  \\ 
    \hline
 \hline
-\caption{univariate analysis of 5 years OS survival} 
+\caption{Univariate analysis of 5 years OS survival} 
 \label{tab:uos}
 \end{longtable}
 
-\end{landscape}
+
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
 % Fri May 26 14:16:17 2017
-
-
-%\subsection{Univariate Analysis}
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Tue Jul 18 12:33:12 2017
+\begin{longtable}{llll}
+  \hline
+V1 & Variable & HR (95\%CI) & \emph{P} \\ 
+  \hline
+Agvhd & Grade 3-4 Agvhd & 0.55 (0.34--0.89) & 0.015 \\ 
+  First graft relapse & No previous graft & 2.68 (1.15--6.27) & 0.023 \\ 
+   & Yes & 1.98 (0.76--5.20) & 0.16 \\ 
+  Sex of donnor-patient & Others & 0.58 (0.37--0.90) & 0.016 \\ 
+  Disease status at transplant & PR & 0.88 (0.53--1.46) & 0.62 \\ 
+   & PD & 1.79 (0.99--3.23) & 0.054 \\ 
+  Karnofsky score & Unable to carry on normal activity & 2.80 (1.18--6.64) & 0.019 \\ 
+   & 90-80 & 2.25 (1.35--3.75) & 0.002 \\ 
+   \hline
+\hline
+\caption{Multivariate analysis of 5 years OS (stratified on the delay between diagnosis and alloSCT)} 
+\label{tab:uos}
+\end{longtable}\end{landscape}
 
 \begin{landscape}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Mon Jul 03 14:31:11 2017
+% Tue Jul 18 12:33:12 2017
 \begin{longtable}{llrlll}
   \hline
 variable & Variable & HR & IC & pval & p \\ 
@@ -619,10 +658,9 @@ Age at graft &  &  &  &  & 0.86 \\
   Disease status at transplant & CR & 1.00 &  &  & 0.057 \\ 
    & PR & 1.24 & [0.85 - 1.83] & 0.27 &  \\ 
    & PD & 1.90 & [1.14 - 3.16] & 0.014 &  \\ 
-  Karnofsky score & 100 & 1.00 &  &  & 0.41 \\ 
-   & Unable to carry on normal activity & 1.55 & [0.61 - 3.94] & 0.35 &  \\ 
-   & 80 & 1.32 & [0.85 - 2.06] & 0.22 &  \\ 
-   & 90 & 1.39 & [0.9 - 2.13] & 0.13 &  \\ 
+  Karnofsky score & 100 & 1.00 &  &  & 0.24 \\ 
+   & Unable to carry on normal activity & 1.55 & [0.61 - 3.93] & 0.35 &  \\ 
+   & 90-80 & 1.36 & [0.93 - 1.98] & 0.11 &  \\ 
   First graft relapse & No & 1.00 &  &  & 0.59 \\ 
    & No previous graft & 1.30 & [0.71 - 2.37] & 0.40 &  \\ 
    & Yes & 1.13 & [0.58 - 2.2] & 0.72 &  \\ 
@@ -644,16 +682,36 @@ Age at graft &  &  &  &  & 0.86 \\
    & Partial T depletion & 2.13 & [0.79 - 5.78] & 0.14 &  \\ 
    \hline
 \hline
-\caption{univariate analysis of 5 years GRFS} 
+\caption{Univariate analysis of 5 years GRFS} 
 \label{tab:uos}
 \end{longtable}
 
-\end{landscape}
+
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Tue Jul 18 12:33:12 2017
+\begin{longtable}{llll}
+  \hline
+V1 & Variable & HR (95\%CI) & \emph{P} \\ 
+  \hline
+Subtypes & AITL & 1.22 (0.79--1.89) & 0.37 \\ 
+   & ALCL & 0.91 (0.53--1.54) & 0.72 \\ 
+   & ATLL & 1.89 (1.01--3.52) & 0.046 \\ 
+   & NK/T nasal & 1.76 (0.89--3.50) & 0.10 \\ 
+   & Others & 1.20 (0.54--2.67) & 0.66 \\ 
+  Disease status at transplant & PR & 1.30 (0.86--1.96) & 0.21 \\ 
+   & PD & 2.02 (1.20--3.41) & 0.008 \\ 
+  Source of stem cells & CB & 2.07 (1.10--3.87) & 0.023 \\ 
+   & PB & 1.04 (0.65--1.66) & 0.87 \\ 
+   \hline
+\hline
+\caption{Multivariate analysis of 5 years GRFS} 
+\label{tab:uos}
+\end{longtable}\end{landscape}
 
 
 \begin{landscape}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Mon Jul 03 14:31:11 2017
+% Tue Jul 18 12:33:12 2017
 \begin{longtable}{llrlll}
   \hline
 variable & Variable & HR & IC & pval & p \\ 
@@ -666,7 +724,7 @@ Age at graft &  &  &  &  & 0.45 \\
    & ATLL & 2.02 & [1.04 - 3.94] & 0.038 &  \\ 
    & NK/T nasal & 1.76 & [0.86 - 3.63] & 0.12 &  \\ 
    & Others & 1.01 & [0.43 - 2.38] & 0.98 &  \\ 
-  Delay between diag and allo SCT & NO & 1.00 &  &  & 0.40 \\ 
+  Delay between diag and allo SCT > 12 mo & NO & 1.00 &  &  & 0.40 \\ 
    & Yes & 0.85 & [0.59 - 1.23] & 0.40 &  \\ 
   Stage at diagnosis & I & 1.00 &  &  & 0.84 \\ 
    & II & 0.63 & [0.2 - 1.96] & 0.43 &  \\ 
@@ -675,10 +733,9 @@ Age at graft &  &  &  &  & 0.45 \\
   Disease status at transplant & CR & 1.00 &  &  & 0.088 \\ 
    & PR & 1.23 & [0.82 - 1.85] & 0.32 &  \\ 
    & PD & 1.92 & [1.1 - 3.37] & 0.022 &  \\ 
-  Karnofsky score & 100 & 1.00 &  &  & 0.012 \\ 
+  Karnofsky score & 100 & 1.00 &  &  & 0.004 \\ 
    & Unable to carry on normal activity & 1.31 & [0.46 - 3.76] & 0.62 &  \\ 
-   & 80 & 2.05 & [1.23 - 3.42] & 0.006 &  \\ 
-   & 90 & 2.03 & [1.24 - 3.31] & 0.005 &  \\ 
+   & 90-80 & 2.04 & [1.3 - 3.18] & 0.002 &  \\ 
   First graft relapse & No & 1.00 &  &  & 0.17 \\ 
    & No previous graft & 1.75 & [0.88 - 3.48] & 0.11 &  \\ 
    & Yes & 1.37 & [0.64 - 2.94] & 0.41 &  \\ 
@@ -698,16 +755,104 @@ Age at graft &  &  &  &  & 0.45 \\
    & RIC & 1.15 & [0.78 - 1.7] & 0.49 &  \\ 
   Depletion & No & 1.00 &  &  & 0.056 \\ 
    & Partial T depletion & 3.16 & [1.16 - 8.59] & 0.025 &  \\ 
+  Agvhd grade 3-4 &  &  &  &  & 0.32 \\ 
+   &  & 0.82 & [0.54 - 1.22] & 0.32 &  \\ 
+  Cgvhd &  &  &  &  & 0.10 \\ 
+   &  & 1.56 & [0.93 - 2.64] & 0.094 &  \\ 
    \hline
 \hline
-\caption{univariate analysis of 5 years EFS} 
+\caption{Univariate analysis of 5 years EFS} 
+\label{tab:uos}
+\end{longtable}
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Tue Jul 18 12:33:12 2017
+\begin{longtable}{llll}
+  \hline
+V1 & Variable & HR (95\%CI) & \emph{P} \\ 
+  \hline
+N of lines & 1 or 2 & 0.70 (0.46--1.05) & 0.086 \\ 
+  Karnofsky score & Unable to carry on normal activity & 1.52 (0.53--4.39) & 0.44 \\ 
+   & 90-80 & 2.24 (1.41--3.56) & 0.0006 \\ 
+  Disease status at transplant & CB & 1.99 (0.97--4.05) & 0.059 \\ 
+   & PB & 1.00 (0.58--1.73) & 0.99 \\ 
+   \hline
+\hline
+\caption{Multivariate analysis of 5 years EFS} 
+\label{tab:uos}
+\end{longtable}\end{landscape}
+
+
+
+\begin{landscape}
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Tue Jul 18 12:33:12 2017
+\begin{longtable}{llrlll}
+  \hline
+variable & Variable & HR & IC & pval & p \\ 
+  \hline
+Age at graft &  &  &  &  & 0.017 \\ 
+   &  & 1.02 & [1 - 1.05] & 0.022 &  \\ 
+  subtypes & NOS & 1.00 &  &  & 0.28 \\ 
+   & AITL & 1.87 & [1.03 - 3.38] & 0.039 &  \\ 
+   & ALCL & 1.20 & [0.54 - 2.64] & 0.66 &  \\ 
+   & ATLL & 1.31 & [0.39 - 4.43] & 0.67 &  \\ 
+   & NK/T nasal & 1.68 & [0.57 - 4.94] & 0.35 &  \\ 
+   & Others & 2.42 & [0.97 - 6.06] & 0.059 &  \\ 
+  Delay between diag and allo SCT > 12 mo & NO & 1.00 &  &  & 0.76 \\ 
+   & Yes & 0.93 & [0.57 - 1.5] & 0.76 &  \\ 
+  Stage at diagnosis & I & 1.00 &  &  & 0.47 \\ 
+   & II & 0.48 & [0.08 - 2.9] & 0.43 &  \\ 
+   & III & 1.31 & [0.38 - 4.54] & 0.67 &  \\ 
+   & IV & 0.93 & [0.28 - 3.04] & 0.90 &  \\ 
+  Disease status at transplant & CR & 1.00 &  &  & 0.33 \\ 
+   & PR & 0.86 & [0.48 - 1.53] & 0.60 &  \\ 
+   & PD & 1.59 & [0.79 - 3.18] & 0.19 &  \\ 
+  Karnofsky score & 100 & 1.00 &  &  & 0.040 \\ 
+   & Unable to carry on normal activity & 2.30 & [0.75 - 6.98] & 0.14 &  \\ 
+   & 90-80 & 2.04 & [1.12 - 3.73] & 0.020 &  \\ 
+  First graft relapse & No & 1.00 &  &  & 0.014 \\ 
+   & No previous graft & 4.33 & [1.05 - 17.9] & 0.043 &  \\ 
+   & Yes & 5.57 & [1.3 - 23.76] & 0.020 &  \\ 
+  No of lines before alloSCT & >2 & 1.00 &  &  & 0.055 \\ 
+   & 1 or 2 & 0.61 & [0.37 - 1] & 0.052 &  \\ 
+  HLA match & HLA mismatched & 1.00 &  &  & 0.46 \\ 
+   & HLA matched & 0.80 & [0.44 - 1.43] & 0.45 &  \\ 
+  Sex of donnor-patient & F/M & 1.00 &  &  & 0.026 \\ 
+   & Others & 0.55 & [0.34 - 0.92] & 0.022 &  \\ 
+  CMV serostatus of donnor patient & neg/neg & 1.00 &  &  & 0.99 \\ 
+   & Others & 1.00 & [0.6 - 1.69] & 0.99 &  \\ 
+  Source of stem cells & BM & 1.00 &  &  & 0.21 \\ 
+   & CB & 1.29 & [0.57 - 2.91] & 0.54 &  \\ 
+   & PB & 0.71 & [0.39 - 1.31] & 0.27 &  \\ 
+  Conditionning intensity & MAC & 1.00 &  &  & 0.29 \\ 
+   & NMA & 1.79 & [0.83 - 3.85] & 0.14 &  \\ 
+   & RIC & 1.38 & [0.79 - 2.43] & 0.26 &  \\ 
+  Depletion & No & 1.00 &  &  & 0.92 \\ 
+   & Partial T depletion & 0.90 & [0.12 - 6.49] & 0.92 &  \\ 
+   \hline
+\hline
+\caption{Univariate analysis of 5 years cause specific mortality : HSCT related } 
 \label{tab:uos}
 \end{longtable}
 
-\end{landscape}
 
-
-
-
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Tue Jul 18 12:33:12 2017
+\begin{longtable}{llll}
+  \hline
+V1 & Variable & HR (95\%CI) & \emph{P} \\ 
+  \hline
+Previous graft relapse & No previous graft & 6.50 (1.50--28.1) & 0.012 \\ 
+   & Yes & 6.58 (1.49--29.0) & 0.013 \\ 
+  Conditionning intensity & NMA & 2.72 (1.17--6.33) & 0.021 \\ 
+   & RIC & 1.45 (0.80--2.63) & 0.22 \\ 
+  Sex of donnor-patient & Others & 0.47 (0.27--0.83) & 0.009 \\ 
+  Karnofsky score & Unable to carry on normal activity & 2.61 (0.84--8.13) & 0.099 \\ 
+   & 90-80 & 2.09 (1.11--3.91) & 0.022 \\ 
+   \hline
+\hline
+\caption{Multivariate analysis of 5 years cause specific mortality : HSCT related} 
+\label{tab:uos}
+\end{longtable}\end{landscape}
 
 \end{document}
