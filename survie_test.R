@@ -785,33 +785,33 @@ for (i in c("sex_donor","sex_patient","age_greffec",
   mo<-coxph( csp_60 ~ greffe[,i],data=greffe)  
   a<-summary(coxph(csp_60 ~ greffe[,i],data=greffe))
   assign(paste(i, "csp_60", sep="_"),a)
-  capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"m.txt",sep=""))
+  capture.output(a, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp602/",i,"m.txt",sep=""))
   ss<-cox.zph( coxph( csp_60 ~ greffe[,i],data=greffe),transform = "log")
-  capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"ss.txt",sep=""))
+  capture.output(ss, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp602/",i,"ss.txt",sep=""))
   ssi<-cox.zph( coxph( csp_60 ~ greffe[,i],data=greffe),transform = "identity")
   ssk<-cox.zph( coxph( csp_60 ~ greffe[,i],data=greffe),transform = "km")
-  capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"identity.txt",sep=""))
+  capture.output(ssi, file=paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp602/",i,"identity.txt",sep=""))
   
   ssu<-survdiff( csp_60 ~ greffe[,i],data=greffe, rho=1)
   pw<-(1-pchisq(ssu$chisq, 1))
-  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp602/",i,"m.pdf",sep=""), width=4, height=4,onefile = TRUE)
   #par(mfrow=c(2,2))
   plot(ss[1:nlevels(greffe[,i])-1,])
   dev.off()
-  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp602/",i,"m2.pdf",sep=""), width=4, height=4,onefile = TRUE)
   
   plot(survfit( csp_60 ~greffe[,i],data=greffe),fun="log" ,lty=1:4, col=2:5)
   text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
   
   dev.off()
   
-  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp602/",i,"m3.pdf",sep=""), width=4, height=4,onefile = TRUE)
   
   plot(survfit( csp_60 ~greffe[,i],data=greffe),fun="cloglog" ,lty=1:4, col=2:5)
   text(0, 0.7, paste("Test du logrank pondÃ©rÃ©: p=", format(round(pw, 5), scien=F)), cex=1, adj=0)
   
   dev.off()
-  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp60/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
+  pdf(paste("C:/Users/adupont/Documents/projetstlouis/resultatscsp602/",i,"mi.pdf",sep=""), width=4, height=4,onefile = TRUE)
   
   
   plot(ssi[1:nlevels(greffe[,i])-1,])
@@ -878,3 +878,11 @@ l<-unlist(l)
 
 cspaic<-cox_multi(summary(final_csp_603),l)
 cspaic<-cbind(c("Previous graft relapse","","Conditionning intensity","","Sex of donnor-patient","Karnofsky score",""),cspaic)
+
+
+
+
+mart<-coxph( csp_60 ~ sex_dp3 + karnofsky_greffec3 + age_greffe + strata(nbr_lignes_avt_alloc")])
+res.mart<-residuals(mart,type="martingale")
+plot(greffe$age_greffe,res.mart)
+lines(lowess(greffe$age_greffe,res.mart,iter=0))

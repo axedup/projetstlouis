@@ -1,4 +1,4 @@
-### survie d??pendante du temps : OS  ### 
+### survie dé©pendante du temps : OS  ### 
 
 greffe<-greffe[order(greffe$num_id),]
 
@@ -112,7 +112,7 @@ for( i in unique(greffe_trash$num_id)){
   
   data$end[nrow(data)]<-data$dates[nrow(data)]
   #data$end<-as.Date(data$end,origin="1970-01-01")
-  #data$TT[1]<-"ChmiothÃÂ©rapie non dÃÂ©butÃÂ©e"
+  #data$TT[1]<-"ChmiothÃÂÃÂ©rapie non dÃÂÃÂ©butÃÂÃÂ©e"
   data$decesf[nrow(data)]<-NA
   data$pfs60f[nrow(data)]<-NA
   greffe_long<-rbind(greffe_long,data)
@@ -126,7 +126,7 @@ greffe_long$dt<-greffe_long$end-greffe_long$dates
 greffe_long2<-greffe_long[!greffe_long$dt==0,]
 table(greffe_long2$decesf,exclude=NULL)
 
-### Calcul D?LAI : logique on ne travaille pas avec les dates et chaque patient n'est pas suivi de tel date ? telle date
+### Calcul DéLAI : logique on ne travaille pas avec les dates et chaque patient n'est pas suivi de tel date à telle date
 ###
 
 
@@ -147,11 +147,11 @@ greffe_longdeces<-left_join(greffe_long2[,c("num_id", "ref", "dates",  "ref2", "
                                             "refa", "agvhd", "refc", "cgvhd", 
                                             "id", "num_id", "refd", "pfs", "end", "decesf", "pfs60f", 
                                             "dt","start","stop")], greffe[,
-  c("num_id","anapathc2", "disease_status_at_transplantc",
-  "karnofsky_greffec3" ,
-  "rechute_post_allo",
-  "nbr_lignes_avt_alloc",
-  "donnor", "stem_cell_source","sex_dp3","delai_dia_alloc")], by="num_id")
+                                                                          c("num_id","anapathc2", "disease_status_at_transplantc",
+                                                                            "karnofsky_greffec3" ,
+                                                                            "rechute_post_allo",
+                                                                            "nbr_lignes_avt_alloc",
+                                                                            "donnor", "stem_cell_source","sex_dp3","delai_dia_alloc")], by="num_id")
 
 greffe_longdeces<-greffe_longdeces[order(greffe_longdeces$num_id),]
 
@@ -167,7 +167,7 @@ head(greffe_longdeces)
 #                 rechute_post_allo+ cluster(num_id),greffe_longdeces))
 
 
-### Test on doit avoir les m?mes r?sultats ### 
+### Test on doit avoir les mêmes résultats ### 
 coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=decesf) ~rechute_post_allo, greffe_longdeces)
 coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=decesf) ~sex_dp3, greffe_longdeces)
 
@@ -186,48 +186,52 @@ levels(greffe_longdeces$agvhd)<-c("No Agvhd or grade 1-2","Grade 3-4 Agvhd")
 
 
 decestpstt2<-summary(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=decesf) ~agvhd+
+                             
+                             
+                             rechute_post_allo +
+                             strata(delai_dia_alloc)+
+                             sex_dp3+
+                             disease_status_at_transplantc + karnofsky_greffec3
+                           , greffe_longdeces))
 
-                            sex_dp3+
-                            disease_status_at_transplantc + karnofsky_greffec3 +stem_cell_source + strata(delai_dia_alloc)
-                          , greffe_longdeces))
 
 
 
-
-l<-lapply(list("agvhd","sex_dp3","disease_status_at_transplantc","karnofsky_greffec3","stem_cell_source"),repli,data=greffe_longdeces)
+l<-lapply(list("agvhd","rechute_post_allo","sex_dp3","disease_status_at_transplantc","karnofsky_greffec3"),repli,data=greffe_longdeces)
 
 l<-unlist(l)
 
 osaic<-cox_multi(decestpstt2,l)
 #osaic<-data.frame(osaic)
 
-osaic<-cbind(c("Agvhd","Sex of donnor-patient","Disease status at transplant","","Karnofsky score","","Stem cell source",""),osaic)
+osaic<-cbind(c("Agvhd","First graft relapse","","Sex of donnor-patient","Disease status at transplant","","Karnofsky score",""),osaic)
 osaic
 
-merde<-cox.zph(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=decesf) ~agvhd+
-                       
-                       
-                       strata(delai_dia_alloc)+
-                       sex_dp3+
-                       disease_status_at_transplantc + karnofsky_greffec3 +stem_cell_source
-                     , greffe_longdeces))
+merde<-cox.zph((coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=decesf) ~agvhd+
+                        
+                        
+                        rechute_post_allo +
+                        delai_dia_alloc+
+                        sex_dp3+
+                        disease_status_at_transplantc + karnofsky_greffec3
+                      , greffe_longdeces)))
 
-        
+
 plot(merde)        
-  
+
 merde<-cox.zph((coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=decesf) ~agvhd+
                         
                         
                         rechute_post_allo +
                         strata(delai_dia_alloc)+
                         sex_dp3+
-                        disease_status_at_transplantc + karnofsky_greffec3+ stem_cell_source
+                        disease_status_at_transplantc + karnofsky_greffec3
                       , greffe_longdeces)),transform = "log")
 
-  
+
 
 plot(merde)    
-    
+
 # 
 # 
 # 
@@ -252,3 +256,33 @@ plot(merde)
 # 
 # zu<-Surv(time=greffe_longdeces$dates, time2=greffe_longdeces$end, event=greffe_longdeces$decesf)
 # coxph(zu ~rechute_post_allo+ cluster(num_id), greffe_longdeces)
+greffe_longdeces$delai_dia_alloc
+
+facile<-unique(greffe_longdeces$num_id)[table(greffe_longdeces$num_id)==1]
+
+PE<-NULL
+for (i in facile){
+  
+  pe<-greffe_longdeces[greffe_longdeces$num_id==i,]
+  
+  if (pe$stop<=200){
+    pe$delai_dia_alloca<- pe$delai_dia_alloc
+  pe$delai_dia_allocb<- 0
+  }
+  
+  
+  if (pe$stop>200){
+    
+    pe<-rbind(pe,pe)
+    pe$stop[1]<-200
+    pe$start[2]<-200
+    pe$delai_dia_alloca[1]<- pe$delai_dia_alloc
+    pe$delai_dia_alloca[2]<- 0
+    pe$delai_dia_allocb[1]<- 0
+    pe$delai_dia_alloca[2]<- pe$delai_dia_alloc
+    
+    
+  }
+  PE<-rbind(PE,pe)
+  
+}

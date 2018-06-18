@@ -161,7 +161,7 @@ greffe_longpfsan<-left_join(greffe_longpfs2[,c("num_id", "ref", "dates",  "ref2"
                                                                             "karnofsky_greffec3" ,
                                                                             "rechute_post_allo",
                                                                             "nbr_lignes_avt_alloc",
-                                                                            "donnor", "stem_cell_source","sex_dp3","depletion","delai_dia_alloc")], by="num_id")
+                                                                            "donnor", "stem_cell_source","sex_dp3","depletion","delai_dia_alloc","intensite_condi3")], by="num_id")
 
 greffe_longpfsan<-greffe_longpfsan[order(greffe_longpfsan$num_id),]
 
@@ -195,7 +195,7 @@ pfsstt<-summary(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event
                           , greffe_longpfsan))
 
 cox.zph(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f) ~
-                
+                agvhd+
                 anapathc2 +
                 delai_dia_alloc+
                 nbr_lignes_avt_alloc +
@@ -213,12 +213,12 @@ cox.zph(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f)
 
 finalpfsgl<-greffe_longpfsan[complete.cases
                              (greffe_longpfsan
-                             [,c("anapathc2","nbr_lignes_avt_alloc","donnor",
+                             [,c("agvhd","anapathc2","nbr_lignes_avt_alloc","donnor",
                                  "stem_cell_source"
 ,"disease_status_at_transplantc","delai_dia_alloc","karnofsky_greffec3")]),]        
 
 stepAIC(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f) ~
-                
+                agvhd+
                 anapathc2 +
                 delai_dia_alloc+
                 nbr_lignes_avt_alloc +
@@ -228,7 +228,7 @@ stepAIC(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f)
 
 
 pfsincom<-summary(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f) ~
-                          nbr_lignes_avt_alloc+karnofsky_greffec3+ stem_cell_source, greffe_longpfsan))
+                          nbr_lignes_avt_alloc+karnofsky_greffec3+ stem_cell_source , greffe_longpfsan))
 
 cont<-cox.zph(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f) ~
                       nbr_lignes_avt_alloc+karnofsky_greffec3+ stem_cell_source, greffe_longpfsan))
@@ -241,12 +241,38 @@ l<-unlist(l)
 
 pfsaic<-cox_multi(pfsincom,l)
 
-pfsaic<-cbind(c("N of lines","Karnofsky score","","Disease status at transplant",""),pfsaic)
+pfsaic<-cbind(c("N of lines","Karnofsky score","","Cell source",""),pfsaic)
+
+### Test interaction ###
 
 
+av<-greffe$num_id[greffe$deces==1 & greffe$delai_dc<=3]
+coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f) ~
+        cgvhd*intensite_condi3,greffe_longpfsan[!greffe_longpfsan$num_id %in% av,])
+
+# strata car en fait de travailler en sous population cela revient à calculer une fct
+#de risque de base 
+
+## sous groupe RIC
+summary(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f) ~cgvhd,
+      greffe_longpfsan[greffe_longpfsan$intensite_condi3=="RIC" & !greffe_longpfsan$num_id %in% av,]))
+
+## sous groupe MAC
 
 
+mac<-greffe_longpfsan[greffe_longpfsan$intensite_condi3=="MAC",]
+summary(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f) ~cgvhd,
+     mac[!mac$num_id %in% av,]))
 
+# coxph( pfss_60 ~ sex_dp3 + intensite_condi3,data=greffe) 
+# 
+# 
+# 
+# mac<-greffe[greffe$intensite_condi3=="MAC",]
+# coxph(Surv(event=mac$pfs_60,time=as.numeric(mac$delai_pfs_60))~mac$sex_dp3)
+# 
+# glm(mac$pfs_60~mac$sex_dp3,data=mac,family="binomial")
+# glm(greffe$pfs_60~greffe$sex_dp3 * greffe$intensite_condi3,data=greffe,family="binomial")
 # 
 # 
 # 

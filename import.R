@@ -58,8 +58,10 @@ levels(greffe$agvhd_grade)<-c("Grade I", "Grade II", "Grade III", "Grade IV",
 table(greffe$agvhd_grade)
 greffe$agvhd_grade<-relevel(greffe$agvhd_grade,ref="No aGvHD present (Grade 0)")
 
-greffe$agvhd3<-as.factor(ifelse(greffe$agvhd_grade %in% c("Grade III", "Grade IV"),1,0))
+greffe$agvhd3<-ifelse(greffe$agvhd_grade %in% c("Grade III", "Grade IV"),1,0)
 greffe$agvhd3<-ifelse(is.na(greffe$agvhd_grade),NA,greffe$agvhd3)
+
+greffe$agvhd3<-as.factor(greffe$agvhd3)
 
 str(greffe$agvhd3)
 
@@ -308,6 +310,21 @@ table(greffe$nbr_lignes_avt_alloc,exclude = NULL)
 table(greffe$nbr_lignes_avt_alloc2,exclude = NULL)
 table(greffe$intensite_condi,exclude = NULL)
 
+greffe$intensite_condi2<-ifelse(greffe$intensite_condi %in% c("RIC","NMA"),"RIC/NMA",greffe$intensite_condi)
+greffe$intensite_condi2<-as.factor(greffe$intensite_condi2)
+levels(greffe$intensite_condi2)<-c("MAC","RIC/NMA")
+
+#greffe$intensite_condi2<-as.factor(ifelse(greffe$intensite_condi %in% c("NMA","MAC"),"MAC/NMA","RIC"))
+
+greffe$intensite_condi3<-ifelse(greffe$intensite_condi %in% c("MAC"),"MAC",greffe$intensite_condi)
+greffe$intensite_condi3<-ifelse(greffe$intensite_condi %in% c("NMA"),NA,greffe$intensite_condi3)
+greffe$intensite_condi3<-as.factor(greffe$intensite_condi3)
+levels(greffe$intensite_condi3)<-c("RIC","MAC")
+
+table(greffe$intensite_condi3,exclude=NULL)
+
+
+
 greffe$programme_autoalloc<-factor(greffe$programme_autoallo,label=c("No","Yes"))
 greffe$previous_autoc<-factor(greffe$previous_auto,label=c("No","Yes"))
 greffe$rechute_prem_greffec<-factor(as.character(greffe$rechute_prem_greffe),label=c("No","Yes"))
@@ -359,7 +376,7 @@ greffe$sex_dp2<-relevel(greffe$sex_dp2,ref="sex idem")
 greffe$sex_dp3<-ifelse(greffe$sex_dp %in% c("F/M","M/F/M"),"F/M","Others")
 greffe$sex_dp3<-ifelse(is.na(greffe$sex_dp),NA,greffe$sex_dp3)
 greffe$sex_dp3<-as.factor(greffe$sex_dp3)
-greffe$sex_dp3<-relevel(greffe$sex_dp3,ref="F/M")
+greffe$sex_dp3<-relevel(greffe$sex_dp3,ref="Others")
 
 
 
@@ -415,15 +432,15 @@ greffe$rechute_progression<-ifelse(greffe$relapse_progression_transplant_2.
                                    %in% c("No[1]","Non applicable " ),0,1)
 greffe$rechute_progression<-ifelse(is.na(greffe$relapse_progression_transplant_2.),NA,greffe$rechute_progression)
 
-
+table(greffe$rechute_progression,exclude=NULL)
 
 greffe$relapse_progression_transplant_c<-greffe$relapse_progression_transplant_2.
 levels(greffe$relapse_progression_transplant_c)<-c("Continuous progression", "Continuous progression", "No", 
   "Non applicable ", "Yes", "Yes")
 
-table(greffe$relapse_progression_transplant_c)
+table(greffe$relapse_progression_transplant_c,exclude=NULL)
 
-table(greffe$relapse_progression_transplant_2.)
+table(greffe$relapse_progression_transplant_2.,exclude=NULL)
 
 # 2 NA mais qui ont une date de FU (seul leur statut vital est connu) :
 # soit on les exclut de l'analyse (statut rechute en NA)
@@ -450,7 +467,11 @@ greffe$rechute_progression_dc<-ifelse(greffe$deces==1 & !greffe$rechute_progress
                                       greffe$rechute_progression_dc)                                   
 
 
-table(greffe$rechute_progression_dc,exclude=NULL)
+table(greffe$rechute_progression_dc,greffe$rechute_progressionc,exclude=NULL)
+
+
+
+
 #il reste les 2 NA# 
 
 # 2 dc, 1 rechute
@@ -584,12 +605,20 @@ az<-length(unique(greffe$num_id[greffe$best_response_after_allo %in% c("CR")]))
 ####  limite à 60 mois
 
 greffe$cause_death_c360<-ifelse(greffe$cause_death_c3==1 & greffe$delai_dc>60,0,greffe$cause_death_c3)
-
+greffe$rechute_progression_dc60<-ifelse(greffe$delai_pfs>60,0,greffe$rechute_progression_dc)
 
 ### on va exclure la première greffe du patient greffé deux fois car ça première greffe est 
 #un échec pour l'analyse 
 #quali(x=c("sex_patient"),nomx=c("Sexe"), data=patients,RAPPORT=F,SAVEFILE=T,chemin="C:/Users/Louise/Documents/Desespoir/Bases/resultats/")
 
+
+### délai gvhd chronique et décès
+
+greffe$delai_gvhdc_deces<-difftime(greffe$date_fu,greffe$cgvhd_date, units="days")/30.25
+# ceux qui ont NA c'est ceux qui n'ont pas eu de gvhd chronique
+
+greffe$delai_gvhdc_rechutep<-difftime(greffe$date_rechute_progression,greffe$cgvhd_date, units="days")/30.25
+# certains ont des délai négatifs car ils ont la rechute avant la cgvhd 
 
 
 

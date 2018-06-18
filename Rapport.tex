@@ -101,6 +101,7 @@ For the different endpoints, univariable analyses were first carried out, then a
 %Survival is presented as estimate and 95\% confidence interval (95\% CI).
 
 
+Propensity score was constructed, excluded patients that cannot receive MAC : patients aged more that 50 years, with a karnofsky score under 70, with a previous autoSCT or with a source of graft different from BM. 
 
 
 \pagebreak[4]
@@ -114,7 +115,7 @@ For the different endpoints, univariable analyses were first carried out, then a
  285 patients were initially selected.We excluded 1 patient that underwent two alloSCT. The final analysis was perfomed on 284 patients and 284 grafts.
  \subsubsection{Patients characteristics}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Tue Jul 18 12:33:10 2017
+% Mon Nov 13 16:57:08 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -122,7 +123,7 @@ Parameters & Values & N & Statistics* \\
  &  & 284 &  \\ 
   Patient sex & Female & 93 & 32.75 \% \\ 
    & Male & 191 & 67.25 \% \\ 
-  Age at diagnosis &  & 284 & 45.01(15;68) \\ 
+  Age at diagnosis &  & 284 & 46.5 [36;55] (15;68) \\ 
   Stage at diagnosis & I & 13 & 6.47 \% \\ 
    & II & 17 & 8.46 \% \\ 
    & III & 45 & 22.39 \% \\ 
@@ -185,7 +186,7 @@ Parameters & Values & N & Statistics* \\
 \label{tab:condi}
 \end{longtable} \subsubsection{Treatments before alloSCT}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Tue Jul 18 12:33:10 2017
+% Mon Nov 13 16:57:08 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -204,18 +205,18 @@ Parameters & Values & N & Statistics* \\
 \end{longtable}\pagebreak
  \subsubsection{Transplant conditions}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Tue Jul 18 12:33:10 2017
+% Mon Nov 13 16:57:08 2017
 \begin{longtable}{llll}
   \hline
-Parameters & Values & N & Statistics* \\ 
+Parameters & Parameters & N & n(\%) med[Q1;Q3](min,max) \\ 
   \hline
  &  & 284 &  \\ 
-  Age at graft &  & 284 & 46.97(16;69) \\ 
-  Donor age &  & 263 & 28.76(1;54) \\ 
+  Age at graft &  & 284 & 49.5 [38;57] (16;69) \\ 
+  Donor age &  & 263 & 28 [18;39] (1;54) \\ 
   Donor sex & Female & 114 & 40.71 \% \\ 
    & Male & 166 & 59.29 \% \\ 
    & NA & 4 &  \\ 
-  Delay diagnosis and allo SCT &  & 284 & 717(89;9684) \\ 
+  Delay diagnosis and allo SCT &  & 284 & 378.5 [213.2;710.8] (89;9684) \\ 
   >12 months delay & NO & 149 & 52.46 \% \\ 
    & Yes & 135 & 47.54 \% \\ 
   Disease status at transplant & CR & 175 & 61.84 \% \\ 
@@ -246,7 +247,7 @@ Parameters & Values & N & Statistics* \\
    & Unable to carry on normal activity & 15 & 5.7 \% \\ 
    & 90-80 & 156 & 59.32 \% \\ 
    & NA & 21 &  \\ 
-  No of lines before alloSCT &  & 254 & 2.201(1;9) \\ 
+  No of lines before alloSCT &  & 254 & 2 [1;3] (1;9) \\ 
   No of lines before alloSCT & 1 & 73 & 28.74 \% \\ 
    & 2 & 92 & 36.22 \% \\ 
    & 3 & 65 & 25.59 \% \\ 
@@ -265,8 +266,8 @@ Parameters & Values & N & Statistics* \\
    & Mismatched relative & 7 & 2.46 \% \\ 
    & Mismatched unrelated & 13 & 4.58 \% \\ 
    & Unrelated CB & 33 & 11.62 \% \\ 
-  Sex of donnor/patient & F/M & 74 & 26.52 \% \\ 
-   & Others & 205 & 73.48 \% \\ 
+  Sex of donnor/patient & Others & 205 & 73.48 \% \\ 
+   & F/M & 74 & 26.52 \% \\ 
    & NA & 5 &  \\ 
   CMV serostatus of donnor/patient & neg/neg & 91 & 32.5 \% \\ 
    & Others & 189 & 67.5 \% \\ 
@@ -336,7 +337,7 @@ Parameters & Values & N & Statistics* \\
 \pagebreak
 \subsubsection{Post-AlloSCT Response}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Tue Jul 18 12:33:10 2017
+% Mon Nov 13 16:57:08 2017
 \begin{longtable}{llll}
   \hline
 Parameters & Values & N & Statistics* \\ 
@@ -404,7 +405,61 @@ Parameters & Values & N & Statistics* \\
 
 
 
-
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Mon Nov 13 16:57:08 2017
+\begin{longtable}{lllllll}
+  \hline
+Parameters & Parameters & N & n(\%) med[Q1;Q3](min,max) & N & n(\%) med[Q1;Q3](min,max) & p \\ 
+  \hline
+ &  & N & Statistics* & N & Statistics* & p-value \\ 
+   &  & 106 & MAC & 172 & RIC/NMA &  \\ 
+  Age greffe &  & 106 & 40 [34;51] (16;64) & 172 & 54 [43;59.25] (19;69) & <0.0001 \\ 
+  Nbr de lignes &  & 98 & 2 [1;3] (1;5) & 151 & 2 [2;3] (1;9) & 0.006 \\ 
+  Nbr de lignes & >2 & 28 & 28.57 \% & 61 & 40.4 \% & 0.077 \\ 
+   & 1 or 2 & 70 & 71.43 \% & 90 & 59.6 \% &  \\ 
+   & NA & 8 &  & 21 &  &  \\ 
+  Nbr de lignes & 1 & 33 & 33.67 \% & 36 & 23.84 \% & 0.053 \\ 
+   & 2 & 37 & 37.76 \% & 54 & 35.76 \% &  \\ 
+   & 3 & 24 & 24.49 \% & 41 & 27.15 \% &  \\ 
+   & >=4 & 4 & 4.08 \% & 20 & 13.25 \% &  \\ 
+   & NA & 8 &  & 21 &  &  \\ 
+  
+                               Autogreffe avant & 0 & 89 & 83.96 \% & 96 & 55.81 \% & <0.0001 \\ 
+   & 1 & 17 & 16.04 \% & 76 & 44.19 \% &  \\ 
+  Statut de la maladie & CR & 58 & 54.72 \% & 114 & 66.67 \% & 0.015 \\ 
+   & PR & 39 & 36.79 \% & 36 & 21.05 \% &  \\ 
+   & PD & 9 & 8.49 \% & 21 & 12.28 \% &  \\ 
+   & NA & 0 &  & 1 &  &  \\ 
+  Karnofsky & 100 & 39 & 38.24 \% & 53 & 33.76 \% & 0.33 \\ 
+   & Unable to carry on normal activity & 8 & 7.84 \% & 7 & 4.46 \% &  \\ 
+   & 90-80 & 55 & 53.92 \% & 97 & 61.78 \% &  \\ 
+   & NA & 4 &  & 15 &  &  \\ 
+  Stade dia & I & 5 & 6.02 \% & 8 & 6.96 \% & 0.16 \\ 
+   & II & 3 & 3.61 \% & 13 & 11.3 \% &  \\ 
+   & III & 17 & 20.48 \% & 28 & 24.35 \% &  \\ 
+   & IV & 58 & 69.88 \% & 66 & 57.39 \% &  \\ 
+   & NA & 23 &  & 57 &  &  \\ 
+  Delai dia-allo (mois) &  & 106 & 289 [184;506.5] (91;6243) & 172 & 436 [264.8;874.5] (109;9684) & 0.0003 \\ 
+  Delai dia allo sup a 12 mois & NO & 42 & 39.62 \% & 106 & 61.63 \% & 0.0006 \\ 
+   & Yes & 64 & 60.38 \% & 66 & 38.37 \% &  \\ 
+  Donneur & HLA mismatched & 13 & 12.26 \% & 40 & 23.26 \% & 0.035 \\ 
+   & HLA matched & 93 & 87.74 \% & 132 & 76.74 \% &  \\ 
+  Sexe d/p & Others & 80 & 76.19 \% & 121 & 72.02 \% & 0.54 \\ 
+   & F/M & 25 & 23.81 \% & 47 & 27.98 \% &  \\ 
+   & NA & 1 &  & 4 &  &  \\ 
+  CMV d/p & neg/neg & 43 & 40.95 \% & 46 & 27.06 \% & 0.024 \\ 
+   & Others & 62 & 59.05 \% & 124 & 72.94 \% &  \\ 
+   & NA & 1 &  & 2 &  &  \\ 
+  Origine cellule & BM & 35 & 33.02 \% & 13 & 7.56 \% & <0.0001 \\ 
+   & CB & 8 & 7.55 \% & 25 & 14.53 \% &  \\ 
+   & PB & 63 & 59.43 \% & 134 & 77.91 \% &  \\ 
+  TBI & No & 37 & 34.91 \% & 119 & 69.19 \% &  \\ 
+   & Yes & 69 & 65.09 \% & 53 & 30.81 \% &  \\ 
+   \hline
+\hline
+\caption{Characteristics according to conditionning MAC vs MNA/RIC} 
+\label{tab:tra}
+\end{longtable}
 \end{landscape}
 
 \restoregeometry
@@ -414,7 +469,7 @@ Parameters & Values & N & Statistics* \\
 \subsubsection{Overall survival, EFS and  GRFS}
 
 
-Median overall-survival from the date of AlloSCT was 20.18 (range 0.03 to 112.83). OS at 1 year was 0.68 (95 \% 0.62 - 0.73), was 0.64 (95 \% 0.58 - 0.7) at 2 years.OS at 4 years was 0.57 (95 \% 0.5 - 0.63).
+Median follow-up was 20.18 (range 0.03 to 112.83). OS at 1 year was 0.68 (95 \% 0.62 - 0.73), was 0.64 (95 \% 0.58 - 0.7) at 2 years.OS at 4 years was 0.57 (95 \% 0.5 - 0.63).
 \begin{figure}[h]
 \begin{center}
 \includegraphics{Rapport-fig1}
@@ -436,8 +491,26 @@ CIF for death without relapse or progression at 1 year was 0.19 (95 \% 0.14 - 0.
 \end{figure}
 
 
+
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/rapport-fig6a.pdf}
+\captionof{figure}{CIF of relapse or progression and death without relapse or progression according to conditionning}
+\end{center}
+
+
+CIF of relapse or progression with MAC at 1 year :  0.19, was 0.23 at 2 years.
+CIF of relapse or progression with RIC/NMA at 1 year :  0.17, was 0.17 at 2 years.
+
+
+%MAC : GVHD chronique HR 1.28 (95 \% 0.53-3.09).
+%RIC : GVHD chronique HR 1.77 (95 \% 0.86-3.65).
+
+%Interaction non significative
+
 \pagebreak
 EFS at 1 year was 0.63 (95 \% 0.57 - 0.69), was 0.59 (95 \% 0.53 - 0.65) at 2 years. EFS at 4 years was 0.52 (95 \% 0.45 - 0.59).
+
+
+Délai médian rechute : 94 jours.
 
 %\begin{figure}[h]
 %\begin{center}
@@ -445,6 +518,11 @@ EFS at 1 year was 0.63 (95 \% 0.57 - 0.69), was 0.59 (95 \% 0.53 - 0.65) at 2 ye
 %\caption{Progression-free survival}
 %\label{fig3}
 %\end{figure}
+
+
+
+
+
 
 GRFS at 1 year was 0.49 (95 \% 0.44 - 0.56), was 0.47 (95 \% 0.41 - 0.54) at 2 years. GRFS at 4 years was 0.43 (95 \% 0.37 - 0.5).
 
@@ -458,11 +536,27 @@ GRFS at 1 year was 0.49 (95 \% 0.44 - 0.56), was 0.47 (95 \% 0.41 - 0.54) at 2 y
 
 
 
+
+
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/rapport-fig2a.pdf}
+\captionof{figure}{EFS according to conditionning}
+\end{center}
+
+EFS MAC : 1 year :  0.65 (95 \% 0.56 - 0.75)
+2 year :  0.59 (95 \% 0.5 - 0.7)
+
+EFS RIC/NMA : 1 year : 0.78 (95 \% 0.72 - 0.85)
+2 year :  0.73 (95 \% 0.67 - 0.8)
+
+
+
+
 \pagebreak
 \subsubsection{TRM and cause of death }
 
 
-TRM at 1 year was 0.78 (95 \% 0.73 - 0.83), was 0.76 (95 \% 0.7 - 0.81) at 2 years. TRM at 4 years was 0.7 (95 \% 0.63 - 0.76).
+TRM at 1 year was 0.22 (95 \% 0.27 - 0.17), was 0.24 (95 \% 0.3 - 0.19) at 2 years. TRM at 4 years was 0.3 (95 \% 0.37 - 0.24).
+
 
 \begin{figure}[h]
 \begin{center}
@@ -473,25 +567,141 @@ TRM at 1 year was 0.78 (95 \% 0.73 - 0.83), was 0.76 (95 \% 0.7 - 0.81) at 2 yea
 \end{figure}
 
 
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/rapport-figtrmc.pdf}
+\captionof{figure}{TRM according to conditionning}
+\end{center}
 
+TRM MAC : 1 year :  0.18 (95 \% 0.26 - 0.1)
+2 year :  0.2 (95 \% 0.28 - 0.11)
+
+TRM RIC : 1 year :  0.22 (95 \% 0.28 - 0.15)
+2 year :  0.26 (95 \% 0.32 - 0.18)
+
+
+
+
+
+
+
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/Rapport-fig589.pdf}
+\captionof{figure}{CIF of Related HSCT Death and Non-related HSCT Death}
+\end{center}
 
 
 
 CIF for related HSCT death at 1 years was 0.2, at 2 years  0.23.
 CIF for non-related HSCT Death at 1 year was 0.12, at 2 years  0.13.
-\begin{figure}[h]
-\begin{center}
-\includegraphics{Rapport-fig5}
-\end{center}
-\caption{CIF of Related HSCT Death and Non-related HSCT Death}
-\label{fig5}
-\end{figure}
+
+
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig981.pdf}
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/Rapport-fig981.pdf}
 \captionof{figure}{CIF of GVHD and Death without GVHD (acute or chronic)}
 
 \end{center}
+
+
+\subsection{OS et PFS après une cgvhd}
+
+
+OS at 1 year after cgvhd  was 0.82 (95 \% 0.74 - 0.91), was 0.74 (95 \% 0.65 - 0.85) at 2 years
+
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/Rapport-figoscg.pdf}
+\captionof{figure}{OS after cgvhd in cgvhd patients}
+
+\end{center}
+
+
+
+
+PFS at 1 year after cgvhd  was 0.75 (95 \% 0.64 - 0.85), was 0.66 (95 \% 0.56 - 0.77) at 2 years
+
+
+\subsection{Progressive disease analysis }
+
+
+OS at 6 months in the group with progressive disease at graft was 0.65 (95 \% 0.46 - 0.79).
+OS at 1 year in the group with progressive disease at graft was 0.51 (95 \% 0.33 - 0.67), was 0.51 (95 \% 0.33 - 0.67) at 2 years. OS at 4 years was 0.25 (95 \% 0.08 - 0.47).
+
+
+
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/Rapport-figospd.pdf}
+\captionof{figure}{OS in the group with progressive disease at graft}
+
+\end{center}
+
+
+
+TRM at 6 months in the group with progressive disease at graft was 0.18 (95 \% 0.39 - 0.08)
+
+TRM at 1 year in the group with progressive disease at graft was 0.27 (95 \% 0.5 - 0.14), was 0.27 (95 \% 0.5 - 0.14) at 2 years. TRM at 4 years was 0.54 (95 \% 0.81 - 0.3).
+
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/Rapport-figtrmsp.pdf}
+\captionof{figure}{TRM in the group with progressive disease at graft}
+
+\end{center}
+
+CIF for relapse/progression  in the group with progressive disease at 6 months was 0.31 (95 \% 0.13 - 0.5)
+
+CIF for relapse/progression  in the group with progressive disease at 1 years was 0.31 (95 \% 0.13 - 0.5), at 2 years  0.31 (95 \% 0.13 - 0.5).
+
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/Rapport-figcifsp.pdf}
+\captionof{figure}{CIF of relapse or progression and death without relapse or progression in the group with progressive disease at graft}
+
+\end{center}
+
+
+
+
+
+\subsection{CR1 analysis }
+
+OS at 6 months was 0.77 (95 \% 0.67 - 0.84)
+OS at 1 year was 0.68 (95 \% 0.57 - 0.77), was 0.62 (95 \% 0.51 - 0.72) at 2 years. OS at 4 years was 0.58 (95 \% 0.46 - 0.69).
+
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/Rapport-figoscr1.pdf}
+\captionof{figure}{OS in the CR1 group}
+
+\end{center}
+
+
+
+
+TRM at 6 months in the group with progressive disease was 0.15 (95 \% 0.24 - 0.09)
+
+TRM at 1 year in the group with progressive disease was 0.23 (95 \% 0.34 - 0.15), was 0.27 (95 \% 0.38 - 0.18) at 2 years. TRM at 4 years was 0.27 (95 \% 0.38 - 0.18).
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/Rapport-figtrmcr1.pdf}
+\captionof{figure}{TRM in the CR1 group}
+
+\end{center}
+
+
+
+CIF for relapse/progression  in the group with progressive disease at 6 months was 0.11 (95 \% 0.13 - 0.5).
+CIF for relapse/progression  in the group with progressive disease at 1 years was 0.15 (95 \% 0.13 - 0.5), at 2 years  0.16 (95 \% 0.13 - 0.5).
+
+
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/Rapport-figcifcr1.pdf}
+\captionof{figure}{CIF of relapse or progression and death without relapse or progression in the CR1 group}
+
+\end{center}
+
 
 
 
@@ -505,7 +715,7 @@ CIF for non-related HSCT Death at 1 year was 0.12, at 2 years  0.13.
 OS at 1 year was 0.74 (95 \% 0.68 - 0.8), was 0.7 (95 \% 0.64 - 0.76) at 2 years. OS at 4 years was 0.62 (95 \% 0.56 - 0.7).
 \\
 \begin{center}
-\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg.pdf}
+\includegraphics[width=0.5\textwidth]{Z:/projetstlouis/scripts/Rapport-figg.pdf}
 \captionof{figure}{OS in patients with a complete remission post alloSCT}
 
 \pagebreak
@@ -513,7 +723,7 @@ CIF for relapse at 1 year was 0.12 (95 \% 0.07 - 0.16), at 2 years  0.13 (95 \% 
 
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig7.pdf}
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/Rapport-fig7.pdf}
 \captionof{figure}{CIF of relapse and death without relapse (in patients with a complete remission post alloSCT)}
 
 \end{center}
@@ -522,13 +732,13 @@ CIF for relapse at 1 year was 0.12 (95 \% 0.07 - 0.16), at 2 years  0.13 (95 \% 
 
 %\end{center}
 %\begin{center}
-%\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-figg2.pdf}
+%\includegraphics[width=0.5\textwidth]{Z:/projetstlouis/scripts/Rapport-figg2.pdf}
 %\captionof{figure}{PFS in patients with a complete remission post alloSCT}
 
 \end{center}
 \begin{center} 
  
-\includegraphics[width=0.5\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-xcube.pdf}
+\includegraphics[width=0.5\textwidth]{Z:/projetstlouis/scripts/Rapport-xcube.pdf}
 \captionof{figure}{RFS and EFS in patients with a complete remission post alloSCT}
 
 
@@ -539,14 +749,14 @@ CIF for relapse at 1 year was 0.12 (95 \% 0.07 - 0.16), at 2 years  0.13 (95 \% 
 
 \pagebreak
 
-\begin{center}
-\includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig99.pdf}
+\begin{cente0r}
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/Rapport-fig99.pdf}
 \captionof{figure}{CIF of Related HSCT Death and Non-related HSCT Death (in patients with a complete remission post alloSCT)}
 
 \end{center}
 \pagebreak
 \begin{center}
-\includegraphics[width=0.8\textwidth]{C:/Users/adupont/Documents/projetstlouis/scripts/Rapport-fig98.pdf}
+\includegraphics[width=0.8\textwidth]{Z:/projetstlouis/scripts/Rapport-fig98.pdf}
 \captionof{figure}{CIF of GVHD and Death without GVHD (acute or chronic)(in patients with a complete remission post alloSCT)}
 
 \end{center}
@@ -557,7 +767,7 @@ CIF for relapse at 1 year was 0.12 (95 \% 0.07 - 0.16), at 2 years  0.13 (95 \% 
 \subsection{Univariate Analysis and multivariate analysis }
 
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Tue Jul 18 12:33:12 2017
+% Mon Nov 13 16:57:12 2017
 \begin{longtable}{llrlll}
   \hline
 variable & Variable & HR & IC & pval & p \\ 
@@ -589,8 +799,8 @@ Age at graft &  &  &  &  & 0.35 \\
    & 1 or 2 & 0.70 & [0.47 - 1.04] & 0.080 &  \\ 
   HLA match & HLA mismatched & 1.00 &  &  & 0.10 \\ 
    & HLA matched & 0.68 & [0.43 - 1.07] & 0.092 &  \\ 
-  Sex of donnor-patient & F/M & 1.00 &  &  & 0.027 \\ 
-   & Others & 0.62 & [0.41 - 0.93] & 0.022 &  \\ 
+  Sex of donnor-patient & Others & 1.00 &  &  & 0.027 \\ 
+   & F/M & 1.61 & [1.07 - 2.42] & 0.022 &  \\ 
   CMV serostatus of donnor patient & neg/neg & 1.00 &  &  & 0.78 \\ 
    & Others & 0.94 & [0.63 - 1.42] & 0.78 &  \\ 
   Source of stem cells & BM & 1.00 &  &  & 0.016 \\ 
@@ -601,8 +811,8 @@ Age at graft &  &  &  &  & 0.35 \\
    & RIC & 0.98 & [0.65 - 1.48] & 0.92 &  \\ 
   Depletion & No & 1.00 &  &  & 0.87 \\ 
    & Partial T depletion & 1.12 & [0.28 - 4.55] & 0.87 &  \\ 
-  Agvhd grade 3-4 &  &  &  &  & 0.041 \\ 
-   &  & 0.64 & [0.41 - 1] & 0.048 &  \\ 
+  Agvhd grade 3-4 &  &  &  &  & <0.0001 \\ 
+   &  & 2.82 & [1.78 - 4.47] & <0.0001 &  \\ 
   Cgvhd &  &  &  &  & 0.17 \\ 
    &  & 1.44 & [0.86 - 2.41] & 0.16 &  \\ 
    \hline
@@ -615,19 +825,19 @@ Age at graft &  &  &  &  & 0.35 \\
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
 % Fri May 26 14:16:17 2017
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Tue Jul 18 12:33:12 2017
+% Mon Nov 13 16:57:12 2017
 \begin{longtable}{llll}
   \hline
 V1 & Variable & HR (95\%CI) & \emph{P} \\ 
   \hline
-Agvhd & Grade 3-4 Agvhd & 0.55 (0.34--0.89) & 0.015 \\ 
-  First graft relapse & No previous graft & 2.68 (1.15--6.27) & 0.023 \\ 
-   & Yes & 1.98 (0.76--5.20) & 0.16 \\ 
-  Sex of donnor-patient & Others & 0.58 (0.37--0.90) & 0.016 \\ 
-  Disease status at transplant & PR & 0.88 (0.53--1.46) & 0.62 \\ 
-   & PD & 1.79 (0.99--3.23) & 0.054 \\ 
-  Karnofsky score & Unable to carry on normal activity & 2.80 (1.18--6.64) & 0.019 \\ 
-   & 90-80 & 2.25 (1.35--3.75) & 0.002 \\ 
+Agvhd & Grade 3-4 Agvhd & 2.52 (1.52--4.19) & 0.0003 \\ 
+  Sex of donnor-patient & F/M & 1.33 (0.85--2.08) & 0.22 \\ 
+  Disease status at transplant & PR & 0.83 (0.50--1.36) & 0.46 \\ 
+   & PD & 1.58 (0.88--2.84) & 0.13 \\ 
+  Karnofsky score & Unable to carry on normal activity & 3.16 (1.32--7.61) & 0.010 \\ 
+   & 90-80 & 2.22 (1.32--3.71) & 0.002 \\ 
+  Stem cell source & CB & 2.01 (1.00--4.01) & 0.049 \\ 
+   & PB & 0.97 (0.56--1.65) & 0.90 \\ 
    \hline
 \hline
 \caption{Multivariate analysis of 5 years OS (stratified on the delay between diagnosis and alloSCT)} 
@@ -636,7 +846,7 @@ Agvhd & Grade 3-4 Agvhd & 0.55 (0.34--0.89) & 0.015 \\
 
 \begin{landscape}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Tue Jul 18 12:33:12 2017
+% Mon Nov 13 16:57:12 2017
 \begin{longtable}{llrlll}
   \hline
 variable & Variable & HR & IC & pval & p \\ 
@@ -668,8 +878,8 @@ Age at graft &  &  &  &  & 0.86 \\
    & 1 or 2 & 0.73 & [0.51 - 1.04] & 0.078 &  \\ 
   HLA match & HLA mismatched & 1.00 &  &  & 0.077 \\ 
    & HLA matched & 0.69 & [0.47 - 1.03] & 0.067 &  \\ 
-  Sex of donnor-patient & F/M & 1.00 &  &  & 0.10 \\ 
-   & Others & 0.73 & [0.5 - 1.05] & 0.093 &  \\ 
+  Sex of donnor-patient & Others & 1.00 &  &  & 0.10 \\ 
+   & F/M & 1.37 & [0.95 - 1.99] & 0.093 &  \\ 
   CMV serostatus of donnor patient & neg/neg & 1.00 &  &  & 0.83 \\ 
    & Others & 1.04 & [0.72 - 1.5] & 0.83 &  \\ 
   Source of stem cells & BM & 1.00 &  &  & 0.036 \\ 
@@ -688,7 +898,7 @@ Age at graft &  &  &  &  & 0.86 \\
 
 
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Tue Jul 18 12:33:12 2017
+% Mon Nov 13 16:57:12 2017
 \begin{longtable}{llll}
   \hline
 V1 & Variable & HR (95\%CI) & \emph{P} \\ 
@@ -711,7 +921,7 @@ Subtypes & AITL & 1.22 (0.79--1.89) & 0.37 \\
 
 \begin{landscape}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Tue Jul 18 12:33:12 2017
+% Mon Nov 13 16:57:12 2017
 \begin{longtable}{llrlll}
   \hline
 variable & Variable & HR & IC & pval & p \\ 
@@ -743,8 +953,8 @@ Age at graft &  &  &  &  & 0.45 \\
    & 1 or 2 & 0.73 & [0.5 - 1.08] & 0.12 &  \\ 
   HLA match & HLA mismatched & 1.00 &  &  & 0.058 \\ 
    & HLA matched & 0.65 & [0.43 - 1] & 0.048 &  \\ 
-  Sex of donnor-patient & F/M & 1.00 &  &  & 0.44 \\ 
-   & Others & 0.85 & [0.57 - 1.28] & 0.44 &  \\ 
+  Sex of donnor-patient & Others & 1.00 &  &  & 0.44 \\ 
+   & F/M & 1.18 & [0.78 - 1.77] & 0.44 &  \\ 
   CMV serostatus of donnor patient & neg/neg & 1.00 &  &  & 0.97 \\ 
    & Others & 0.99 & [0.67 - 1.47] & 0.97 &  \\ 
   Source of stem cells & BM & 1.00 &  &  & 0.036 \\ 
@@ -755,8 +965,8 @@ Age at graft &  &  &  &  & 0.45 \\
    & RIC & 1.15 & [0.78 - 1.7] & 0.49 &  \\ 
   Depletion & No & 1.00 &  &  & 0.056 \\ 
    & Partial T depletion & 3.16 & [1.16 - 8.59] & 0.025 &  \\ 
-  Agvhd grade 3-4 &  &  &  &  & 0.32 \\ 
-   &  & 0.82 & [0.54 - 1.22] & 0.32 &  \\ 
+  Agvhd grade 3-4 &  &  &  &  & 0.004 \\ 
+   &  & 2.09 & [1.31 - 3.34] & 0.002 &  \\ 
   Cgvhd &  &  &  &  & 0.10 \\ 
    &  & 1.56 & [0.93 - 2.64] & 0.094 &  \\ 
    \hline
@@ -765,7 +975,7 @@ Age at graft &  &  &  &  & 0.45 \\
 \label{tab:uos}
 \end{longtable}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Tue Jul 18 12:33:12 2017
+% Mon Nov 13 16:57:12 2017
 \begin{longtable}{llll}
   \hline
 V1 & Variable & HR (95\%CI) & \emph{P} \\ 
@@ -773,7 +983,7 @@ V1 & Variable & HR (95\%CI) & \emph{P} \\
 N of lines & 1 or 2 & 0.70 (0.46--1.05) & 0.086 \\ 
   Karnofsky score & Unable to carry on normal activity & 1.52 (0.53--4.39) & 0.44 \\ 
    & 90-80 & 2.24 (1.41--3.56) & 0.0006 \\ 
-  Disease status at transplant & CB & 1.99 (0.97--4.05) & 0.059 \\ 
+  Cell source & CB & 1.99 (0.97--4.05) & 0.059 \\ 
    & PB & 1.00 (0.58--1.73) & 0.99 \\ 
    \hline
 \hline
@@ -785,7 +995,7 @@ N of lines & 1 or 2 & 0.70 (0.46--1.05) & 0.086 \\
 
 \begin{landscape}
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Tue Jul 18 12:33:12 2017
+% Mon Nov 13 16:57:12 2017
 \begin{longtable}{llrlll}
   \hline
 variable & Variable & HR & IC & pval & p \\ 
@@ -817,8 +1027,8 @@ Age at graft &  &  &  &  & 0.017 \\
    & 1 or 2 & 0.61 & [0.37 - 1] & 0.052 &  \\ 
   HLA match & HLA mismatched & 1.00 &  &  & 0.46 \\ 
    & HLA matched & 0.80 & [0.44 - 1.43] & 0.45 &  \\ 
-  Sex of donnor-patient & F/M & 1.00 &  &  & 0.026 \\ 
-   & Others & 0.55 & [0.34 - 0.92] & 0.022 &  \\ 
+  Sex of donnor-patient & Others & 1.00 &  &  & 0.026 \\ 
+   & F/M & 1.80 & [1.09 - 2.98] & 0.022 &  \\ 
   CMV serostatus of donnor patient & neg/neg & 1.00 &  &  & 0.99 \\ 
    & Others & 1.00 & [0.6 - 1.69] & 0.99 &  \\ 
   Source of stem cells & BM & 1.00 &  &  & 0.21 \\ 
@@ -837,22 +1047,76 @@ Age at graft &  &  &  &  & 0.017 \\
 
 
 % latex table generated in R 3.3.2 by xtable 1.8-2 package
-% Tue Jul 18 12:33:12 2017
+% Mon Nov 13 16:57:12 2017
 \begin{longtable}{llll}
   \hline
 V1 & Variable & HR (95\%CI) & \emph{P} \\ 
   \hline
-Previous graft relapse & No previous graft & 6.50 (1.50--28.1) & 0.012 \\ 
-   & Yes & 6.58 (1.49--29.0) & 0.013 \\ 
-  Conditionning intensity & NMA & 2.72 (1.17--6.33) & 0.021 \\ 
-   & RIC & 1.45 (0.80--2.63) & 0.22 \\ 
-  Sex of donnor-patient & Others & 0.47 (0.27--0.83) & 0.009 \\ 
-  Karnofsky score & Unable to carry on normal activity & 2.61 (0.84--8.13) & 0.099 \\ 
-   & 90-80 & 2.09 (1.11--3.91) & 0.022 \\ 
+Sex of donnor-patient & F/M & 1.87 (1.07--3.28) & 0.027 \\ 
+  Karnofsky score & Unable to carry on normal activity & 2.52 (0.82--7.78) & 0.11 \\ 
+   & 90-80 & 2.03 (1.08--3.83) & 0.029 \\ 
+  Age at graft &  & 1.02 (1.00--1.04) & 0.084 \\ 
    \hline
 \hline
-\caption{Multivariate analysis of 5 years cause specific mortality : HSCT related} 
+\caption{Multivariate analysis of 5 years cause specific mortality : HSCT related (stratified on numbers of lines before alloSCT)} 
 \label{tab:uos}
 \end{longtable}\end{landscape}
+
+%\subsection{Score de propension}
+
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Mon Nov 13 16:57:12 2017
+\begin{longtable}{lrlll}
+  \hline
+Variable & HR & IC & pval & p \\ 
+  \hline
+MAC & 1.00 &  &  & 0.55 \\ 
+  RIC/NMA & 0.68 & [0.17 - 2.7] & 0.59 &  \\ 
+   \hline
+\hline
+\caption{Propensity score for 5 years OS} 
+\label{label=tab:spos}
+\end{longtable}
+
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Mon Nov 13 16:57:12 2017
+\begin{longtable}{lrlll}
+  \hline
+Variable & HR & IC & pval & p \\ 
+  \hline
+MAC & 1.00 &  &  & 0.93 \\ 
+  RIC/NMA & 1.06 & [0.29 - 3.88] & 0.93 &  \\ 
+   \hline
+\hline
+\caption{Propensity score for 5 years EFS} 
+\label{label=tab:spefs}
+\end{longtable}
+
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Mon Nov 13 16:57:12 2017
+\begin{longtable}{lrlll}
+  \hline
+Variable & HR & IC & pval & p \\ 
+  \hline
+MAC & 1.00 &  &  & 0.72 \\ 
+  RIC/NMA & 0.72 & [0.14 - 3.7] & 0.69 &  \\ 
+   \hline
+\hline
+\caption{Propensity score for 5 years HCST related death} 
+\label{label=tab:tcspsp}
+\end{longtable}
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Mon Nov 13 16:57:12 2017
+\begin{longtable}{llll}
+  \hline
+Variables & HR & IC & pval \\ 
+  \hline
+MAC & 1 &  &  \\ 
+  RIC/NMA & 1.4 & [ 0.27 - 7.22 ] &  0.69 \\ 
+   \hline
+\hline
+\caption{Propensity score for 5 years relapse relapse (competitve risks)} 
+\label{label=tab:tgreffematchitp}
+\end{longtable}
 
 \end{document}

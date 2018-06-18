@@ -92,7 +92,7 @@ patientg<-TABKRIS(baz=greffe,vect.var = c("sex_patient","age_dia","stade_dia","a
                         vecnoms=c("Patient sex","Age at diagnosis","Stage at diagnosis",
                                   
                                   "Subtypes","Subtypes","Centres"),valeurs=NULL,
-                        vecrefs=NULL,varassoc=NULL, codassoc=NULL,pres=c("","mean_mm","","","","",""),langue="en",digits=2)
+                        vecrefs=NULL,varassoc=NULL, codassoc=NULL,pres=c("","med_mm","","","","",""),langue="en",digits=2)
 avt_greffe<-TABKRIS(baz=greffe,vect.var = c("previous_autoc","programme_autoalloc" ,"rechute_prem_greffec" 
                     ),
                     vect.quali = c(1,1,1,1),
@@ -127,7 +127,9 @@ greffed<-TABKRIS(baz=greffe,vect.var = c("age_greffe","age_donor","sex_donor",
                           "Sex of donnor/patient","CMV serostatus of donnor/patient",
                           "Source of stem cells","TBI","conditioning Intensity","Conditioning","Cells manipulation","Depletion","No of donnors"),valeurs=NULL,
                 vecrefs=NULL,varassoc=NULL,
-                codassoc=NULL,pres=c("mean_mm","mean_mm","","mean_mm","","","","","","","mean_mm","","","","","","","","","","","","","","","",""),langue="en",digits=2)
+                codassoc=NULL,pres=c("med_mm","med_mm","","med_mm","","","","","","","med_mm","","","","","","","","","","","","","","","",""),langue="en",digits=2)
+
+colnames(greffed)<-c("Parameters","Parameters","N","n(\\%) med[Q1;Q3](min,max)")
 
 
 post_greffe<-TABKRIS(baz=greffe,vect.var = c(  "agvhd","agvhd_grade","cgvhd.",
@@ -141,6 +143,60 @@ post_greffe<-TABKRIS(baz=greffe,vect.var = c(  "agvhd","agvhd_grade","cgvhd.",
                                                         "Cgvhd grade",'Engrafted',"Cause of death","Best reponse after SCT","Relapse/progression"),valeurs=NULL,
                                               vecrefs=NULL,varassoc=NULL,
                                               codassoc=NULL,pres=NULL,langue="en",digits=2)
+
+
+### Bivarié intensité conditionnement 
+
+
+condi<-TABKRIS(baz=greffe,vect.var = 
+                 c("age_greffe","nbr_lignes_avt_allo","nbr_lignes_avt_alloc",
+                                       "nbr_lignes_avt_alloc2",
+                                       "previous_auto","disease_status_at_transplantc","karnofsky_greffec3",
+                                       "stade_dia","delai_dia_allo","delai_dia_alloc",
+                                       "donnor",
+                                       "sex_dp3","cmv_dp2","stem_cell_source","tbi"), 	
+
+                     vect.quali = c(0,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1),
+                     varint="intensite_condi2",valvarint = NULL,
+                     nomvarint = "Conditionnement",
+                     test=c("t","t","chisq","fisher","chisq","chisq","chisq","chisq","t","chisq",
+                            "chisq","chisq","chisq","chisq"),
+                     vecnoms=c("Age greffe","Nbr de lignes","Nbr de lignes","Nbr de lignes","
+                               Autogreffe avant","Statut de la maladie","Karnofsky",
+                               "Stade dia","Delai dia-allo (mois)","Delai dia allo sup a 12 mois","Donneur","Sexe d/p","CMV d/p","Origine cellule","TBI"),valeurs=NULL,
+                     vecrefs=NULL,varassoc=NULL,
+                     codassoc=NULL,pres=c("med_mm","med_mm","","","","","","","med_mm","","","","","","","","","","",""),langue="en",digits=2)
+
+
+
+colnames(condi)<-c("Parameters","Parameters","N","n(\\%) med[Q1;Q3](min,max)","N","n(\\%) med[Q1;Q3](min,max)","p")
+
+
+condi2<-TABKRIS(baz=greffe[!greffe$intensite_condi=="NMA",],vect.var = c("age_greffe","nbr_lignes_avt_allo" ,
+                            "sex_patient" , "anapathc2",
+                                       "centre" , "disease_status_at_transplantc",
+                                       "karnofsky_greffec3" ,"rechute_prem_greffec","donnor",
+                                       "sex_dp3","cmv_dp2","stem_cell_source","tbi"),
+
+               vect.quali = c(0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1),
+               varint="intensite_condi2",valvarint = NULL,
+               nomvarint = "Conditionnement",
+               test=NULL,
+               vecnoms=c("age_greffe","nbr_lignes_avt_allo" ,
+                         "sex_patient" , "anapathc2",
+                         "centre" , "disease_status_at_transplantc",
+                         "karnofsky_greffec3" ,"rechute_prem_greffec","donnor",
+                         "sex_dp3","cmv_dp2","stem_cell_source","tbi"),valeurs=NULL,
+               vecrefs=NULL,varassoc=NULL,
+               codassoc=NULL,pres=NULL,langue="en",digits=2)
+# 
+# 
+# 
+
+
+
+
+
 
 
 

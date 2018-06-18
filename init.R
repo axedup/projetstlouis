@@ -11,6 +11,11 @@ library(ggplot2)
 library(cmprsk)
 library(grid)
 library(MASS)
+library(ggpubr)
+library(MatchIt)
+library(dplyr)
+library(ipw)
+library(crrSC)
 
 quali <- function(x, nomx, data, RAPPORT=F, SAVEFILE=F, chemin=NULL){   # x = variable ou vecteur de variable en factor
   # nomx = nom de la variable ou vecteur de nom de variable 

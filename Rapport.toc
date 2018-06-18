@@ -1,13 +1,16 @@
-\contentsline {section}{\numberline {1}Objectives}{3}
-\contentsline {section}{\numberline {2}Methods}{3}
-\contentsline {section}{\numberline {3}Results}{4}
-\contentsline {subsection}{\numberline {3.1}Descriptive results}{4}
-\contentsline {subsubsection}{\numberline {3.1.1}Patients characteristics}{4}
-\contentsline {subsubsection}{\numberline {3.1.2}Treatments before alloSCT}{5}
-\contentsline {subsubsection}{\numberline {3.1.3}Transplant conditions}{6}
-\contentsline {subsubsection}{\numberline {3.1.4}Post-AlloSCT Response}{9}
-\contentsline {subsection}{\numberline {3.2}Survival analysis in all patients}{11}
-\contentsline {subsubsection}{\numberline {3.2.1}Overall survival, EFS and GRFS}{11}
-\contentsline {subsubsection}{\numberline {3.2.2}TRM and cause of death }{14}
-\contentsline {subsection}{\numberline {3.3}Survival analysis after a complete remisson post alloSCT}{16}
-\contentsline {subsection}{\numberline {3.4}Univariate Analysis and multivariate analysis }{22}
+\contentsline {section}{\numberline {1}Objectives}{4}
+\contentsline {section}{\numberline {2}Methods}{4}
+\contentsline {section}{\numberline {3}Results}{5}
+\contentsline {subsection}{\numberline {3.1}Descriptive results}{5}
+\contentsline {subsubsection}{\numberline {3.1.1}Patients characteristics}{5}
+\contentsline {subsubsection}{\numberline {3.1.2}Treatments before alloSCT}{6}
+\contentsline {subsubsection}{\numberline {3.1.3}Transplant conditions}{7}
+\contentsline {subsubsection}{\numberline {3.1.4}Post-AlloSCT Response}{10}
+\contentsline {subsection}{\numberline {3.2}Survival analysis in all patients}{14}
+\contentsline {subsubsection}{\numberline {3.2.1}Overall survival, EFS and GRFS}{14}
+\contentsline {subsubsection}{\numberline {3.2.2}TRM and cause of death }{19}
+\contentsline {subsection}{\numberline {3.3}OS et PFS apr\`es une cgvhd}{22}
+\contentsline {subsection}{\numberline {3.4}Progressive disease analysis }{23}
+\contentsline {subsection}{\numberline {3.5}CR1 analysis }{26}
+\contentsline {subsection}{\numberline {3.6}Survival analysis after a complete remisson post alloSCT}{30}
+\contentsline {subsection}{\numberline {3.7}Univariate Analysis and multivariate analysis }{35}

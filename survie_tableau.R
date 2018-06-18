@@ -847,42 +847,52 @@ CSP<-  CSP[c("variable","Variable","HR","IC","pval","p")]
 
 final_csp_602<-coxph( csp_60 ~ .,data=greffe[,c(
   "anapathc2" ,
-  "rechute_post_allo",
-  "intensite_condi","sex_dp3","karnofsky_greffec3")])
+  "intensite_condi2","sex_dp3","karnofsky_greffec3")])
 ssefs2<-cox.zph( final_csp_602,transform = "log")
 plot(ssefs2)
 
 
 finalcsp<-greffe[complete.cases(greffe[,c(  "anapathc2" ,
-                                            "rechute_post_allo",
-                                            "intensite_condi","sex_dp3","karnofsky_greffec3","depletion")]),]
+                                            "sex_dp3","karnofsky_greffec3","age_greffe","nbr_lignes_avt_alloc","stem_cell_source","intensite_condi")]),]
 
 
 
 csp_60f<-Surv(event=finalcsp$cause_death_c360,time=as.numeric(finalcsp$delai_dc_60))
 
 moe<-coxph( csp_60f ~ .,data=finalcsp[,c(  "anapathc2" ,
-                                           "rechute_post_allo",
-                                           "intensite_condi","sex_dp3","karnofsky_greffec3","depletion")])  
+                                           
+                                           "sex_dp3","karnofsky_greffec3","age_greffe","nbr_lignes_avt_alloc","stem_cell_source","intensite_condi")])  
 
 
 
 
 stepAIC(moe,direction="both")
 
-final_csp_603<-coxph( csp_60 ~ .,data=greffe[,c(
-  
-  "rechute_post_allo",
-  "intensite_condi","sex_dp3","karnofsky_greffec3")])
+final_csp_603<-coxph( csp_60 ~ sex_dp3 + karnofsky_greffec3 + age_greffe + strata(nbr_lignes_avt_alloc),data=greffe)
 
 ssefs3<-cox.zph( final_csp_603,transform = "log")
 plot(ssefs3)
 
 
-l<-lapply(list("rechute_post_allo","intensite_condi","sex_dp3","karnofsky_greffec3"),repli,data=greffe)
+
+l<-lapply(list("sex_dp3","karnofsky_greffec3"),repli,data=greffe)
 
 l<-unlist(l)
+l<-c(l,"age_greffe")
+
 
 cspaic<-cox_multi(summary(final_csp_603),l)
-cspaic<-cbind(c("Previous graft relapse","","Conditionning intensity","","Sex of donnor-patient","Karnofsky score",""),cspaic)
+cspaic<-cbind(c("Sex of donnor-patient","Karnofsky score","","Age at graft"),cspaic)
 
+
+
+
+res.mart<-residuals(final_csp_603,type="martingale")
+b<-which(is.na(csp_60))
+c<-greffe$num_id[is.na(greffe$sex_dp)]
+d<-greffe$num_id[is.na(greffe$karnofsky_greffec3)]
+e<-greffe$num_id[is.na(greffe$nbr_lignes_avt_alloc)]
+
+plot(greffe$age_greffe[!greffe$num_id %in% c(b,c,d,e)],res.mart)
+
+lines(lowess(greffe$age_greffe[!greffe$num_id %in% c(b,c,d,e)],res.mart,iter=0))
