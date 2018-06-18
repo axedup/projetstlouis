@@ -213,25 +213,18 @@ cox.zph(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f)
 
 finalpfsgl<-greffe_longpfsan[complete.cases
                              (greffe_longpfsan
-                             [,c("agvhd","anapathc2","nbr_lignes_avt_alloc","donnor",
+                             [,c("agvhd","nbr_lignes_avt_alloc","donnor",
                                  "stem_cell_source"
-,"disease_status_at_transplantc","delai_dia_alloc","karnofsky_greffec3")]),]        
+,"disease_status_at_transplantc","delai_dia_alloc","karnofsky_greffec3","depletion","cgvhd")]),]        
 
-stepAIC(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f) ~
-                agvhd+
-                anapathc2 +
-                delai_dia_alloc+
-                nbr_lignes_avt_alloc +
-                donnor + stem_cell_source +
-                disease_status_at_transplantc + karnofsky_greffec3
-              , finalpfsgl),direction="both")
+95/
 
 
 pfsincom<-summary(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f) ~
-                          nbr_lignes_avt_alloc+karnofsky_greffec3+ stem_cell_source , greffe_longpfsan))
+                          nbr_lignes_avt_alloc+karnofsky_greffec3+ stem_cell_source +cgvhd+agvhd , greffe_longpfsan))
 
 cont<-cox.zph(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=pfs60f) ~
-                      nbr_lignes_avt_alloc+karnofsky_greffec3+ stem_cell_source, greffe_longpfsan))
+                      nbr_lignes_avt_alloc+karnofsky_greffec3+ stem_cell_source+cgvhd +agvhd, greffe_longpfsan))
 
 plot(cont)
 

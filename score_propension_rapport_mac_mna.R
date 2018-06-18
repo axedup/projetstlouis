@@ -45,7 +45,7 @@ greffematchit<-greffe[ !is.na(greffe$age_greffe)
                       & !is.na(greffe$sex_dp3)
                       & !is.na(greffe$cmv_dp2)
                       & !is.na(greffe$stem_cell_source)
-                      & ! greffe$stem_cell_source=="BM"
+                      #& ! greffe$stem_cell_source=="BM"
                       & !is.na(greffe$tbi)
                       & !is.na(greffe$rechute_progression_dc)
                       & !is.na(greffe$pfs_60)

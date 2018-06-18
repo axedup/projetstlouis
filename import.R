@@ -6,8 +6,16 @@
 
 
 
-greffe<-read.csv2("C:/Users/adupont/Documents/projetstlouis/data/lnhtallogreffe.csv",na.strings = c("unknown","?"))
-patients<-read.csv2("C:/Users/adupont/Documents/projetstlouis/data/lnhtallopatients.csv",na.strings = c("unknown","?"))
+greffe<-read.csv2("Z:/projetstlouis/data/lnhtallogreffe.csv",na.strings = c("unknown","?"))
+patients<-read.csv2("Z:/projetstlouis/data/lnhtallopatients.csv",na.strings = c("unknown","?"))
+frontline<-read.csv2("Z:/projetstlouis/data/frontline.csv",na.strings = c("unknown","?"))
+
+
+### Faut merger pour le frontline
+
+
+
+
 
 controle<-merge(greffe,patients,by=c("num_id","first_name","family_name"))
 
@@ -156,6 +164,13 @@ greffe$anapathc2<-reorder(greffe$anapathc2,new.order = c(6,1,2,3,5,4))
 table(greffe$anapathc,exclude = NULL)
 table(greffe$anapath,exclude = NULL)
 table(greffe$anapathc2,exclude = NULL)
+
+greffe$anapath3<-greffe$anapath
+levels(greffe$anapath3)<-c( "AITL", "Autres ALCL", "Autres ALCL", "ALCL ALK+", "ATLL", 
+                            "EATL", "HS", "LGL", "NK leukemia", "NK/T nasal", "NOS")
+
+
+
 
 table(greffe$stade_dia,exclude = NULL)
 table(greffe$disease_status_at_transplant,exclude = NULL)
@@ -432,15 +447,15 @@ greffe$rechute_progression<-ifelse(greffe$relapse_progression_transplant_2.
                                    %in% c("No[1]","Non applicable " ),0,1)
 greffe$rechute_progression<-ifelse(is.na(greffe$relapse_progression_transplant_2.),NA,greffe$rechute_progression)
 
-table(greffe$rechute_progression,exclude=NULL)
+
 
 greffe$relapse_progression_transplant_c<-greffe$relapse_progression_transplant_2.
 levels(greffe$relapse_progression_transplant_c)<-c("Continuous progression", "Continuous progression", "No", 
   "Non applicable ", "Yes", "Yes")
 
-table(greffe$relapse_progression_transplant_c,exclude=NULL)
+table(greffe$relapse_progression_transplant_c)
 
-table(greffe$relapse_progression_transplant_2.,exclude=NULL)
+table(greffe$relapse_progression_transplant_2.)
 
 # 2 NA mais qui ont une date de FU (seul leur statut vital est connu) :
 # soit on les exclut de l'analyse (statut rechute en NA)

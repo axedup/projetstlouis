@@ -114,14 +114,14 @@ Propensity score was constructed, excluded patients that cannot receive MAC : pa
 source("Z:/projetstlouis/scripts/BibliR.R")
 source("Z:/projetstlouis/scripts/init.R")
 
-source("Z:/projetstlouis/scripts/import.R")
+source("Z:/projetstlouis/scripts/import.R") #
 source("Z:/projetstlouis/scripts/descri.R")
 source("Z:/projetstlouis/scripts/survie.R")
 #source("Z:/projetstlouis/scripts/survie_test.R")
-source("Z:/projetstlouis/scripts/survie_dep_temps.R")
-source("Z:/projetstlouis/scripts/survie_dep_temps_pfs.R")
+source("Z:/projetstlouis/scripts/survie_dep_temps.R") #
+source("Z:/projetstlouis/scripts/survie_dep_temps_pfs.R") #
 source("Z:/projetstlouis/scripts/survie_tableau.R")
-source("Z:/projetstlouis/scripts/score_propension_rapport_mac_mna.R")
+source("Z:/projetstlouis/scripts/score_propension_rapport_mac_mna.R") #
 
 
 

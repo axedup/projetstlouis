@@ -188,7 +188,8 @@ levels(greffe_longdeces$agvhd)<-c("No Agvhd or grade 1-2","Grade 3-4 Agvhd")
 decestpstt2<-summary(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=decesf) ~agvhd+
 
                             sex_dp3+
-                            disease_status_at_transplantc + karnofsky_greffec3 +stem_cell_source + strata(delai_dia_alloc)
+                            disease_status_at_transplantc + karnofsky_greffec3 +stem_cell_source + nbr_lignes_avt_alloc+ 
+                           donnor + strata(delai_dia_alloc)
                           , greffe_longdeces))
 
 
