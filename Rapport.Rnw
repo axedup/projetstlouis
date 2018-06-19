@@ -114,7 +114,7 @@ Propensity score was constructed, excluded patients that cannot receive MAC : pa
 source("Z:/projetstlouis/scripts/BibliR.R")
 source("Z:/projetstlouis/scripts/init.R")
 
-source("Z:/projetstlouis/scripts/import.R") #
+source("Z:/projetstlouis/scripts/import.R",encoding = "utf8") #
 source("Z:/projetstlouis/scripts/descri.R")
 source("Z:/projetstlouis/scripts/survie.R")
 #source("Z:/projetstlouis/scripts/survie_test.R")
@@ -122,7 +122,7 @@ source("Z:/projetstlouis/scripts/survie_dep_temps.R") #
 source("Z:/projetstlouis/scripts/survie_dep_temps_pfs.R") #
 source("Z:/projetstlouis/scripts/survie_tableau.R")
 source("Z:/projetstlouis/scripts/score_propension_rapport_mac_mna.R") #
-
+source("Z:/projetstlouis/scripts/survie_figure_article.R")
 
 
 summary(as.numeric(greffe$delai_dc))
@@ -631,6 +631,37 @@ plot(modelcompetecr,curvlab=c("GVHD","Death without GVHD"),xlab="Time (months)",
 
 \begin{landscape}
 %\subsection{Univariate Analysis}
+
+
+\subsection{Survival analysis according to subtypes}
+
+<<label=tab:S ,echo=FALSE,results=tex,eval=TRUE>>=
+print(xtable (TABLEAU,
+caption= "OS, EFS, TRM, CIF of relapse/progression",
+label="tab:S",
+table.placement="htp",caption.placement="top"),
+tabular.environment="longtable",
+floating=F,
+include.rownames=FALSE,
+ sanitize.text.function = function(x){x}  )
+@
+
+
+\subsection{Survival analysis in front line patients n=\Sexpr{length(greffe$greffe.en..front.line..1...en.2e.ligne.ou.plus...cad.après.rechute..0==1)}}
+
+<<label=tab:S1 ,echo=FALSE,results=tex,eval=TRUE>>=
+print(xtable (TABLEAUF,
+caption= "OS, EFS, TRM, CIF of relapse/progression",
+label="tab:S1",
+table.placement="htp",caption.placement="top"),
+tabular.environment="longtable",
+floating=F,
+include.rownames=FALSE,
+ sanitize.text.function = function(x){x}  )
+@
+
+
+
 
 \subsection{Univariate Analysis and multivariate analysis }
 

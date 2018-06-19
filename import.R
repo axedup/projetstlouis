@@ -8,14 +8,19 @@
 
 greffe<-read.csv2("Z:/projetstlouis/data/lnhtallogreffe.csv",na.strings = c("unknown","?"))
 patients<-read.csv2("Z:/projetstlouis/data/lnhtallopatients.csv",na.strings = c("unknown","?"))
-frontline<-read.csv2("Z:/projetstlouis/data/frontline.csv",na.strings = c("unknown","?"))
+frontline<-read.csv2("Z:/projetstlouis/data/frontline.csv",na.strings = c("unknown","?",NA))
 
 
 ### Faut merger pour le frontline
 
+greffe<-merge(greffe,frontline[,c("greffe.en..front.line..1...en.2e.ligne.ou.plus...cad.après.rechute..0",
+                                  "Initial.s..first.name.","Initial.s..family.name.","Sexe..du.patient.",
+                                  "centre.de.traitement","anapath" )],
+              by.x=c("first_name","family_name","sex_patient.","centre","anapath" ),
+              by.y=c("Initial.s..first.name.","Initial.s..family.name.","Sexe..du.patient.",
+                     "centre.de.traitement","anapath" ),all=TRUE)
 
-
-
+greffe<-greffe[!is.na(greffe$num_id),]
 
 controle<-merge(greffe,patients,by=c("num_id","first_name","family_name"))
 
@@ -23,7 +28,7 @@ controle<-merge(greffe,patients,by=c("num_id","first_name","family_name"))
 # 285 patients 
 ############# on vire le patient a deux greffe#####
 
-greffe<-greffe[!greffe$ddn=="11/08/1964",]
+greffe<-greffe[!greffe$ddn=="11/08/1964" ,]
 ####
 table(greffe$ddn)
 table(greffe$j0)
@@ -143,6 +148,10 @@ table(greffe$deces)
 
 
 table(greffe$anapath,exclude = NULL)
+
+levels(greffe$anapath)<-c("AITL", "ALCL ALK-", "ALCL ALK?", "ALCL ALK+", "ATLL", "EATL", 
+                          "HS", "LGL", "NK leukemia", "NK/T nasal", "NOS",NA)
+
 greffe$anapath2<-greffe$anapath
 greffe$anapathc<-greffe$anapath
 greffe$anapathc2<-greffe$anapath
@@ -621,6 +630,10 @@ az<-length(unique(greffe$num_id[greffe$best_response_after_allo %in% c("CR")]))
 
 greffe$cause_death_c360<-ifelse(greffe$cause_death_c3==1 & greffe$delai_dc>60,0,greffe$cause_death_c3)
 greffe$rechute_progression_dc60<-ifelse(greffe$delai_pfs>60,0,greffe$rechute_progression_dc)
+
+greffe$rechute_progression_60<-ifelse(greffe$delai_pfs>60,0,greffe$rechute_progression)
+
+
 
 ### on va exclure la première greffe du patient greffé deux fois car ça première greffe est 
 #un échec pour l'analyse 

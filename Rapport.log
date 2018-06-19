@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  13 NOV 2017 16:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.10)  19 JUN 2018 12:16
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -398,7 +398,7 @@ Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\dcolumn.sty"
 Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
 )
-(C:/PROGRA~1/R/R-33~1.2/share/texmf/tex/latex\Sweave.sty
+(C:/Users/adupont/DOCUME~1/R/R-34~1.4/share/texmf/tex/latex\Sweave.sty
 Package: Sweave 
 
 (C:\Users\adupont\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyvrb\fancyvrb.sty
@@ -750,50 +750,50 @@ Underfull \vbox (badness 10000) detected at line 142
  []
 
 [5]
-Underfull \vbox (badness 10000) detected at line 205
+Underfull \vbox (badness 10000) detected at line 206
  []
 
 [6]
-Overfull \hbox (115.43864pt too wide) in alignment at lines 209--232
+Overfull \hbox (115.43864pt too wide) in alignment at lines 210--233
  [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 232
+Underfull \vbox (badness 10000) detected at line 233
  []
 
 
-Overfull \hbox (115.43864pt too wide) in alignment at lines 232--252
+Overfull \hbox (115.43864pt too wide) in alignment at lines 233--253
  [] [] [] [] 
  []
 
 
-Overfull \hbox (115.43864pt too wide) in alignment at lines 252--272
+Overfull \hbox (115.43864pt too wide) in alignment at lines 253--273
  [] [] [] [] 
  []
 
 
-Overfull \hbox (115.43864pt too wide) in alignment at lines 272--292
+Overfull \hbox (115.43864pt too wide) in alignment at lines 273--293
  [] [] [] [] 
  []
 
 [7]
-Overfull \hbox (115.43864pt too wide) in alignment at lines 292--312
+Overfull \hbox (115.43864pt too wide) in alignment at lines 293--313
  [] [] [] [] 
  []
 
 
-Overfull \hbox (115.43864pt too wide) in alignment at lines 312--332
+Overfull \hbox (115.43864pt too wide) in alignment at lines 313--333
  [] [] [] [] 
  []
 
 [8]
-Overfull \hbox (115.43864pt too wide) in alignment at lines 332--336
+Overfull \hbox (115.43864pt too wide) in alignment at lines 333--337
  [] [] [] [] 
  []
 
 [9]
-Underfull \vbox (badness 10000) detected at line 364
+Underfull \vbox (badness 10000) detected at line 365
  []
 
 [10] [11]
@@ -830,7 +830,7 @@ Underfull \vbox (badness 10000) detected at line 364
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Underfull \vbox (badness 10000) detected at line 434
+Underfull \vbox (badness 10000) detected at line 435
  []
 
 [12
@@ -840,7 +840,7 @@ Underfull \vbox (badness 10000) detected at line 434
 File: Rapport-fig1.pdf Graphic file (type pdf)
 
 <use Rapport-fig1.pdf>
-Package pdftex.def Info: Rapport-fig1.pdf used on input line 475.
+Package pdftex.def Info: Rapport-fig1.pdf used on input line 476.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
  [14
 
@@ -849,7 +849,7 @@ Package pdftex.def Info: Rapport-fig1.pdf used on input line 475.
 <Rapport-fig6.pdf, id=62, 433.62pt x 433.62pt>
 File: Rapport-fig6.pdf Graphic file (type pdf)
  <use Rapport-fig6.pdf>
-Package pdftex.def Info: Rapport-fig6.pdf used on input line 487.
+Package pdftex.def Info: Rapport-fig6.pdf used on input line 488.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
 
 <Z:/projetstlouis/scripts/rapport-fig6a.pdf, id=63, 433.62pt x 433.62pt>
@@ -857,12 +857,12 @@ File: Z:/projetstlouis/scripts/rapport-fig6a.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/rapport-fig6a.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/rapport-fig6a.pdf used on inp
-ut line 495.
+ut line 496.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
 
 
 Package caption Warning: \captionsetup{type*=...} or \captionof
-(caption)                outside box or environment on input line 496.
+(caption)                outside box or environment on input line 497.
 See the caption package documentation for explanation.
 
 [15 <./Rapport-fig6.pdf>]
@@ -873,7 +873,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.497 \end{center}
+l.498 \end{center}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -882,7 +882,7 @@ or  <return>  to continue without it.
 ! Extra \endgroup.
 <recently read> \endgroup 
                           
-l.497 \end{center}
+l.498 \end{center}
                   
 Things are pretty mixed up, but I think the worst is over.
 
@@ -890,7 +890,7 @@ Things are pretty mixed up, but I think the worst is over.
 <Rapport-fig2.pdf, id=81, 433.62pt x 433.62pt>
 File: Rapport-fig2.pdf Graphic file (type pdf)
  <use Rapport-fig2.pdf>
-Package pdftex.def Info: Rapport-fig2.pdf used on input line 531.
+Package pdftex.def Info: Rapport-fig2.pdf used on input line 532.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
 
 <Z:/projetstlouis/scripts/rapport-fig2a.pdf, id=82, 433.62pt x 433.62pt>
@@ -898,7 +898,7 @@ File: Z:/projetstlouis/scripts/rapport-fig2a.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/rapport-fig2a.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/rapport-fig2a.pdf used on inp
-ut line 541.
+ut line 542.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [17 <./Rapport-fig2.pdf>]
 
@@ -908,7 +908,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.543 \end{center}
+l.544 \end{center}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -917,7 +917,7 @@ or  <return>  to continue without it.
 ! Extra \endgroup.
 <recently read> \endgroup 
                           
-l.543 \end{center}
+l.544 \end{center}
                   
 Things are pretty mixed up, but I think the worst is over.
 
@@ -925,7 +925,7 @@ Things are pretty mixed up, but I think the worst is over.
 <Rapport-fig89.pdf, id=99, 433.62pt x 433.62pt>
 File: Rapport-fig89.pdf Graphic file (type pdf)
  <use Rapport-fig89.pdf>
-Package pdftex.def Info: Rapport-fig89.pdf used on input line 563.
+Package pdftex.def Info: Rapport-fig89.pdf used on input line 564.
 (pdftex.def)             Requested size: 418.25368pt x 418.27527pt.
 
 <Z:/projetstlouis/scripts/rapport-figtrmc.pdf, id=100, 433.62pt x 433.62pt>
@@ -933,7 +933,7 @@ File: Z:/projetstlouis/scripts/rapport-figtrmc.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/rapport-figtrmc.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/rapport-figtrmc.pdf used on i
-nput line 570.
+nput line 571.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [19 <./Rapport-fig89.pdf>]
 
@@ -943,7 +943,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.572 \end{center}
+l.573 \end{center}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -952,7 +952,7 @@ or  <return>  to continue without it.
 ! Extra \endgroup.
 <recently read> \endgroup 
                           
-l.572 \end{center}
+l.573 \end{center}
                   
 Things are pretty mixed up, but I think the worst is over.
 
@@ -961,7 +961,7 @@ File: Z:/projetstlouis/scripts/Rapport-fig589.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-fig589.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-fig589.pdf used on in
-put line 588.
+put line 589.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [20 <Z:/projetstlouis/scripts/rapport-figtrmc.pdf>]
 <Z:/projetstlouis/scripts/Rapport-fig981.pdf, id=122, 433.62pt x 433.62pt>
@@ -969,7 +969,7 @@ File: Z:/projetstlouis/scripts/Rapport-fig981.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-fig981.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-fig981.pdf used on in
-put line 600.
+put line 601.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [21 <Z:/projetstlouis/scripts/Rapport-fig589.pdf>]
 <Z:/projetstlouis/scripts/Rapport-figoscg.pdf, id=132, 433.62pt x 433.62pt>
@@ -977,7 +977,7 @@ File: Z:/projetstlouis/scripts/Rapport-figoscg.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-figoscg.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-figoscg.pdf used on i
-nput line 613.
+nput line 614.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [22 <Z:/projetstlouis/scripts/Rapport-fig981.pdf>]
 <Z:/projetstlouis/scripts/Rapport-figospd.pdf, id=142, 433.62pt x 433.62pt>
@@ -985,7 +985,7 @@ File: Z:/projetstlouis/scripts/Rapport-figospd.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-figospd.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-figospd.pdf used on i
-nput line 634.
+nput line 635.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [23 <Z:/projetstlouis/scripts/Rapport-figoscg.pdf>]
 <Z:/projetstlouis/scripts/Rapport-figtrmsp.pdf, id=154, 433.62pt x 433.62pt>
@@ -993,7 +993,7 @@ File: Z:/projetstlouis/scripts/Rapport-figtrmsp.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-figtrmsp.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-figtrmsp.pdf used on 
-input line 647.
+input line 648.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [24 <Z:/projetstlouis/scripts/Rapport-figospd.pdf>]
 <Z:/projetstlouis/scripts/Rapport-figcifsp.pdf, id=163, 433.62pt x 433.62pt>
@@ -1001,7 +1001,7 @@ File: Z:/projetstlouis/scripts/Rapport-figcifsp.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-figcifsp.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-figcifsp.pdf used on 
-input line 658.
+input line 659.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [25 <Z:/projetstlouis/scripts/Rapport-figtrmsp.pdf>]
 <Z:/projetstlouis/scripts/Rapport-figoscr1.pdf, id=173, 433.62pt x 433.62pt>
@@ -1009,7 +1009,7 @@ File: Z:/projetstlouis/scripts/Rapport-figoscr1.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-figoscr1.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-figoscr1.pdf used on 
-input line 674.
+input line 675.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [26 <Z:/projetstlouis/scripts/Rapport-figcifsp.pdf>]
 <Z:/projetstlouis/scripts/Rapport-figtrmcr1.pdf, id=183, 433.62pt x 433.62pt>
@@ -1017,7 +1017,7 @@ File: Z:/projetstlouis/scripts/Rapport-figtrmcr1.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-figtrmcr1.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-figtrmcr1.pdf used on
- input line 687.
+ input line 688.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [27 <Z:/projetstlouis/scripts/Rapport-figoscr1.pdf>]
 <Z:/projetstlouis/scripts/Rapport-figcifcr1.pdf, id=192, 433.62pt x 433.62pt>
@@ -1025,11 +1025,11 @@ File: Z:/projetstlouis/scripts/Rapport-figcifcr1.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-figcifcr1.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-figcifcr1.pdf used on
- input line 700.
+ input line 701.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [28 <Z:/projetstlouis/scripts/Rapport-figtrmcr1.pdf>] [29 <Z:/projetstlouis/sc
 ripts/Rapport-figcifcr1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 715--717
+Underfull \hbox (badness 10000) in paragraph at lines 716--718
 
  []
 
@@ -1038,7 +1038,7 @@ File: Z:/projetstlouis/scripts/Rapport-figg.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-figg.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-figg.pdf used on inpu
-t line 718.
+t line 719.
 (pdftex.def)             Requested size: 209.12683pt x 209.1277pt.
  [30 <Z:/projetstlouis/scripts/Rapport-figg.pdf>]
 <Z:/projetstlouis/scripts/Rapport-fig7.pdf, id=222, 433.62pt x 433.62pt>
@@ -1046,7 +1046,7 @@ File: Z:/projetstlouis/scripts/Rapport-fig7.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-fig7.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-fig7.pdf used on inpu
-t line 726.
+t line 727.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
 
 <Z:/projetstlouis/scripts/Rapport-xcube.pdf, id=223, 433.62pt x 433.62pt>
@@ -1054,7 +1054,7 @@ File: Z:/projetstlouis/scripts/Rapport-xcube.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-xcube.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-xcube.pdf used on inp
-ut line 741.
+ut line 742.
 (pdftex.def)             Requested size: 209.12683pt x 209.1277pt.
  [31 <Z:/projetstlouis/scripts/Rapport-fig7.pdf>] [32 <Z:/projetstlouis/scripts
 /Rapport-xcube.pdf>]
@@ -1065,7 +1065,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.752 \begin{cente0r}
+l.753 \begin{cente0r}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1076,7 +1076,7 @@ File: Z:/projetstlouis/scripts/Rapport-fig99.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-fig99.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-fig99.pdf used on inp
-ut line 753.
+ut line 754.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [33 <Z:/projetstlouis/scripts/Rapport-fig99.pdf>]
 <Z:/projetstlouis/scripts/Rapport-fig98.pdf, id=252, 433.62pt x 433.62pt>
@@ -1084,96 +1084,119 @@ File: Z:/projetstlouis/scripts/Rapport-fig98.pdf Graphic file (type pdf)
 
 <use Z:/projetstlouis/scripts/Rapport-fig98.pdf>
 Package pdftex.def Info: Z:/projetstlouis/scripts/Rapport-fig98.pdf used on inp
-ut line 759.
+ut line 760.
 (pdftex.def)             Requested size: 334.60422pt x 334.62286pt.
  [34 <Z:/projetstlouis/scripts/Rapport-fig98.pdf>]
-Overfull \hbox (6.81938pt too wide) in alignment at lines 771--794
- [] [] [] [] [] [] 
+Overfull \hbox (3.5521pt too wide) in alignment at lines 773--796
+ [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 794
+Underfull \vbox (badness 10000) detected at line 796
  []
 
 
-Overfull \hbox (6.81938pt too wide) in alignment at lines 794--814
- [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (6.81938pt too wide) in alignment at lines 814--822
- [] [] [] [] [] [] 
+Overfull \hbox (3.5521pt too wide) in alignment at lines 796--809
+ [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [35
 
 ]
-Underfull \vbox (badness 10000) detected at line 845
+Overfull \hbox (12.10225pt too wide) in alignment at lines 815--827
+ [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 827
+ []
+
+
+Overfull \hbox (6.81938pt too wide) in alignment at lines 835--858
+ [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 858
+ []
+
+
+Overfull \hbox (6.81938pt too wide) in alignment at lines 858--878
+ [] [] [] [] [] [] 
  []
 
 [36]
-Underfull \vbox (badness 10000) detected at line 873
+Overfull \hbox (6.81938pt too wide) in alignment at lines 878--886
+ [] [] [] [] [] [] 
  []
 
-[37
-
-
-]
-Underfull \vbox (badness 10000) detected at line 919
+[37]
+Underfull \vbox (badness 10000) detected at line 911
  []
 
 [38]
-Underfull \vbox (badness 10000) detected at line 948
+Underfull \vbox (badness 10000) detected at line 939
  []
 
 [39
 
 
 ]
-Underfull \vbox (badness 10000) detected at line 992
+Underfull \vbox (badness 10000) detected at line 985
  []
 
 [40]
-Underfull \vbox (badness 10000) detected at line 1022
+Underfull \vbox (badness 10000) detected at line 1014
  []
 
 [41
 
 
 ]
-Underfull \vbox (badness 10000) detected at line 1063
+Underfull \vbox (badness 10000) detected at line 1060
  []
 
 [42]
-Underfull \vbox (badness 10000) detected at line 1079
+Underfull \vbox (badness 10000) detected at line 1090
+ []
+
+[43
+
+
+]
+Underfull \vbox (badness 10000) detected at line 1131
+ []
+
+[44]
+Underfull \vbox (badness 10000) detected at line 1147
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1093
+Underfull \vbox (badness 10000) detected at line 1161
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1107
+Underfull \vbox (badness 10000) detected at line 1175
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1120
+Underfull \vbox (badness 10000) detected at line 1188
  []
 
 
-! LaTeX Error: \begin{center} on input line 739 ended by \end{document}.
+! LaTeX Error: \begin{center} on input line 740 ended by \end{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1122 \end{document}
+l.1190 \end{document}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[43
+[45
 
 ] (Rapport.aux)
 
@@ -1182,13 +1205,13 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 739 (\begingroup)
+### semi simple group (level 1) entered at line 740 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13366 strings out of 493333
- 228144 string characters out of 3139188
- 314323 words of memory out of 3000000
- 16616 multiletter control sequences out of 15000+200000
+ 13370 strings out of 493333
+ 228250 string characters out of 3139188
+ 316715 words of memory out of 3000000
+ 16620 multiletter control sequences out of 15000+200000
  29145 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,9n,96p,803b,506s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1199,9 +1222,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Rapport.pdf (43 pages, 273782 bytes).
+Output written on Rapport.pdf (45 pages, 276742 bytes).
 PDF statistics:
- 317 PDF objects out of 1000 (max. 8388607)
+ 323 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  110 words of extra memory for PDF output out of 10000 (max. 10000000)
 

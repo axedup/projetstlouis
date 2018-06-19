@@ -13,4 +13,6 @@
 \contentsline {subsection}{\numberline {3.4}Progressive disease analysis }{23}
 \contentsline {subsection}{\numberline {3.5}CR1 analysis }{26}
 \contentsline {subsection}{\numberline {3.6}Survival analysis after a complete remisson post alloSCT}{30}
-\contentsline {subsection}{\numberline {3.7}Univariate Analysis and multivariate analysis }{35}
+\contentsline {subsection}{\numberline {3.7}Survival analysis according to subtypes}{35}
+\contentsline {subsection}{\numberline {3.8}Survival analysis in front line patients n=284}{36}
+\contentsline {subsection}{\numberline {3.9}Univariate Analysis and multivariate analysis }{36}

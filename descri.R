@@ -46,38 +46,38 @@ w<-quali(x=c("delai_dia_alloc","anapath","stade_dia","disease_status_at_transpla
 #restab <- createTable(res, hide.no = "no", type = 2,show.all = TRUE,)
 #restab
 
-WD<-NA
-
-for (i in c("delai_dia_alloc","stade_diac","disease_status_at_transplantc","disease_status_at_transplant",
-            "karnofsky_greffec", "previous_autoc","programme_autoalloc","rechute_prem_greffec",
-            "nbr_lignes_avt_alloc",
-            "donnor","hla_matchc","hla_match",
-            "sex_dp","cmv_dp","stem_cell_source","tbi","intensite_condi","condit_details","manipu_cells","nbr_donneurc","agvhd","agvhd_grade","cgvhd",
-            "cgvhd_grade","cause_death_c","best_response_after_allo","relapse_progression_transplant_c")){
-
-histo<- greffe%>%
-  group_by(anapathc2) %>%
-  do(data.frame(n=table(.[,i],exclude=NULL),pour=c(round(prop.table(table(.[,i]))*100,1),"")))
-
-
-
-histo<-as.data.frame(histo)
-histo$anapathc2<-as.factor(histo$anapathc2)
-wu <- reshape(histo, 
-             timevar = "anapathc2",
-             idvar = c("n.Var1"),
-             direction = "wide")
-
-ws<-c(i,rep("",nrow(wu)-1))
-wu<-cbind(ws,wu)
-
-WD<-rbind(WD,wu)
-
-}
-
-WD$ro<-1:nrow(WD)
-WD<-merge(correspondance,WD,by.x="var",by.y="ws",all.y=TRUE)
-WD<-WD[order(WD$ro), ]
+# WD<-NA
+# 
+# for (i in c("delai_dia_alloc","stade_diac","disease_status_at_transplantc","disease_status_at_transplant",
+#             "karnofsky_greffec", "previous_autoc","programme_autoalloc","rechute_prem_greffec",
+#             "nbr_lignes_avt_alloc",
+#             "donnor","hla_matchc","hla_match",
+#             "sex_dp","cmv_dp","stem_cell_source","tbi","intensite_condi","condit_details","manipu_cells","nbr_donneurc","agvhd","agvhd_grade","cgvhd",
+#             "cgvhd_grade","cause_death_c","best_response_after_allo","relapse_progression_transplant_c")){
+# 
+# histo<- greffe%>%
+#   group_by(anapathc2) %>%
+#   do(data.frame(n=table(.[,i],exclude=NULL),pour=c(round(prop.table(table(.[,i]))*100,1),"")))
+# 
+# 
+# 
+# histo<-as.data.frame(histo)
+# histo$anapathc2<-as.factor(histo$anapathc2)
+# wu <- reshape(histo, 
+#              timevar = "anapathc2",
+#              idvar = c("n.Var1"),
+#              direction = "wide")
+# 
+# ws<-c(i,rep("",nrow(wu)-1))
+# wu<-cbind(ws,wu)
+# 
+# WD<-rbind(WD,wu)
+# 
+# }
+# 
+# WD$ro<-1:nrow(WD)
+# WD<-merge(correspondance,WD,by.x="var",by.y="ws",all.y=TRUE)
+# WD<-WD[order(WD$ro), ]
 
 ###
 summary(as.numeric(greffe$delai_dc)*30.25)

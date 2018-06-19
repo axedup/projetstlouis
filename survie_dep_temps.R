@@ -195,14 +195,14 @@ decestpstt2<-summary(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), 
 
 
 
-l<-lapply(list("agvhd","sex_dp3","disease_status_at_transplantc","karnofsky_greffec3","stem_cell_source"),repli,data=greffe_longdeces)
+l<-lapply(list("agvhd","sex_dp3","disease_status_at_transplantc","karnofsky_greffec3","stem_cell_source","nbr_lignes_avt_alloc","donnor"),repli,data=greffe_longdeces)
 
 l<-unlist(l)
 
 osaic<-cox_multi(decestpstt2,l)
 #osaic<-data.frame(osaic)
 
-osaic<-cbind(c("Agvhd","Sex of donnor-patient","Disease status at transplant","","Karnofsky score","","Stem cell source",""),osaic)
+osaic<-cbind(c("Agvhd","Sex of donnor-patient","Disease status at transplant","","Karnofsky score","","Stem cell source","","nbr_lignes_avt_alloc","","donnor",""),osaic)
 osaic
 
 merde<-cox.zph(coxph(Surv(time=as.numeric(start), time2=as.numeric(stop), event=decesf) ~agvhd+
